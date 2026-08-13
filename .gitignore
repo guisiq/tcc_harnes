@@ -1,0 +1,5 @@
+# Artigos/PDFs baixados manualmente para consulta local.
+# Nao versionar: risco de direitos autorais (repositorio publico).
+# A fonte de verdade do corpus e o Zotero (ver secao 6.0 do planejamento).
+artigos/*
+!artigos/README.md

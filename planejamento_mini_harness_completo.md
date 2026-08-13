@@ -1,10 +1,15 @@
 # Planejamento Completo — Mini-Harness de Triagem Bibliográfica (Opção A, .NET + Copilot SDK)
 
-> **Objetivo da ferramenta:** 
-> ler artigos sobre *harness engineering* e correlatos, fazer levantamento de 
->   (a) TÉCNICAS DE AVALIAÇÃO e 
->   (b) PERGUNTAS DE PESQUISA (com métricas clusterizadas), e classificar cada artigo por VIABILIDADE de virar
-> um TCC no meu hardware. NÃO é o TCC — é o instrumento de descoberta que o antecede.
+> **Objetivo da ferramenta:** ler artigos sobre *harness engineering* e correlatos,
+> fazer levantamento de:
+>
+> - (a) TÉCNICAS DE AVALIAÇÃO
+> - (b) PERGUNTAS DE PESQUISA
+> - (c) MÉTRICAS
+>
+> com clustering e árvore taxonômica dessas características, e classificar cada
+> artigo por VIABILIDADE de virar um TCC no meu hardware. NÃO é o TCC — é o
+> instrumento de descoberta que o antecede.
 >
 > **Hardware alvo:** Notebook IdeaPad Gaming 3i — i5 10ª ger., GTX 1060 (6 GB VRAM),
 > 16 GB RAM, Windows 11. Limite prático: SLM <=3B folgado; <=7-8B Q4 apertado; sem
@@ -19,20 +24,22 @@
 Pipeline canônico de revisão bibliográfica (Petersen et al. 2008/2015; Kitchenham &
 Charters 2007):
 
-```
-RQ -> Busca -> Triagem I/E -> Keywording + classificação -> Extração + mapa
+```mermaid
+flowchart LR
+    RQ[RQ] --> Busca --> Triagem["Triagem I/E"] --> Keywording["Keywording +\nclassificação"] --> Extracao["Extração + mapa"]
 ```
 
 O mini-harness (Opção A — sequencial) espelha esse pipeline:
 
-ZoteroLoader (lê a coleção via Local API; PDF anexado + citation key)
-  -> Parser PDF->Markdown (Docling/GROBID)
-  -> Dedup (código)
-  -> Dedup (código)
-  -> Triagem I/E (LLM: incluir? S/N + motivo)
-  -> Extração (LLM: preenche JSON com técnicas de avaliação, RQ, métricas)
-  -> Scoring de viabilidade (código; regras do hardware)
-  -> Writer (tabela.csv + relatorio.md + mapa de clusters)
+```mermaid
+flowchart TD
+    A["ZoteroLoader\n(lê a coleção via Local API;\nPDF anexado + citation key)"] --> B["Parser PDF->Markdown\n(Docling/GROBID)"]
+    B --> C["Dedup (código)"]
+    C --> D["Triagem I/E\n(LLM: incluir? S/N + motivo)"]
+    D --> E["Extração\n(LLM, por artigo: preenche JSON com rótulos\nBRUTOS de técnica de avaliação, RQ e métricas)"]
+    E --> H["Classificação em Lote\n(LLM, roda 1x após todos os artigos)\nnormaliza técnicas -> família canônica + custo\nnormaliza RQs -> cluster canônico"]
+    H --> F["Scoring de viabilidade\n(código; regras do hardware,\nusa família/cluster já canônicos)"]
+    F --> G["Writer\n(tabela.csv + relatorio.md +\nmapa de clusters + árvore taxonômica)"]
 ```
 
 Referências: Petersen (2008; 2015) mapping studies; Kitchenham & Charters (2007) SLR;
@@ -42,8 +49,10 @@ Wohlin (2014) snowballing; van Eck & Waltman (2010) VOSviewer (co-ocorrência).
 
 ## 2. Levantamento de TÉCNICAS DE AVALIAÇÃO (o que a ferramenta deve detectar)
 
-O harness deve classificar cada artigo em uma ou mais destas famílias de avaliação.
-Cada família tem um custo de reprodução estimado para o hardware alvo.
+O harness extrai a técnica de avaliação de cada artigo em texto livre durante a
+Extração (rótulo bruto, campo `familia_avaliacao_bruta` — seção 4). A tabela
+abaixo é uma taxonomia-SEMENTE (ponto de partida), não uma lista fechada — novas
+famílias podem ser propostas pelo passo de Classificação em Lote (seção 2.1).
 
 | Família de avaliação            | Descrição                                          | Custo p/ mim |
 |---------------------------------|----------------------------------------------------|--------------|
@@ -63,12 +72,25 @@ juiz o custo cai, mas a confiabilidade também — isso é, por si só, um tema 
 **Insight para escolher tema:** as famílias de custo BAIXO (exact-match, pass@k,
 constrained-decoding validation) são as mais viáveis para um TCC solo em 8 meses.
 
+### 2.1 Passo de Classificação de Técnicas (LLM, em lote)
+
+Após a Extração de todos os artigos, um LLM roda em lote sobre a lista de rótulos
+brutos únicos e:
+1. Mapeia cada rótulo para uma família-semente existente, OU
+2. Propõe uma nova família (nome, descrição, custo de reprodução estimado) quando
+   nenhuma das 9 famílias-semente encaixa bem.
+3. Atualiza a Tabela de Técnicas (canônica), que passa a alimentar o campo
+   `familia_avaliacao` do contrato JSON (seção 4) e o scoring (seção 5) — que
+   consulta o custo pela Tabela em vez de nomes fixos no código.
+
 ---
 
-## 3. PERGUNTAS DE PESQUISA (RQ) — métricas clusterizadas
+## 3. PERGUNTAS DE PESQUISA (RQ) — clusters emergentes
 
-O harness deve extrair/rotular a RQ de cada artigo e agrupá-las em clusters. Clusters
-propostos (esquema de classificação inicial — pode evoluir com keywording):
+O harness extrai a RQ de cada artigo em texto livre durante a Extração (rótulo
+bruto, campo `pergunta_pesquisa_bruta` — seção 4). Os clusters abaixo são um
+conjunto-SEMENTE (ponto de partida), não uma lista fechada — mesmo tratamento
+dado às famílias de avaliação (seção 2).
 
 ### Cluster 1 — Eficiência / Custo
 - Métricas: latência (ms), throughput (tok/s), VRAM/RAM (GB), custo por token, energia.
@@ -90,8 +112,21 @@ propostos (esquema de classificação inicial — pode evoluir com keywording):
 - Métricas: taxa de tool-calling correto, aderência a schema, sucesso multi-step.
 - RQ-tipo: "SLMs conseguem function-calling confiável sem LLM de apoio?"
 
-O relatorio.md deve agrupar os artigos por cluster e mostrar quais métricas
-predominam em cada um — esse é o "mapa de métricas clusterizadas".
+### 3.6 Passo de Classificação de RQs (LLM, em lote)
+
+Após a Extração de todos os artigos, um LLM roda em lote sobre a lista de RQs
+brutas e:
+1. Mapeia cada RQ para um cluster-semente existente, OU
+2. Propõe um novo cluster (nome, descrição, métricas típicas) quando nenhum dos
+   5 clusters-semente encaixa bem.
+3. Atualiza a Tabela de Clusters RQ (canônica), que passa a alimentar o campo
+   `cluster_rq` do contrato JSON (seção 4), o scoring (seção 5) e o relatorio.md.
+
+O relatorio.md deve agrupar os artigos por cluster canônico e mostrar quais
+métricas predominam em cada um — esse é o "mapa de métricas clusterizadas". Além
+disso, as métricas recebem uma árvore taxonômica própria (ortogonal aos clusters
+de RQ), agrupando-as por natureza (desempenho, qualidade, confiabilidade,
+reprodutibilidade) — ver Writer na seção 1.
 
 ---
 
@@ -104,10 +139,11 @@ predominam em cada um — esse é o "mapa de métricas clusterizadas".
   "ano": 0,
   "incluido": true,
   "motivo_triagem": "frase curta",
-  "cluster_rq": "eficiencia | qualidade | reprodutibilidade | confiabilidade | agentico",
-  "pergunta_pesquisa": "RQ do artigo em 1 frase",
+  "pergunta_pesquisa_bruta": "RQ do artigo em 1 frase (texto livre, como extraída)",
+  "cluster_rq": "eficiencia | qualidade | reprodutibilidade | confiabilidade | agentico | outro:<nome>",
   "tecnica_principal": "distillation | LLM-as-judge | tool-calling | RAG | quantization | ...",
-  "familia_avaliacao": ["exact-match", "pass@k", "rubric", "llm-as-judge", "humano", "..."],
+  "familia_avaliacao_bruta": ["rótulo como aparece no paper", "..."],
+  "familia_avaliacao": ["exact-match", "pass@k", "rubric", "llm-as-judge", "humano", "outro:<nome>"],
   "metricas": ["accuracy", "latencia", "vram", "kappa", "..."],
   "tamanho_modelo_B": "3 | 7 | >=70 | nao-informado",
   "precisa_gpu_cara": "sim | nao | incerto",
@@ -119,8 +155,14 @@ predominam em cada um — esse é o "mapa de métricas clusterizadas".
 }
 ```
 
+Os campos `*_bruta` são preenchidos na Extração (por artigo, texto livre). Os
+campos canônicos `cluster_rq` e `familia_avaliacao` só são consolidados depois,
+pelo passo de Classificação em Lote (seções 2.1 e 3.6) — que também pode propor
+novas famílias/clusters (`outro:<nome>`) quando nada existente encaixa bem.
+
 `score_feasibility` (código) combina tamanho_modelo_B, precisa_gpu_cara,
-reprodutivel_hardware_modesto, esforco_reproducao_estimado e familia_avaliacao.
+reprodutivel_hardware_modesto, esforco_reproducao_estimado e familia_avaliacao
+(canônica).
 
 ---
 
@@ -133,8 +175,10 @@ Se tamanho > 8 (ou fine-tune full)  -> base = BAIXO/INVIAVEL
 
 Rebaixa 1 nível se: precisa_gpu_cara = sim
 Rebaixa 1 nível se: esforco = alto
-Rebaixa 1 nível se: familia_avaliacao contém "humano"
-Sobe 1 nível se: familia_avaliacao contém "exact-match" ou "pass@"
+Rebaixa 1 nível se: familia_avaliacao (canônica) inclui técnica de custo ALTO
+                     (consulta à Tabela de Técnicas, seção 2.1)
+Sobe 1 nível se: familia_avaliacao (canônica) inclui técnica de custo BAIXO
+                  (consulta à Tabela de Técnicas, seção 2.1)
 ```
 
 Artigos com score ALTO = candidatos ideais a tema de TCC.
@@ -190,7 +234,7 @@ Assim, o campo `id` do JSON = citation key do Zotero, fechando o ciclo:
 cada linha da tabela.csv aponta de volta para um item exato da coleção.
 ### 6.1 Parse de artigos PDF -> Markdown
 
-| Ferramenta | Tipo | Gratuito? | Roda local? | Recomendaç����o |
+| Ferramenta | Tipo | Gratuito? | Roda local? | Recomendação |
 |-----------|------|-----------|-------------|--------------|
 | **Docling** (IBM) | lib Python | Sim (open-source) | Sim | ALTA — PDF->MD/JSON com layout, tabelas |
 | **GROBID** | serviço Java | Sim (open-source) | Sim (Docker) | ALTA p/ extrair metadados/referências estruturadas (TEI XML) |
@@ -257,13 +301,13 @@ tabela de papers -> base consolidada (seção 6.5).
 | Docling / GROBID (PDF->MD) | qualidade muito maior do texto | Médio (Docker/Python) | SIM |
 | Obsidian MCP | organização + grafo de correlações | Baixo-Médio | SIM (alto valor) |
 | Hugging Face MCP/API | achar SLM+dataset viáveis | Baixo | SIM (na fase piloto) |
+| Hugging Face Hub API | metadados de modelos (fine-tunes, quantizações, similares) | Baixo | SIM (ingestão de modelos) |
 | VOSviewer (externo) | mapa bibliométrico formal | Baixo | OPCIONAL (Obsidian já cobre boa parte) |
 
 Divisão de papéis (importante para o discurso acadêmico):
 - **Zotero = fonte de verdade / seleção humana** (o que entra na revisão).
 - arXiv/Semantic Scholar = descoberta (ajudam a achar candidatos, que você tria à mão).
 - Docling/GROBID = pré-processamento (PDF -> Markdown limpo).
-| Hugging Face Hub API | metadados de modelos (fine-tunes, quantizações, similares) | Baixo | SIM (ingestão de modelos) |
 - Obsidian = síntese/visualização (grafo, clusters).
 - Hugging Face = fase de piloto (modelo + dataset).
 
@@ -274,16 +318,21 @@ Hugging Face) são camadas de aceleração ao redor dele. Tudo gratuito, Windows
 ### 6.5 BASE CONSOLIDADA + exploração por CHAT (o objetivo final)
 
 O produto desta ferramenta NÃO é um experimento — é uma BASE DE DADOS CONSOLIDADA
-que cruza PAPERS (do Zotero) com MODELOS (do Hugging Face), sobre a qual você
-explora possibilidades de pesquisa CONVERSANDO com o Copilot.
+que cruza PAPERS (do Zotero) com MODELOS (do Hugging Face) e com as taxonomias
+canônicas de TÉCNICAS e CLUSTERS RQ (emergentes), sobre a qual você explora
+possibilidades de pesquisa CONVERSANDO com o Copilot.
 
-Duas tabelas ligadas:
+Quatro tabelas ligadas:
 - Tabela PAPERS: contrato JSON da seção 4 (id=citation key, cluster_rq, familia_
   avaliacao, metricas, tamanho_modelo_B, score...).
 - Tabela MODELOS: nome, params, quantizações (GGUF/AWQ/GPTQ), base_model, licença,
   cabe_em_6GB (sim/não), fine-tunes/similares.
-- Ligação: campo `tamanho_modelo_B`/nome do modelo no paper -> entradas da Tabela
-  MODELOS (quais variantes existem e quais caberiam no seu hardware).
+- Tabela TÉCNICAS (canônica, seção 2.1): família, descrição, custo de reprodução —
+  seed da seção 2 + famílias novas propostas pela Classificação em Lote.
+- Tabela CLUSTERS RQ (canônica, seção 3.6): cluster, descrição, métricas típicas —
+  seed da seção 3 + clusters novos propostos pela Classificação em Lote.
+- Ligações: `familia_avaliacao` do paper -> Tabela TÉCNICAS; `cluster_rq` do paper
+  -> Tabela CLUSTERS RQ; `tamanho_modelo_B`/nome do modelo -> Tabela MODELOS.
 
 Exemplos de perguntas que a base habilita (chat com o Copilot):
 - "Quais papers do cluster 'qualidade' usam modelos que têm quantização Q4 e cabem
@@ -291,6 +340,8 @@ Exemplos de perguntas que a base habilita (chat com o Copilot):
 - "Que técnicas de avaliação aparecem só em papers com modelos <=3B?"
 - "Liste lacunas: clusters de RQ com poucos papers + modelos viáveis disponíveis."
 - "Que fine-tunes existem dos modelos mais citados e sob qual licença?"
+- "Quais famílias de técnica ou clusters de RQ surgiram além das taxonomias-semente,
+  e quantos papers cada um agrupa?"
 
 É isso que fecha o ciclo: base consolidada -> exploração conversacional -> escolha
 informada do tema de TCC (sem rodar nada pesado agora).
@@ -298,24 +349,22 @@ informada do tema de TCC (sem rodar nada pesado agora).
 ---
 
 ## 7. Arquitetura estendida com as integrações
-[arXiv / Semantic Scholar / Crossref / OpenAlex]  -> DESCOBERTA de candidatos
-        |  (você TRIA manualmente e importa)
-        v
-[ZOTERO — coleção "TCC-Harness-SLM"]  <== FONTE DE VERDADE DO CORPUS
-        |  Local API (localhost:23119) + Better BibTeX (citation keys)
-        v
-[Docling / GROBID]            -> PDF do item -> Markdown/estruturado
-        |
-        v
-[Mini-Harness .NET]           -> Loader(l�� do Zotero) -> Dedup -> Triagem(LLM)
-        |                        -> Extração(LLM) -> Scoring(código) -> Writer
-        |                        (id do JSON = citation key do Zotero)
-        v
-[Obsidian via MCP]            -> nota .md por artigo (frontmatter=JSON) + grafo/tags
-        |
-[HF Hub API] -> METADADOS DE MODELOS (fine-tunes/quantizações/similares) -> Tabela MODELOS
-[Mini-Harness] -> BASE CONSOLIDADA (papers x modelos) -> exploração por CHAT com o Copilot
-(fase piloto) [Hugging Face MCP/API] -> escolher/baixar SLM <=3B + dataset de avaliação
+
+```mermaid
+flowchart TD
+    Desc["arXiv / Semantic Scholar /\nCrossref / OpenAlex\n(DESCOBERTA de candidatos)"] -->|"você TRIA manualmente\ne importa"| Zot["ZOTERO — coleção 'TCC-Harness-SLM'\n(FONTE DE VERDADE DO CORPUS)"]
+    Zot -->|"Local API (localhost:23119)\n+ Better BibTeX (citation keys)"| Parse["Docling / GROBID\n(PDF do item -> Markdown/estruturado)"]
+    Parse --> Harness["Mini-Harness .NET\nLoader(lê do Zotero) -> Dedup -> Triagem(LLM)\n-> Extração(LLM, rótulos BRUTOS)"]
+    Harness --> Classif["Classificação em Lote (LLM)\ntécnicas -> família canônica + custo\nRQs -> cluster canônico"]
+    Classif --> TabTec["Tabela TÉCNICAS +\nTabela CLUSTERS RQ (canônicas)"]
+    Classif --> Score["Scoring(código) -> Writer\n(id do JSON = citation key do Zotero)"]
+    Score --> Obs["Obsidian via MCP\nnota .md por artigo (frontmatter=JSON) + grafo/tags"]
+    HF["HF Hub API\nMETADADOS DE MODELOS\n(fine-tunes/quantizações/similares)"] --> TabModelos["Tabela MODELOS"]
+    Score --> Base["BASE CONSOLIDADA\n(papers x modelos x técnicas x clusters)"]
+    TabModelos --> Base
+    TabTec --> Base
+    Base --> Chat["Exploração por CHAT com o Copilot"]
+    Chat -.->|"fase piloto"| HFm["Hugging Face MCP/API\nescolher/baixar SLM <=3B + dataset de avaliação"]
 ```
 
 Ciclo de re-análise (o que você pediu): para expandir/limitar o estudo, basta
@@ -335,15 +384,20 @@ O Copilot (agente) orquestra: consulta o Zotero, aciona o parser, roda o binári
   MANUALMENTE na coleção (seleção humana documentada).
 - Instalar: .NET 8 SDK, Obsidian + plugin Local REST API + obsidian-mcp,
   Python p/ Docling.
-- Definir critérios I/E e os 5 clusters de RQ (seção 3).
+- Definir critérios I/E e os clusters-semente de RQ (seção 3).
 
 **Fase 1 — Loader do Zotero + Núcleo .NET (Opção A)**
 - ZoteroLoader: consulta a Local API (localhost:23119/api/) -> lista itens da
   coleção + caminho do PDF anexado; usa citation key (Better BibTeX) como `id`.
 - Parser PDF->Markdown (Docling/GROBID) alimentando o harness com texto limpo.
 - Dedup (por DOI/citation key).
-- Prompts de Triagem e Extração (contrato JSON da seção 4) via Copilot SDK.
-- FeasibilityScorer (regras seção 5). Writer (tabela.csv + relatorio.md).
+- Prompts de Triagem e Extração (contrato JSON da seção 4, campos `*_bruta`) via
+  Copilot SDK.
+- Classificador em Lote (LLM): após a Extração de todos os artigos, normaliza
+  rótulos brutos de técnica -> família canônica + custo (Tabela de Técnicas,
+  seção 2.1) e RQ -> cluster canônico (Tabela de Clusters RQ, seção 3.6).
+- FeasibilityScorer (regras seção 5, consulta a Tabela de Técnicas). Writer
+  (tabela.csv + relatorio.md + mapa de clusters + árvore taxonômica).
 
 **Fase 2 — Ciclo de re-análise (escopo variável)**
 - Para expandir/limitar: editar a coleção no Zotero (add/remove itens) e re-rodar.
@@ -354,7 +408,8 @@ O Copilot (agente) orquestra: consulta o Zotero, aciona o parser, roda o binári
 
 **Fase 4 — Base consolidada + exploração por chat**
 - Cruzar Tabela PAPERS (Zotero) com Tabela MODELOS (HF Hub API: fine-tunes,
-  quantizações, similares, cabe_em_6GB) -> BASE CONSOLIDADA (seção 6.5).
+  quantizações, similares, cabe_em_6GB) e com as Tabelas TÉCNICAS/CLUSTERS RQ
+  (canônicas) -> BASE CONSOLIDADA (seção 6.5).
 - Explorar possibilidades de pesquisa CONVERSANDO com o Copilot sobre a base
   (lacunas por cluster, técnicas de avaliação viáveis, modelos que cabem no hardware).
 - Escolher o tema de TCC de forma informada. (Piloto/experimento fica para depois,
