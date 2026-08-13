@@ -1,0 +1,121 @@
+{
+  "config": {
+    "version": "1.0",
+    "description": "Configuração para instalação de ferramentas - Harness Bibliográfico",
+    "timestamp": "2026-08-13"
+  },
+  "ferramentas": {
+    "zotero": {
+      "ativar": true,
+      "versao": "7+",
+      "url_download": "https://www.zotero.org/download/client/dl?channel=release&platform=win32",
+      "caminho_instalacao": "Program Files/Zotero",
+      "notas": "Gerenciador de referências bibliográficas"
+    },
+    "docling": {
+      "ativar": true,
+      "versao": "latest",
+      "instalador": "pip",
+      "comando": "pip install docling",
+      "prerequisitos": [
+        "Python 3.8+"
+      ],
+      "url_github": "https://github.com/IBM-Research/docling",
+      "notas": "Conversor de PDFs e documentos da IBM"
+    },
+    "obsidian": {
+      "ativar": true,
+      "versao": "latest",
+      "url_download": "https://github.com/obsidianmd/obsidian-releases/releases/download/latest/Obsidian.exe",
+      "caminho_instalacao": "Program Files/Obsidian",
+      "notas": "Aplicativo de notas baseado em arquivos"
+    },
+    "obsidian_local_rest_api": {
+      "ativar": true,
+      "tipo": "plugin",
+      "url_download": "https://github.com/coddingtonbear/obsidian-local-rest-api/releases/latest/download/obsidian-local-rest-api.zip",
+      "diretorio_plugins": "%APPDATA%/Obsidian/plugins",
+      "porta_padrao": 27124,
+      "notas": "Plugin para acesso à Obsidian via API REST"
+    }
+  },
+  "integrações": {
+    "zotero_obsidian": {
+      "nome": "Zotero Integration",
+      "descricao": "Integra referências do Zotero com Obsidian",
+      "url": "https://github.com/mgmeyers/obsidian-zotero-integration",
+      "ativar": false
+    },
+    "docling_obsidian": {
+      "nome": "Docling para Obsidian",
+      "descricao": "Converte e importa documentos com Docling",
+      "ativar": false
+    }
+  },
+  "passos_pos_instalacao": [
+    {
+      "ordem": 1,
+      "ferramenta": "Zotero",
+      "passos": [
+        "Abra o Zotero",
+        "Configure sua biblioteca pessoal",
+        "Configure sincronização (opcional)",
+        "Crie grupos de pesquisa para organizar referências"
+      ]
+    },
+    {
+      "ordem": 2,
+      "ferramenta": "Docling",
+      "passos": [
+        "Verifique a instalação: python -c 'import docling; print(docling.__version__)'",
+        "Teste com um PDF: docling <seu-arquivo.pdf>",
+        "Consulte documentação: https://github.com/IBM-Research/docling"
+      ]
+    },
+    {
+      "ordem": 3,
+      "ferramenta": "Obsidian",
+      "passos": [
+        "Crie um novo vault pessoal",
+        "Configure temas e aparência",
+        "Customize atalhos de teclado"
+      ]
+    },
+    {
+      "ordem": 4,
+      "ferramenta": "Local REST API",
+      "passos": [
+        "Vá para Configurações > Plugins Instalados",
+        "Procure por 'Local REST API'",
+        "Ative o plugin",
+        "Configure porta (padrão: 27124)",
+        "Teste: curl http://localhost:27124"
+      ]
+    }
+  ],
+  "troubleshooting": {
+    "erro_execucao_script": {
+      "problema": "Erro ao executar script PowerShell",
+      "solucao": "Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser"
+    },
+    "python_nao_encontrado": {
+      "problema": "Python/pip não encontrado",
+      "solucao": "Instale Python 3.8+ de https://www.python.org/downloads/ e marque 'Add Python to PATH'"
+    },
+    "plugin_nao_aparece": {
+      "problema": "Plugin não aparece em Obsidian",
+      "solucao": "Feche Obsidian, verifique %APPDATA%\\Obsidian\\plugins\\obsidian-local-rest-api, reabra Obsidian"
+    },
+    "erro_download": {
+      "problema": "Erro ao baixar ferramentas",
+      "solucao": "Verifique conexão com internet, adicione exceções no antivírus se necessário"
+    }
+  },
+  "links_uteis": {
+    "zotero": "https://www.zotero.org/support/",
+    "docling": "https://github.com/IBM-Research/docling",
+    "obsidian": "https://help.obsidian.md/",
+    "local_rest_api": "https://github.com/coddingtonbear/obsidian-local-rest-api",
+    "obsidian_plugins": "https://obsidian.md/plugins"
+  }
+}

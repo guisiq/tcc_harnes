@@ -470,3 +470,18 @@ Domínio (ponto de partida do corpus):
 - Lu, Z. et al. (2025). Small Language Models: Survey, Measurements, and Insights. arXiv:2409.15790
 - Nguyen, C. V. et al. (2025). A Survey on Small Language Models. RANLP 2025.
 - Sharma, R.; Mehta, M. (2025). Small Language Models for Agentic Systems: A Survey. arXiv:2510.03847
+
+Domínio — Harness/engenharia de execução de agentes:
+- Gao, L. et al. (2021). A framework for few-shot language model evaluation
+  (lm-evaluation-harness — origem do termo "evaluation harness" aplicado a LLMs).
+  Zenodo, doi:10.5281/zenodo.5371629
+- Ge, Y.; Xu, W.; Hamm, J.; Reddy, C. K. (2026). Stop Comparing LLM Agents Without
+  Disclosing the Harness. arXiv:2605.23950
+- Ning, X. et al. (2026). Code as Agent Harness: Toward Executable, Verifiable, and
+  Stateful Agent Systems. arXiv:2605.18747
+- Meng, Q. et al. (2026). Agent Harness for Large Language Model Agents: A Survey.
+  Preprints, doi:10.20944/preprints202604.0428.v3
+- Moghadasi, M. N.; Ghaderi, F. (2026). What Twelve LLM Agent Benchmark Papers
+  Disclose About Themselves: A Pilot Audit and an Open Scoring Schema. arXiv:2605.21404
+- Lee, Y. et al. (2026). Meta-Harness: End-to-End Optimization of Model Harnesses.
+  arXiv:2603.28052

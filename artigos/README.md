@@ -19,6 +19,13 @@ o status abaixo.
 | lu2025 | Lu et al., 2025 | Small Language Models: Survey, Measurements, and Insights | arXiv:2409.15790 | `Lu_2025_Small_Language_Models_Survey_Measurements_Insights.pdf` | ✅ baixado |
 | sharma2025 | Sharma & Mehta, 2025 | Small Language Models for Agentic Systems: A Survey | arXiv:2510.03847 | `Sharma_Mehta_2025_Small_Language_Models_for_Agentic_Systems.pdf` | ✅ baixado |
 | nguyen2025 | Nguyen et al., 2025 | A Survey on Small Language Models (RANLP 2025) | sem arXiv ID confirmado no documento | `nguyen2025_survey_slm.pdf` | ⬜ pendente |
+| gao2021harness | Gao et al., 2021 | A framework for few-shot language model evaluation (lm-evaluation-harness — origem do termo) | Zenodo, doi:10.5281/zenodo.5371629 | `gao2021_lm_evaluation_harness.pdf` | ⬜ pendente |
+| ge2026harness | Ge et al., 2026 | Stop Comparing LLM Agents Without Disclosing the Harness | arXiv:2605.23950 | `ge2026_stop_comparing_harness.pdf` | ⬜ pendente |
+| ning2026codeharness | Ning et al., 2026 | Code as Agent Harness: Toward Executable, Verifiable, and Stateful Agent Systems | arXiv:2605.18747 | `ning2026_code_as_agent_harness.pdf` | ⬜ pendente |
+| meng2026harness | Meng et al., 2026 | Agent Harness for Large Language Model Agents: A Survey | Preprints, doi:10.20944/preprints202604.0428.v3 | `meng2026_agent_harness_survey.pdf` | ⬜ pendente |
+| li2026engineering | Li et al., 2026 | Agent Harness Engineering: A Survey | preprint sob revisão, sem arXiv ID confirmado | `li2026_agent_harness_engineering_survey.pdf` | ⬜ pendente |
+| moghadasi2026disclose | Moghadasi & Ghaderi, 2026 | What Twelve LLM Agent Benchmark Papers Disclose About Themselves: A Pilot Audit and an Open Scoring Schema | arXiv:2605.21404 | `moghadasi2026_disclose_audit.pdf` | ⬜ pendente |
+| lee2026metaharness | Lee et al., 2026 | Meta-Harness: End-to-End Optimization of Model Harnesses | arXiv:2603.28052 | `lee2026_meta_harness.pdf` | ⬜ pendente |
 
 ## Referências — Metodológicas
 
