@@ -43,7 +43,7 @@ flowchart TD
 ```
 
 Referências: Petersen (2008; 2015) mapping studies; Kitchenham & Charters (2007) SLR;
-Wohlin (2014) snowballing; van Eck & Waltman (2010) VOSviewer (co-ocorrência).
+Wohlin (2014) snowballing.
 
 ---
 
@@ -449,7 +449,6 @@ Metodológicas:
   in SE: An update. Information and Software Technology.
 - Kitchenham, B.; Charters, S. (2007). Guidelines for performing SLRs in SE. EBSE.
 - Wohlin, C. (2014). Guidelines for snowballing in systematic literature studies. EASE.
-- van Eck, N. J.; Waltman, L. (2010). VOSviewer. Scientometrics.
 
 Ferramentas / integrações (gratuitas):
 - Zotero 7+ (Local API: http://localhost:23119/api/) — gestor de referências / corpus.

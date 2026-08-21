@@ -35,7 +35,6 @@ o status abaixo.
 | petersen2015 | Petersen et al., 2015 | Guidelines for conducting systematic mapping studies in software engineering: An update | Information and Software Technology (Elsevier, paywall) | `petersen2015_mapping_guidelines.pdf` | ⬜ pendente |
 | kitchenham2007 | Kitchenham & Charters, 2007 | Guidelines for performing Systematic Literature Reviews in Software Engineering | EBSE-2007-01 (technical report) | `kitchenham2007_slr_guidelines.pdf` | ⬜ pendente |
 | wohlin2014 | Wohlin, 2014 | Guidelines for snowballing in systematic literature studies | EASE 2014 (ACM, paywall) | `wohlin2014_snowballing.pdf` | ⬜ pendente |
-| vaneck2010 | van Eck & Waltman, 2010 | Software survey: VOSviewer, a computer program for bibliometric mapping | Scientometrics (Springer, paywall) | `vaneck2010_vosviewer.pdf` | ⬜ pendente |
 
 ## Como manter rastreável
 

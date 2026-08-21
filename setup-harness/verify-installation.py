@@ -73,6 +73,50 @@ def check_obsidian():
             print(f"✓ Obsidian encontrado em: {path}")
             return True
     
+    # Instalações customizadas (ex.: outro drive) ficam registradas no Windows,
+    # sob uma subchave com nome de GUID, então é preciso varrer e checar o DisplayName
+    if sys.platform == "win32":
+        try:
+            import winreg
+            uninstall_key = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall"
+            hives = (
+                (winreg.HKEY_CURRENT_USER, uninstall_key),
+                (winreg.HKEY_LOCAL_MACHINE, uninstall_key),
+                (winreg.HKEY_LOCAL_MACHINE, r"SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall"),
+            )
+            for hive, subkey_path in hives:
+                try:
+                    with winreg.OpenKey(hive, subkey_path) as uninstall_root:
+                        for i in range(winreg.QueryInfoKey(uninstall_root)[0]):
+                            subkey_name = winreg.EnumKey(uninstall_root, i)
+                            with winreg.OpenKey(uninstall_root, subkey_name) as entry:
+                                try:
+                                    display_name = winreg.QueryValueEx(entry, "DisplayName")[0]
+                                except FileNotFoundError:
+                                    continue
+                                if "Obsidian" not in display_name:
+                                    continue
+                                exe_path = None
+                                try:
+                                    install_location = winreg.QueryValueEx(entry, "InstallLocation")[0]
+                                    if install_location:
+                                        exe_path = Path(install_location) / "Obsidian.exe"
+                                except FileNotFoundError:
+                                    pass
+                                if not exe_path or not exe_path.exists():
+                                    try:
+                                        display_icon = winreg.QueryValueEx(entry, "DisplayIcon")[0]
+                                        exe_path = Path(display_icon.split(",")[0])
+                                    except FileNotFoundError:
+                                        continue
+                                if exe_path.exists():
+                                    print(f"✓ Obsidian encontrado em: {exe_path}")
+                                    return True
+                except FileNotFoundError:
+                    continue
+        except ImportError:
+            pass
+    
     print("✗ Obsidian não encontrado")
     print("  Instale em: https://obsidian.md/download")
     return False
@@ -82,17 +126,24 @@ def check_obsidian_plugin():
     plugin_path = Path(os.path.expanduser("~/.Obsidian/plugins/obsidian-local-rest-api"))
     appdata_plugin = Path(os.path.expanduser("~/AppData/Roaming/Obsidian/plugins/obsidian-local-rest-api"))
     
-    if plugin_path.exists() or appdata_plugin.exists():
-        actual_path = plugin_path if plugin_path.exists() else appdata_plugin
-        print(f"✓ Plugin Local REST API encontrado em: {actual_path}")
-        
-        # Verificar se tem manifest.json
+    actual_path = None
+    if plugin_path.exists():
+        actual_path = plugin_path
+    elif appdata_plugin.exists():
+        actual_path = appdata_plugin
+    
+    if actual_path:
         manifest = actual_path / "manifest.json"
         if manifest.exists():
+            print(f"✓ Plugin Local REST API encontrado em: {actual_path}")
             with open(manifest, 'r', encoding='utf-8') as f:
                 data = json.load(f)
                 print(f"  Versão: {data.get('version', 'desconhecida')}")
             return True
+        else:
+            print(f"✗ Pasta do plugin encontrada em {actual_path}, mas manifest.json ausente")
+            print("  Reinstale o plugin: execute setup-tools.ps1 novamente")
+            return False
     
     print("✗ Plugin Local REST API não encontrado")
     print("  Local esperado: %APPDATA%/Obsidian/plugins/obsidian-local-rest-api")

@@ -1,4 +1,4 @@
-# Script para configurar e baixar ferramentas para Harness Bibliográfico
+﻿# Script para configurar e baixar ferramentas para Harness Bibliográfico
 # Zotero 7+, Docling (IBM), Obsidian, Obsidian Local REST API
 
 param(
@@ -7,8 +7,25 @@ param(
     [switch]$SkipObsidian,
     [switch]$SkipPlugin
 )
-
 $ErrorActionPreference = "Continue"
+
+# Força TLS 1.2 (evita "conexão fechada inesperadamente" em downloads do GitHub)
+[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
+
+# Função para obter a URL de um asset da última release de um repositório no GitHub
+function Get-LatestGitHubAssetUrl {
+    param(
+        [string]$Repo,        # ex: "obsidianmd/obsidian-releases"
+        [string]$NamePattern  # regex para casar o nome do asset, ex: '^Obsidian-.*-x64\.exe$'
+    )
+    $headers = @{ "User-Agent" = "tcc-harness-setup-script" }
+    $release = Invoke-RestMethod -Uri "https://api.github.com/repos/$Repo/releases/latest" -Headers $headers -UseBasicParsing
+    $asset = $release.assets | Where-Object { $_.name -match $NamePattern } | Select-Object -First 1
+    if (-not $asset) {
+        throw "Nenhum asset encontrado em $Repo casando com '$NamePattern' (release: $($release.tag_name))"
+    }
+    return $asset.browser_download_url
+}
 
 # Variáveis de rastreamento
 $script:installStatus = @{}
@@ -91,7 +108,7 @@ if (-not $SkipZotero) {
     Write-Host "`n[1/4] Instalando Zotero 7+" -ForegroundColor Yellow
     
     try {
-        $zoteroUrl = "https://www.zotero.org/download/client/dl?channel=release&platform=win32"
+        $zoteroUrl = 'https://www.zotero.org/download/client/dl?channel=release&platform=win32'
         $zoteroPath = "$env:TEMP\Zotero-Setup.exe"
         
         Register-EnvVariable "TEMP" "$env:TEMP"
@@ -162,10 +179,12 @@ if (-not $SkipObsidian) {
     Write-Host "`n[3/4] Instalando Obsidian" -ForegroundColor Yellow
     
     try {
-        $obsidianUrl = "https://github.com/obsidianmd/obsidian-releases/releases/download/latest/Obsidian.exe"
+        Write-Host "Consultando última versão do Obsidian..." -ForegroundColor Cyan
+        $obsidianUrl = Get-LatestGitHubAssetUrl -Repo "obsidianmd/obsidian-releases" -NamePattern '^Obsidian-.*\.exe$'
         $obsidianPath = "$env:TEMP\Obsidian-Installer.exe"
         
         Write-Host "Baixando Obsidian..." -ForegroundColor Cyan
+        Write-Host "URL: $obsidianUrl" -ForegroundColor Gray
         Invoke-WebRequest -Uri $obsidianUrl -OutFile $obsidianPath -UseBasicParsing -ErrorAction Stop
         
         if (Test-Path $obsidianPath) {
@@ -208,30 +227,31 @@ if (-not $SkipPlugin) {
         # Criar diretório de plugins se não existir
         New-FolderIfNotExists $obsidianVault
         
-        # URL do plugin - usando a versão corrigida
-        $pluginUrl = "https://github.com/coddingtonbear/obsidian-local-rest-api/releases/download/1.8.1/obsidian-local-rest-api.zip"
-        $pluginZip = "$env:TEMP\obsidian-local-rest-api.zip"
         $pluginDir = "$obsidianVault\obsidian-local-rest-api"
         
-        Write-Host "Baixando Obsidian Local REST API Plugin..." -ForegroundColor Cyan
-        Write-Host "URL: $pluginUrl" -ForegroundColor Gray
+        Write-Host "Consultando última versão do plugin..." -ForegroundColor Cyan
         
-        try {
-            Invoke-WebRequest -Uri $pluginUrl -OutFile $pluginZip -UseBasicParsing -ErrorAction Stop
-        } catch {
-            # Se a versão específica falhar, tenta a URL genérica
-            Write-Host "⚠ Versão específica não encontrada, tentando URL genérica..." -ForegroundColor Yellow
-            $pluginUrl = "https://github.com/coddingtonbear/obsidian-local-rest-api/archive/main.zip"
-            Invoke-WebRequest -Uri $pluginUrl -OutFile $pluginZip -UseBasicParsing -ErrorAction Stop
+        # A release atual publica os arquivos do plugin soltos (main.js, manifest.json,
+        # styles.css), sem um .zip. Baixamos cada arquivo diretamente.
+        $headers = @{ "User-Agent" = "tcc-harness-setup-script" }
+        $release = Invoke-RestMethod -Uri "https://api.github.com/repos/coddingtonbear/obsidian-local-rest-api/releases/latest" -Headers $headers -UseBasicParsing
+        $requiredFiles = @("main.js", "manifest.json", "styles.css")
+        
+        New-FolderIfNotExists $pluginDir
+        $downloaded = @()
+        foreach ($fileName in $requiredFiles) {
+            $asset = $release.assets | Where-Object { $_.name -eq $fileName } | Select-Object -First 1
+            if ($asset) {
+                Write-Host "Baixando $fileName..." -ForegroundColor Cyan
+                Invoke-WebRequest -Uri $asset.browser_download_url -OutFile "$pluginDir\$fileName" -UseBasicParsing -ErrorAction Stop
+                $downloaded += $fileName
+            } elseif ($fileName -ne "styles.css") {
+                # styles.css é opcional em algumas versões do plugin
+                throw "Asset '$fileName' não encontrado na release $($release.tag_name)"
+            }
         }
         
-        if (Test-Path $pluginZip) {
-            # Criar diretório do plugin
-            New-FolderIfNotExists $pluginDir
-            
-            Write-Host "Extraindo plugin..." -ForegroundColor Cyan
-            Expand-Archive -Path $pluginZip -DestinationPath $pluginDir -Force -ErrorAction Stop
-            
+        if ($downloaded -contains "main.js" -and $downloaded -contains "manifest.json") {
             Write-Host "✓ Obsidian Local REST API Plugin configurado!" -ForegroundColor Green
             Write-Host "  Local: $pluginDir" -ForegroundColor Gray
             Write-Host "  Próximas etapas:" -ForegroundColor Gray
@@ -239,12 +259,11 @@ if (-not $SkipPlugin) {
             Write-Host "  2. Vá para Configurações > Plugins Instalados" -ForegroundColor Gray
             Write-Host "  3. Ative 'Local REST API'" -ForegroundColor Gray
             
-            Set-InstallStatus "Obsidian Local REST API Plugin" "Success" "Plugin baixado e extraído corretamente"
-            Remove-Item $pluginZip -Force -ErrorAction SilentlyContinue
+            Set-InstallStatus "Obsidian Local REST API Plugin" "Success" "Plugin baixado corretamente"
         } else {
-            Add-Error "Obsidian Local REST API Plugin" "Arquivo ZIP não foi criado"
-            Write-Host "✗ Erro: Arquivo ZIP não foi salvo" -ForegroundColor Red
-            Set-InstallStatus "Obsidian Local REST API Plugin" "Failed" "Arquivo não foi baixado"
+            Add-Error "Obsidian Local REST API Plugin" "Arquivos do plugin não foram criados"
+            Write-Host "✗ Erro: Arquivos essenciais do plugin não foram salvos" -ForegroundColor Red
+            Set-InstallStatus "Obsidian Local REST API Plugin" "Failed" "Arquivos não foram baixados"
         }
     } catch {
         Add-Error "Obsidian Local REST API Plugin" "$($_.Exception.Message)"
@@ -306,10 +325,10 @@ if ($script:errors.Count -gt 0) {
     Write-Host "`n[ERROS ENCONTRADOS]" -ForegroundColor Red
     Write-Host "$('-'*70)" -ForegroundColor Red
     
-    foreach ($error in $script:errors) {
-        Write-Host "[$($error.Tool)]" -ForegroundColor Red
-        Write-Host "  └─ $($error.Message)" -ForegroundColor Gray
-        Write-Host "  └─ Horário: $($error.Time.ToString('HH:mm:ss'))" -ForegroundColor Gray
+    foreach ($err in $script:errors) {
+        Write-Host "[$($err.Tool)]" -ForegroundColor Red
+        Write-Host "  └─ $($err.Message)" -ForegroundColor Gray
+        Write-Host "  └─ Horário: $($err.Time.ToString('HH:mm:ss'))" -ForegroundColor Gray
     }
 }
 
@@ -359,8 +378,8 @@ Write-Host "$('-'*70)" -ForegroundColor Red
 $notFound = @()
 
 if ($failureCount -gt 0) {
-    foreach ($error in $script:errors) {
-        $notFound += "• $($error.Tool): $($error.Message)"
+    foreach ($err in $script:errors) {
+        $notFound += "• $($err.Tool): $($err.Message)"
     }
 }
 
