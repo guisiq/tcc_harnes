@@ -5,16 +5,33 @@ tags:
   - protocolo
 status: preliminar
 ---
-
 # Métricas e protocolo experimental preliminar
+
+## Delimitação experimental
+
+O experimento corresponde ao candidato 4B e deve respeitar obrigatoriamente o contexto 3E. 
 
 ## Variável independente
 
-Depende do candidato final:
+A variável independente é a estratégia de persistência, com dois níveis:
 
-- 4A: estratégia de persistência com quatro níveis;
-- 4B: estratégia compacta com três níveis;
-- 4D: mecanismo de atualização do checkpoint JSON com dois níveis.
+1. **Sumarização textual:** substitui parte do histórico por um resumo em linguagem natural.
+2. **Checkpoint JSON:** persiste o estado operacional em campos estruturados.
+
+A condição de execução contínua e a interrupção controlada são condições do protocolo, não níveis adicionais da variável independente.
+
+## Modelos e compatibilidade
+
+O conjunto preliminar de modelos para o piloto é:
+
+| Modelo | Arquitetura | Função preliminar |
+| --- | --- | --- |
+| Qwen2.5-3B-Instruct | Transformer decoder-only | Baseline Transformer A |
+| Phi-3.5-mini-Instruct ou Gemma pequeno equivalente | Transformer decoder-only | Baseline Transformer B |
+| RecurrentGemma 2B-IT | Griffin, com atenção local e recorrência | Arquitetura híbrida recorrente |
+| Mamba aproximadamente 2.8B instruction-tuned | State Space Model (SSM) | Arquitetura baseada em estado |
+
+O piloto deve selecionar um modelo principal, registrando o motivo da escolha. A seleção deve considerar capacidade de concluir as tarefas sem interrupção, compatibilidade com as ferramentas, memória disponível, latência e estabilidade da geração. Comparar todos os modelos entre si não faz parte do experimento principal, pois isso misturaria arquitetura do SLM com estratégia de persistência.
 
 ## Variáveis dependentes
 
@@ -42,7 +59,9 @@ Proporção de campos cujo valor corresponde ao estado verdadeiro do ambiente no
 
 `correção = campos corretos / campos avaliáveis`
 
-Registrar separadamente:
+Essa métrica é específica da condição de checkpoint JSON. Para a sumarização textual, a qualidade da memória deve ser avaliada pelo estado recuperado, pelas restrições preservadas e pelo resultado final.
+
+Registrar separadamente no checkpoint JSON:
 
 - campos ausentes;
 - valores alterados;
@@ -67,11 +86,11 @@ Somar tokens de entrada e saída de todas as chamadas necessárias à tarefa, in
 
 Registrar:
 
-- tempo total por tarefa;
-- tempo de preparação do contexto;
-- tempo de inferência;
-- tempo específico da retomada;
-- percentis p50 e p95.
+- ~~<mark data-color="#ff8c0066" style="background-color: rgba(255, 140, 0, 0.4); color: inherit;">tempo total por tarefa;</mark>~~
+- ~~<mark data-color="#ff8c0066" style="background-color: rgba(255, 140, 0, 0.4); color: inherit;">tempo de preparação do contexto;</mark>~~
+- ~~<mark data-color="#ff8c0066" style="background-color: rgba(255, 140, 0, 0.4); color: inherit;">tempo de inferência;</mark>~~
+- ~~<mark data-color="#ff8c0066" style="background-color: rgba(255, 140, 0, 0.4); color: inherit;">tempo específico da retomada;</mark>~~
+- ~~<mark data-color="#ff8c0066" style="background-color: rgba(255, 140, 0, 0.4); color: inherit;">percentis p50 e p95.</mark>~~
 
 ### Recursos locais
 
@@ -79,12 +98,12 @@ Quando possível, registrar pico de RAM e VRAM. Essas métricas ajudam a caracte
 
 ## Variáveis de controle
 
-- mesmo SLM e quantização;
+- mesmo modelo principal, versão e quantização;
+- mesma família de ferramentas e mesmo contrato de saída;
 - mesmas tarefas e pontos de interrupção;
 - mesma configuração de geração;
 - mesmo limite de passos;
 - mesmo hardware;
-- mesmas ferramentas;
 - mesma ordem ou ordem aleatorizada de forma documentada;
 - número igual de repetições por condição.
 
@@ -96,28 +115,28 @@ Uma unidade pode ser definida como:
 
 ## Protocolo mínimo recomendado
 
-1. Definir duas famílias pequenas de tarefas transacionais.
-2. Criar estados esperados e restrições verificáveis.
-3. Fixar um ponto de interrupção por instância.
-4. Executar primeiro a condição contínua.
-5. Executar as condições de persistência com interrupção.
-6. Repetir cada condição o mesmo número de vezes.
-7. Validar automaticamente estado, restrições e ações.
-8. Registrar tokens, latência e falhas.
-9. Comparar proporções com intervalos de confiança.
-10. Analisar qualitativamente as trajetórias de falha.
+ 1. Definir uma família pequena de tarefas sintéticas e determinísticas, com múltiplas etapas.
+ 2. Criar estados esperados e restrições verificáveis.
+ 3. Escolher o modelo principal e a quantização no piloto.
+ 4. Fixar um ponto de interrupção por instância.
+ 5. Executar primeiro a condição contínua como referência de viabilidade.
+ 6. Executar as duas estratégias de persistência com interrupção.
+ 7. Repetir cada condição o mesmo número de vezes.
+ 8. Validar automaticamente estado, restrições e ações.
+ 9. Registrar tokens, latência, memória e falhas.
+10. Comparar proporções com intervalos de confiança.
+11. Analisar qualitativamente as trajetórias de falha.
 
 ## Matriz mínima por candidato
 
 | Candidato | Condições principais | Contexto recomendado | Métrica principal |
-|---|---|---|---|
-| 4A | Histórico, janela, resumo e checkpoint JSON | 3A + 3E | Sucesso final e custo |
-| 4B | Janela, resumo e checkpoint JSON | 3A + 3C + 3E | Retenção de restrições |
-| 4D | Checkpoint JSON por regras e por SLM | 3A + 3C + 3E | Correção do checkpoint JSON |
+| --- | --- | --- | --- |
+| 4B | Resumo e checkpoint JSON | 3A + 3E | Retenção de restrições |
 
 ## Decisões pendentes para o piloto
 
-- modelo e quantização;
+- modelo principal entre os candidatos de 3E e sua quantização;
+- versão do modelo, contexto máximo e parâmetros de geração;
 - schema do checkpoint JSON;
 - frequência de atualização do resumo e do checkpoint JSON;
 - orçamento de contexto;
@@ -128,5 +147,4 @@ Uma unidade pode ser definida como:
 
 ## Critério de viabilidade
 
-O piloto deve demonstrar que o modelo consegue concluir uma parcela razoável das tarefas na condição contínua. Se ele falhar quase sempre sem interrupção, não será possível atribuir as falhas à persistência de estado.
-
+O piloto deve demonstrar que o modelo escolhido consegue concluir uma parcela razoável das tarefas na condição contínua. Se ele falhar quase sempre sem interrupção, não será possível atribuir as falhas à persistência de estado. Também deve verificar que as duas estratégias cabem no orçamento de contexto e que o checkpoint JSON pode ser validado automaticamente.

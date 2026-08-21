@@ -31,7 +31,7 @@ Cada nível acrescenta somente uma faceta principal. Assim, é possível visuali
 
 ## 3. Tema em uma frase
 
-**Avaliar estratégias de persistência de estado em agentes locais baseados em SLMs de 1–4B, durante a retomada de tarefas interrompidas, visando comparar sucesso final, retenção de restrições, consumo de tokens e latência.**
+> **Avaliar estratégias de persistência de estado em agentes locais baseados em SLMs de 1–4B, durante a retomada de tarefas interrompidas, visando comparar sucesso final, retenção de restrições, consumo de tokens e latência.**
 
 ### Título provisório
 

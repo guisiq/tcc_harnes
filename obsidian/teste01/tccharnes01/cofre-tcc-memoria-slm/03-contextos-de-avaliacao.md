@@ -27,30 +27,6 @@ Um agente deve montar uma solicitação com campos obrigatórios, respeitar um l
 
 Resultados em tarefas sintéticas não garantem o mesmo comportamento em situações reais. Essa ameaça deve ser reconhecida como limitação de validade externa.
 
-## 3C — Fluxos transacionais
-
-São processos nos quais o agente coleta dados e modifica um estado estruturado, como:
-
-- cadastro de usuário;
-- reserva de horário;
-- solicitação de serviço;
-- pedido com itens e limites;
-- abertura de chamado.
-
-Esses fluxos são adequados porque possuem campos, restrições e estados finais verificáveis. Também permitem detectar repetição de ações, perda de confirmações e alteração indevida de valores.
-
-### Exemplo de estado
-
-```json
-{
-  "cliente": "Pessoa A",
-  "servico": "atendimento técnico",
-  "data": "2026-09-14",
-  "orcamento_maximo": 300,
-  "status": "aguardando confirmação"
-}
-```
-
 ## 3D — Conversações longas
 
 Distribuem fatos, preferências e decisões ao longo de muitas mensagens. O agente precisa recuperar informações antigas quando elas voltam a ser relevantes.
@@ -62,19 +38,39 @@ Distribuem fatos, preferências e decisões ao longo de muitas mensagens. O agen
 - consistência entre informações antigas e recentes;
 - resistência a fatos irrelevantes ou contraditórios.
 
-### Diferença em relação aos fluxos transacionais
-
-Fluxos transacionais têm schema e estado final bem definidos. Conversações longas contêm informação aberta e são mais difíceis de avaliar deterministicamente.
-
-Para um TCC simples, 3D deve ser tratado como **domínio alternativo ou extensão**, não necessariamente combinado com 3C no experimento principal.
+Conversações longas contêm informação aberta e são mais difíceis de avaliar deterministicamente. Para um TCC simples, 3D deve ser tratado como **domínio alternativo ou extensão**, não necessariamente combinado com o experimento principal.
 
 ## 3E — Execução local com SLM de 1–4B
 
-O estudo será realizado com um modelo pequeno, aberto e quantizado, executado em hardware de consumo.
+3E é uma **restrição obrigatória de compatibilidade** do recorte. O estudo deve usar SLMs pequenos, abertos e quantizados, executados em hardware de consumo. A família de modelos precisa ser compatível com execução local, orçamento de memória e comparação controlada das estratégias de persistência.
+
+### Modelos previamente selecionados
+
+| Modelo | Família arquitetural | Função no estudo |
+| --- | --- | --- |
+| **Qwen2.5-3B-Instruct** | Transformer decoder-only | Baseline Transformer A |
+| **Phi-3.5-mini-Instruct** ou Gemma equivalente pequeno | Transformer decoder-only | Baseline Transformer B |
+| **RecurrentGemma 2B-IT** | Griffin: atenção local + recorrência | Arquitetura híbrida recorrente |
+| **Mamba aproximadamente 2.8B instruction-tuned** | State Space Model (SSM) | Arquitetura baseada em estado |
+
+Esses modelos formam o conjunto preliminar de compatibilidade. O experimento principal deve fixar um modelo e sua quantização para evitar que diferenças arquiteturais confundam o efeito da sumarização textual e do checkpoint JSON. Os demais modelos podem ser usados em um piloto ou análise complementar de compatibilidade.
+
+```mermaid
+flowchart TD
+  A[SLMs] --> B[Transformer]
+  A --> C[Griffin]
+  A --> D[SSM]
+  B --> E[Qwen2.5-3B-Instruct]
+  B --> F[Phi-3.5-mini-Instruct ou Gemma pequeno]
+  C --> G[RecurrentGemma 2B-IT]
+  D --> H[Mamba ~2.8B instruction-tuned]
+```
 
 ### Consequências metodológicas
 
+- tratar 3E como requisito obrigatório de compatibilidade;
 - usar um modelo principal para evitar uma matriz experimental excessiva;
+- registrar os modelos previamente selecionados e a justificativa de inclusão ou exclusão no piloto;
 - registrar versão, quantização, contexto máximo e parâmetros de geração;
 - evitar treinamento completo;
 - medir latência, tokens, RAM e VRAM;
@@ -86,13 +82,5 @@ Modelos pequenos apresentam limitações diferentes das observadas em modelos ma
 
 Termos relacionados: [[05-glossario#SLM]], [[05-glossario#Quantização]], [[05-glossario#Hardware de consumo]].
 
-## Escolha de domínio recomendada
 
-Para o experimento mínimo, usar **3A + 3C + 3E**:
-
-- tarefas sintéticas;
-- formato transacional;
-- um SLM local.
-
-Manter 3D como extensão ou como segunda família pequena de tarefas, caso haja tempo.
 
