@@ -1,30 +1,32 @@
-# Ficha do Tema - Trabalho de Conclusao de Curso I
+# Ficha do Tema - Trabalho de Conclusão de Curso I
 
-## Identificacao
+## Identificação
 
-| Campo | Preenchimento |
-| --- | --- |
-| Aluno(a) | Guilherme Henrique Siqueira Lopes |
-| Curso / Semestre | Sistemas de Informacao - 2025/2 |
-| Orientador(a) | Alex Coelho - a confirmar |
+| Campo            | Preenchimento                     |
+| ---------------- | --------------------------------- |
+| Aluno(a)         | Guilherme Henrique Siqueira Lopes |
+| Curso / Semestre | Sistemas de Informacao - 2025/2   |
+| Orientador(a)    | Alex Coelho - a confirmar         |
 
 ## Tema (1 frase)
 
-Comparar a sumarizacao textual e o checkpoint JSON quanto a confiabilidade e eficiencia de agentes baseados em SLMs locais de 1-4B durante a retomada de tarefas deterministicas interrompidas.
+Comparar a [[05-glossario#Sumarização textual|sumarizacao textual]] e o [[05-glossario#Checkpoint JSON|checkpoint JSON]] quanto a confiabilidade e eficiencia de agentes baseados em SLMs locais de 1-4B durante a retomada de tarefas deterministicas interrompidas.
+
+Recorte final: [[04-candidatos-finais#4B — Preservação de restrições|4B - Preservacao de restricoes]].
 
 ## Facetas selecionadas (4-7)
 
-| Faceta | Delimitacao atual |
-| --- | --- |
-| Objeto/Fenomeno | Persistencia de estado operacional em agentes baseados em modelos de linguagem. |
-| Contexto/Setor | Tarefas sinteticas, deterministicas e de multiplas etapas, com estados finais, restricoes e pontos de interrupcao verificaveis. |
-| Publico/Populacao | SLMs aberto, ajustado para instrucoes, com aproximadamente 1-4 bilhoes de parametros, quantizado e executado localmente. |
-| Tempo | Literatura publicada principalmente entre 2023 e 2026; experimento durante o periodo do TCC. |
-| Geografia | Nao se aplica como populacao geografica; o contexto tecnico e hardware local de consumo. |
-| Dados/Fontes | Tarefas sinteticas reproduziveis, estados finais esperados, restricoes explicitas, registros de execucao e corpus bibliografico. |
-| Metodo/Abordagem | Experimento quantitativo controlado, comparando sumarizacao textual e checkpoint JSON com o mesmo modelo, hardware, tarefas, pontos de interrupcao e configuracao de geracao. |
-| Metricas/Variaveis | Sucesso final, sucesso apos retomada, retencao de restricoes, correção do checkpoint JSON, acoes inconsistentes, tokens, latencia e uso de RAM/VRAM. |
-| Restricoes/Viabilidade | GPU com 6 GB de VRAM, 16 GB de RAM, sem treinamento completo, um modelo principal, uma familia de tarefas e duas estrategias de persistencia. |
+| Faceta                 | Delimitacao atual                                                                                                                                                                                                                                                                                                                                                                      |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Objeto/Fenomeno        | [[01-base-conceitual#1A — Persistência de estado\|Persistencia de estado operacional]] em agentes baseados em modelos de linguagem.                                                                                                                                                                                                                              |
+| Contexto/Setor         | ==[[03-contextos-de-avaliacao#3A — Tarefas sintéticas e determinísticas\|Tarefas sinteticas e deterministicas]] de multiplas etapas, com estados finais, restricoes e pontos de interrupcao verificaveis.==                                                                                                                                                      |
+| Publico/Populacao      | [[03-contextos-de-avaliacao#3E — Execução local com SLM de 1–4B\|SLM]] aberto, ajustado para instrucoes, com aproximadamente 1-4 bilhoes de parametros, quantizado e executado localmente.                                                                                                                                                                       |
+| Tempo                  | Literatura publicada principalmente entre 2023 e 2026; experimento durante o periodo do TCC.                                                                                                                                                                                                                                                                                           |
+| Geografia              | Nao se aplica como populacao geografica; o contexto tecnico e hardware local de consumo.                                                                                                                                                                                                                                                                                               |
+| Dados/Fontes           | [[03-contextos-de-avaliacao#3A — Tarefas sintéticas e determinísticas\|Tarefas sinteticas reproduziveis]], estados finais esperados, restricoes explicitas, registros de execucao e corpus bibliografico.                                                                                                                                                        |
+| Metodo/Abordagem       | [[02-comparacoes#2B — Resumo versus checkpoint JSON\|Experimento quantitativo controlado]] comparando sumarizacao textual e checkpoint JSON com o mesmo modelo, hardware, tarefas, pontos de interrupcao e configuracao de geracao.                                                                                                                              |
+| Metricas/Variaveis     | [[06-metricas-e-protocolo#Taxa de sucesso final\|Sucesso final]], sucesso apos retomada, [[06-metricas-e-protocolo#Retenção de restrições\|retencao de restricoes]], [[06-metricas-e-protocolo#Correção do checkpoint JSON\|correcao do checkpoint JSON]], acoes inconsistentes, tokens, latencia e uso de RAM/VRAM. |
+| Restricoes/Viabilidade | GPU com 6 GB de VRAM, 16 GB de RAM, sem treinamento completo, um modelo principal, uma familia de tarefas e duas estrategias de persistencia.                                                                                                                                                                                                                                          |
 
 ## Matriz de verificacao (0-2 por criterio)
 
@@ -40,9 +42,9 @@ Comparar a sumarizacao textual e o checkpoint JSON quanto a confiabilidade e efi
 
 ## Problema de pesquisa (com evidencia)
 
-Agentes baseados em modelos de linguagem precisam manter um estado consistente para concluir tarefas de multiplas etapas. Estudos sobre memoria de agentes frequentemente se concentram em memoria conversacional, modelos maiores ou arquiteturas complexas. Ainda ha evidencia limitada, a ser confirmada pela revisao bibliografica focal, sobre como sumarizacao textual e checkpoints JSON afetam a retomada de tarefas por SLMs de 1-4B executados localmente.
+Agentes baseados em modelos de linguagem precisam manter um [[05-glossario#Estado operacional|estado operacional]] consistente para concluir tarefas de multiplas etapas. Estudos sobre memoria de agentes frequentemente se concentram em [[03-contextos-de-avaliacao#3D — Conversações longas|memoria conversacional]], modelos maiores ou arquiteturas complexas. Ainda ha evidencia limitada, a ser confirmada pela revisao bibliografica focal, sobre como [[02-comparacoes#2B — Resumo versus checkpoint JSON|sumarizacao textual e checkpoints JSON]] afetam a retomada de tarefas por SLMs de 1-4B executados localmente.
 
-Essa incerteza dificulta escolher mecanismos de persistencia que conciliem confiabilidade e custo computacional em hardware de consumo. O problema sera investigado por meio de tarefas sinteticas e deterministicas, nas quais o estado correto, as restricoes e o resultado final podem ser verificados automaticamente.
+Essa incerteza dificulta escolher mecanismos de [[01-base-conceitual#1A — Persistência de estado|persistencia]] que conciliem confiabilidade e custo computacional em [[03-contextos-de-avaliacao#3E — Execução local com SLM de 1–4B|hardware de consumo]]. O problema sera investigado por meio de [[03-contextos-de-avaliacao#3A — Tarefas sintéticas e determinísticas|tarefas sinteticas e deterministicas]], nas quais o estado correto, as restricoes e o resultado final podem ser verificados automaticamente.
 
 **Evidencias bibliograficas iniciais:** MemGPT, LongMemEval, LoCoMo, MemoryAgentBench e trabalhos sobre memoria estrutural de agentes oferecem conceitos, benchmarks e dimensoes de avaliacao relacionados. Essas referencias fundamentam a relevancia do fenomeno, mas nao comprovam isoladamente a originalidade deste recorte.
 
@@ -56,7 +58,11 @@ Essa incerteza dificulta escolher mecanismos de persistencia que conciliem confi
 
 ## Objetivos especificos
 
-1. Medir sucesso final, sucesso apos retomada, retencao de restricoes, acoes inconsistentes, tokens e latencia.
+1. medir  sucesso apos retomada, 
+2. retencao de restricoes, 
+3. acoes inconsistentes, 
+4. tokens utilizados 
+5. ==latencia==
 
 ---
 
@@ -81,12 +87,14 @@ flowchart LR
 
 A variavel independente e a estrategia de persistencia, com dois niveis:
 
-1. **Sumarizacao textual:** substitui parte do historico por um resumo em linguagem natural.
-2. **Checkpoint JSON:** persiste o estado operacional em campos estruturados.
+1. **[[02-comparacoes#2B — Resumo versus checkpoint JSON|Sumarizacao textual]]:** substitui parte do historico por um resumo em linguagem natural.
+2. **[[05-glossario#Checkpoint JSON|Checkpoint JSON]]:** persiste o estado operacional em campos estruturados.
 
 A execucao continua e a interrupcao controlada sao condicoes do protocolo, nao estrategias adicionais.
 
 ### Modelos previamente selecionados para o piloto
+
+Detalhes de compatibilidade e familias arquiteturais: [[03-contextos-de-avaliacao#3E — Execução local com SLM de 1–4B|3E - Execucao local com SLM de 1-4B]].
 
 | Modelo | Familia arquitetural | Funcao preliminar |
 | --- | --- | --- |

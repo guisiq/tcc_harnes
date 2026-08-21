@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "cofre-tcc-memoria-slm/00-selecao-do-recorte.md",
+                "file": "ficha_tema_tcc.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "00-selecao-do-recorte"
+              "title": "ficha_tema_tcc"
             }
           }
         ]
@@ -188,20 +188,24 @@
       "bases:Criar nova base": false
     }
   },
-  "active": "dd4ec1542b081c6e",
+  "active": "65f5e50d795dc640",
   "lastOpenFiles": [
-    "cofre-tcc-memoria-slm/02-comparacoes.md",
     "cofre-tcc-memoria-slm/README.md",
-    "cofre-tcc-memoria-slm/03-contextos-de-avaliacao.md",
-    "cofre-tcc-memoria-slm/04-candidatos-finais.md",
-    "cofre-tcc-memoria-slm/00-selecao-do-recorte.md",
+    "cofre-tcc-memoria-slm",
     "ficha_tema_preliminar_memoria_slm.md",
-    "cofre-tcc-memoria-slm/06-metricas-e-protocolo.md",
-    "cofre-tcc-memoria-slm/05-glossario.md",
-    "cofre-tcc-memoria-slm/01-base-conceitual.md",
+    "referencia_ficha_tema/04-candidatos-finais.md",
+    "ficha_tema_tcc.md",
+    "referencia_ficha_tema/02-comparacoes.md",
+    "referencia_ficha_tema/00-selecao-do-recorte.md",
+    "ficha_tema_tcc (1).docx",
+    "referencia_ficha_tema/README.md",
+    "referencia_ficha_tema/03-contextos-de-avaliacao.md",
+    "referencia_ficha_tema/06-metricas-e-protocolo.md",
+    "referencia_ficha_tema/05-glossario.md",
+    "referencia_ficha_tema/01-base-conceitual.md",
     "Sem título",
     "cofre-tcc-memoria-slm/visualizador-recortes.html",
-    "cofre-tcc-memoria-slm",
+    "referencia_ficha_tema",
     "granuralidade.md",
     "Tcc guilherme.md"
   ]
