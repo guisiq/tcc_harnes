@@ -53,62 +53,62 @@ caso, prefira a exportação com **Export Files** acima.
 
 ## FASE 1 — Artigos de inspiração e fundamentos (ler antes de implementar)
 
-### 1A. Surveys de inspiração e conceitos-base
+Nesta fase, você reúne e lê os **7 artigos-âncora** que preparam o terreno antes da implementação do mini-harness. Diferente da busca por termos (Fase 2), aqui o processo é **busca dirigida por título/DOI**.
 
-Leia estes três textos antes de começar a implementação do mini-harness. Eles já
-estão na tabela "Referências — Domínio" do `artigos/README.md`; importe-os também
-na coleção `03-Inspiracao` para manter uma trilha separada de leitura inicial.
-
-Ordem recomendada:
-
-- **Sharma & Mehta (2025) — _Small Language Models for Agentic Systems: A Survey_**: conecta SLMs, agentes, ferramentas e limitações práticas. É a leitura mais diretamente ligada ao tema do TCC.
-- **Meng et al. (2026) — _Agent Harness for Large Language Model Agents: A Survey_**: organiza o conceito de harness e seus componentes, ajudando a definir o escopo do mini-harness antes de escrever código.
-- **Lu et al. (2025) — _Small Language Models: Survey, Measurements, and Insights_**: oferece a base sobre capacidades, medições e restrições de SLMs necessária para escolher avaliações viáveis.
-
-Não é necessário ler todos os artigos de domínio nesta etapa. Para cada survey,
-registre no Zotero uma nota curta com: conceitos que o mini-harness deve cobrir,
-métricas citadas e ideias que ficaram fora do escopo.
+A Fase 1 divide-se em dois blocos complementares com a mesma estrutura de organização:
+- **1A. Surveys de inspiração**: conceitos do domínio (SLM, agent harness, avaliação) para definir o escopo do mini-harness.
+- **1B. Referências metodológicas**: diretrizes formais de revisão (mapeamento sistemático, SLR, snowballing) para estruturar o processo.
 
 ---
 
-### 1B. Artigos metodológicos
+### Lista de Artigos da Fase 1
 
-Depois dos surveys de inspiração, leia estes 4 artigos que fundamentam o método da revisão (já listados em artigos/README.md, tabela "Referências — Metodológicas"). Assim, a Fase 1 reúne tanto os conceitos do tema quanto o método que será usado no survey.
+#### 1A. Surveys de inspiração (Coleção Zotero: `03-Inspiracao`)
 
-Como são citações-âncora conhecidas (não uma busca por termos), o processo é **busca dirigida por título/DOI**, não uma string de busca.
+- **sharma2025** — _Small Language Models for Agentic Systems: A Survey_ (Sharma & Mehta, 2025)
+  - **Busca**: `Small Language Models for Agentic Systems Survey Sharma Mehta 2025`
+  - **Foco**: Conecta SLMs, agentes e uso de ferramentas; leitura principal do tema.
+- **meng2026harness** — _Agent Harness for Large Language Model Agents: A Survey_ (Meng et al., 2026)
+  - **Busca**: `Agent Harness for Large Language Model Agents Survey Meng 2026`
+  - **Foco**: Arquitetura, componentes e taxonomia de agent harness.
+- **lu2025** — _Small Language Models: Survey, Measurements, and Insights_ (Lu et al., 2025)
+  - **Busca**: `Small Language Models Survey Measurements Insights Lu 2025`
+  - **Foco**: Capacidades, medições e limitações práticas de SLMs.
 
-### Passo 1.1 — Localizar cada artigo
+#### 1B. Referências metodológicas (Coleção Zotero: `01-Metodologicos`)
 
-Para cada linha da tabela "Referências — Metodológicas", busque pelo título exato em:
+- **petersen2008** — _Systematic Mapping Studies in Software Engineering_ (Petersen et al., 2008)
+  - **Busca**: `Systematic Mapping Studies in Software Engineering Petersen 2008 EASE`
+  - **Foco**: Conceito original e as 5 fases do mapeamento sistemático.
+- **petersen2015** — _Guidelines for conducting systematic mapping studies in software engineering: An update_ (Petersen et al., 2015)
+  - **Busca**: `Guidelines for conducting systematic mapping studies software engineering update Petersen 2015`
+  - **Foco**: Guia prático e atualizado para conduzir o mapeamento.
+- **kitchenham2007** — _Guidelines for performing Systematic Literature Reviews in Software Engineering_ (Kitchenham & Charters, 2007)
+  - **Busca**: `Kitchenham Charters Guidelines performing Systematic Literature Reviews Software Engineering EBSE-2007-01`
+  - **Foco**: Protocolo, critérios de inclusão/exclusão, avaliação de qualidade e validade.
+- **wohlin2014** — _Guidelines for snowballing in systematic literature studies_ (Wohlin, 2014)
+  - **Busca**: `Wohlin Guidelines snowballing systematic literature studies EASE 2014`
+  - **Foco**: Procedimento sistemático de busca por referências (*snowballing*).
 
-- Google Scholar (https://scholar.google.com) — melhor para achar PDF de acesso aberto/preprint.
-- Acesso institucional da sua universidade (portal de periódicos CAPES, se disponível), já que a maioria é paywall (ACM/Elsevier/Springer).
+---
 
-- **petersen2008** — _Systematic Mapping Studies in Software Engineering_: busque por `Systematic Mapping Studies in Software Engineering Petersen 2008 EASE`.
-- **petersen2015** — _Guidelines for conducting systematic mapping studies in software engineering: An update_: busque por `Guidelines for conducting systematic mapping studies software engineering update Petersen 2015`.
-- **kitchenham2007** — _Guidelines for performing Systematic Literature Reviews in Software Engineering_: busque por `Kitchenham Charters Guidelines performing Systematic Literature Reviews Software Engineering EBSE-2007-01`.
-- **wohlin2014** — _Guidelines for snowballing in systematic literature studies_: busque por `Wohlin Guidelines snowballing systematic literature studies EASE 2014`.
+### Passo a Passo de Importação (Fase 1A e 1B)
 
-### Passo 1.2 — Importar no Zotero
+Para cada um dos 7 artigos acima, execute os passos a seguir:
 
-Para cada artigo encontrado, use **um** destes métodos (na ordem de preferência):
+#### Passo 1.1 — Localizar o artigo
+Busque pelo título/autores no Google Scholar ou no portal de periódicos/acesso institucional da sua universidade.
 
-1. **Zotero Connector**: na página do artigo (Google Scholar, DOI da editora), clique no ícone do Zotero na barra do navegador → ele cria o item com metadados + anexa o PDF automaticamente (se houver acesso).
-2. **Adicionar por identificador**: no Zotero, clique no ícone de varinha mágica (`Add Item by Identifier`) e cole o DOI — preenche os metadados automaticamente; depois arraste o PDF manualmente para o item.
-3. **Manual**: `New Item` → escolha o tipo (Conference Paper / Journal Article / Report) → preencha título/autores/ano/DOI → arraste o PDF para dentro do item.
+#### Passo 1.2 — Importar no Zotero e organizar na coleção
+Importe via **Zotero Connector**, **Adicionar por Identificador (DOI)** ou **Manual**. Em seguida, mova o item para a coleção correspondente:
+- Artigos **1A** (Surveys) → Coleção `03-Inspiracao`
+- Artigos **1B** (Metodológicos) → Coleção `01-Metodologicos`
 
-Depois de importado, **arraste o item para a coleção** `01-Metodologicos`.
+#### Passo 1.3 — Salvar o PDF localmente e atualizar o rastreamento
+Exporte a coleção ou salve o PDF na pasta `artigos/` com o nome indicado no `artigos/README.md`. Marque o status como `✅ baixado` no README.
 
-### Passo 1.3 — Salvar o PDF localmente e marcar status
-
-1. Exporte a coleção conforme a seção "Como salvar os PDFs de uma coleção em uma pasta específica" e deixe o PDF em `artigos/`, com o nome exato indicado na tabela do artigos/README.md.
-2. Marque o status como `✅ baixado` na tabela "Referências — Metodológicas".
-
-### Passo 1.4 — Checar o citation key (Better BibTeX)
-
-Clique com o botão direito no item → `Cite as` deve mostrar a chave (ex.: `petersen2008`). Se a chave gerada automaticamente for diferente da tabela, ajuste em `Zotero > Botão direito no item > Better BibTeX Key... > Pin key` usando a chave da tabela.
-
-Repita 1.1–1.4 para os 4 artigos metodológicos antes de seguir para a Fase 2.
+#### Passo 1.4 — Checar e fixar o Citation Key (Better BibTeX)
+No Zotero, clique com o botão direito no item → `Better BibTeX Key... > Pin key` e garanta que a chave bate com a tabela (`sharma2025`, `meng2026harness`, `petersen2015`, etc.).
 
 ---
 
