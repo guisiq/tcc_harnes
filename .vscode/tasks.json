@@ -1,0 +1,43 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "PDF EPUB: preparar ferramenta",
+      "type": "process",
+      "command": "powershell.exe",
+      "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}/ferramentas/setup-pdf-epub.ps1"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "PDF EPUB: converter EN-PT",
+      "type": "process",
+      "command": "powershell.exe",
+      "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}/ferramentas/pdf-epub.ps1", "${input:pdfPath}", "--model", "${input:copilotModel}", "--formats", "${input:bookFormats}"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "PDF EPUB: exportar para Kindle",
+      "type": "process",
+      "command": "powershell.exe",
+      "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}/ferramentas/pdf-epub.ps1", "${input:epubPath}", "--export-only", "--formats", "${input:bookFormats}"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "PDF EPUB: validar EPUB",
+      "type": "process",
+      "command": "powershell.exe",
+      "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}/ferramentas/pdf-epub.ps1", "--validate", "${input:epubPath}"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    { "id": "pdfPath", "type": "promptString", "description": "Caminho do PDF em ingles" },
+    { "id": "epubPath", "type": "promptString", "description": "Caminho do EPUB bilingue" },
+    { "id": "copilotModel", "type": "promptString", "description": "Modelo Copilot; consulte --models", "default": "mai-code-1.1-flash" },
+    { "id": "bookFormats", "type": "pickString", "description": "Formatos de saida; AZW3 para USB, EPUB para Send to Kindle", "options": ["epub", "epub,azw3", "epub,azw3,mobi,pdf"], "default": "epub,azw3" }
+  ]
+}

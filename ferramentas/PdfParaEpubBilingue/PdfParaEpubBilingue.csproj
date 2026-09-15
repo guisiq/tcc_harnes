@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <NoWarn>$(NoWarn);GHCP001</NoWarn>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Update="extract_text.py" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <PackageReference Include="GitHub.Copilot.SDK" Version="1.0.13" />
+    <PackageReference Include="Microsoft.Playwright" Version="1.62.0" />
+    <PackageReference Include="PdfPig" Version="0.1.16" />
+    <PackageReference Include="PdfPig.Rendering.Skia" Version="0.1.16.4" />
+  </ItemGroup>
+
+</Project>

@@ -3,3 +3,14 @@
 # A fonte de verdade do corpus e o Zotero (ver secao 6.0 do planejamento).
 artigos/*
 !artigos/README.md
+ferramentas/PdfParaEpubBilingue/bin/
+ferramentas/PdfParaEpubBilingue/obj/
+ferramentas/**/bin/
+ferramentas/**/obj/
+ferramentas/**/__pycache__/
+ferramentas/**/TestResults/
+ferramentas/.tools/
+*.epub.work/
+*.epub.validation/
+/bin/
+ferramentas/.tools/epubcheck-5.3.0/licenses/Apache-2.0.txt
