@@ -1,5 +1,6 @@
 using System.IO.Compression;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace PdfParaEpubBilingue;
 
@@ -68,8 +69,15 @@ public static class EpubBuilder
                     var pt = translations.TryGetValue((paragraph.PageNumber, paragraph.Order), out var t)
                         ? t
                         : "";
+                    var enText = Escape(paragraph.Text);
+                    // Some extracted "paragraphs" are entirely corrupted glyphs (control characters with no
+                    // valid XML representation); once Escape() strips those out nothing readable remains, and
+                    // rendering an empty <p> fails structural validation ("Par de idiomas vazio ou incompleto").
+                    // Since there is no meaningful content to show either language, omit the pair entirely.
+                    if (string.IsNullOrWhiteSpace(enText))
+                      continue;
                     bodyBuilder.Append("<div class=\"bilingual\">\n");
-                      bodyBuilder.Append($"<p class=\"en\" xml:lang=\"en\">{Escape(paragraph.Text)}</p>\n");
+                      bodyBuilder.Append($"<p class=\"en\" xml:lang=\"en\">{enText}</p>\n");
                       if (!originalOnly)
                         bodyBuilder.Append($"<p class=\"pt\" xml:lang=\"pt-BR\">{Escape(pt)}</p>\n");
                     bodyBuilder.Append("</div>\n");
@@ -118,8 +126,11 @@ public static class EpubBuilder
         </container>
         """;
 
+    // PDF extraction occasionally yields raw control characters (e.g. corrupted font glyph mappings) that XML 1.0 forbids.
+    private static readonly Regex InvalidXmlChars = new("[\u0000-\u0008\u000B\u000C\u000E-\u001F\uFFFE\uFFFF]", RegexOptions.Compiled);
+
     private static string Escape(string value) =>
-        value.Replace("&", "&amp;").Replace("<", "&lt;").Replace(">", "&gt;").Replace("\"", "&quot;").Replace("'", "&apos;");
+        InvalidXmlChars.Replace(value, "").Replace("&", "&amp;").Replace("<", "&lt;").Replace(">", "&gt;").Replace("\"", "&quot;").Replace("'", "&apos;");
 
     private static string BuildXhtml(string title, string body) => $$"""
         <?xml version="1.0" encoding="UTF-8"?>

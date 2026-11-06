@@ -1,0 +1,41 @@
+{
+  "project": "TCC Checkpoint JSON",
+  "format": "Markdown / Notion import",
+  "files": [
+    "00_INDEX.md",
+    "01_Projeto/01_visao_geral.md",
+    "01_Projeto/02_perguntas_hipoteses.md",
+    "01_Projeto/03_justificativa_lacuna.md",
+    "02_Metodologia/01_metodo_memoria_GU_JSON.md",
+    "02_Metodologia/02_schema_checkpoint.md",
+    "02_Metodologia/03_datasets.md",
+    "02_Metodologia/04_modelos.md",
+    "02_Metodologia/05_metricas.md",
+    "02_Metodologia/06_plano_experimental.md",
+    "02_Metodologia/07_hardware_tempos.md",
+    "02_Metodologia/08_ameacas_validade.md",
+    "03_Revisao_Literatura/00_mapa_literatura.md",
+    "03_Revisao_Literatura/01_artigos_nucleo.md",
+    "03_Revisao_Literatura/02_memoria_agentes.md",
+    "03_Revisao_Literatura/03_geracao_estruturada_json.md",
+    "03_Revisao_Literatura/04_arquiteturas_modelos.md",
+    "03_Revisao_Literatura/05_metodologia_revisao.md",
+    "04_Implementacao/01_arquitetura_harness.md",
+    "04_Implementacao/02_prompt_base.md",
+    "04_Implementacao/03_formato_dados.md",
+    "04_Implementacao/04_pipeline_avaliacao.md",
+    "05_Planejamento/01_cronograma.md",
+    "05_Planejamento/02_checklist.md",
+    "05_Planejamento/03_resultados_esperados.md",
+    "06_Referencias/artigos_prioridade.md",
+    "06_Referencias/links.md",
+    "06_Referencias/referencias.md",
+    "README_IMPORTACAO_NOTION.md"
+  ],
+  "main_index": "00_INDEX.md",
+  "notes": [
+    "Relative Markdown links connect documents.",
+    "Model/dataset URLs should be revalidated before freezing the final experimental protocol.",
+    "No experimental results are claimed in these documents."
+  ]
+}

@@ -30,12 +30,30 @@ public sealed class BilingualTranslator(string model)
             return result;
         }
 
+        // Some extracted "paragraphs" are just corrupted glyphs (e.g. a stray NUL/SOH from a broken font mapping in a
+        // math formula) with no actual text to translate; sending those to the model reliably yields an empty/invalid
+        // translation that can never succeed, even after splitting down to a batch of one. Pass them through unchanged.
+        private static bool IsTrivial(string text) => text.All(c => char.IsControl(c) || char.IsWhiteSpace(c));
+
+        private async Task<Dictionary<int, string>> TranslateBatchAsync(CopilotClient client, PdfParagraph[] batch, int pageNumber,
+            Action<string> log, string? cacheDirectory, CancellationToken cancellationToken)
+        {
+            var passthrough = batch.Where(paragraph => IsTrivial(paragraph.Text)).ToArray();
+            var translatable = batch.Where(paragraph => !IsTrivial(paragraph.Text)).ToArray();
+            if (translatable.Length == 0)
+                return passthrough.ToDictionary(paragraph => paragraph.Order, paragraph => paragraph.Text);
+            var translated = await TranslateBatchCoreAsync(client, translatable, pageNumber, log, cacheDirectory, cancellationToken);
+            foreach (var paragraph in passthrough)
+                translated[paragraph.Order] = paragraph.Text;
+            return translated;
+        }
+
         // Some paragraphs (dense math notation, nested code/log excerpts quoted in the paper, etc.) make the model
         // produce malformed JSON reliably, failing the same batch twice in a row across independent reruns. Instead
         // of aborting the whole conversion, split the batch in half and retry each half on its own; smaller batches
         // (down to a single paragraph) are far less likely to trip the same failure, and this isolates whichever
         // specific paragraph is actually problematic instead of blocking every other page.
-        private async Task<Dictionary<int, string>> TranslateBatchAsync(CopilotClient client, PdfParagraph[] batch, int pageNumber,
+        private async Task<Dictionary<int, string>> TranslateBatchCoreAsync(CopilotClient client, PdfParagraph[] batch, int pageNumber,
             Action<string> log, string? cacheDirectory, CancellationToken cancellationToken)
         {
             var input = JsonSerializer.Serialize(batch.Select(paragraph => new { id = paragraph.Order, en = paragraph.Text }));
@@ -94,8 +112,8 @@ public sealed class BilingualTranslator(string model)
                     if (batch.Length == 1) throw;
                     log($"Pagina {pageNumber}, lote {batch[0].Order}: falhou 2x; dividindo em lotes menores.");
                     var mid = batch.Length / 2;
-                    var left = await TranslateBatchAsync(client, batch[..mid], pageNumber, log, cacheDirectory, cancellationToken);
-                    var right = await TranslateBatchAsync(client, batch[mid..], pageNumber, log, cacheDirectory, cancellationToken);
+                    var left = await TranslateBatchCoreAsync(client, batch[..mid], pageNumber, log, cacheDirectory, cancellationToken);
+                    var right = await TranslateBatchCoreAsync(client, batch[mid..], pageNumber, log, cacheDirectory, cancellationToken);
                     foreach (var (translationKey, translationValue) in right) left[translationKey] = translationValue;
                     return left;
                 }
