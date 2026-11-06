@@ -140,6 +140,7 @@ Calcular métricas por amostra, turno e operação; não guardar somente médias
 
 As hipóteses abaixo tratam da comparação focal entre writers compactos, não da superioridade universal de GU-json. [[01_Projeto/02_perguntas_hipoteses|Hipóteses de trabalho]]
 
+
 **Antecedente bibliográfico:** Hwang et al. relatam vantagem de `GU_json` sobre `GU_text` sob memória limitada; `CoK_json` supera as baselines comparadas. O artigo do SUMIE relata perfis diferentes entre modelos. Essas evidências motivam o método e a comparação, sem responder sobre os três writers escolhidos. [[06_Referencias/referencias#Hwang et al. — structured incremental summarization|Hwang et al., 2024]]; [[06_Referencias/referencias#Hwang et al. — SUMIE|SUMIE, 2025]].
 
 - **H1 — perfis de erro por writer:** sob GU-json, schema e orçamento fixos, os modelos selecionados apresentam diferenças mensuráveis na preservação de estado antigo e na incorporação de informação nova, sem previsão de vencedor ou causalidade apenas arquitetural.

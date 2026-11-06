@@ -135,7 +135,7 @@ tccHarnes/
 │   └── README.md
 ├── artigos/
 ├── arquitetura_mini_harness_bibliografico.md
-├── planejamento_mini_harness_completo.md
+├── planejamento_validador_tcc.md
 └── ... (outros arquivos)
 ```
 

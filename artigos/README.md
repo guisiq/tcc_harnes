@@ -1,11 +1,12 @@
 # Artigos (não versionados)
 
-Esta pasta guarda cópias locais dos PDFs referenciados em
-[`planejamento_mini_harness_completo.md`](../planejamento_mini_harness_completo.md) (seção 10 — Referências).
+Esta pasta guarda cópias locais dos PDFs da
+[bibliografia atual do TCC](../TCC_Checkpoint_JSON_Obsidian/06_Referencias/referencias.md)
+e arquivos de planejamentos anteriores, mantidos como histórico.
 
-O conteúdo de `artigos/*` está no `.gitignore` — os PDFs **não** são enviados ao repositório
-público (risco de direitos autorais). O Zotero continua sendo a fonte de verdade do corpus
-(seção 6.0); esta tabela é apenas um rastreamento manual local de quais arquivos já foram
+O conteúdo de `artigos/*` está no `.gitignore` — PDFs, Markdown extraídos e imagens **não**
+são enviados ao repositório público (risco de direitos autorais). O Zotero continua sendo a fonte de verdade do corpus;
+este README registra quais arquivos já foram
 baixados aqui.
 
 Ao baixar um artigo manualmente, salve-o nesta pasta com o nome de arquivo indicado e marque
@@ -13,7 +14,7 @@ o status abaixo.
 
 ## Bibliografia focal auditada — 2026-11-06
 
-A bibliografia do TCC está em [referencias.md](../TCC_Checkpoint_JSON_Obsidian/06_Referencias/referencias.md), com [prioridades de leitura](../TCC_Checkpoint_JSON_Obsidian/06_Referencias/artigos_prioridade.md). A lista abaixo orienta a atualização do acervo; esta edição não baixou PDFs, não alterou o Zotero e não confirma o status local de novos anexos.
+A bibliografia do TCC está em [referencias.md](../TCC_Checkpoint_JSON_Obsidian/06_Referencias/referencias.md), com [prioridades de leitura](../TCC_Checkpoint_JSON_Obsidian/06_Referencias/artigos_prioridade.md). As 23 referências dessa bibliografia estão disponíveis no acervo local e no Zotero. O lote de aquisição abaixo se limita a essa lista, sem ampliar a busca ao planejamento antigo ou às bibliografias internas dos PDFs.
 
 | Fonte | Papel e atualização |
 | --- | --- |
@@ -25,7 +26,42 @@ A bibliografia do TCC está em [referencias.md](../TCC_Checkpoint_JSON_Obsidian/
 | [JSONSchemaBench](https://arxiv.org/abs/2501.10868) | Usar o título atualizado: JSONSchemaBench: A Rigorous Benchmark of Structured Outputs for Language Models. |
 | [Lu et al., 2026](https://arxiv.org/abs/2601.12979) + [Mündler et al., 2025](https://arxiv.org/abs/2508.10111) | Contrapontos sobre difusão, sem antecipar resultado no GU-json compacto. |
 
-Os nomes dos PDFs e o bloco sincronizado abaixo são registros de arquivos, não metadados bibliográficos corrigidos automaticamente. Conservar nomes para rastreabilidade e usar ano/versão/publicação da bibliografia na citação acadêmica. Metadados de surveys e demais itens anteriores fora da auditoria não foram revalidados nesta atualização.
+### Acervo local conferido — 2026-11-06
+
+- **13 artigos ausentes** baixados de ACL Anthology/arXiv e importados em `tcc_harnes_slm > 02_dominio`, com o PDF anexado ao registro bibliográfico.
+- **10 artigos existentes** reutilizados sem alterar seus itens, anexos ou coleções no Zotero. Suas versões locais foram preservadas; o link oficial pode apontar para uma revisão posterior.
+- **23 pastas por artigo**, com PDF e Markdown juntos; `img/` contém as imagens raster incorporadas extraídas, quando presentes. Figuras vetoriais continuam disponíveis no PDF.
+- **22 conversões novas** e a conversão anterior de Zeng preservada. PDFs conferidos, cópias local/Zotero idênticas por SHA-256 e **215 links de imagens locais** validados.
+
+Os nomes abreviados das novas pastas evitam caminhos excessivamente longos no Windows. As cópias e os nomes anteriores permanecem intactos; os títulos completos e metadados para citação continuam na bibliografia e no Zotero.
+
+| Referência / fonte oficial | Pasta local com PDF e Markdown | Zotero | PDF local |
+| --- | --- | --- | --- |
+| [Hwang 2024 — GU-json](https://aclanthology.org/2024.findings-emnlp.220/) | [pasta](03-memoria-de-agentes/Hwang%20et%20al.%20-%202024%20-%20Structured%20Incremental%20Summarization/) | [abrir](zotero://select/library/items/8ECF6DHI) | Existente preservado |
+| [SUMIE — COLING 2025](https://aclanthology.org/2025.coling-main.721/) | [pasta](03-memoria-de-agentes/Hwang%20et%20al.%20-%202025%20-%20SUMIE/) | [abrir](zotero://select/library/items/6W64CHBX) | Novo; versão publicada |
+| [Intrinsic Memory Agents](https://arxiv.org/abs/2508.08997) | [pasta](03-memoria-de-agentes/Yuen%20et%20al.%20-%202025%20-%20Intrinsic%20Memory%20Agents/) | [abrir](zotero://select/library/items/V4BVXK9U) | Existente preservado |
+| [On the Structural Memory of LLM Agents](https://arxiv.org/abs/2412.15266) | [pasta](03-memoria-de-agentes/Zeng%20et%20al.%20-%202024%20-%20On%20the%20Structural%20Memory%20of%20LLM%20Agents/) | [abrir](zotero://select/library/items/7EPCIINZ) | Existente preservado |
+| [MemoryAgentBench](https://arxiv.org/abs/2507.05257) | [pasta](03-memoria-de-agentes/Hu%20et%20al.%20-%202025%20-%20MemoryAgentBench/) | [abrir](zotero://select/library/items/FDZ4ESMG) | Existente preservado |
+| [LoCoMo](https://arxiv.org/abs/2402.17753) | [pasta](03-memoria-de-agentes/Maharana%20et%20al.%20-%202024%20-%20LoCoMo/) | [abrir](zotero://select/library/items/HGGXZZ8N) | Existente preservado |
+| [Chain-of-Memory](https://arxiv.org/abs/2601.14287) | [pasta](03-memoria-de-agentes/Xu%20et%20al.%20-%202026%20-%20Chain-of-Memory/) | [abrir](zotero://select/library/items/386GEDCC) | Existente preservado |
+| [T5Gemma — Encoder-Decoder Gemma](https://arxiv.org/abs/2504.06225) | [pasta](02-slm-modelos-pequenos/Zhang%20et%20al.%20-%202025%20-%20T5Gemma/) | [abrir](zotero://select/library/items/4BS6W8J9) | Novo; arXiv v1 |
+| [Scaling Diffusion via Adaptation](https://arxiv.org/abs/2410.17891) | [pasta](02-slm-modelos-pequenos/Gong%20et%20al.%20-%202024%20-%20Scaling%20Diffusion%20via%20Adaptation/) | [abrir](zotero://select/library/items/KK44XS3M) | Novo; arXiv v3 |
+| [Scaling up Masked Diffusion Models on Text](https://arxiv.org/abs/2410.18514) | [pasta](02-slm-modelos-pequenos/Nie%20et%20al.%20-%202024%20-%20Scaling%20up%20Masked%20Diffusion%20Models%20on%20Text/) | [abrir](zotero://select/library/items/MTYA4MFG) | Novo; arXiv v3 |
+| [PRISM — EMNLP 2025](https://aclanthology.org/2025.emnlp-main.517/) | [pasta](03-memoria-de-agentes/Jayalath%20et%20al.%20-%202025%20-%20PRISM/) | [abrir](zotero://select/library/items/9GCE4MWG) | Novo; versão publicada |
+| [JSONSchemaBench](https://arxiv.org/abs/2501.10868) | [pasta](04-harness-e-avaliacao/Geng%20et%20al.%20-%202025%20-%20JSONSchemaBench/) | [abrir](zotero://select/library/items/JUHDARXC) | Novo; arXiv v3 |
+| [Grammar-Constrained Decoding — EMNLP 2023](https://aclanthology.org/2023.emnlp-main.674/) | [pasta](04-harness-e-avaliacao/Geng%20et%20al.%20-%202023%20-%20Grammar-Constrained%20Decoding/) | [abrir](zotero://select/library/items/2K8C6DM4) | Novo; versão publicada |
+| [Constrained Decoding of Diffusion LLMs](https://arxiv.org/abs/2508.10111) | [pasta](04-harness-e-avaliacao/Mundler%20et%20al.%20-%202025%20-%20Constrained%20Decoding%20of%20Diffusion%20LLMs/) | [abrir](zotero://select/library/items/6VUW8TAN) | Novo; arXiv v1 |
+| [Agents of Diffusion](https://arxiv.org/abs/2601.07152) | [pasta](04-harness-e-avaliacao/Khanal%20et%20al.%20-%202026%20-%20Agents%20of%20Diffusion/) | [abrir](zotero://select/library/items/6ZZFUKDP) | Novo; arXiv v1 |
+| [Petersen 2008 — Systematic Mapping Studies](https://doi.org/10.14236/ewic/ease2008.8) | [pasta](01-metodologia-revisao/Petersen%20et%20al.%20-%202008%20-%20Systematic%20Mapping%20Studies/) | [abrir](zotero://select/library/items/LTF95YLK) | Existente preservado |
+| [Petersen 2015 — Mapping Guidelines](https://doi.org/10.1016/j.infsof.2015.03.007) | [pasta](01-metodologia-revisao/Petersen%20et%20al.%20-%202015%20-%20Systematic%20Mapping%20Guidelines/) | [abrir](zotero://select/library/items/AZQIGMHU) | Existente preservado |
+| [Wohlin 2014 — Snowballing](https://doi.org/10.1145/2601248.2601268) | [pasta](01-metodologia-revisao/Wohlin%20-%202014%20-%20Guidelines%20for%20Snowballing/) | [abrir](zotero://select/library/items/9KRGQ4FM) | Existente preservado |
+| [Kitchenham 2010 — Tertiary Study](https://doi.org/10.1016/j.infsof.2010.03.006) | [pasta](01-metodologia-revisao/Kitchenham%20et%20al.%20-%202010%20-%20Systematic%20Literature%20Reviews/) | [abrir](zotero://select/library/items/53RY4CDP) | Existente preservado |
+| [Qwen3 Technical Report](https://arxiv.org/abs/2505.09388) | [pasta](02-slm-modelos-pequenos/Yang%20et%20al.%20-%202025%20-%20Qwen3%20Technical%20Report/) | [abrir](zotero://select/library/items/LNITDSY9) | Novo; arXiv v1 |
+| [Block Diffusion](https://arxiv.org/abs/2503.09573) | [pasta](02-slm-modelos-pequenos/Arriola%20et%20al.%20-%202025%20-%20Block%20Diffusion/) | [abrir](zotero://select/library/items/NH96Q3CG) | Novo; arXiv v3 |
+| [The Bitter Lesson of Diffusion for Agentic Workflows](https://arxiv.org/abs/2601.12979) | [pasta](04-harness-e-avaliacao/Lu%20et%20al.%20-%202026%20-%20Bitter%20Lesson%20of%20Diffusion%20for%20Agentic%20Workflows/) | [abrir](zotero://select/library/items/9PD3J7EZ) | Novo; arXiv v3 |
+| [LongMemEval](https://arxiv.org/abs/2410.10813) | [pasta](03-memoria-de-agentes/Wu%20et%20al.%20-%202024%20-%20LongMemEval/) | [abrir](zotero://select/library/items/NJTS6Q8P) | Novo; arXiv v2 |
+
+O bloco sincronizado ao final deste README lista as cópias planas da raiz; o catálogo acima aponta para as pastas organizadas. Usar ano/versão/publicação da bibliografia na citação acadêmica. Metadados e pendências de surveys e demais itens do planejamento antigo, fora do escopo deste lote, não foram revalidados.
 
 ## Referências — Domínio
 
@@ -47,19 +83,21 @@ Os nomes dos PDFs e o bloco sincronizado abaixo são registros de arquivos, não
 
 | Chave (Zotero) | Autor(es) / Ano | Título | Fonte | Arquivo esperado | Status |
 |---|---|---|---|---|---|
-| petersen2008 | Petersen et al., 2008 | Systematic Mapping Studies in Software Engineering | [DOI verificado](https://doi.org/10.14236/ewic/ease2008.8); acesso integral não confirmado na auditoria | `petersen2008_mapping_studies.pdf` | ⬜ pendente |
-| petersen2015 | Petersen et al., 2015 | Guidelines for conducting systematic mapping studies in software engineering: An update | [DOI verificado](https://doi.org/10.1016/j.infsof.2015.03.007); acesso integral não confirmado na auditoria | `petersen2015_mapping_guidelines.pdf` | ⬜ pendente |
+| petersen2008 | Petersen et al., 2008 | Systematic Mapping Studies in Software Engineering | [DOI verificado](https://doi.org/10.14236/ewic/ease2008.8) | [PDF](01-metodologia-revisao/Petersen%20et%20al.%20-%202008%20-%20Systematic%20Mapping%20Studies/Petersen%20et%20al.%20-%202008%20-%20Systematic%20Mapping%20Studies.pdf) | ✅ PDF local e anexo Zotero verificados |
+| petersen2015 | Petersen et al., 2015 | Guidelines for conducting systematic mapping studies in software engineering: An update | [DOI verificado](https://doi.org/10.1016/j.infsof.2015.03.007) | [PDF](01-metodologia-revisao/Petersen%20et%20al.%20-%202015%20-%20Systematic%20Mapping%20Guidelines/Petersen%20et%20al.%20-%202015%20-%20Systematic%20Mapping%20Guidelines.pdf) | ✅ PDF local e anexo Zotero verificados |
 | kitchenham2007 | Kitchenham & Charters, 2007 | Guidelines for performing Systematic Literature Reviews in Software Engineering | EBSE-2007-01 (technical report) | `kitchenham2007_slr_guidelines.pdf` | ⬜ pendente |
-| wohlin2014 | Wohlin, 2014 | Guidelines for snowballing in systematic literature studies and a replication in software engineering | [DOI verificado](https://doi.org/10.1145/2601248.2601268); acesso integral não confirmado na auditoria | `wohlin2014_snowballing.pdf` | ⬜ pendente |
+| wohlin2014 | Wohlin, 2014 | Guidelines for snowballing in systematic literature studies and a replication in software engineering | [DOI verificado](https://doi.org/10.1145/2601248.2601268) | [PDF](01-metodologia-revisao/Wohlin%20-%202014%20-%20Guidelines%20for%20Snowballing/Wohlin%20-%202014%20-%20Guidelines%20for%20Snowballing.pdf) | ✅ PDF local e anexo Zotero verificados |
 
-Priorizar Petersen 2015 junto da origem de 2008. [Kitchenham et al., 2010](https://doi.org/10.1016/j.infsof.2010.03.006) complementa com evidência terciária, sem substituir as diretrizes de 2007. Os status históricos de arquivos não foram rechecados nesta edição.
+Priorizar Petersen 2015 junto da origem de 2008. [Kitchenham et al., 2010](https://doi.org/10.1016/j.infsof.2010.03.006), disponível no catálogo focal acima, complementa com evidência terciária, sem substituir as diretrizes de 2007. Kitchenham 2007 e os demais itens históricos fora da bibliografia atual não foram adquiridos neste lote.
 
 ## Como manter rastreável
 
-1. Baixe o PDF pelo acesso institucional/biblioteca.
-2. Salve nesta pasta com o nome de arquivo indicado na tabela.
-3. Marque o status como `✅ baixado` neste README.
-4. Importe o item correspondente no Zotero (fonte de verdade do corpus).
+1. Confira DOI, identificador arXiv e título no Zotero antes de criar um registro, evitando duplicatas.
+2. Obtenha o PDF de uma fonte oficial ou por acesso autorizado; importe os metadados e anexe o PDF ao item correspondente no Zotero.
+3. Preserve os arquivos existentes. Crie a conversão Markdown em uma nova subpasta por artigo, dentro da categoria pertinente, e depois reúna nela o PDF e as imagens extraídas.
+4. Não execute novamente um conversor sobre uma pasta que contenha notas ou arquivos a preservar; use uma pasta distinta para outra versão.
+5. Atualize o catálogo com a fonte oficial, a pasta local, a versão efetivamente salva e o link do item no Zotero.
+6. Confira a abertura do PDF, o conteúdo do Markdown, os links das imagens e a igualdade entre o PDF local e o anexo do Zotero.
 
 Para repetir a sincronização automaticamente no Windows, execute na raiz do
 projeto:
@@ -68,8 +106,10 @@ projeto:
 .\sincronizar-zotero.ps1
 ```
 
-O script copia apenas PDFs do armazenamento local do Zotero, não sobrescreve
-arquivos existentes e atualiza automaticamente a lista de links abaixo.
+O script copia PDFs do armazenamento local do Zotero para a raiz de `artigos`,
+não sobrescreve arquivos existentes e atualiza automaticamente a lista de links abaixo.
+Ele não baixa referências novas, não importa itens no Zotero, não converte PDFs e não
+atualiza o catálogo focal das subpastas; essas etapas são separadas.
 
 <!-- ZOTERO-PDFS-START -->
 ## PDFs sincronizados do Zotero

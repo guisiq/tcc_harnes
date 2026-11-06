@@ -1,0 +1,1076 @@
+
+
+=== PAGE 1 ===
+1 
+ 
+ 
+ 
+ 
+GABINETE DA REITORIA 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+DIRETRIZES GERAIS DO TRABALHO DE CONCLUSÃO DE CURSO-TCC 
+DOS CURSOS DE GRADUAÇÃO DA UNIVERSIDADE ESTADUAL DO 
+TOCANTINS - UNITINS 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+PALMAS/TO  
+2021 
+Documento foi assinado digitalmente por AUGUSTO DE REZENDE CAMPOS em 21/12/2021 11:51:26.
+A autenticidade deste documento pode ser verificada no site https://sgd.to.gov.br/verificador, informando o código verificador: 727341E100EC94A6
+
+=== PAGE 2 ===
+3 
+          
+ 2 
+ 
+ 
+ 
+Reitor 
+Augusto de Rezende Campos 
+ 
+Vice-Reitora 
+Darlene Teixeira Castro 
+ 
+Pró-Reitor de Graduação 
+Alessandra Ruita Santos Czapski 
+ 
+Pró-Reitora de Extensão, Cultura e Assuntos Comunitários 
+Kyldes Batista Vicente 
+ 
+Pró-Reitora de Pesquisa e Pós-Graduação 
+Ana Flávia Gouveia de Faria 
+ 
+Pró-Reitor de Administração e Finanças 
+Daniel Alencar Bardal 
+ 
+Diretora de Administração Acadêmica 
+Leomara Maurício Lustosa 
+ 
+Diretora de Ensino 
+Jeany Castro dos Santos 
+ 
+Equipe Técnica 
+Victor Hugo da Silva Leite 
+ 
+ 
+ 
+PALMAS/TO 
+2021 
+ 
+ 
+ 
+Documento foi assinado digitalmente por AUGUSTO DE REZENDE CAMPOS em 21/12/2021 11:51:26.
+A autenticidade deste documento pode ser verificada no site https://sgd.to.gov.br/verificador, informando o código verificador: 727341E100EC94A6
+
+=== PAGE 3 ===
+3 
+          
+ 
+ 
+ 
+ 
+ 
+DIRETORES DE CÂMPUS 
+ 
+Câmpus de Araguatins 
+Sergio Mendes de Anchieta Marinho 
+ 
+Câmpus de Augustinópolis 
+Gisele Leite Padilha 
+ 
+Câmpus de Dianópolis 
+Ana Felícia Cavalcanti Pires 
+ 
+Câmpus de Palmas 
+Ulisses Franklin Carvalho da Cunha 
+ 
+Câmpus de Paraíso 
+Kenia Paulino de Queiroz Souza 
+ 
+ 
+ 
+ 
+ 
+ORGANIZAÇÃO E ELABORAÇÃO 
+Leandro Gomes da Silva Marlúcia F. L. de Almeida 
+Thania Maria Fonseca Aires Dourado 
+ 
+ 
+ATUALIZAÇÃO 
+Alessandra Ruita Santos Czapski 
+Jeany Castro dos Santos 
+Documento foi assinado digitalmente por AUGUSTO DE REZENDE CAMPOS em 21/12/2021 11:51:26.
+A autenticidade deste documento pode ser verificada no site https://sgd.to.gov.br/verificador, informando o código verificador: 727341E100EC94A6
+
+=== PAGE 4 ===
+3 
+          
+ 
+SUMÁRIO  
+ 
+1. APRESENTAÇÃO ................................................................................. 6 
+2. OBJETIVOS DO TCC ............................................................................ 7 
+3. FORMATO DOS TRABALHOS DE CONCLUSÃO DE CURSO ............. 8 
+3.1 Monografia ....................................................................................... 8 
+3.1.1 Parte pré-textual ........................................................................ 8 
+3.1.2 Capa, folha de rosto e folha de aprovação ................................ 8 
+3.1.3 Itens opcionais .......................................................................... 8 
+3.1.4 Resumo .................................................................................... 9 
+3.1.5 Sumário .................................................................................... 9 
+3.1.6 Parte textual ............................................................................ 10 
+3.1.7 Parte pós-textual ..................................................................... 12 
+3.2 Roteiro para estruturação do Artigo científico ................................ 13 
+4. CUIDADOS NA REDAÇÃO DO TCC ................................................... 15 
+5. ROTEIRO DE APRESENTAÇÃO GRÁFICA DO TCC ......................... 16 
+5.1 Margens ......................................................................................... 16 
+5.2 Espaçamento ................................................................................. 16 
+5.3 Fonte ............................................................................................. 17 
+5.4 Paginação ...................................................................................... 17 
+5.5 Numeração progressiva ................................................................. 17 
+5.6 Citação - de acordo com as normas da ABNT ................................ 18 
+5.7 Notas de rodapé ............................................................................. 19 
+5.8 Formato de tabelas e quadros ....................................................... 19 
+5.9 Formatação de referências ............................................................. 19 
+6. CRITÉRIOS DE AVALIAÇÃO .............................................................. 19 
+6.1 Parte escrita ................................................................................... 19 
+6.2 Defesa oral .................................................................................... 20 
+6.3 Observações importantes ............................................................... 21 
+7. DO ORIENTADOR ............................................................................... 21 
+7.1 Competências do professor orientador .......................................... 21 
+8. DO ESTUDANTE ................................................................................. 22 
+8.1 Responsabilidades do aluno orientando ........................................ 22 
+Documento foi assinado digitalmente por AUGUSTO DE REZENDE CAMPOS em 21/12/2021 11:51:26.
+A autenticidade deste documento pode ser verificada no site https://sgd.to.gov.br/verificador, informando o código verificador: 727341E100EC94A6
+
+=== PAGE 5 ===
+3 
+          
+ 
+8.2 Observações importantes para orientadores e orientandos ............. 23 
+9 APRESENTAÇÃO DO TCC À BANCA EXAMINADORA ..................... 24 
+9.1 Normas para a apresentação oral do TCC para a banca 
+examinadora .................................................................................. 24 
+10 MANUAL DO TCC ................................................................................ 25 
+Documento foi assinado digitalmente por AUGUSTO DE REZENDE CAMPOS em 21/12/2021 11:51:26.
+A autenticidade deste documento pode ser verificada no site https://sgd.to.gov.br/verificador, informando o código verificador: 727341E100EC94A6
+
+=== PAGE 6 ===
+ 
+ 
+1. APRESENTAÇÃO 
+ 
+Apresentam-se a seguir as diretrizes gerais para a elaboração do Trabalho de  
+Conclusão de Curso – TCC da Universidade Estadual do Tocantins – Unitins, com o 
+propósito de conferir um padrão institucional a essa atividade acadêmica. 
+O Trabalho de Conclusão de Curso (TCC) integra o Projeto Pedagógico dos  
+Cursos (PPC) de licenciatura e bacharelado da Universidade Estadual do Tocantins  
+(Unitins), constitui atividade acadêmica de sistematização do conhecimento sobre  
+um objeto de estudo, sendo o resultado do desenvolvimento de um projeto de  
+pesquisa bibliográfica, descritiva e/ou pesquisa de campo , realizada sob orientação 
+docente, cuja exigência é requisito o brigatório para integralização curricular dos  
+cursos. 
+O TCC busca integrar diversas áreas do conhecimento e, principalmente, 
+articular os conhecimentos vivenciados e relacionados às competências e 
+habilidades desenvolvidas pelo acadêmico ao longo do curso,  contribuindo, assim, 
+para a sua formação profissional. Como produto final de um trabalho de pesquisa  
+fundamentado no rigor metodológico da ciência, o TCC sistematiza concepções e  
+práticas dos processos sociais. 
+No âmbito da Unitins, o TCC poderá ser apresentado no formato de 
+monografia, relatório, memorial, artigo científico, desenvolvimento  de equipamentos, 
+protótipos ou outra forma definida em regulamento próprio, conforme especificado 
+no Projeto Pedagógico do Curso (PPC) o qual deverá definir os cr itérios de 
+avaliação do trabalho escrito e da apresentação oral.  
+Para os casos de elaboração de artigo acadêmico publicado em períodico com 
+qualis, será facultado ao curso, em normativa própria , a dispensa da apresentação 
+oral, sendo que para todos os formatos, o TCC deve seguir a finalidade, a 
+abordagem, os objetivos e os procedimentos da pesquisa científica. Entende -se 
+sobre cada um desses itens: 
+a) finalidade - deve apresentar a contribuição que o estudo trará para a  ciência; 
+b) abordagem metodológica – deve ser categorizada em qualitativa, quantitativa ou 
+quali-quantitativa; 
+c) os objetivos - devem seguir o tipo de conhecimento que o pesquisador tem 
+ntenção de produzir, pode ser exploratório, descritivo ou explicativo; 
+ 
+Documento foi assinado digitalmente por AUGUSTO DE REZENDE CAMPOS em 21/12/2021 11:51:26.
+A autenticidade deste documento pode ser verificada no site https://sgd.to.gov.br/verificador, informando o código verificador: 727341E100EC94A6
+
+=== PAGE 7 ===
+ 
+ 
+d) procedimentos metodológicos - podem ser bibliográfico, documental, estudo 
+de caso, de campo ou outros procedimentos que atendam aos propósitos  do 
+pesquisador. 
+Para os cursos que definirem como obrigatório a apresentação oral do TCC, 
+esta se dará por meio da exposição oral do acadêmico perante uma banca 
+examinadora que o avaliará e o validará. Quando se tratar da modalidade de  Ensino 
+a Distância – EaD, o formato da apresentação será definido no Projeto Pedagógico 
+do Curso. 
+No caso do TCC ser elaborado no formato de monografia ou artigo científico , 
+conforme o PPC de cada curso , deve estar adequado a uma das linhas de 
+pesquisas indicadas pelo curso, podendo ainda estar em consonância com o estágio 
+realizado ou com uma temática com a qual o  acadêmico tenha se identificado no 
+decorrer das disciplinas. Caberá a cada curso, segundo o PPC, definir se o projeto e 
+o desenvolvimento do TCC ocorrerão em um mesmo semestre. 
+Em termos conceituais, a monografia consiste em um relato analítico (dissertação) 
+escrito sobre um tema específico, no qual constam observações, pesquisa 
+bibliográfica e/ou de campo  e descrições interligadas de maneira científica; o artigo 
+científico é um trabalho acadêmico que apresenta resultados sucintos, porém 
+completos, de uma pesquisa realizada de acordo com um método científico. 
+Para que o TCC seja no formato de monografia ou artigo acadêmico, este deve 
+seguir as regras (NBR) definidas pela Associação Brasileira  de Normas Técnicas 
+(ABNT), em vigência no momento de elaboração do TCC. 
+ 
+2. OBJETIVOS DO TCC 
+ 
+ Estimular a produção científica e contribuir para o desenvolvimento das  
+diferentes linhas de pesquisas das áreas. 
+ Possibilitar o aprofundamento de temas abordados durante o curso, integrando 
+os conteúdos e atividades desenvolvidas nas diversas disciplinas. 
+ Aprimorar as habilidades acadêmicas trabalhadas e desenvolvidas pelo  
+estudante no decorrer do curso. 
+ Propiciar ao estudante o desenvolvimento de uma atividade investigativa,  
+buscando a resolução de problemas evidenciados na prática profissional e  a 
+integração ensino serviço-comunidade. 
+Documento foi assinado digitalmente por AUGUSTO DE REZENDE CAMPOS em 21/12/2021 11:51:26.
+A autenticidade deste documento pode ser verificada no site https://sgd.to.gov.br/verificador, informando o código verificador: 727341E100EC94A6
+
+=== PAGE 8 ===
+ 
+ 
+ Capacitar o estudante para a elaboração de trabalhos científicos. 
+ Preparar o estudante para a continuidade de seus estudos e de sua formação 
+na pós-graduação. 
+ 
+ 
+3. FORMATO DOS TRABALHOS DE CONCLUSÃO DE CURSO 
+ 
+3.1 Monografia 
+ 
+No caso de TCC no formato de monografia, deverá apresentar parte pré-textual, 
+textual e pós-textual. Cada uma dessas partes possui suas próprias subdivisões. De  
+modo geral, a estrutura da monografia segue regras (NBR) definidas pela 
+Associação Brasileira  de Normas Técnicas (ABNT), devendo conter os  itens 
+elencados a seguir. 
+ 
+3.1.1 Parte pré-textual 
+ 
+Esta parte compreende os itens listados a seguir, segundo sua ordem de 
+apresentação: capa; folha de rosto; folha de aprovação; dedicatória (opcional); 
+agradecimentos (opcional); epígrafe (opcional); resumo; listas (opcional) e sumário. 
+ 
+3.1.2 Capa, folha de rosto e folha de aprovação 
+ 
+ Devem seguir os modelos contidos nas diretrizes, conforme descritos a seguir. 
+ Na capa, folha de rosto e folha de aprovação deve constar o título do  TCC, que 
+deve ser claro e conciso. 
+ Devem-se usar as palavras-chave (de três a cinco palavras ou expressões). 
+ A capa do TCC deve ser apresentada em papel com o timbre da 
+instituição; o TCC deverá ser entregue no formato impresso ou digital em 
+conformidade com as normas vigintes pela biblioteca. 
+ Os espaçamentos sugeridos para a capa, folha de rosto e folha de aprovação 
+(nos modelos apresentados a seguir) podem ser alterados conforme a necessidade, 
+prevalecendo sempre o bom senso e a estética. 
+ 
+ 
+3.1.3 Itens opcionais 
+ 
+Consideram-se itens opcionais: dedicatória; agradecimentos; epígrafe; lista de  
+Documento foi assinado digitalmente por AUGUSTO DE REZENDE CAMPOS em 21/12/2021 11:51:26.
+A autenticidade deste documento pode ser verificada no site https://sgd.to.gov.br/verificador, informando o código verificador: 727341E100EC94A6
+
+=== PAGE 9 ===
+ 
+ 
+ilustrações; lista de tabelas; lista de abreviaturas e siglas e lista de símbolos. 
+Se o acadêmico optar pela inclusão parcial ou total desses itens, eles já  deverão 
+estar incluídos nas cópias do TCC, entregues à banca examinadora para  defesa, na 
+seguinte ordem: folha de rosto, folha de aprovação, dedicatória, agradecimentos, 
+epígrafe, lista de ilustrações, listas de abreviaturas e siglas, listasde símbolos e 
+sumário. 
+Se o autor optar pela apresentação de um ou mais desses itens opcionais  
+deverá escrever seu(s) título(s) em letras maiúsculas e negrito, centralizado na folha, 
+sem pontuação, e seguindo as instruções anteriores com relação às margens. 
+O TCC deverá conter um resumo em língua estrangeira (inglês ou espanhol),  que 
+será uma versão do resumo em português. 
+ 
+3.1.4 Resumo 
+ 
+O resumo é a apresentação concisa e seletiva do texto, indicando a natureza  
+do problema estudado, a metodologia utilizada, os resultados mais importantes e as  
+principais conclusões. A finalidade do resumo é difundir o mais amplamente possível 
+as informações do trabalho e permitir, a quem o lê, decidir sobre a conveniência de 
+consultar o texto completo. A extensão do resumo deve ser de 150   a 250 palavras. 
+A palavra resumo, centralizada, deve ser escrita com letras maiúsculas e em  
+negrito (RESUMO). O espaçamento entre a palavra resumo e o início do texto deve 
+ser de 2 (dois) espaços de 1,5 (um e meio). O espaçamento no texto do resumo  
+deve ser de  1,0 (um) espaço.  O texto do  resumo deve ser redigido em parágrafo 
+único. 
+ 
+3.1.5 Sumário 
+ 
+No sumário são relacionados os capítulos e suas subdivisões, conforme 
+aparecem no corpo principal da monografia, indicando-se as respectivas páginas. As 
+partes que precedem o sumário não devem ser relacionadas, porém os apêndices e 
+anexos, sempre que existirem, devem ser incluídos. A palavra “sumário” deve ser 
+apresentada no alto e no centro da página, com letras maiúsculas e sem pontuação. 
+Os títulos dos capítulos devem ser escritos com letras maiúsculas e os das  
+subdivisões, com minúsculas, exceto a letra inicial da primeira palavra e a de nomes 
+próprios. A numeração da subdivisão (se houver) segue o mesmo  alinhamento em 
+Documento foi assinado digitalmente por AUGUSTO DE REZENDE CAMPOS em 21/12/2021 11:51:26.
+A autenticidade deste documento pode ser verificada no site https://sgd.to.gov.br/verificador, informando o código verificador: 727341E100EC94A6
+
+=== PAGE 10 ===
+ 
+ 
+relação à numeração dos títulos dos capítulos. 
+ 
+3.1.6 Parte textual 
+ 
+Esta parte compreende as seguintes subdivisões: 
+ 
+I. Introdução; 
+II. Revisão de literatura ou Referencial Teórico; 
+III. Material e métodos ou metodologia; IV.Resultados; 
+V. Análise e discussão dos dados; VI.Considerações finais. 
+As subdivisões “Resultados e Discussão” podem ser reunidas em um único  
+capítulo. As partes da monografia deverão ser numeradas conforme indicado 
+anteriormente. Se ocorrer subdivisão de alguns itens, deve-se proceder à sua 
+numeração progressiva. 
+ 
+I - Introdução 
+ 
+Tem por objetivo fornecer ao leitor os antecedentes que justificam o trabalho,  
+bem como focalizar o assunto a ser tratado. A introdução pode incluir informações  
+sobre a natureza e importância do problema, relação com outros estudos sobre o  
+mesmo assunto, razões para a realização do trabalho, suas limitações e seus  
+objetivos. Os objetivos devem ser colocados no último parágrafo. Não se deve m 
+incluir as conclusões do trabalho. 
+ 
+II - Revisão de literatura 
+ 
+A importância dessa parte do trabalho está relacionada com a necessidade que 
+o leitor tem de saber o que existe na literatura correlata. O autor deve aí incluir  
+informações e sugestões sobre  o problema em estudo, bem como confirmar a  
+utilidade da pesquisa, quer seja para cobrir lacunas existentes na literatura, quer  
+seja para reforçar trabalhos já realizados e que necessitam confirmação e 
+continuação. A revisão de literatura deve se referir, sempre que possível, somente  
+aos assuntos que tenham relação direta e específica com o trabalho, isto é, aqueles  
+que forem úteis ao trabalho. 
+É aconselhável que as referências sejam apresentadas em ordem cronológica, 
+não devendo, porém, sobrepor -se a sequência natural do assunto  tratado. Assim, 
+diferentes trabalhos que tratam do mesmo assunto devem ser examinados 
+Documento foi assinado digitalmente por AUGUSTO DE REZENDE CAMPOS em 21/12/2021 11:51:26.
+A autenticidade deste documento pode ser verificada no site https://sgd.to.gov.br/verificador, informando o código verificador: 727341E100EC94A6
+
+=== PAGE 11 ===
+ 
+ 
+conjuntamente. Os trabalhos consultados devem ser citados de acordo  com as 
+regras vigentes (NBR) definidas pela Associação Brasileira  de Normas Técnicas 
+(ABNT). 
+ 
+III - Material e métodos ou metodologia 
+ 
+Esta seção tem como objetivo descrever o tipo de pesquisa realizada em seu  
+TCC. Nessa etapa, expõe -se todo o material utilizado na pesquisa, assim como os  
+métodos, de forma a permitir ao leitor a compreensão e interpretação dos resultados, 
+bem como a reprodução do estudo ou a utilização dos métodos; descrevem (se for o 
+caso) instrumentos e fontes escolhidos para a coleta de dados  como entrevistas, 
+formulários, questionários, legislação etc. 
+Devem ser incluídas apenas as informações pertinentes à pesquisa, evitando - 
+se aquelas desnecessárias. Esta parte do TCC deve incluir, quando cabível, 
+informações sobre o local da pesquisa, período do experimento, população estudada 
+e amostragem.  
+Recomenda-se que as pesquisas de campo com seres humanos devem passar 
+pela avaliação do Comitê de Ética em Pesquisa com Seres Humanos (CEP)  e as 
+pesquisas realizadas com animais devem passar pelo Comissão de Ética no Uso de 
+Animais da Universidade Estadual do Tocantins (CEUA/Unitins). 
+ 
+IV - Resultados 
+ 
+Os resultados devem sempre estar baseados em dados e serem apresentados 
+de forma objetiva, exata, clara e lógica, utilizando-se tabelas, gráficos e ilustrações 
+que completem o texto. Devem ser incluídos tanto os resultados esperados como os 
+não esperados, que tenham algum significado, sendo que, a  critério do autor, os 
+resultados podem ser agrupados e apresentados em subcapítulos. 
+ 
+ 
+V - Análise e discussão dos dados 
+ 
+Na discussão dos resultados o autor deve: 
+a) estabelecer relações entre causas e efeitos; 
+b) deduzir as generalizações e princípios básicos que tenham comprovação nas 
+observações experimentais; 
+c) esclarecer exceções, modificações e contradições das hipóteses, teorias e 
+Documento foi assinado digitalmente por AUGUSTO DE REZENDE CAMPOS em 21/12/2021 11:51:26.
+A autenticidade deste documento pode ser verificada no site https://sgd.to.gov.br/verificador, informando o código verificador: 727341E100EC94A6
+
+=== PAGE 12 ===
+ 
+ 
+princípios diretamente relacionados com o trabalho realizado; 
+d) indicar as aplicações teóricas e práticas dos resultados obtidos, bem como as 
+suas limitações; 
+e) procurar elaborar, sempre que possível, uma teoria para explicar certas 
+observações ou resultados obtidos; 
+f) distinguir o que já é conhecido e o que ainda precisa ser pesquisado. 
+ 
+Nesse capítulo deve-se evitar superficialidade, extrapolação dos dados, 
+conjecturas não claramente mostradas pelos dados e parcialidade na interpretação. 
+ 
+ 
+VI - Considerações finais 
+ 
+As considerações finais devem ser apresentadas de modo claro, objetivo e  
+lógico, baseadas somente nos fatos comprovados e já discutidos durante o trabalho. 
+Devem ser propostas soluções para o problema estudado. Elas contêm a  síntese da 
+discussão, avaliação do trabalho e propostas de novos problemas surgidos no 
+desenvolvimento do trabalho e que mereçam ser pesquisados. 
+ 
+3.1.7 Parte pós-textual 
+ 
+ 
+a) Referências 
+ 
+As referências são compostas por um conjunto de indicações precisas e 
+minuciosas que permitem a identificação de publicações utilizadas para a elaboração 
+do TCC. 
+Devem aparecer listadas após o texto, em ordem alfabética de sobrenome de  
+autor e, para o mesmo autor, em ordem alfabética de título. 
+Os elementos essenciais de uma referência devem ser obtidos no próprio  
+documento pesquisado e apresentados segundo a versão mais recente da NBR  
+ABNT 6023. 
+ 
+b) Apêndice(s) e anexo(s) 
+ 
+O apêndice e/ou anexo pode ou não ser incluído e, quando presente, deve vir  
+após as referências, sendo que na página inicial, deverá aparecer a palavra 
+APÊNDICE ou ANEXO, seguida da letra de ordem, travessão e o respectivo título. 
+Documento foi assinado digitalmente por AUGUSTO DE REZENDE CAMPOS em 21/12/2021 11:51:26.
+A autenticidade deste documento pode ser verificada no site https://sgd.to.gov.br/verificador, informando o código verificador: 727341E100EC94A6
+
+=== PAGE 13 ===
+ 
+ 
+O apêndice constitui de matéria elaborada pelo próprio autor, com o objetivo de 
+comprovar, esclarecer e/ou complementar suas ideias. O anexo se constitui de  
+documentos não elaborados pelo autor. 
+ 
+3.2 Roteiro para estruturação do Artigo científico 
+ 
+O objetivo fundamental de um artigo  é ser um meio  rápido e sucinto de  
+divulgar e tornar conhecidos, por meio de sua publicação em periódicos 
+especializados, os resultados alcançados no processo de investigação  e/ou na  
+análise de uma questão. Para o Trabalho de Conclusão de Curso, o acadêmico, o 
+artigo acadêmico pode ser estruturado, conforme roteiro a seguir:  
+I. Título e subtítulo (se houver) – O título deve ser criativo e expressar 
+objetivamente a essência do trabalho. O subtítulo é opcional, devendo  ser utilizado 
+somente quando for necessário complementar o título  apresentado, com 
+informações relevantes para melhorar a compreensão do tema.  
+II. Nome do autor – O nome do autor (acadêmico) deve ser apresentado no início 
+do trabalho, logo após o título, colocando primeiro o sobrenome e depois o nome. 
+III. Resumo – O resumo não é a introdução do artigo, mas sim uma 
+apresentação breve da sua totalidade, na qual se procura destacar os  aspectos 
+abordados. Deve ser discursivo, e não apenas uma lista dos  tópicos que o artigo 
+aborda. Não se deve citar referências bibliográficas nessa parte. Assim, o resumo 
+tem a finalidade de apresentar, de forma resumida e sequencial, os pontos 
+relevantes do artigo científico, ou seja, o(s) objetivo(s) da pesquisa realizada; a  
+metodologia e os instrumentos de coleta de dados; o local e a população alvo 
+envolvida na pesquisa e os principais resultados alcançados. Tratando-se de 
+pesquisa bibliográfica apresenta-se também em sequência, todos  os itens 
+ressaltados do artigo. 
+IV. Abstract, Resumen ou Résumé - É o resumo traduzido em inglês,  espanhol 
+ou francês, respectivamente. No caso do curso de Letras da  Unitins, o resumo 
+deverá ter sua versão em língua espanhola (resumen). 
+V.  Palavras-chave – Devem ser apresentadas de 3 (três) a 5 (cinco)  palavras 
+e/ou expressões, com inicial maiúscula e separadas por ponto final. Devem 
+representar o tema e as ideias mais recorrentes no texo. 
+VI. Key-words, palabras -clave ou mots-cles: são as palavras-chave em 
+versões em uma língua estrangeira, inglês, espanhol ou francês,  respectivamente, 
+Documento foi assinado digitalmente por AUGUSTO DE REZENDE CAMPOS em 21/12/2021 11:51:26.
+A autenticidade deste documento pode ser verificada no site https://sgd.to.gov.br/verificador, informando o código verificador: 727341E100EC94A6
+
+=== PAGE 14 ===
+ 
+ 
+assim como realizado com o resumo. 
+VII. Introdução – Tem o objetivo de situar o leitor no contexto do tema  pesquisado. 
+Para isso, a introdução oferece uma visão global do estudo realizado, esclarece as 
+delimitações estabelecidas na abordagem do assunto, apresenta as justificativas que 
+levaram o autor a tal investigação, aponta as questões de pesquisa para as quais 
+buscaram respostas, apresenta os objetivos da pesquisa e explica a  metodologia 
+utilizada. Não são utilizadas citações diretas nessa parte  do artigo. Em suma, a 
+introdução apresenta e delimita a dúvida investigada (problema de estudo – o quê?), 
+os objetivos (para que  serviu o estudo?), a justificativa (por que a pesquisa foi 
+realizada sobre esse problema de estudo?) e a metodologia utilizada no estudo  
+(como?). Sua elaboração não apresenta esses subtítulos, sendo sistematizada em 
+forma de um texto dissertativo bem elaborado. 
+VIII. Desenvolvimento – Essa parte do artigo não deve ter como título a  palavra 
+“desenvolvimento”, mas um subtítulo relacionado com o tema  pesquisado. Nessa 
+parte o acadêmico deve expor e discutir as teorias  que foram utilizadas para 
+entender e esclarecer o problema de pesquisa, apresentando-as e relacionando-as 
+com a dúvida investigada. Os teóricos estudados devem ser apresentados com 
+citações diretas e indiretas, conforme as normas da ABNT, e devem  estar 
+conectadas com os argumentos elaborados pelo pesquisa dor. Relacionados com o 
+referencial teórico, apresentam -se os resultados  da pesquisa, tendo por base os 
+dados coletados. O desenvolvimento  pode ser dividido em subtítulos, caso essa 
+divisão seja necessária para a melhor compreensão do assunto abordado. 
+IX. Considerações Finais – Nessa parte indica -se se o problema e os  objetivos 
+da pesquisa foram alcançados, bem como apresentam -se as  ideias conclusivas 
+elaboradas a partir das análises realizadas. Evidenciam-se, com clareza e 
+objetividade, as deduções sistematizadas a partir dos resultados obtidos, apontadas 
+ao longo da discussão do assunto. Apresentam-se, ainda, as limitações do trabalho 
+e as sugestões para próximas pesquisas na área. Não são  utilizadas citações 
+diretas. As considerações finais são um fechamento do artigo científico, 
+respondendo aos objetivos do trabalho de pesquisa realizado, apresentado na 
+introdução. 
+X.  Referências– As referências consistem no conjunto de fontes citadas  no 
+decorrer da redação do artigo. Os materiais que foram utilizados somente como 
+consulta, mas que não foram citados de maneira direta  ou indireta, não devem 
+Documento foi assinado digitalmente por AUGUSTO DE REZENDE CAMPOS em 21/12/2021 11:51:26.
+A autenticidade deste documento pode ser verificada no site https://sgd.to.gov.br/verificador, informando o código verificador: 727341E100EC94A6
+
+=== PAGE 15 ===
+ 
+ 
+constar nas referências. Trata-se de uma listagem dos livros, capítulos de livros, 
+artigos, legislações e outros  materiais, tanto impressos como virtuais e digitais 
+utilizados na redação, apresentados em ordem alfabética a partir do sobrenome dos 
+autores. 
+As referências devem seguir obrigatoriamente os padrões normativos da 
+ABNT. 
+ 
+4. CUIDADOS NA REDAÇÃO DO TCC 
+ 
+Além das explicações e orientações apresentadas nos itens anteriores, é 
+imprescindível que o acadêmico observe no momento da redação do TCC,  os 
+aspectos que serão descritos a seguir. 
+ 
+a) Impessoalidade – Preferencialmente, não se utilizam pronomes pessoais de  
+primeira pessoa. Sugere -se que seja utilizada a  impessoalidade da terceira  pessoa 
+do singular, ou seja, ao invés de utilizar expressões como: nosso  trabalho, somos da 
+opinião que, julgamos que, chegamos à conclusão que, deduzimos que etc., utilizam-
+se colocações como: este trabalho, esta pesquisa, conclui-se que, julga-se que,  
+deduz-se que etc.. 
+b) Objetividade – A sistematização da escrita deve ser direta e clara, sem  
+comentários prolixos e repetição de ideias. A argumentação deve ser firme e  
+defendida com posicionamentos bem elaborados. 
+c) Precisão e clareza – A informação deve ser compreendida pelo leitor, não  
+devendo conter ambiguidades. Para isso, utilizam-se definições exatas, 
+preferencialmente apoiadas em referências ou dados comprovados. 
+d) Coerência – Refere-se à relação entre as partes do texto, é o vínculo entre  as 
+ideias expostas, dando sentido à construção do texto. 
+e) Sequência lógica – As ideias apresentadas devem ser organizadas de  
+maneira sequencial e coerente com os argumentos desenvolvidos e os objetivos 
+propostos na pesquisa. 
+f) Respeito aos direitos autorais – Em hipótese alguma serão aceitos plágios, 
+ou seja, cópias de autores sem as devidas citações indiretas (sobrenome dos 
+autores e ano de publicação) e/ou citações diretas (sobrenome dos autores, ano de 
+publicação e página). A utilização de trechos escritos por outras pessoas é permitida 
+Documento foi assinado digitalmente por AUGUSTO DE REZENDE CAMPOS em 21/12/2021 11:51:26.
+A autenticidade deste documento pode ser verificada no site https://sgd.to.gov.br/verificador, informando o código verificador: 727341E100EC94A6
+
+=== PAGE 16 ===
+ 
+ 
+somente quando citados conforme as  normas da ABNT, as quais amparam  a 
+questão dos direitos autorais. As citações devem seguir obrigatoriamente os padrões 
+normativos da ABNT. 
+Há uma legislação específica para tratar dos problemas decorrentes do plágio  
+que é a Lei n° 9.610, de 19 de fevereiro de 1998, que garante ao autor os direitos  
+morais e patrimoniais sobre a obra que criou. Traz em seu bojo o que é permitido e  
+proibido a título de reprodução  e quais as sanções civis a serem aplicadas aos  
+infratores. Outra legislação que protege o autor do texto é a Lei n° 10.695/2003 que  
+altera e acresce parágrafo ao art. 184 e dá nova redação ao art. 186 do Decreto -Lei 
+no 2.848, de 7 de dezembro de 1940 – Código Penal. 
+ 
+ 
+5. ROTEIRO DE APRESENTAÇÃO GRÁFICA DO TCC 
+ 
+5.1 Margens 
+ 
+a) Superior: 3 cm da borda superior da folha. 
+b) Inferior: 2 cm da borda inferior da folha. 
+c) Esquerda: 3 cm da borda esquerda da folha. 
+d) Direita: 2 cm da borda direita da folha. 
+e) Citação longa: deve constituir um parágrafo distinto, a 4 cm da margem  esquerda 
+terminando na margem direita. 
+f) Nota de rodapé: utiliza-se a margem de parágrafo. 
+g) Título das seções: deve obedecer à margem esquerda. 
+h) Títulos sem indicativo numérico (errata, agradecimento, listas de ilustrações, 
+listas de abreviaturas e siglas, listas de símbolos, resumo, sumário,  referências, 
+glossário, apêndices, anexos, índices) devem ser centralizados. 
+ 
+5.2 Espaçamento 
+ 
+Todo o trabalho deve ser digitado em espaço 1,5 com exceção dos itens  
+descritos a seguir. 
+a) Citações longas (mais de 3 linhas): espaço simples entre as linhas e espaço 1,5 
+entre as citações e os parágrafos anterior e posterior; 
+b) Notas de rodapé: digitadas em espaço simples a partir da margem esquerda, 
+sem espaço entre elas; 
+Documento foi assinado digitalmente por AUGUSTO DE REZENDE CAMPOS em 21/12/2021 11:51:26.
+A autenticidade deste documento pode ser verificada no site https://sgd.to.gov.br/verificador, informando o código verificador: 727341E100EC94A6
+
+=== PAGE 17 ===
+ 
+ 
+c) Referências: Devem ser separadas entre si por um espaço simples em 
+branco. 
+ 
+5.3 Fonte 
+Deve ser utilizada, conforme recomendação da ABNT (NBR 6023/2018), 
+tamanho 12 para todo o texto. As citações longas, notas de rodapé, paginação, 
+títulos das ilustrações, tabelas e legenda/fonte devem ser apresentadas em fonte  
+tamanho 10. A ABNT não faz menção ao tipo de letra que deve ser utilizado.  
+Contudo, é normalmente recomendado o uso das letras Times New Roman ou Arial. 
+ 
+5.4 Paginação 
+ 
+Todas as folhas do trabalho, a partir da folha de rosto, devem ser contadas  
+sequencialmente, mas não numeradas. A numeração deve figurar após a primeira  
+folha da parte textual, aparecendo no canto superior da folha e a 2 cm da borda  
+superior, em algarismos arábicos. 
+No caso da utilização de apêndices e anexos, as folhas devem ser numeradas  
+de maneira contínua e sua paginação deve dar seguimento à do texto principal. 
+No caso de trabalho possua mais de um volume, manter a sequência 
+numérica das páginas em todos os volumes. 
+ 
+5.5 Numeração progressiva 
+ 
+Deve-se seguir a norma ABNT NBR 6023. Para melhor distribuição do 
+conteúdo do trabalho, recomenda-se usar numeração progressiva para as seções 
+do texto, destacando-se os títulos das seções, utilizando os recursos: negrito, itálico 
+ou grifo, caixa alta ou versal. O título das seções (primárias, secundárias etc.) deve 
+ser colocado após sua numeração, separado dele por um espaço. O texto deve 
+iniciar-se em outra linha. 
+Para enumerar os diversos assuntos de uma seção que não possuem título,  
+deve ser subdividido em alíneas. 
+O texto que antecede a alínea deve terminar com dois pontos. A partir daí, usar 
+alíneas, caracterizadas por letras minúsculas, seguidas de parênteses e ordenadas  
+alfabeticamente. A disposição gráfica das alíneas obedece às seguintes regras: 
+a) a alínea começa com o recuo de parágrafo (1,5cm), e a partir da segunda e  as 
+Documento foi assinado digitalmente por AUGUSTO DE REZENDE CAMPOS em 21/12/2021 11:51:26.
+A autenticidade deste documento pode ser verificada no site https://sgd.to.gov.br/verificador, informando o código verificador: 727341E100EC94A6
+
+=== PAGE 18 ===
+ 
+ 
+seguintes linhas começam sob a primeira letra do texto da própria alínea; 
+b) o texto da alínea começa por letra minúscula e termina em ponto e vírgula, 
+exceto a última que termina em ponto. 
+ 
+5.6 Citação - de acordo com as normas da ABNT 
+ 
+ É a transcrição textual dos conceitos do autor consultado, é usada somente  
+quando for absolutamente necessário transcrever as palavras de um autor. 
+ Citações diretas. 
+ 
+a) Curtas - até três linhas. 
+b) Longas - mais de três linhas. 
+ 
+Citações curtas com até três linhas, são transcritas entre “aspas” com o mesmo 
+tipo e tamanho de letra e espaçamento do texto com obrigatoriedade de  indicação 
+do número da página. 
+Citação com mais de três linhas, deve ser transcrita em parágrafo distinto com  
+recuo de 4 cm da margem esquerda, sem aspas com letras e entrelinhamento menor 
+que o do texto. Deve aparecer com uma linha branca separando a citação do texto  
+anterior e posterior. É obrigatória a indicação das páginas. 
+ Citações indiretas ou livres 
+ 
+É o texto redigido pelo autor com base em ideias de outro(s) autor (es), no  
+entanto deve reproduzir fielmente o sentido do texto original. Pode aparecer sob a 
+forma de paráfrase ou de condensação. Deve-se mencionar apenas a fonte de onde 
+foi retirado o texto e o ano da publicação, não sendo necessário citar a página. 
+ 
+ Citação de citação 
+ 
+É a transcrição direta ou indireta de um texto em que não se  teve acesso ao  
+original. Usa-se a expressão em português “citado por” ou a expressão latina “ apud” 
+após a indicação da fonte consultada. 
+Nas referências (no final do trabalho), somente se menciona o nome do autor  da 
+obra consultada. 
+ 
+Documento foi assinado digitalmente por AUGUSTO DE REZENDE CAMPOS em 21/12/2021 11:51:26.
+A autenticidade deste documento pode ser verificada no site https://sgd.to.gov.br/verificador, informando o código verificador: 727341E100EC94A6
+
+=== PAGE 19 ===
+ 
+ 
+5.7 Notas de rodapé 
+ 
+São as que aparecem ao pé das páginas em que são mencionadas. Servem  
+para abordar pontos que não devem ser incluídos no texto para não sobrecarregá - 
+lo. 
+ 
+ De referências: quando indicam a origem da sua citação. 
+ 
+ Explicativas: quando apresentam observações ou aditamento ao texto. 
+ 
+ 
+5.8 Formato de tabelas e quadros 
+ 
+As tabelas nunca são fechadas por linhas laterais verticais, devendo ter no  
+mínimo três colunas indicadoras. São encabeçadas e citadas como tabela, com  
+título autoexplicativo colocado acima da mesma. 
+Os quadros são um tipo de ilustraçãoou figura, utilizados para a apresentação 
+esquemática de informações textuais, apresentando uma estrutura  de linhas-
+molduras em todos os seus lados. 
+ 
+ 
+5.9 Formatação de referências 
+ 
+Consultar NBR vigente no momentro de elaboração do TCC. 
+ 
+6. CRITÉRIOS DE AVALIAÇÃO 
+ 
+A avaliação do TCC poderá se dá por meio da apresentação do trabalho no 
+formato escrito e /ou oral, a depender da normativa interna do curso. Para os curso 
+que decidirem pela apresentação escrita e oral, a defesa será realizada perante uma 
+banca composta por 3 (três) professores,  sendo um deles o orientador  do 
+acadêmico, e este é o mesmo responsável por presidir a banca. 
+Fica a critério do professor orientador da banca, convidar um servidor técnico  
+administrativo efetivo da instituição, com formação na área e com titulação mínima  
+de especialista. 
+  
+6.1 Parte escrita 
+ 
+Para avaliação final do TCC, os professores da banca devem utilizar os   
+seguintes critérios de avaliação: 
+Documento foi assinado digitalmente por AUGUSTO DE REZENDE CAMPOS em 21/12/2021 11:51:26.
+A autenticidade deste documento pode ser verificada no site https://sgd.to.gov.br/verificador, informando o código verificador: 727341E100EC94A6
+
+=== PAGE 20 ===
+ 
+ 
+ qualidade ortográfica e gramatical; 
+ atendimento às orientações contidas nas Diretrizes Gerais do TCC e às 
+normas técnicas da ABNT; 
+ adequação dos procedimentos metodológicos às especificidades do tema e  do 
+problema investigado, bem como da justificativa e dos objetivos do trabalho; 
+ adequação e qualidade dos instrumentos de coleta de materiais; 
+ utilização correta da terminologia técnica e conceitual que o tema 
+investigado exige; 
+ suficiência e qualidade de materiais coletados para a fundamentação teórica 
+da escolha feita em termos de tema e investigação do problema; 
+ qualidade e pertinência da bibliografia explorada; 
+ bibliografia atualizada; 
+ sistematização e articulação de ideias; 
+ consistência dos dados e fundamentação teórica; 
+ capacidade de compreensão e síntese; 
+ pontualidade no cumprimento da data máxima estabelecida para a entrega do 
+projeto ao professor de TCC e aos membros da banca. 
+ 
+ 
+6.2 Defesa oral 
+ 
+A defesa oral pelo acadêmico consiste na apresentação à banca dos elementos 
+do TCC. A apresentação deve ser feita por meio de recursos de multimídia, 
+conforme o PPC de cada curso. 
+Os principais aspectos considerados pelo professor para atribuição da nota de  
+defesa são: 
+ apresentação; 
+ postura e performance do acadêmico; 
+ sequência lógica na apresentação; 
+ qualidade dos recursos utilizados; 
+ clareza da exposição e coerência argumentativa do acadêmico; 
+ domínio do assunto; 
+ adequação do vocabulário utilizado. 
+ 
+Documento foi assinado digitalmente por AUGUSTO DE REZENDE CAMPOS em 21/12/2021 11:51:26.
+A autenticidade deste documento pode ser verificada no site https://sgd.to.gov.br/verificador, informando o código verificador: 727341E100EC94A6
+
+=== PAGE 21 ===
+ 
+ 
+ A data programada para a defesa deve ser cumprida. A apresentação terá  
+duração máxima de 30 (trinta) minutos. 
+ 
+6.3 Observações importantes 
+ 
+Para o caso dos cursos que decidirem pela apresentação do trabalho no 
+formato escrito e oral, a avaliação no período final será realizada da seguinte forma: 
+ 
+ 7,0 (sete pontos) para o trabalho escrito e 3,0 (três pontos) para a apresentação 
+oral, sendo que que um dos formatos será avalia do de forma individual. A somatória 
+das duas notas será     de 10,0 pontos, sendo que o  aluno terá que obter nota mínima 
+6,0 (seis) para ser aprovado na disciplina. 
+ a avaliação do trabalho escrito será realizada após a entrega da 1ª versão e 
+análise pela banca examinadora; 
+ Para o caso dos cursos que definirem como obrigatório a apresentação oral, as  
+notas serão divulgadas no momento da defesa. 
+ No caso de detectado PLÁGIO no trabalho escrito,  o acadêmico não irá para a 
+apresentação oral perante a banca  examinadora, sendo o aluno reprovado na 
+disciplina, devendo cursá-la novamente. 
+ 
+7. DO ORIENTADOR 
+ 
+O orientador será escolhido pelo acadêmico observando o tema do TCC e a 
+área de sua formação. 
+Fica a critério do  colegiado dos cursos disciplinar acerca da co -orientação dos 
+TCC desde que avaliada a pertinência. Caso haja co -orientação o coordenador  
+deverá providencia  a comprovação do trabalho realizado .O co-orientador deverá 
+estar em concordância com a orientação  do acadêmico por meio de termo de 
+compromisso (aceite do professor-orientador). 
+ 
+7.1 Competências do professor orientador 
+ 
+São competências do professor orientador: 
+ Agendar com o/a orientando/a a primeira orientação e definir com ele/a o 
+cronograma de orientações; 
+ atender o aluno em dias e horários previamente fixados; 
+Documento foi assinado digitalmente por AUGUSTO DE REZENDE CAMPOS em 21/12/2021 11:51:26.
+A autenticidade deste documento pode ser verificada no site https://sgd.to.gov.br/verificador, informando o código verificador: 727341E100EC94A6
+
+=== PAGE 22 ===
+ 
+ 
+ acompanhar o trabalho,  registrando as ocorrências pertinentes e necessárias; 
+ auxiliar na delimitação do tema; 
+ orientar quanto à elaboração do planejamento do trabalho; 
+ orientar a elaboração do trabalho com rigor teórico e metodológico; 
+ auxiliar o aluno na resolução de problemas conceituais, técnicos e de 
+relacionamento decorrentes das atividades da pesquisa; 
+ acompanhar e avaliar o desempenho do aluno mediante registros, anotações e 
+observações pertinentes; 
+ comunicar, por escrito, as possíveis irregularidades quanto ao processo de  
+orientação, não cumprimento de datas e compromissos pelo aluno a coordenação 
+do curso; 
+ ser o mediador no processo de desenvolvimento do trabalho (nunca  entregar 
+pronto para o aluno); 
+ verificar a possibilidade de existência de PLÁGIO, pois além de ser um  crime, o 
+plágio comprovado levará o aluno à reprovação na disciplina. 
+ 
+ 
+8. DO ESTUDANTE 
+ 
+O estudante tem o direito de ser informado sobre as normas de construção e  
+regulamentação do TCC; ter um professor orientador e definir a temática do TCC;  
+solicitar orientação diretamente ao professor orientador; poder contar com co- 
+orientador, desde que se faça necessário e com a anuencia do oriendor. 
+ 
+8.1 Responsabilidades do aluno orientando 
+ 
+Todo aluno regularmente matriculado na disciplina deverá passar por 
+orientação para elaboração do TCC e apresentação pública, se for o caso.  
+Serão competências do orientando: 
+ comparecer às aulas e/ou orientações sobre o TCC; 
+ formular o plano de ação para o desenvolvimento do TCC e apresentá -lo ao 
+professor orientador; 
+ controlar as orientações a partir da verificação sistemática da ficha de  
+acompanhamento de orientação do TCC e assinatura do professor orientador, ou 
+professor de TCC. 
+Documento foi assinado digitalmente por AUGUSTO DE REZENDE CAMPOS em 21/12/2021 11:51:26.
+A autenticidade deste documento pode ser verificada no site https://sgd.to.gov.br/verificador, informando o código verificador: 727341E100EC94A6
+
+=== PAGE 23 ===
+ 
+ 
+ desenvolver o estudo a que se propôs; 
+ cumprir as datas limites para cada etapa do processo; 
+ comunicar, por escrito, as possíveis irregularidades quanto ao processo de 
+orientação ao professor de TCC que as remeterá à coordenação do curso. 
+A revisão do texto realizada por profissional da área de língua portuguesa é  de 
+inteira responsabilidade do acadêmico. 
+ 
+8.2 Observações importantes para orientadores e orientandos 
+ 
+ 
+Modalidade de TCC: individual. 
+Escolha do tema: o tema escolhido pelo aluno será desenvolvido sob orientação de 
+um professor. 
+Escolha do professor orientador: o aceite em orientar , conforme as linhas  de 
+pesquisa, será feito através de um acordo que constará de um termo de  
+formalização da orientação, que será entregue ao  professor da disciplina de  TCC 
+para controle e acompanhamento formal. Após a formalização o orientador será 
+considerado corresponsável pelo desenvolvimento da pesquisa e responderá, 
+juntamente com o aluno, pela qualidade acadêmica do trabalho. 
+Reunião inicial: o orientador deverá marcar reunião inicial com o orientando com a 
+finalidade de discutirem o projeto de pesquisa e expor-lhe o planejamento de trabalho 
+e solicitar apoio para a realização do trabalho. 
+Reuniões periódicas: as reuniões periódicas deverão ser agendadas pelo  aluno 
+com o professor orientador para o acompanhamento do desenvolvimento do trabalho. 
+Essas reuniões deverão ser agendadas com o  professor orientador de acordo com 
+sua disponibilidade. Nesse sentido, sugerimos que seja feito um planejamento 
+dessas reuniões a fim de otimizar  os resultados. Sugerimos ao aluno que nunca 
+participe de uma reunião com o professor orientador sem estar preparado para ela, 
+ou seja, não comparecer a uma reunião sem antes formular as questões, dúvidas 
+e/ou apresentar o que solicitado pelo orientador, anteriormente. 
+Caso o processo de orientação não se realize por ausência, falta de 
+comprometimento, impossibilidade do orientador ou orientando, ou quaisquer  outras 
+razões, a parte prejudicada informará, POR ESCRITO ao coordenador de curso para 
+que se evite continuidade das falhas durante o processo. 
+Tempo e horários para orientação : orientadores e orientandos deverão  definir a 
+Documento foi assinado digitalmente por AUGUSTO DE REZENDE CAMPOS em 21/12/2021 11:51:26.
+A autenticidade deste documento pode ser verificada no site https://sgd.to.gov.br/verificador, informando o código verificador: 727341E100EC94A6
+
+=== PAGE 24 ===
+ 
+ 
+carga horária necessária, que nunca deverá ser inferior a 1 (uma)  hora semanal, por 
+aluno. O orientador poderá orientar até 5 (cinco) alunos,  distribuindo seu tempo de 
+orientação da forma que considerar conveniente  considerando tempos específicos 
+para orientação efetiva (atendimento ao  aluno), correção de fichamentos e/ou textos 
+entregues pelo aluno como  também para fornecer subsídios ao aluno referentes à 
+apresentação do TCC. 
+Para elaboração do trabalho: o trabalho deverá estar de acordo com as  normas da 
+ABNT (Associação Brasileira de Normas Técnicas) e sua lógica  deve ser orientada 
+pela Metodologia Científica estando em  concordância com as diretrizes para  
+elaboração de TCC da instituição. 
+ 
+9 APRESENTAÇÃO DO TCC À BANCA EXAMINADORA 
+A apresentação do TCC poderá ser realizada de forma presencial, remota ou 
+mista, conforme decisã o dos colegiados.  Para essa apresentação, no caso de 
+presencial, o aluno poderá contar com o auxílio  de recursos disponíveis pela 
+universidade: data-show, retro-projetor etc, e no caso de remoto, o aluno poderá 
+fazer uso de recursos virtuais aplicaveis a plataforma utilizada.  
+Nas apresentações presenciais, c aso seja necessário o uso de algum 
+programa especial para esta apresentação, é obrigação do aluno verificar com 
+antecedência se o equipamento a ser utilizado disponibiliza  o programa, caso isso 
+não seja possível, deverá procurar o professor de TCC para  verificar junto ao 
+responsável pelos equipamentos a possibilidade de sua instalação. 
+O período de apresentação será de 20 (vinte) minutos, seguidos de 15 (quinze) 
+minutos adicionais para arguição. Cada sessão será conduzida  pelo professor-
+orientador que coordenará as atividades de defesa, assim como o tempo e as 
+intervenções. Os membros que compõe a banca de defesa definirão, de forma 
+conjunta, a nota final do acadêmico  mediante preenchimento do formulário de 
+apresentação escrita, e oral (quando for o caso).  
+ 
+9.1 Normas para a apresentação oral do TCC para a banca examinadora 
+O estudante deverá estar no local da apresentação, rigorosamente, no horário 
+programado. Sua ausência implicará a perda do direito de defesa do TCC que terá 
+implicações na conclusão do curso. 
+Documento foi assinado digitalmente por AUGUSTO DE REZENDE CAMPOS em 21/12/2021 11:51:26.
+A autenticidade deste documento pode ser verificada no site https://sgd.to.gov.br/verificador, informando o código verificador: 727341E100EC94A6
+
+=== PAGE 25 ===
+ 
+ 
+ 
+a. Conteúdo da Apresentação Oral – Monografia 
+O primeiro slide deverá conter: nome da instituição, título do TCC, nome do  
+aluno, nome do curso de graduação e nome do orientador. Os s lides seguintes 
+deverão conter: 
+ 
+ Justificativa; 
+ Problema, ou questão norteadora; 
+ Objetivos gerais e específicos; 
+ Hipótese(s) (caso caibam na metodologia escolhida); 
+ Metodologia de pesquisa; 
+ Capítulos (como foram divididos e o que cada um tratou); 
+ Resultados obtidos; 
+ Considerações finais. 
+ 
+b. Conteúdo da apresentação oral – artigo 
+ 
+ Título e subtítulo (se houver) 
+ Nome do autor 
+ Introdução 
+ Desenvolvimento 
+ Considerações Finais 
+ Referências 
+ 
+c. Repositório digital - TCC 
+ 
+Os Trabalhos de Conclusão de Curso – TCC, após concluídos e aprovados  
+deverão ser postados pelo acadêmico utilizando a ferramenta institucional 
+disponibilizada no portal do aluno. 
+ 
+10 MANUAL DO TCC 
+ 
+Cada curso deverá elaborar seu “Manual de TCC”, conforme o roteiro emanado 
+pela PRÓ-GRAD e após sua conclusão deverá ser submetido à apreciação da Diretoria de 
+Ensino. 
+ 
+Documento foi assinado digitalmente por AUGUSTO DE REZENDE CAMPOS em 21/12/2021 11:51:26.
+A autenticidade deste documento pode ser verificada no site https://sgd.to.gov.br/verificador, informando o código verificador: 727341E100EC94A6
+
+=== PAGE 26 ===
+ 
+ 
+ 
+ 
+ 
+Documento foi assinado digitalmente por AUGUSTO DE REZENDE CAMPOS em 21/12/2021 11:51:26.
+A autenticidade deste documento pode ser verificada no site https://sgd.to.gov.br/verificador, informando o código verificador: 727341E100EC94A6
+
+=== PAGE 27 ===
+ 
+ 
+ 
+Documento foi assinado digitalmente por AUGUSTO DE REZENDE CAMPOS em 21/12/2021 11:51:26.
+A autenticidade deste documento pode ser verificada no site https://sgd.to.gov.br/verificador, informando o código verificador: 727341E100EC94A6
+
+=== PAGE 28 ===
+ 
+ 
+ 
+ 
+ 
+ 
+Documento foi assinado digitalmente por AUGUSTO DE REZENDE CAMPOS em 21/12/2021 11:51:26.
+A autenticidade deste documento pode ser verificada no site https://sgd.to.gov.br/verificador, informando o código verificador: 727341E100EC94A6
+
+=== PAGE 29 ===
+ 
+ 
+ 
+ 
+ 
+Documento foi assinado digitalmente por AUGUSTO DE REZENDE CAMPOS em 21/12/2021 11:51:26.
+A autenticidade deste documento pode ser verificada no site https://sgd.to.gov.br/verificador, informando o código verificador: 727341E100EC94A6
+
+=== PAGE 30 ===
+ 
+ 
+ 
+Documento foi assinado digitalmente por AUGUSTO DE REZENDE CAMPOS em 21/12/2021 11:51:26.
+A autenticidade deste documento pode ser verificada no site https://sgd.to.gov.br/verificador, informando o código verificador: 727341E100EC94A6
+
+=== PAGE 31 ===
+ 
+ 
+ Documento foi assinado digitalmente por AUGUSTO DE REZENDE CAMPOS em 21/12/2021 11:51:26.
+A autenticidade deste documento pode ser verificada no site https://sgd.to.gov.br/verificador, informando o código verificador: 727341E100EC94A6
+
+=== PAGE 32 ===
+ 
+ 
+ 
+Documento foi assinado digitalmente por AUGUSTO DE REZENDE CAMPOS em 21/12/2021 11:51:26.
+A autenticidade deste documento pode ser verificada no site https://sgd.to.gov.br/verificador, informando o código verificador: 727341E100EC94A6

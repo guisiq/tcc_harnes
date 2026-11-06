@@ -1,8 +1,10 @@
 # Guia Passo a Passo — Busca Bibliográfica e Importação no Zotero
 
-> Como executar a **Fase 0 (Busca de estudos)** do pipeline proposto para a ferramenta bibliográfica, inspirado em [Petersen 2015](https://doi.org/10.1016/j.infsof.2015.03.007) e [Wohlin 2014](https://doi.org/10.1145/2601248.2601268), usando o Zotero para organizar o corpus. Manter a coleção não substitui documentar buscas e critérios (ver [planejamento_mini_harness_completo.md](planejamento_mini_harness_completo.md), seção 6.0).
+> Como executar a **Fase 0 (Busca de estudos)** do pipeline proposto para a ferramenta bibliográfica, inspirado em [Petersen 2015](https://doi.org/10.1016/j.infsof.2015.03.007) e [Wohlin 2014](https://doi.org/10.1145/2601248.2601268), usando o Zotero para organizar o corpus. Manter a coleção não substitui documentar buscas e critérios (ver o [plano arquivado da ferramenta](https://github.com/guisiq/tcc_harnes/blob/d28683f3a8eb7d6df781a258e13d46232b87398a/planejamento_mini_harness_completo.md), seção 6.0).
 >
-> Para a ferramenta, a ordem histórica é inspiração/fundamentos e depois domínio harness/SLM, usando as strings do [planejamento](planejamento_mini_harness_completo.md). Para o TCC atual, priorizar as fontes focais da seção seguinte e a [metodologia de revisão vigente](TCC_Checkpoint_JSON_Obsidian/03_Revisao_Literatura/05_metodologia_revisao.md).
+> A ferramenta foi descontinuada em 2026-11-06 e substituída pelo [validador de estrutura do TCC](planejamento_validador_tcc.md); as menções ao mini-harness abaixo são históricas.
+>
+> Para a ferramenta, a ordem histórica é inspiração/fundamentos e depois domínio harness/SLM, usando as strings do [plano arquivado](https://github.com/guisiq/tcc_harnes/blob/d28683f3a8eb7d6df781a258e13d46232b87398a/planejamento_mini_harness_completo.md). Para o TCC atual, priorizar as fontes focais da seção seguinte e a [metodologia de revisão vigente](TCC_Checkpoint_JSON_Obsidian/03_Revisao_Literatura/05_metodologia_revisao.md).
 
 ## Atualização focal — 2026-11-06
 
@@ -132,7 +134,7 @@ No Zotero, clique com o botão direito no item → `Better BibTeX Key... > Pin k
 
 ## FASE 2 — Artigos da pesquisa em questão (domínio harness/SLM)
 
-Diferente da Fase 1, aqui está o procedimento de busca por termos da ferramenta (strings do [planejamento](planejamento_mini_harness_completo.md)). Para GU-json, usar as strings focais da [metodologia vigente](TCC_Checkpoint_JSON_Obsidian/03_Revisao_Literatura/05_metodologia_revisao.md); a auditoria selecionada não significa que este procedimento já tenha sido executado integralmente.
+Diferente da Fase 1, aqui está o procedimento de busca por termos da ferramenta (strings do [plano arquivado](https://github.com/guisiq/tcc_harnes/blob/d28683f3a8eb7d6df781a258e13d46232b87398a/planejamento_mini_harness_completo.md)). Para GU-json, usar as strings focais da [metodologia vigente](TCC_Checkpoint_JSON_Obsidian/03_Revisao_Literatura/05_metodologia_revisao.md); a auditoria selecionada não significa que este procedimento já tenha sido executado integralmente.
 
 ### Passo 2.1 — Monte as strings de busca por bloco
 
@@ -177,7 +179,7 @@ No Zotero: `Minha Biblioteca > Itens duplicados` (painel esquerdo) — revise e 
 
 ### Passo 2.6 — Tags por bloco (prepara o keywording da fase 4 de Petersen)
 
-Para cada item importado, adicione uma tag indicando de qual bloco ele veio (ex.: `bloco-A`, `bloco-B`, `bloco-C`, `bloco-D`) — isso acelera o keywording automático que o mini-harness fará depois (seção 2.1/3.6 do planejamento).
+Para cada item importado, adicione uma tag indicando de qual bloco ele veio (ex.: `bloco-A`, `bloco-B`, `bloco-C`, `bloco-D`) — isso acelerava o keywording automático previsto para o mini-harness (seções 2.1/3.6 do [plano arquivado](https://github.com/guisiq/tcc_harnes/blob/d28683f3a8eb7d6df781a258e13d46232b87398a/planejamento_mini_harness_completo.md)).
 
 ### Passo 2.7 — Salvar PDFs localmente e atualizar rastreamento
 
@@ -209,4 +211,4 @@ Para cada item importado, adicione uma tag indicando de qual bloco ele veio (ex.
 
 - [ ] Local API do Zotero habilitada (para o harness ler a coleção depois).
 
-Com isso, a Fase 0 (Preparação do corpus) do plano de implementação (seção 8 do planejamento) está concluída e o corpus está pronto para o Loader do Zotero.
+Com isso, a Fase 0 (Preparação do corpus) do plano de implementação (seção 8 do [plano arquivado](https://github.com/guisiq/tcc_harnes/blob/d28683f3a8eb7d6df781a258e13d46232b87398a/planejamento_mini_harness_completo.md)) está concluída e o corpus está pronto para o Loader do Zotero.
