@@ -1,5 +1,7 @@
 # Planejamento Completo — Mini-Harness de Triagem Bibliográfica (Opção A, .NET + Copilot SDK)
 
+> **Situação após a auditoria de 2026-11-06:** este é o plano da ferramenta de descoberta bibliográfica, não o protocolo experimental vigente. As premissas de hardware, clusters e candidatos abaixo pertencem a esse planejamento anterior. O recorte atual e suas fontes estão na [visão geral](TCC_Checkpoint_JSON_Obsidian/01_Projeto/01_visao_geral.md) e na [bibliografia auditada](TCC_Checkpoint_JSON_Obsidian/06_Referencias/referencias.md): writers compactos sob GU-json fixo, sem comparação de desempenho computacional.
+
 > **Objetivo da ferramenta:** ler artigos sobre *harness engineering* e correlatos,
 > fazer levantamento de:
 >
@@ -21,8 +23,7 @@
 
 ## 1. Ancoragem metodológica
 
-Pipeline canônico de revisão bibliográfica (Petersen et al. 2008/2015; Kitchenham &
-Charters 2007):
+Pipeline proposto, inspirado em mapeamento e revisão bibliográfica: [Petersen et al., 2008](https://doi.org/10.14236/ewic/ease2008.8) e nas diretrizes atualizadas de [Petersen et al., 2015](https://doi.org/10.1016/j.infsof.2015.03.007). Não é validação deste fluxo exato pelos autores.
 
 ```mermaid
 flowchart LR
@@ -42,8 +43,9 @@ flowchart TD
     F --> G["Writer\n(tabela.csv + relatorio.md +\nmapa de clusters + árvore taxonômica)"]
 ```
 
-Referências: Petersen (2008; 2015) mapping studies; Kitchenham & Charters (2007) SLR;
-Wohlin (2014) snowballing.
+Complementos: [Wohlin, 2014](https://doi.org/10.1145/2601248.2601268) para snowballing e [Kitchenham et al., 2010](https://doi.org/10.1016/j.infsof.2010.03.006) para evidência terciária. Kitchenham & Charters (2007) permanece referência procedural do acervo anterior, não substituída pelo estudo terciário de 2010; não foi reavaliada nesta auditoria.
+
+Para o recorte focal, consultar a [metodologia de revisão vigente](TCC_Checkpoint_JSON_Obsidian/03_Revisao_Literatura/05_metodologia_revisao.md). A auditoria foi busca selecionada, não revisão sistemática exaustiva nem comprovação de novidade.
 
 ---
 
@@ -202,7 +204,7 @@ Por que Zotero é o que torna a ferramenta academicamente defensável:
 | Seleção difícil de justificar      | Critério de seleção explícito e rastreável          |
 | Refazer análise = bagunça          | Expandir/limitar = editar a coleção e re-rodar      |
 
-Workflow desenhado por você (correto e alinhado a Kitchenham):
+Workflow proposto pelo projeto, cuja rastreabilidade exige registrar critérios, buscas, versões e decisões, além de manter uma coleção no Zotero. [Petersen et al., 2015](https://doi.org/10.1016/j.infsof.2015.03.007); [Wohlin, 2014](https://doi.org/10.1145/2601248.2601268):
 1. Criar um PROJETO no Zotero = uma coleção (ex.: "TCC-Harness-SLM").
 2. Baixar os artigos MANUALMENTE e linká-los na coleção (você é o critério humano de
    seleção — o "study selection" documentado da RSL).
@@ -444,11 +446,20 @@ Bases: CAFe/Portal CAPES, Scopus, IEEE Xplore, ACM DL, ACL Anthology, arXiv.
 ## 10. Referências
 
 Metodológicas:
-- Petersen, K. et al. (2008). Systematic Mapping Studies in SE. EASE.
-- Petersen, K. et al. (2015). Guidelines for conducting systematic mapping studies
-  in SE: An update. Information and Software Technology.
+- Petersen, K.; Feldt, R.; Mujtaba, S.; Mattsson, M. (2008). *Systematic Mapping Studies in Software Engineering*. [DOI](https://doi.org/10.14236/ewic/ease2008.8).
+- Petersen, K.; Vakkalanka, S.; Kuzniarz, L. (2015). *Guidelines for conducting systematic mapping studies in software engineering: An update*. Information and Software Technology. [DOI](https://doi.org/10.1016/j.infsof.2015.03.007).
 - Kitchenham, B.; Charters, S. (2007). Guidelines for performing SLRs in SE. EBSE.
-- Wohlin, C. (2014). Guidelines for snowballing in systematic literature studies. EASE.
+- Wohlin, C. (2014). *Guidelines for snowballing in systematic literature studies and a replication in software engineering*. [DOI](https://doi.org/10.1145/2601248.2601268).
+- Kitchenham et al. (2010). *Systematic literature reviews in software engineering – A tertiary study*. [DOI](https://doi.org/10.1016/j.infsof.2010.03.006). Evidência terciária, não substituto das diretrizes procedurais.
+
+Domínio focal após a auditoria (fontes complementares, não novas condições experimentais):
+- [Hwang, Findings EMNLP 2024](https://aclanthology.org/2024.findings-emnlp.220/) + [SUMIE, COLING 2025](https://aclanthology.org/2025.coling-main.721/): protocolo GU-json e dados; a adaptação preserva perspectivas conflitantes e não reproduz automaticamente o F1 original.
+- [PRISM, EMNLP 2025](https://aclanthology.org/2025.emnlp-main.517/) + [Intrinsic Memory Agents, revisão 2026](https://arxiv.org/abs/2508.08997): precedentes distintos de atualização persistente; não provam superioridade de GU ou de JSON manual fixo.
+- [MemoryAgentBench, 2025/2026](https://arxiv.org/abs/2507.05257) + [LongMemEval, 2025](https://arxiv.org/abs/2410.10813): atualização de conhecimento avaliada por respostas, distinta da inspeção de estado do TCC.
+- [Qwen3](https://arxiv.org/abs/2505.09388), [T5Gemma](https://arxiv.org/abs/2504.06225) e [Block Diffusion](https://arxiv.org/abs/2503.09573), 2025: caracterização dos paradigmas; checkpoint Qwen BD3LM exato ainda pendente.
+- [Lu et al., 2026](https://arxiv.org/abs/2601.12979) + [Mündler et al., 2025](https://arxiv.org/abs/2508.10111): contrapontos sobre difusão; ferramentas, memória textual e restrições gramaticais não equivalem a GU-json compacto prompt-only.
+
+Conferir versões, situação editorial e licenças na [bibliografia central](TCC_Checkpoint_JSON_Obsidian/06_Referencias/referencias.md). Os surveys e fontes de ferramentas abaixo são acervo anterior, não foram todos reavaliados nem promovidos a evidência direta nesta auditoria.
 
 Ferramentas / integrações (gratuitas):
 - Zotero 7+ (Local API: http://localhost:23119/api/) — gestor de referências / corpus.

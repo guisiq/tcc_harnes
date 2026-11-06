@@ -17,8 +17,12 @@ status: draft
 - fechar modelos;
 - fechar schema;
 - extrair método de Hwang;
+- confrontar GU com PRISM e as variantes de Intrinsic Memory Agents, somente na revisão;
 - estudar MemoryAgentBench;
+- caracterizar modelos com Qwen3, T5Gemma e Block Diffusion;
 - validar licenças/model cards.
+
+Fontes e contrapontos: [[06_Referencias/artigos_prioridade|Ordem de leitura]]; [[06_Referencias/referencias|Bibliografia auditada]]. Não se acrescentam métodos ou datasets à coleta.
 
 ## Etapa 2 — harness mínimo
 **1 semana**
@@ -36,6 +40,7 @@ status: draft
 - adapter;
 - piloto;
 - validação do pipeline e das métricas de qualidade;
+- validação de estados canônicos, preservação de perspectivas e adaptação do F1 original;
 - execução completa;
 - análise inicial.
 
@@ -45,6 +50,8 @@ status: draft
 - selecionar uma amostra de supersession;
 - aplicar o mesmo schema, GU-json e limite de 300 tokens;
 - analisar separadamente como contraste exploratório.
+
+Respeitar a regra temporal de FactConsolidation; diferenças frente ao SUMIE não isolam o efeito da operação. [[06_Referencias/referencias#Hwang et al. — SUMIE|SUMIE]]; [[06_Referencias/referencias#Hu et al. — MemoryAgentBench|MemoryAgentBench]].
 
 ## Etapa 5 — escrita
 **contínua + 2 semanas finais**

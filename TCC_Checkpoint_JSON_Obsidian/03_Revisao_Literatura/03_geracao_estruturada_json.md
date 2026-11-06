@@ -19,6 +19,8 @@ Gerar JSON envolve pelo menos duas dimensões distintas:
 
 Um output pode ser JSON válido e representar estado incorreto.
 
+Conformidade estrutural e atualização semântica requerem evidências distintas: [[06_Referencias/referencias#JSONSchemaBench|JSONSchemaBench, 2025]]; [[06_Referencias/referencias#Hwang et al. — structured incremental summarization|Hwang et al., 2024]].
+
 ## Abordagens
 
 ### Prompt-only structured generation
@@ -49,7 +51,7 @@ Uso:
 ## JSONSchemaBench
 
 Paper:
-**Generating Structured Outputs from Language Models: Benchmark and Studies**
+**JSONSchemaBench: A Rigorous Benchmark of Structured Outputs for Language Models** (2025).
 
 Objetivo:
 avaliar sistemas de constrained decoding sobre grande quantidade de JSON Schemas.
@@ -63,6 +65,8 @@ Comentário:
 
 Paper:
 **Grammar-Constrained Decoding for Structured NLP Tasks without Finetuning**
+
+Geng, Josifoski, Peyrard e West, EMNLP 2023. [[06_Referencias/referencias#Grammar-Constrained Decoding|Referência completa]].
 
 https://aclanthology.org/2023.emnlp-main.674/
 
@@ -79,8 +83,10 @@ https://arxiv.org/abs/2508.10111
 ### Agents of Diffusion
 https://arxiv.org/abs/2601.07152
 
+Versão estendida de 2026, AAMAS informado no arXiv. Usa mecanismos multiagente adicionais, não o protocolo de writer isolado deste TCC. [[06_Referencias/referencias#Agents of Diffusion|Referência completa]].
+
 Comentário:
-> Essa linha fortalece a relevância de avaliar diffusion em JSON, mas também mostra que estrutura rígida pode ser um ponto de dificuldade específico desse paradigma.
+> Mündler et al. mostram que restrições podem mitigar falhas sintáticas de difusão; não é correto afirmar impossibilidade inerente de gerar JSON. Lu et al. encontram dificuldades em chamadas de ferramentas, mas resultados competitivos em memória textual com modelos de 7–8B. Essas tarefas não demonstram inferioridade em checkpoints JSON compactos. [[06_Referencias/referencias#Constrained diffusion decoding|Mündler et al., 2025]]; [[06_Referencias/referencias#Diffusion em workflows de agentes|Lu et al., 2026]].
 
 ## Decisão experimental
 

@@ -10,6 +10,10 @@ status: draft
 
 # Métricas
 
+Base bibliográfica: [[06_Referencias/referencias#JSONSchemaBench|JSONSchemaBench]] e [[06_Referencias/referencias#Grammar-Constrained Decoding|Geng et al., 2023]] distinguem requisitos estruturais; [[06_Referencias/referencias#Hwang et al. — SUMIE|SUMIE]] e [[06_Referencias/referencias#Hu et al. — MemoryAgentBench|MemoryAgentBench]] motivam avaliar conteúdo e atualização. As definições operacionais abaixo são do TCC, não métricas integralmente copiadas desses trabalhos.
+
+O State F1 determinístico exige valores canônicos e normalização validada para não penalizar paráfrases corretas. O SUMIE original também usa avaliação de evidências por LLM; MemoryAgentBench mede respostas finais. Nenhum desses escores deve ser apresentado como diretamente equivalente ao State F1 deste protocolo.
+
 ## Métricas estruturais
 
 ### JSON Validity
@@ -67,10 +71,14 @@ PA = \frac{\text{campos inalterados preservados corretamente}}
 
 Percentual de valores obsoletos corretamente substituídos.
 
+Aplicável somente quando houver invalidação explícita, especialmente no contraste FactConsolidation-SH. Opiniões divergentes do SUMIE não são automaticamente valores obsoletos. [[06_Referencias/referencias#Hwang et al. — SUMIE|SUMIE]]; [[06_Referencias/referencias#Hu et al. — MemoryAgentBench|MemoryAgentBench]].
+
 
 ### Stale Fact Rate
 
 Quantidade/proporção de fatos que deveriam ter sido invalidados mas continuam na memória.
+
+Registrar como não aplicável quando a transição não exigir invalidação; não atribuir erro à preservação de perspectivas válidas.
 
 ### Hallucination Rate
 

@@ -50,6 +50,8 @@ class MemoryWriter:
 
 Cada arquitetura implementa o mesmo contrato.
 
+O contrato é a reescrita integral GU-json de [[06_Referencias/referencias#Hwang et al. — structured incremental summarization|Hwang et al., 2024]], não o mecanismo de revisões programáticas de [[06_Referencias/referencias#PRISM|PRISM, 2025]]. O adapter de dados deve respeitar as políticas distintas de SUMIE e FactConsolidation-SH, conforme [[02_Metodologia/03_datasets|Datasets]].
+
 ## Adapters
 
 ```text
@@ -68,6 +70,8 @@ Se templates especiais forem obrigatórios, documentar:
 - role markers;
 - BOS/EOS;
 - generation parameters.
+
+Caracterizar os adapters com os relatórios e cartões de [[06_Referencias/referencias#Qwen3 Technical Report|Qwen3]] e [[06_Referencias/referencias#T5Gemma|T5Gemma]]. [[06_Referencias/referencias#Block Diffusion|Block Diffusion]] fundamenta BD3LM, mas o checkpoint Qwen exato e sua API continuam pendentes. Fixar o modo thinking e registrar parâmetros específicos sem alegar equivalência de treinamento ou decoding.
 
 ## Logging
 

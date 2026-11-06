@@ -11,6 +11,22 @@ baixados aqui.
 Ao baixar um artigo manualmente, salve-o nesta pasta com o nome de arquivo indicado e marque
 o status abaixo.
 
+## Bibliografia focal auditada — 2026-11-06
+
+A bibliografia do TCC está em [referencias.md](../TCC_Checkpoint_JSON_Obsidian/06_Referencias/referencias.md), com [prioridades de leitura](../TCC_Checkpoint_JSON_Obsidian/06_Referencias/artigos_prioridade.md). A lista abaixo orienta a atualização do acervo; esta edição não baixou PDFs, não alterou o Zotero e não confirma o status local de novos anexos.
+
+| Fonte | Papel e atualização |
+| --- | --- |
+| [Hwang, Findings EMNLP 2024](https://aclanthology.org/2024.findings-emnlp.220/) + [SUMIE, COLING 2025](https://aclanthology.org/2025.coling-main.721/) | Método e dados, artigos distintos; estados canônicos exigem adaptação. |
+| [PRISM, EMNLP 2025](https://aclanthology.org/2025.emnlp-main.517/) | Atualizar o título antigo de 2024; promover para atualização persistente. |
+| [Intrinsic Memory Agents](https://arxiv.org/abs/2508.08997) | Preprint 2025, revisão janeiro/2026; nem toda variante exige JSON. |
+| [MemoryAgentBench](https://arxiv.org/abs/2507.05257) + [LongMemEval](https://arxiv.org/abs/2410.10813) | Atualização de conhecimento; apenas FactConsolidation-SH entra como contraste amostrado. |
+| [Qwen3](https://arxiv.org/abs/2505.09388), [T5Gemma](https://arxiv.org/abs/2504.06225), [Block Diffusion](https://arxiv.org/abs/2503.09573) | Relatórios de 2025; checkpoint Qwen BD3LM ainda a confirmar. |
+| [JSONSchemaBench](https://arxiv.org/abs/2501.10868) | Usar o título atualizado: JSONSchemaBench: A Rigorous Benchmark of Structured Outputs for Language Models. |
+| [Lu et al., 2026](https://arxiv.org/abs/2601.12979) + [Mündler et al., 2025](https://arxiv.org/abs/2508.10111) | Contrapontos sobre difusão, sem antecipar resultado no GU-json compacto. |
+
+Os nomes dos PDFs e o bloco sincronizado abaixo são registros de arquivos, não metadados bibliográficos corrigidos automaticamente. Conservar nomes para rastreabilidade e usar ano/versão/publicação da bibliografia na citação acadêmica. Metadados de surveys e demais itens anteriores fora da auditoria não foram revalidados nesta atualização.
+
 ## Referências — Domínio
 
 | Chave (Zotero) | Autor(es) / Ano | Título | Fonte | Arquivo esperado | Status |
@@ -31,10 +47,12 @@ o status abaixo.
 
 | Chave (Zotero) | Autor(es) / Ano | Título | Fonte | Arquivo esperado | Status |
 |---|---|---|---|---|---|
-| petersen2008 | Petersen et al., 2008 | Systematic Mapping Studies in Software Engineering | EASE 2008 (ACM, paywall) | `petersen2008_mapping_studies.pdf` | ⬜ pendente |
-| petersen2015 | Petersen et al., 2015 | Guidelines for conducting systematic mapping studies in software engineering: An update | Information and Software Technology (Elsevier, paywall) | `petersen2015_mapping_guidelines.pdf` | ⬜ pendente |
+| petersen2008 | Petersen et al., 2008 | Systematic Mapping Studies in Software Engineering | [DOI verificado](https://doi.org/10.14236/ewic/ease2008.8); acesso integral não confirmado na auditoria | `petersen2008_mapping_studies.pdf` | ⬜ pendente |
+| petersen2015 | Petersen et al., 2015 | Guidelines for conducting systematic mapping studies in software engineering: An update | [DOI verificado](https://doi.org/10.1016/j.infsof.2015.03.007); acesso integral não confirmado na auditoria | `petersen2015_mapping_guidelines.pdf` | ⬜ pendente |
 | kitchenham2007 | Kitchenham & Charters, 2007 | Guidelines for performing Systematic Literature Reviews in Software Engineering | EBSE-2007-01 (technical report) | `kitchenham2007_slr_guidelines.pdf` | ⬜ pendente |
-| wohlin2014 | Wohlin, 2014 | Guidelines for snowballing in systematic literature studies | EASE 2014 (ACM, paywall) | `wohlin2014_snowballing.pdf` | ⬜ pendente |
+| wohlin2014 | Wohlin, 2014 | Guidelines for snowballing in systematic literature studies and a replication in software engineering | [DOI verificado](https://doi.org/10.1145/2601248.2601268); acesso integral não confirmado na auditoria | `wohlin2014_snowballing.pdf` | ⬜ pendente |
+
+Priorizar Petersen 2015 junto da origem de 2008. [Kitchenham et al., 2010](https://doi.org/10.1016/j.infsof.2010.03.006) complementa com evidência terciária, sem substituir as diretrizes de 2007. Os status históricos de arquivos não foram rechecados nesta edição.
 
 ## Como manter rastreável
 

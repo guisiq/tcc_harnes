@@ -14,6 +14,8 @@ status: draft
 
 Criar uma instrução sem informação específica da arquitetura.
 
+A regra de atualização deve preservar opiniões conflitantes no SUMIE e substituir fatos somente quando houver invalidação explícita, como em FactConsolidation-SH. O mesmo prompt-base é usado pelos writers; não adicionar correção externa de estado. [[06_Referencias/referencias#Hwang et al. — SUMIE|SUMIE]]; [[06_Referencias/referencias#Hu et al. — MemoryAgentBench|MemoryAgentBench]].
+
 ## Template inicial
 
 ```text
@@ -24,7 +26,7 @@ Your task is to update a persistent JSON state.
 Rules:
 1. Preserve existing information that is still valid.
 2. Apply information explicitly introduced by the new observation.
-3. Replace information contradicted by newer information.
+3. Replace old facts only when the observation or task explicitly establishes that they are no longer valid. Preserve differing opinions and still-valid perspectives rather than assuming that the newest opinion wins.
 4. Do not invent unsupported facts.
 5. Respect the schema.
 6. Return only the complete updated JSON object.
@@ -70,9 +72,9 @@ Correto:
 
 Incorreto:
 
-```text
+````text
 Here is the JSON:
 ```json
 ...
 ```
-```
+````

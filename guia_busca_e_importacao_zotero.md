@@ -1,8 +1,22 @@
 # Guia Passo a Passo — Busca Bibliográfica e Importação no Zotero
 
-> Como executar a **Fase 0 (Busca de estudos)** do pipeline canônico (Petersen/Kitchenham), de forma sistemática e rastreável, usando o Zotero como fonte de verdade do corpus (ver [planejamento_mini_harness_completo.md](planejamento_mini_harness_completo.md), seção 6.0).
+> Como executar a **Fase 0 (Busca de estudos)** do pipeline proposto para a ferramenta bibliográfica, inspirado em [Petersen 2015](https://doi.org/10.1016/j.infsof.2015.03.007) e [Wohlin 2014](https://doi.org/10.1145/2601248.2601268), usando o Zotero para organizar o corpus. Manter a coleção não substitui documentar buscas e critérios (ver [planejamento_mini_harness_completo.md](planejamento_mini_harness_completo.md), seção 6.0).
 >
-> Ordem de execução: **1º os artigos de inspiração e fundamentos** (surveys do tema e referências metodológicas) e **2º os artigos da pesquisa em questão** (o domínio harness/SLM, usando a lista de termos da seção "Strings de busca" em [arquitetura_mini_harness_bibliografico.md](arquitetura_mini_harness_bibliografico.md)).
+> Para a ferramenta, a ordem histórica é inspiração/fundamentos e depois domínio harness/SLM, usando as strings do [planejamento](planejamento_mini_harness_completo.md). Para o TCC atual, priorizar as fontes focais da seção seguinte e a [metodologia de revisão vigente](TCC_Checkpoint_JSON_Obsidian/03_Revisao_Literatura/05_metodologia_revisao.md).
+
+## Atualização focal — 2026-11-06
+
+A auditoria atualiza os Markdown, não a coleção do Zotero. Conferir duplicatas e versões antes de importar. Não marcar como baixado/importado apenas porque o link é público.
+
+| Afirmação ou papel | Fontes prioritárias | Cuidado na importação e uso |
+| --- | --- | --- |
+| GU-json e dataset principal | [Hwang 2024](https://aclanthology.org/2024.findings-emnlp.220/) + [SUMIE 2025](https://aclanthology.org/2025.coling-main.721/) | Dois artigos distintos; SUMIE teve preprint em 2024. Preservar perspectivas não é supersession. |
+| Atualização persistente | [PRISM 2025](https://aclanthology.org/2025.emnlp-main.517/) + [Yuen, revisão 2026](https://arxiv.org/abs/2508.08997) | PRISM substitui o título antigo de 2024; Yuen não exige JSON em todas as variantes. |
+| Atualização de conhecimento | [MemoryAgentBench](https://arxiv.org/abs/2507.05257) + [LongMemEval](https://arxiv.org/abs/2410.10813) | Avaliam respostas, não fidelidade do estado; LongMemEval fica fora da coleta. |
+| Representantes | [Qwen3](https://arxiv.org/abs/2505.09388), [T5Gemma](https://arxiv.org/abs/2504.06225), [Block Diffusion](https://arxiv.org/abs/2503.09573) | Artigo de família não confirma o checkpoint Qwen BD3LM pretendido. |
+| Estrutura e contrapontos | [JSONSchemaBench](https://arxiv.org/abs/2501.10868), [Lu 2026](https://arxiv.org/abs/2601.12979), [Mündler 2025](https://arxiv.org/abs/2508.10111) | Atualizar o título de JSONSchemaBench; distinguir sintaxe, memória textual e GU-json. |
+
+Metadados, limites de leitura e situação editorial: [bibliografia central](TCC_Checkpoint_JSON_Obsidian/06_Referencias/referencias.md). T5Gemma exige aceite dos termos; confirmar a licença do dataset MemoryAgentBench diante da divergência cartão/artigo. Acesso institucional e indexação não foram certificados pela auditoria.
 
 ---
 
@@ -83,12 +97,16 @@ A Fase 1 divide-se em dois blocos complementares com a mesma estrutura de organi
 - **petersen2015** — _Guidelines for conducting systematic mapping studies in software engineering: An update_ (Petersen et al., 2015)
   - **Busca**: `Guidelines for conducting systematic mapping studies software engineering update Petersen 2015`
   - **Foco**: Guia prático e atualizado para conduzir o mapeamento.
+  - **DOI verificado**: https://doi.org/10.1016/j.infsof.2015.03.007. Complementa e atualiza Petersen 2008: https://doi.org/10.14236/ewic/ease2008.8.
 - **kitchenham2007** — _Guidelines for performing Systematic Literature Reviews in Software Engineering_ (Kitchenham & Charters, 2007)
   - **Busca**: `Kitchenham Charters Guidelines performing Systematic Literature Reviews Software Engineering EBSE-2007-01`
   - **Foco**: Protocolo, critérios de inclusão/exclusão, avaliação de qualidade e validade.
 - **wohlin2014** — _Guidelines for snowballing in systematic literature studies_ (Wohlin, 2014)
   - **Busca**: `Wohlin Guidelines snowballing systematic literature studies EASE 2014`
   - **Foco**: Procedimento sistemático de busca por referências (*snowballing*).
+  - **DOI verificado**: https://doi.org/10.1145/2601248.2601268.
+
+Complemento metodológico: [Kitchenham et al., 2010](https://doi.org/10.1016/j.infsof.2010.03.006), estudo terciário, não substitui o relatório procedural de 2007. Os sete itens da lista histórica não representam, sozinhos, o núcleo atual do TCC.
 
 ---
 
@@ -114,7 +132,7 @@ No Zotero, clique com o botão direito no item → `Better BibTeX Key... > Pin k
 
 ## FASE 2 — Artigos da pesquisa em questão (domínio harness/SLM)
 
-Diferente da Fase 1, aqui a busca é **sistemática por termos** (as strings de busca da seção final de [arquitetura_mini_harness_bibliografico.md](arquitetura_mini_harness_bibliografico.md)).
+Diferente da Fase 1, aqui está o procedimento de busca por termos da ferramenta (strings do [planejamento](planejamento_mini_harness_completo.md)). Para GU-json, usar as strings focais da [metodologia vigente](TCC_Checkpoint_JSON_Obsidian/03_Revisao_Literatura/05_metodologia_revisao.md); a auditoria selecionada não significa que este procedimento já tenha sido executado integralmente.
 
 ### Passo 2.1 — Monte as strings de busca por bloco
 

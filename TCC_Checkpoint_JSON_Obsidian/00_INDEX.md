@@ -55,6 +55,8 @@ status: draft
 - [[06_Referencias/artigos_prioridade|Lista priorizada de artigos]]
 - [[06_Referencias/links|Links de modelos, datasets e código]]
 
+Auditoria bibliográfica aplicada em 2026-11-06: Hwang + SUMIE fundamentam método/dados; PRISM + Intrinsic Memory Agents contextualizam atualização persistente; MemoryAgentBench + LongMemEval motivam atualização de conhecimento. A busca foi selecionada, não comprovação exaustiva de novidade. Datas, versões, contrapontos e limites de acesso estão na bibliografia.
+
 ## Decisão experimental atual
 
 | Elemento | Escolha |
@@ -63,7 +65,7 @@ status: draft
 | Variável independente principal | Paradigma/família do memory writer |
 | Writer autoregressivo | Qwen3-0.6B |
 | Writer encoder-decoder | T5Gemma B-B PrefixLM-IT |
-| Writer diffusion | Qwen3-0.6B Diffusion BD3LM |
+| Writer diffusion | candidato Qwen3-0.6B Diffusion BD3LM; checkpoint e API ainda a confirmar |
 | Dataset principal | SUMIE |
 | Contraste secundário | amostra FactConsolidation-SH focada em supersession |
 | Schema | fixo |
@@ -80,6 +82,8 @@ O estudo deve modificar **uma coisa de cada vez**:
 
 Isso mantém a interpretação dos resultados mais limpa.
 
+No SUMIE, preservar perspectivas conflitantes; em FactConsolidation-SH, substituir fatos somente pela regra temporal explícita. O contraste entre datasets não isola o efeito da operação e mantém H2 exploratória. [[06_Referencias/referencias#Hwang et al. — SUMIE|SUMIE]]; [[06_Referencias/referencias#Hu et al. — MemoryAgentBench|MemoryAgentBench]].
+
 ## Estado das decisões
 
 - **Fechado:** foco em checkpoint JSON incremental.
@@ -88,4 +92,6 @@ Isso mantém a interpretação dos resultados mais limpa.
 - **Fechado:** modelos pequenos executáveis localmente.
 - **Fechado:** SUMIE como cenário principal.
 - **Em validação:** critérios e tamanho da amostra FactCon-SH de supersession.
+- **Em validação:** estados acumulados/canonicalização do SUMIE, viabilidade sob 300 tokens e licença dos dados MemoryAgentBench.
+- **Em validação:** origem e compatibilidade do checkpoint diffusion; Block Diffusion não comprova sozinho o candidato Qwen.
 - **Fora do escopo:** avaliação downstream, ablação de budget e terceiro dataset.

@@ -33,6 +33,8 @@ Quando necessário:
 - strings: evitar normalização semântica excessiva;
 - números: preservar tipo esperado.
 
+Definir e validar valores canônicos antes da coleta: igualdade textual ingênua pode penalizar paráfrases corretas. O SUMIE original combina correspondência exata e avaliação semântica por LLM; esta normalização determinística é uma adaptação, não reprodução de seu F1. [[06_Referencias/referencias#Hwang et al. — SUMIE|SUMIE]]; [[02_Metodologia/05_metricas|Métricas do TCC]].
+
 ## Passo 4 — comparação de estado
 
 Converter estado para unidades comparáveis, por exemplo:
@@ -63,6 +65,8 @@ para identificar:
 - campo que deveria mudar;
 - campo novo.
 
+Usar a política da tarefa e rótulos validados: preservar perspectivas conflitantes no SUMIE; marcar supersession somente diante de invalidação explícita. MemoryAgentBench avalia respostas, portanto suas métricas não substituem essa inspeção de estado. [[06_Referencias/referencias#Hwang et al. — SUMIE|SUMIE]]; [[06_Referencias/referencias#Hu et al. — MemoryAgentBench|MemoryAgentBench]].
+
 ## Passo 6 — agregação
 
 Agrupar por:
@@ -81,6 +85,8 @@ Sugestão:
 - bootstrap 95% CI por amostra;
 - diferenças pareadas, pois os três modelos veem os mesmos casos;
 - effect size quando aplicável.
+
+O contraste SUMIE/FactConsolidation-SH não separa efeito da operação e efeito do dataset. Não interpretar ausência de diferença detectada como prova de equivalência entre modelos.
 
 ## Visualizações
 

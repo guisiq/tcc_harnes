@@ -20,6 +20,8 @@ O trabalho compara modelos compactos de três paradigmas — **decoder-only auto
 
 O cenário principal é a sumarização incremental de entidades do SUMIE, com schema e limite de memória fixos. Uma amostra de FactConsolidation-SH será usada apenas como contraste para substituição de informação.
 
+SUMIE preserva perspectivas conflitantes; FactConsolidation-SH define invalidação temporal explícita. Essa diferença orienta a adaptação dos estados esperados e impede interpretar todo conflito como supersession. [[06_Referencias/referencias#Hwang et al. — SUMIE|SUMIE, 2025]]; [[06_Referencias/referencias#Hu et al. — MemoryAgentBench|MemoryAgentBench, 2025/2026]].
+
 ## Problema
 
 Agentes baseados em modelos de linguagem que executam tarefas multi-etapas precisam manter estado ao longo do tempo. Uma estratégia é condensar interações anteriores em uma representação persistente estruturada.
@@ -33,7 +35,7 @@ O problema experimental é que cada reescrita do estado pode:
 - corromper partes imutáveis do estado;
 - produzir checkpoints maiores do que o limite definido para a memória.
 
-A literatura recente mostra vantagens de memória estruturada e de atualização incremental, mas não estabelece de forma clara como **paradigmas gerativos compactos diferentes** se comportam quando todos executam a mesma função de atualização de um checkpoint JSON.
+A literatura apresenta resultados favoráveis a representações estruturadas em configurações específicas, não uma superioridade universal de GU ou de schema fixo. Hwang fundamenta GU-json; PRISM usa revisões programáticas; Yuen inclui variantes que não exigem JSON. A busca selecionada não responde diretamente à comparação dos **representantes compactos escolhidos** no protocolo deste TCC, sem comprovar ausência global de estudos. [[06_Referencias/referencias#Hwang et al. — structured incremental summarization|Hwang et al., 2024]]; [[06_Referencias/referencias#PRISM|PRISM, 2025]]; [[06_Referencias/referencias#Yuen et al. — Intrinsic Memory Agents|Yuen et al., 2025/2026]].
 
 ## Objeto experimental
 

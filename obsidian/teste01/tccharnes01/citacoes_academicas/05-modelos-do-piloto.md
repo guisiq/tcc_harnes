@@ -1,5 +1,15 @@
 # Modelos do piloto
 
+## Representantes atuais e fontes auditadas
+
+Atualização de 2026-11-06. As seções Qwen2.5/Phi-3/RecurrentGemma/Mamba abaixo são acervo da formulação anterior, não escolhas atuais. Seus artigos não foram integralmente reavaliados nesta auditoria. [Modelos vigentes](../../../../TCC_Checkpoint_JSON_Obsidian/02_Metodologia/04_modelos.md); [bibliografia central](../../../../TCC_Checkpoint_JSON_Obsidian/06_Referencias/referencias.md).
+
+- Qwen3-0.6B: [Qwen3 Technical Report, 2025](https://arxiv.org/abs/2505.09388) e [cartão oficial](https://huggingface.co/Qwen/Qwen3-0.6B). Fixar o modo thinking no protocolo.
+- T5Gemma B-B PrefixLM-IT: [relatório de 2025](https://arxiv.org/abs/2504.06225) e [cartão oficial](https://huggingface.co/google/t5gemma-b-b-prefixlm-it). Série T5-compatible; pesos exigem aceite dos termos Gemma.
+- Candidato Qwen3-0.6B Diffusion BD3LM: [Block Diffusion, 2025](https://arxiv.org/abs/2503.09573) fundamenta o mecanismo e [Gong et al., 2024/2025](https://arxiv.org/abs/2410.17891) contextualiza adaptação AR→diffusion. Nenhum confirma sozinho o checkpoint pretendido, sua origem ou viabilidade.
+
+Essas fontes caracterizam os representantes, não antecipam qual preserva melhor memória JSON. O experimento permanece uma comparação de modelos, sem causalidade exclusivamente arquitetural.
+
 ## Qwen2.5-3B-Instruct
 
 A literatura encontrada via SciSpace inclui trabalhos com Qwen2.5 em escalas pequenas e avaliações voltadas a eficiência/local deployment. Um estudo comparativo de fine-tuning eficiente inclui explicitamente Qwen2.5 1.5B/3B e mostra o uso desses modelos como alternativas de menor custo para tarefas especializadas.
@@ -36,6 +46,6 @@ O estudo trata explicitamente de modelos State Space, incluindo Mamba, destacand
 
 **Uso na ficha:** sustenta a classificação de Mamba como arquitetura State Space Model (SSM). A variante exata “~2.8B instruction-tuned” ainda deve ser fixada e citada quando o checkpoint concreto do piloto for escolhido.
 
-## Observação
+## Observação histórica
 
-A ficha menciona “Phi-3.5-mini-Instruct ou Gemma pequeno equivalente” e “Mamba aproximadamente 2.8B instruction-tuned”. Como essas escolhas ainda são alternativas, a referência acadêmica sustenta a família/arquitetura, mas o modelo/checkpoint final deve ser documentado após a seleção definitiva.
+A ficha antiga menciona “Phi-3.5-mini-Instruct ou Gemma pequeno equivalente” e “Mamba aproximadamente 2.8B instruction-tuned”. Essas alternativas foram superadas pelo recorte atual. Em qualquer seleção, a referência de família não dispensa documentar o checkpoint concreto.

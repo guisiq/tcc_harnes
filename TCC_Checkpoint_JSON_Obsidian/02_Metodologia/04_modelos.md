@@ -30,10 +30,12 @@ Razões:
 - escala próxima dos demais;
 - modelo pequeno e atual;
 - forte ecossistema;
-- o writer diffusion escolhido é derivado da mesma linhagem Qwen3, reduzindo parte do confundimento entre AR e diffusion.
+- a linhagem compartilhada com o candidato diffusion é uma possibilidade a confirmar pela documentação do checkpoint; não presumir pareamento de treinamento.
 
 Model card:
 https://huggingface.co/Qwen/Qwen3-0.6B
+
+Fundamento: [[06_Referencias/referencias#Qwen3 Technical Report|Qwen3 Technical Report, 2025]]. Fixar e registrar o modo thinking, pois o cartão oferece modos distintos; não confundir limite total de geração com espaço disponível para o JSON final. Licença indicada no cartão: Apache-2.0.
 
 ---
 
@@ -56,6 +58,8 @@ https://huggingface.co/google/t5gemma-b-b-prefixlm-it
 Technical report:
 https://arxiv.org/abs/2504.06225
 
+O relatório é vinculado pelo cartão oficial. B-B pertence à série T5-compatible; acesso aos pesos exige aceite da licença Gemma. Caracterização bibliográfica não confirma execução local nem superioridade no GU-json. [[06_Referencias/referencias#T5Gemma|T5Gemma, 2025]].
+
 ---
 
 ## Writer 3 — diffusion
@@ -64,34 +68,21 @@ https://arxiv.org/abs/2504.06225
 
 Papel: representante diffusion/block diffusion.
 
-Razões:
+Características pretendidas, ainda dependentes da confirmação do checkpoint:
 
-- deriva da linhagem Qwen3;
-- escala pequena;
-- geração iterativa/não puramente esquerda→direita;
-- interessante para reescrita e correção global de estruturas.
+- linhagem Qwen3 e escala compacta;
+- difusão dentro de blocos, com geração sequencial entre blocos;
+- atualização de estado sob o mesmo protocolo, sem pressupor vantagem em correção de estruturas.
 
-Referência de família/pesquisa:
-https://arxiv.org/abs/2410.17891
+Fundamento específico: [[06_Referencias/referencias#Block Diffusion|Block Diffusion, Arriola et al., 2025]]. Complemento sobre adaptação AR→diffusion: [[06_Referencias/referencias#Diffusion adaptation|Gong et al., 2024/2025]]. Nenhum desses artigos, sozinho, confirma o candidato Qwen3-0.6B.
 
 > Confirmar no início da implementação o repositório exato e a API recomendada do checkpoint BD3LM usado, pois modelos experimentais diffusion mudam rapidamente.
 
 ---
 
-## DiffusionGemma — por que não é o principal
+## Limites da evidência sobre difusão
 
-DiffusionGemma é cientificamente relevante, mas a variante oficial divulgada é muito maior que os writers locais selecionados.
-
-Uso no TCC:
-
-- estado da arte/contexto;
-- discussão;
-- trabalho futuro.
-
-Não usar como condição principal na GTX 1650.
-
-Página:
-https://deepmind.google/models/gemma/diffusiongemma/
+Lu et al. (2026) avaliam modelos de 7–8B e encontram resultados dependentes da tarefa: dificuldades em ferramentas, mas memória textual competitiva. Mündler et al. (2025) mostram mitigação sintática com constrained decoding. Esses resultados não antecipam a qualidade do candidato compacto em GU-json prompt-only e não acrescentam condições ao experimento. [[06_Referencias/referencias#Diffusion em workflows de agentes|Lu et al.]]; [[06_Referencias/referencias#Constrained diffusion decoding|Mündler et al.]].
 
 ---
 

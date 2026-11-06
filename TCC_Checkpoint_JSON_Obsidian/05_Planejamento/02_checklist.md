@@ -15,11 +15,17 @@ status: draft
 - [ ] Ler SUMIE
 - [ ] Ler MemoryAgentBench
 - [ ] Ler Yuen
-- [ ] Ler Zeng
+- [ ] Ler PRISM na versão publicada EMNLP 2025
+- [ ] Ler Zeng como contexto de representação/recuperação
+- [ ] Ler Qwen3 Technical Report
 - [ ] Ler T5Gemma report
+- [ ] Ler Block Diffusion
 - [ ] Ler paper do diffusion selecionado
+- [ ] Fichar os contrapontos de Lu et al. e Mündler et al.
 - [ ] Executar backward snowballing
 - [ ] Executar forward snowballing
+
+Seguir [[06_Referencias/artigos_prioridade|Prioridades auditadas]] e [[06_Referencias/referencias|Bibliografia]]. As caixas representam atividades do projeto, não são concluídas automaticamente pela auditoria bibliográfica.
 
 ## Modelos
 - [ ] Confirmar Qwen3-0.6B
@@ -33,7 +39,10 @@ status: draft
 - [ ] Baixar MemoryAgentBench
 - [ ] Criar transition format
 - [ ] Validar ground truth
-- [ ] Rotular operações
+- [ ] Validar canonicalização e viabilidade dos estados sob 300 tokens fixos
+- [ ] Rotular operações sem transformar opiniões divergentes do SUMIE em supersession
+- [ ] Documentar a regra temporal de FactConsolidation-SH
+- [ ] Confirmar licença e revisão dos dados MemoryAgentBench diante da divergência cartão/artigo
 - [ ] Fixar critérios e tamanho da amostra FactCon-SH antes da comparação
 
 ## Harness

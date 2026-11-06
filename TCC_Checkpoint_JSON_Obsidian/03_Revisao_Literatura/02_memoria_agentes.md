@@ -40,6 +40,8 @@ agent reasoning
 
 Este TCC isola principalmente **memory construction/update**.
 
+Para atualização persistente, priorizar [[06_Referencias/referencias#Hwang et al. — structured incremental summarization|Hwang et al., 2024]] e [[06_Referencias/referencias#PRISM|PRISM, 2025]]. GU reescreve o estado completo; PRISM aplica revisões programáticas. JSON é uma representação, não uma estratégia de recuperação.
+
 ## Zeng et al.
 
 O estudo separa estruturas:
@@ -57,11 +59,11 @@ Também separa retrieval:
 - iterative.
 
 Comentário:
-> Excelente referência para mostrar que "estrutura da memória" é uma dimensão diferente de "arquitetura do modelo que escreve a memória".
+> Referência contextual para distinguir representação e recuperação; não demonstra preservação em checkpoints reescritos. [[06_Referencias/referencias#Zeng et al. — Structural Memory|Zeng et al., 2024]].
 
 ## Yuen et al.
 
-Memórias específicas por agente são mantidas em JSON e atualizadas após interações.
+Memórias específicas por agente são atualizadas a partir do estado anterior e de novas saídas dos agentes. Algumas variantes usam JSON; a genérica permite representação livre na revisão de janeiro de 2026.
 
 Ablations:
 - manual template;
@@ -71,12 +73,14 @@ Ablations:
 Comentário:
 > Para o TCC, usar schema fixo evita transformar template design em uma segunda variável independente.
 
+Essa é uma decisão de controle, não conclusão de superioridade: templates genéricos/gerados superam os manuais em vários testes. [[06_Referencias/referencias#Yuen et al. — Intrinsic Memory Agents|Yuen et al., 2025/2026]]; [[06_Referencias/referencias#PRISM|PRISM, memória tipada com outro mecanismo de atualização]].
+
 ## Chain-of-Memory
 
-O artigo argumenta que construção de memória excessivamente complexa pode gerar alto custo com ganho marginal.
+O artigo estuda construção de memória e organização de fragmentos recuperados para raciocínio.
 
 Comentário:
-> Reforça a justificativa prática de estudar writers pequenos e estruturas leves.
+> Contexto sobre sistemas de memória, não evidência direta a favor de writers compactos no GU-json. [[06_Referencias/referencias#Xu et al. — Chain-of-Memory|Xu et al., 2026]].
 
 ## MemoryAgentBench
 
@@ -90,6 +94,8 @@ Competências:
 Comentário:
 > `Selective Forgetting` deve inspirar as métricas de supersession e stale-fact rate.
 
+FactConsolidation define precedência temporal; o benchmark mede respostas, não o estado interno. LongMemEval também aborda atualização de conhecimento. Em contraste, SUMIE preserva perspectivas conflitantes: não rotular toda divergência como fato obsoleto. [[06_Referencias/referencias#Hu et al. — MemoryAgentBench|MemoryAgentBench]]; [[06_Referencias/referencias#LongMemEval|LongMemEval]]; [[06_Referencias/referencias#Hwang et al. — SUMIE|SUMIE]].
+
 ## LoCoMo
 
 Conversas:
@@ -100,3 +106,5 @@ Conversas:
 
 Comentário:
 > Referência de literatura sobre diálogo de longo prazo; não integra a coleta deste TCC, que se limita ao SUMIE e ao contraste delimitado de FactConsolidation-SH.
+
+[[06_Referencias/referencias#Maharana et al. — LoCoMo|Maharana et al., 2024]]. Para atualização de conhecimento, priorizar as referências da seção anterior, sem acrescentar datasets ao experimento.

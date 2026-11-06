@@ -16,31 +16,35 @@ Hwang et al. comparam GO, GU e GM em texto e JSON no SUMIE e no BooookScore. Sob
 
 **Leitura para este TCC:** GU-json é um método estabelecido para sumarização incremental estruturada sob memória limitada, não o método universalmente superior. Ele será fixado para isolar a comparação entre modelos escritores.
 
-Referência: [[06_Referencias/referencias#hwang-structured|Hwang et al. — Enhancing Incremental Summarization with Structured Representations]]
+Referências: [[06_Referencias/referencias#Hwang et al. — structured incremental summarization|Hwang et al., 2024]]; [[06_Referencias/referencias#Hwang et al. — SUMIE|SUMIE, COLING 2025]].
 
 ## Evidência de que JSON é usado dentro de agentes
 
-Yuen et al. usam memória JSON atualizada continuamente por LLMs em agentes e comparam templates manuais, genéricos e gerados por LLM.
+Yuen et al. atualizam memória contextual a partir da memória anterior e de novas saídas dos agentes, comparando templates manuais, genéricos e gerados por LLM. Na revisão de janeiro de 2026, a variante genérica não exige JSON; templates genéricos/gerados superam os manuais em vários testes.
 
-**Leitura para este TCC:** existe precedente de checkpoint estruturado em um agente real, mas o foco daquele estudo é template/memória multiagente, não uma comparação controlada entre paradigmas de geração compactos.
+PRISM (EMNLP 2025) também mantém memória estruturada persistente, mas aplica operações de caminho/valor programaticamente, em vez de reescrever o JSON inteiro.
 
-Referência: [[06_Referencias/referencias#yuen-intrinsic|Yuen et al. — Intrinsic Memory Agents]]
+**Leitura para este TCC:** há precedentes próximos de atualização de memória, não prova de superioridade do schema fixo ou de GU. Fixá-los é um controle experimental; não será acrescentada uma comparação de templates ou métodos.
+
+Referências: [[06_Referencias/referencias#Yuen et al. — Intrinsic Memory Agents|Yuen et al., 2025/2026]]; [[06_Referencias/referencias#PRISM|Jayalath et al., 2025]].
 
 ## Estrutura de memória não é a mesma coisa que método de escrita
 
 Zeng et al. comparam chunks, knowledge triples, atomic facts, summaries e memória mista, além de estratégias de retrieval, em quatro tarefas e seis datasets. Relatam vantagens distintas por tarefa: chunks/summaries em contexto longo, triples/atomic facts em raciocínio relacional e precisão, e mixed memory como opção mais equilibrada.
 
-**Leitura para este TCC:** este é provavelmente o artigo lembrado sobre adequar características de memória a cenários, mas não estuda GU-json nem algoritmos de escrita incremental. Ele orienta o recorte por tarefa, não determina qual modelo writer será melhor.
+**Leitura para este TCC:** o artigo fornece contexto sobre representação/recuperação, não estuda GU-json nem demonstra preservação em checkpoints reescritos. Para atualização persistente, os fundamentos mais próximos são Hwang, PRISM e Yuen; não foi identificado qual era o artigo originalmente lembrado.
 
-Referência: [[06_Referencias/referencias#zeng-structural|Zeng et al. — On the Structural Memory of LLM Agents]]
+Referência contextual: [[06_Referencias/referencias#Zeng et al. — Structural Memory|Zeng et al., 2024]].
 
 ## A avaliação incremental é importante
 
 MemoryAgentBench argumenta que agentes de memória recebem informações incrementalmente e propõe competências que incluem `Selective Forgetting`.
 
-**Leitura para este TCC:** medir apenas JSON válido é insuficiente. O protocolo deve incluir atualização, preservação e substituição de informação ao longo do tempo.
+LongMemEval inclui atualização de conhecimento e raciocínio temporal. Ambos avaliam respostas, não fidelidade interna do JSON. O TCC adapta essa motivação para inspeção direta de estado, distinguindo conformidade estrutural de correção factual.
 
-Referência: [[06_Referencias/referencias#hu-memoryagentbench|Hu et al. — MemoryAgentBench]]
+**Leitura para este TCC:** no SUMIE, preservar perspectivas conflitantes é parte da tarefa; em FactConsolidation-SH, a regra é substituir fatos temporalmente obsoletos. Não tratar as duas políticas como equivalentes, nem atribuir diferenças entre datasets apenas à operação.
+
+Referências: [[06_Referencias/referencias#Hu et al. — MemoryAgentBench|MemoryAgentBench]]; [[06_Referencias/referencias#LongMemEval|LongMemEval]]; [[06_Referencias/referencias#Hwang et al. — SUMIE|SUMIE]].
 
 ## Lacuna operacional proposta
 
@@ -73,4 +77,6 @@ e não:
 3. Usa SUMIE, o cenário diretamente alinhado à avaliação de GU-json em sumarização incremental de entidades.
 4. Mantém um único orçamento de memória para não introduzir outra variável.
 5. Usa apenas uma amostra de FactConsolidation-SH como contraste para supersession.
-6. Permite avaliar fidelidade contra estados esperados estruturados sem LLM-as-judge nas métricas centrais.
+6. Propõe avaliar fidelidade contra estados esperados estruturados sem LLM-as-judge nas métricas centrais, condicionada a uma política validada de canonicalização. Não replica diretamente o F1 original do SUMIE, que também usa avaliação semântica de evidências.
+
+Lu et al. encontram dificuldades de difusão em chamadas de ferramentas e resultados competitivos em memória textual; Mündler et al. mostram que restrições gramaticais podem melhorar a sintaxe. Esses contrapontos impedem antecipar inferioridade da difusão em checkpoints JSON. Nenhum deles responde diretamente à comparação de writers compactos deste projeto. [[06_Referencias/referencias#Diffusion em workflows de agentes|Lu et al., 2026]]; [[06_Referencias/referencias#Constrained diffusion decoding|Mündler et al., 2025]].

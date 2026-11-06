@@ -60,9 +60,13 @@ Agentes que recebem informações em etapas precisam manter uma representação 
 
 A literatura relacionada aborda memória estruturada, atualização incremental, avaliação de memória e geração estruturada. Esses eixos dão base ao uso de GU-JSON e às métricas de preservação e esquecimento, mas não respondem por si só como diferentes paradigmas gerativos compactos se comportam sob o mesmo protocolo. [[03_Revisao_Literatura/00_mapa_literatura|Mapa da literatura]]; [[03_Revisao_Literatura/03_geracao_estruturada_json|Geração estruturada e JSON]]
 
+Hwang fundamenta diretamente GU-json; PRISM mantém memória tipada por revisões programáticas, e Intrinsic Memory Agents usa atualização contextual com variantes que não exigem JSON. Esses trabalhos oferecem precedentes distintos, não prova de superioridade do schema fixo adotado como controle. [[06_Referencias/referencias#Hwang et al. — structured incremental summarization|Hwang et al., 2024]]; [[06_Referencias/referencias#PRISM|PRISM, 2025]]; [[06_Referencias/referencias#Yuen et al. — Intrinsic Memory Agents|Yuen et al., 2025/2026]].
+
 Assim, a lacuna operacional proposta é avaliar representantes compactos autoregressivo decoder-only, encoder-decoder e diffusion, usados somente como *memory writers*, para atualizar incrementalmente o mesmo tipo de checkpoint JSON. A comparação deve controlar método, schema, entradas e condições experimentais; os resultados serão atribuídos aos modelos avaliados, não à arquitetura em abstrato. **A lacuna permanece uma afirmação a confirmar pela revisão focal.** [[01_Projeto/03_justificativa_lacuna|Justificativa e lacuna]]
 
 O problema será investigado principalmente no SUMIE, que representa sumarização incremental de entidades com memória limitada. Uma amostra previamente delimitada de FactConsolidation-SH servirá como contraste apenas para a operação de supersession. Não haverá avaliação de agente downstream nem inclusão de outros datasets. [[02_Metodologia/03_datasets|Datasets]]; [[02_Metodologia/06_plano_experimental|Plano experimental]]
+
+No SUMIE, opiniões conflitantes podem coexistir; em FactConsolidation-SH, fatos novos invalidam antigos por regra temporal explícita. A anotação dos estados e operações deve respeitar essa distinção. O State F1 determinístico será uma adaptação com canonicalização validada, não reprodução direta da avaliação original. [[06_Referencias/referencias#Hwang et al. — SUMIE|SUMIE]]; [[06_Referencias/referencias#Hu et al. — MemoryAgentBench|MemoryAgentBench]].
 
 ## Pergunta de pesquisa
 
@@ -136,10 +140,10 @@ Calcular métricas por amostra, turno e operação; não guardar somente médias
 
 As hipóteses abaixo tratam da comparação focal entre writers compactos, não da superioridade universal de GU-json. [[01_Projeto/02_perguntas_hipoteses|Hipóteses de trabalho]]
 
-**Antecedente bibliográfico:** Hwang et al. relatam vantagem de `GU_json` sobre `GU_text` sob memória limitada em SUMIE e BooookScore; `CoK_json` supera as baselines comparadas. O estudo usa Gemini Ultra/Pro, então motiva o método e dataset, mas não responde sobre writers compactos. [[06_Referencias/referencias|Hwang et al.]]
+**Antecedente bibliográfico:** Hwang et al. relatam vantagem de `GU_json` sobre `GU_text` sob memória limitada; `CoK_json` supera as baselines comparadas. O artigo do SUMIE relata perfis diferentes entre modelos. Essas evidências motivam o método e a comparação, sem responder sobre os três writers escolhidos. [[06_Referencias/referencias#Hwang et al. — structured incremental summarization|Hwang et al., 2024]]; [[06_Referencias/referencias#Hwang et al. — SUMIE|SUMIE, 2025]].
 
-- **H1 — perfis de erro por writer:** os representantes podem diferir na preservação de estado antigo e na incorporação de informação nova.
-- **H2 — supersession:** as diferenças entre writers podem ser mais visíveis quando informação nova substitui informação anterior do que em simples adições.
+- **H1 — perfis de erro por writer:** sob GU-json, schema e orçamento fixos, os modelos selecionados apresentam diferenças mensuráveis na preservação de estado antigo e na incorporação de informação nova, sem previsão de vencedor ou causalidade apenas arquitetural.
+- **H2 — supersession (exploratória):** as diferenças entre writers podem ser mais visíveis quando informação nova substitui informação anterior do que em simples adições. Comparar SUMIE com FactConsolidation-SH não isola o efeito da operação, pois o dataset também muda. MemoryAgentBench e LongMemEval motivam essa investigação, mas não demonstram a hipótese. [[06_Referencias/referencias#Hu et al. — MemoryAgentBench|MemoryAgentBench]]; [[06_Referencias/referencias#LongMemEval|LongMemEval]].
 
 ### Estado da pesquisa e decisões pendentes
 

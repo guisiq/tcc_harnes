@@ -1,5 +1,7 @@
 # Ficha do Tema - Trabalho de Conclusão de Curso I
 
+> **Registro histórico, não protocolo vigente.** Esta ficha preserva a formulação anterior e suas anotações. A [ficha atual](../../../TCC_Checkpoint_JSON_Obsidian/01_Projeto/04_ficha_tema.md) compara writers compactos sob GU-json fixo; não compara JSON versus texto, retomada de tarefas ou desempenho computacional. Citações revistas em 2026-11-06 conforme a [bibliografia auditada](../../../TCC_Checkpoint_JSON_Obsidian/06_Referencias/referencias.md).
+
 ## Identificação
 
 | Campo            | Preenchimento                     |
@@ -11,7 +13,7 @@
 ## Tema (1 frase)
 
 Comparar a [[05-glossario#Sumarização textual|sumarizacao textual]] e o [[05-glossario#Checkpoint JSON|checkpoint JSON]] quanto a confiabilidade e eficiencia de agentes baseados em SLMs locais de 1-4B durante a retomada de tarefas deterministicas interrompidas. 
-> Comparar estruturas distintas de memória é sustentado pela literatura sobre representação de memória. [[citacoes_academicas/02-estruturas-de-memoria-sumarizacao-e-json#Afirmações sustentadas\|estruturas]]
+> Fundamentação histórica: [Hwang, 2024](https://aclanthology.org/2024.findings-emnlp.220/) compara JSON e texto na sumarização incremental; não avalia retomada de agentes interrompidos. [PRISM, 2025](https://aclanthology.org/2025.emnlp-main.517/) complementa o argumento de memória persistente, mas usa revisões programáticas. Esses resultados não comprovam a hipótese antiga abaixo.
 
 Recorte final: [[04-candidatos-finais#4B — Preservação de restrições|4B - Preservacao de restricoes]]. **Decisao de delimitacao deste estudo.**
 
@@ -45,9 +47,9 @@ Recorte final: [[04-candidatos-finais#4B — Preservação de restrições|4B - 
 
 Agentes baseados em modelos de linguagem precisam manter um [[05-glossario#Estado operacional|estado operacional]] consistente para concluir tarefas de multiplas etapas. [[citacoes_academicas/01-memoria-e-persistencia-em-agentes#Afirmações sustentadas\|memória]]
 
-Estudos sobre memoria de agentes frequentemente se concentram em [[03-contextos-de-avaliacao#3D — Conversações longas|memoria conversacional]] e interacoes multi-sessao (LoCoMo, MemoryAgentBench). [[citacoes_academicas/03-benchmarks-de-memoria-e-long-horizon#Afirmações sustentadas\|benchmarks]]
+LoCoMo e LongMemEval exemplificam avaliação conversacional; MemoryAgentBench inclui outras competências incrementais. Esses exemplos não demonstram predominância estatística de conversação na literatura. Para atualização de conhecimento, usar [MemoryAgentBench](https://arxiv.org/abs/2507.05257) junto de [LongMemEval](https://arxiv.org/abs/2410.10813), sem incorporá-los integralmente ao experimento atual.
 
-A forma de representar a memoria tambem importa: resumos, fatos atomicos, triplas, memorias mistas e representacoes JSON. [[citacoes_academicas/02-estruturas-de-memoria-sumarizacao-e-json#Afirmações sustentadas\|estruturas]]
+Representação e atualização são dimensões diferentes. Zeng estuda estruturas e recuperação; para reescrita persistente, priorizar [Hwang](https://aclanthology.org/2024.findings-emnlp.220/) e [Intrinsic Memory Agents](https://arxiv.org/abs/2508.08997). Este último não exige JSON em todas as variantes da revisão de 2026 nem prova superioridade de template manual.
 
 Ainda ha evidencia limitada sobre como [[02-comparacoes#2B — Resumo versus checkpoint JSON|sumarizacao textual e checkpoints JSON]] afetam a retomada de tarefas deterministicas interrompidas por SLMs de 1-4B. ==**Afirmacao de lacuna, nao conclusao definitiva.** [[citacoes_academicas/02-estruturas-de-memoria-sumarizacao-e-json#Grau de evidência\|estruturas]]; [[citacoes_academicas/04-slms-execucao-local-e-quantizacao#Afirmações sustentadas\|SLMs]]==
 
@@ -75,7 +77,7 @@ A pergunta e experimental. A literatura torna a comparacao plausivel, mas nao fo
 4. medir tokens utilizados;
 5. medir latencia.
 
-As dimensoes de desempenho, tokens e latencia sao coerentes com avaliacoes recentes de memoria e eficiencia de modelos. [[citacoes_academicas/03-benchmarks-de-memoria-e-long-horizon#Afirmações sustentadas\|benchmarks]]; [[citacoes_academicas/04-slms-execucao-local-e-quantizacao#Afirmações sustentadas\|SLMs]]
+Os objetivos acima pertencem ao recorte histórico e não às [métricas vigentes](../../../TCC_Checkpoint_JSON_Obsidian/02_Metodologia/05_metricas.md). Chain-of-Memory não fundamenta a inclusão de desempenho computacional no TCC atual; seus resultados de sistemas completos não equivalem à fidelidade de checkpoints.
 
 ---
 
@@ -133,6 +135,8 @@ No checkpoint JSON, registrar separadamente campos ausentes, valores alterados, 
 
 ### Hipoteses preliminares
 
+Hipóteses da formulação anterior, não as H1/H2 vigentes. [Hipóteses atuais e evidências](../../../TCC_Checkpoint_JSON_Obsidian/01_Projeto/02_perguntas_hipoteses.md). A auditoria não confirma vantagem universal de JSON: Hwang favorece CoK em seus testes; Yuen inclui variantes livres; PRISM usa outro mecanismo de atualização.
+
 As hipoteses abaixo **nao sao tratadas como fatos demonstrados**; sao proposicoes a testar. A literatura fornece apenas plausibilidade relacionada. [[citacoes_academicas/02-estruturas-de-memoria-sumarizacao-e-json|Base relacionada]]
 
 - **H1:** checkpoints JSON preservam mais restricoes e estado operacional do que a sumarizacao textual. Evidencia relacionada mostra que estruturas de memoria importam e que representacoes JSON podem melhorar processamento incremental, mas nao testa esta hipotese no mesmo protocolo. [[citacoes_academicas/02-estruturas-de-memoria-sumarizacao-e-json|Evidencia indireta]]
@@ -144,3 +148,5 @@ As hipoteses abaixo **nao sao tratadas como fatos demonstrados**; sao proposicoe
 <mark data-color="#ff8c0066" style="background-color: rgba(255, 140, 0, 0.4); color: inherit;">A originalidade do recorte deve ser confirmada por revisao bibliografica focal; a viabilidade deve ser verificada por um piloto com a condicao de execucao continua antes da comparacao das duas estrategias.</mark>
 
 A revisao via SciSpace encontrou literatura forte sobre memoria persistente, estruturas de memoria, benchmarks long-horizon e SLMs locais, mas nao uma avaliacao diretamente equivalente ao recorte completo proposto. [[citacoes_academicas/README|Indice das citacoes academicas]]
+
+Na revisão atual, [SUMIE](https://aclanthology.org/2025.coling-main.721/) fundamenta integração/preservação de perspectivas, enquanto [MemoryAgentBench](https://arxiv.org/abs/2507.05257) fundamenta supersession temporal explícita. São políticas distintas; os escores originais não equivalem automaticamente às métricas de estado adaptadas do TCC. A busca selecionada não certifica originalidade global.

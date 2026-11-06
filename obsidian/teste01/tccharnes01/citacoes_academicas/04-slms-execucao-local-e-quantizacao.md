@@ -1,9 +1,13 @@
 # SLMs, execução local e quantização
 
+Nota do acervo histórico. A auditoria de 2026-11-06 não reavaliou integralmente os três trabalhos abaixo; seus resultados não acrescentam métricas ou condições ao TCC atual. O estudo mede qualidade de estado, não latência, throughput ou uso de RAM/VRAM. [Modelos e compatibilidade atuais](../../../../TCC_Checkpoint_JSON_Obsidian/02_Metodologia/04_modelos.md).
+
+Para caracterizar os representantes atuais, priorizar [Qwen3 Technical Report, 2025](https://arxiv.org/abs/2505.09388) e [T5Gemma, 2025](https://arxiv.org/abs/2504.06225). Para BD3LM, complementar [Block Diffusion, 2025](https://arxiv.org/abs/2503.09573) com o relatório do checkpoint Qwen exato, ainda não confirmado. Escala aproximada não garante execução no hardware local.
+
 ## Afirmações sustentadas
 
 - SLMs na faixa de centenas de milhões a poucos bilhões de parâmetros são estudados como alternativa para execução eficiente em dispositivos e ambientes com recursos limitados.
-- Latência e consumo de memória são métricas relevantes para avaliar implantação local.
+- Estudos de implantação local examinam métricas computacionais, que não são variáveis dependentes do protocolo vigente.
 - Quantização reduz uso de memória e custo de inferência, mas pode introduzir perdas de qualidade, especialmente em modelos menores e níveis agressivos de compressão.
 
 ## Referências localizadas via SciSpace
@@ -13,7 +17,7 @@ DOI: 10.48550/arxiv.2409.15790
 
 Revisa 59 SLMs open source entre 100M e 5B parâmetros e mede, entre outros aspectos, latência de inferência e footprint de memória em execução on-device.
 
-**Uso na ficha:** fundamenta o recorte de SLMs pequenos e a escolha de latência/memória como métricas de eficiência.
+**Uso no acervo:** contexto geral de SLMs. Não fundamenta incluir métricas computacionais no recorte vigente; os relatórios dos modelos escolhidos são fontes mais diretas para sua caracterização.
 
 ### Lee et al. (2025) — *Exploring the Trade-Offs: Quantization Methods, Task Difficulty, and Model Size in Large Language Models From Edge to Giant*
 DOI: 10.24963/ijcai.2025/902
@@ -27,10 +31,8 @@ DOI: 10.48550/arxiv.2505.13840
 
 Define métricas de eficiência como utilização de memória, latência, throughput, energia e compressão e compara técnicas de quantização em modelos de 0.5B a 72B.
 
-**Uso na ficha:** sustenta o uso de latência e memória/VRAM como variáveis de eficiência e a existência de trade-offs entre compressão e qualidade.
+**Uso no acervo:** contexto de implantação e compressão; não define métricas do experimento atual.
 
 ## Grau de evidência
 
-**Forte** para a pertinência de SLMs e métricas de eficiência em execução limitada por hardware.
-
-A restrição específica de **6 GB de VRAM e 16 GB de RAM** é uma decisão de viabilidade do experimento, não um fato bibliográfico universal.
+Os estudos descritos são contexto de implantação, não prova de qualidade de writers GU-json ou de compatibilidade local. A configuração de 6 GB de VRAM/16 GB RAM pertence à formulação antiga; consultar o [hardware vigente](../../../../TCC_Checkpoint_JSON_Obsidian/02_Metodologia/07_hardware_tempos.md). Não extrapolar essas fontes para confirmar as hipóteses atuais.

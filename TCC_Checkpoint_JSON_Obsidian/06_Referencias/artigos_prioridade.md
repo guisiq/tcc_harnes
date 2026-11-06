@@ -14,12 +14,14 @@ status: draft
 
 | Artigo | Motivo |
 |---|---|
-| Enhancing Incremental Summarization with Structured Representations | método GU-JSON e predecessor mais próximo |
-| SUMIE | dataset principal |
-| MemoryAgentBench | benchmark incremental + selective forgetting |
-| Intrinsic Memory Agents | JSON memory dentro de agentes |
-| Encoder-Decoder Gemma / T5Gemma | arquitetura do writer encoder-decoder |
-| paper/model report do Qwen diffusion selecionado | arquitetura diffusion do experimento |
+| [[06_Referencias/referencias#Hwang et al. — structured incremental summarization\|Hwang, Findings EMNLP 2024]] | fundamento direto de GU-JSON, sem alegar superioridade sobre CoK |
+| [[06_Referencias/referencias#Hwang et al. — SUMIE\|SUMIE, COLING 2025]] | dataset principal; preservar perspectivas e adaptar avaliação |
+| [[06_Referencias/referencias#Hu et al. — MemoryAgentBench\|MemoryAgentBench, 2025/2026]] | contraste temporal de supersession; avaliação original por respostas |
+| [[06_Referencias/referencias#PRISM\|PRISM, EMNLP 2025]] | memória persistente por revisões programáticas, alternativa conceitual a GU |
+| [[06_Referencias/referencias#Yuen et al. — Intrinsic Memory Agents\|Intrinsic Memory Agents, revisão 2026]] | atualização contextual; nem toda variante exige JSON |
+| [[06_Referencias/referencias#Qwen3 Technical Report\|Qwen3, 2025]] | caracterização do writer autoregressivo |
+| [[06_Referencias/referencias#T5Gemma\|T5Gemma, 2025]] | caracterização do writer encoder-decoder |
+| [[06_Referencias/referencias#Block Diffusion\|Block Diffusion, 2025]] + relatório do checkpoint exato | fundamento de BD3LM; origem do candidato Qwen ainda pendente |
 
 ## Prioridade B — trabalhos relacionados fortes
 
@@ -28,7 +30,8 @@ status: draft
 | On the Structural Memory of LLM Agents | taxonomia empírica de estruturas |
 | Chain-of-Memory | organização da construção e uso de memória |
 | LoCoMo | literatura sobre memória conversacional longa; fora dos datasets experimentais |
-| PRISM | structured memory incremental |
+| [[06_Referencias/referencias#LongMemEval\|LongMemEval, 2025]] | atualização de conhecimento; apenas fundamentação |
+| [[06_Referencias/referencias#Diffusion em workflows de agentes\|Lu et al., 2026]] | contraponto: chamadas de ferramentas versus memória textual, não GU-json compacto |
 | Scaling Diffusion Language Models via Adaptation from AR Models | base conceitual diffusion |
 | Scaling up Masked Diffusion Models on Text | scaling e propriedades MDM |
 
@@ -41,6 +44,8 @@ status: draft
 | Constrained Decoding of Diffusion LLMs | relação direta diffusion + estrutura |
 | Agents of Diffusion | structured data com diffusion |
 
+As fontes deste grupo não demonstram superioridade ou inferioridade inerente de um paradigma no GU-json. Distinguir prompt-only, constrained decoding e sistemas multiagente. [[06_Referencias/referencias#Constrained diffusion decoding|Mündler et al., 2025]]; [[06_Referencias/referencias#Agents of Diffusion|Khanal et al., 2026]].
+
 ## Prioridade D — metodologia de revisão
 
 | Artigo | Motivo |
@@ -50,12 +55,16 @@ status: draft
 | Wohlin 2014 | snowballing |
 | Kitchenham 2010 | contexto de SLR/tertiary study |
 
+Priorizar as diretrizes atualizadas de Petersen 2015 junto da origem de 2008; Kitchenham 2010 é estudo terciário, não manual procedural completo. Datas e links auditados estão em [[06_Referencias/referencias|Referências]]. As prioridades não indicam leituras já concluídas.
+
 ## Ficha padrão para cada artigo
 
 ```text
 Título:
 Ano:
 Venue:
+Versão consultada e data:
+Publicação confirmada nos anais ou informada pelos autores:
 Pergunta:
 Método:
 Modelos:
@@ -67,6 +76,10 @@ Principais resultados:
 Limitações:
 Relação com meu TCC:
 Citação que quero usar:
+Afirmação que a fonte não sustenta:
+Contraponto ou fonte complementar:
 Código:
 Dataset:
+Licença e revisão dos artefatos:
+Nível da leitura (integral, seção metodológica ou resumo/metadados):
 ```

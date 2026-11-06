@@ -39,9 +39,13 @@ Usar 10–20 transições construídas manualmente para validar parser, schema, 
 
 Usar aproximadamente 25 entidades para confirmar a adaptação do dataset, o cálculo das métricas e a execução correta dos três writers. Corrigir problemas de implementação antes da coleta confirmatória.
 
+Validar a construção dos estados acumulados, a canonicalização de paráfrases e a representação de perspectivas conflitantes sob 300 tokens fixos. O State F1 proposto não replica diretamente a avaliação semântica original do SUMIE. [[06_Referencias/referencias#Hwang et al. — SUMIE|SUMIE, 2025]]; [[02_Metodologia/05_metricas|Métricas]].
+
 ## Fase 2 — experimento principal no SUMIE
 
 Executar os três writers nas mesmas sequências de sumarização incremental de entidades. SUMIE é o cenário principal por corresponder diretamente ao domínio em que Hwang et al. avaliam GU-json sob memória limitada.
+
+Fundamentos: [[06_Referencias/referencias#Hwang et al. — structured incremental summarization|Hwang et al., 2024]]; [[06_Referencias/referencias#Hwang et al. — SUMIE|SUMIE, 2025]]. Preservar valores e perspectivas válidos; não inferir supersession de mera divergência entre parágrafos.
 
 Registrar por transição:
 
@@ -61,11 +65,13 @@ Registrar por transição:
 
 Usar uma amostra previamente delimitada de FactConsolidation-SH, contendo casos de supersession. Fixar e documentar os critérios e o tamanho da amostra antes de executar os writers. Tratar os resultados como contraste exploratório, não como avaliação geral de memória agente.
 
+A invalidação é definida pela regra temporal de FactConsolidation. Como o dataset também muda, o contraste não isola o efeito da operação nem confirma sozinho a H2. [[06_Referencias/referencias#Hu et al. — MemoryAgentBench|MemoryAgentBench]]; [[01_Projeto/02_perguntas_hipoteses|Hipóteses]].
+
 ## Análises
 
 1. Qualidade agregada por writer no SUMIE.
 2. Qualidade por turno para observar como os perfis dos writers variam ao longo da sequência.
-3. Qualidade por operação no SUMIE: ADD / UPDATE / PRESERVE / SUPERSEDE.
+3. Qualidade por operação no SUMIE: ADD / UPDATE / PRESERVE, sem invalidar automaticamente perspectivas conflitantes.
 4. Análise separada da amostra FactConsolidation-SH para supersession.
 
 ## Repetibilidade
