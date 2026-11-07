@@ -49,7 +49,9 @@ Diante dessa lacuna, este trabalho busca responder à seguinte pergunta de pesqu
 O objetivo geral é comparar a qualidade da atualização incremental de checkpoints JSON produzida pelos modelos compactos Qwen3-0.6B (*decoder-only*), T5Gemma B-B (*encoder-decoder*) e Qwen3-0.6B BD3LM (difusão em blocos), atuando como escritores de memória no método GU-JSON, no benchmark SUMIE e sob condições experimentais controladas. Para alcançá-lo, definem-se três objetivos específicos:
 
 a) avaliar a conformidade estrutural dos checkpoints produzidos por cada escritor a partir das taxas de validade sintática do JSON e de aderência ao schema ao longo das transições;
+
 b) comparar a fidelidade do estado mantido por cada escritor ao longo dos turnos de atualização do SUMIE, utilizando precisão, revocação, F1 do estado e taxa de alucinação;
+
 c) analisar o perfil de erro dos escritores segundo o tipo de operação exigida no SUMIE, contrastando a preservação de atributos inalterados com a adição e a atualização de informações.
 
 O restante deste artigo está organizado da seguinte forma: a seção 2 apresenta a fundamentação teórica sobre memória persistente estruturada em agentes e posiciona os trabalhos relacionados; a seção 3 detalha os materiais e métodos do experimento; a seção 4 descreve os resultados esperados e o cronograma de execução; e a seção 5 apresenta as considerações finais.
@@ -366,3 +368,4 @@ NEW OBSERVATION:
 
 UPDATED STATE:
 ```
+  
