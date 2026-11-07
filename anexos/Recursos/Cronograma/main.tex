@@ -1,0 +1,120 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{pgfgantt}
+\usepackage{enumerate}
+\usepackage{enumitem}
+
+
+\begin{document}
+
+\section{Cronograma}
+
+Apresentação da seção.
+
+\begin{figure}[h]
+	\caption{Diagrama de Gantt ilustrando o cronograma das atividades planejadas ao longo do projeto, com a linha do tempo distribuída em intervalos quinzenais}
+	
+	\begin{ganttchart}[
+		y unit title=0.7cm,
+		y unit chart=0.5cm,
+		x unit=0.8cm,
+		vgrid,hgrid,
+		title height=1,
+		title/.style={fill=none},
+		title label font=\bfseries\footnotesize,
+		bar/.style={fill=cyan},
+		bar height=0.7,
+		progress label text={},
+		group right shift=0,
+		group top shift=0.7,
+		group height=.3,
+		group peaks width={0.2},
+		inline]{1}{20}
+		
+		\gantttitle{2024}{10}
+		\gantttitle{2025}{10}\\
+		
+		\gantttitle{Ago}{2}
+		\gantttitle{Set}{2}
+		\gantttitle{Out}{2}
+		\gantttitle{Nov}{2}
+		\gantttitle{Dez}{2}
+		\gantttitle{Fev}{2}
+		\gantttitle{Mar}{2}
+		\gantttitle{Abr}{2}
+		\gantttitle{Mai}{2}
+		\gantttitle{Jun}{2}\\
+		
+		\ganttbar[progress=100,inline=false]{1)}{1}{1}   \\ % 1
+		\ganttbar[progress=100,inline=false]{2)}{2}{2}   \\ % 2
+		\ganttbar[progress=100,inline=false]{3)}{2}{3}   \\ % 3
+		\ganttbar[progress=100,inline=false]{4)}{3}{4}   \\ % 4
+		\ganttbar[progress=60,inline=false]{5)}{3}{6}    \\ % 5
+		\ganttbar[progress=0,inline=false]{6)}{5}{8}     \\ % 6
+		\ganttbar[progress=0,inline=false]{7)}{7}{8}     \\ % 7
+		\ganttbar[progress=0,inline=false]{8)}{8}{11}    \\ % 8
+        \ganttbar[progress=0,inline=false]{9)}{9}{9}     \\ % 9
+		\ganttbar[progress=0,inline=false]{10)}{11}{14}  \\ % 10
+		\ganttbar[progress=0,inline=false]{11)}{12}{15}  \\ % 11
+		\ganttbar[progress=0,inline=false]{12)}{12}{16}  \\ % 12
+		\ganttbar[progress=0,inline=false]{13)}{15}{18}  \\ % 13
+		\ganttbar[progress=0,inline=false]{14)}{16}{18}  \\ %14
+		\ganttbar[progress=0,inline=false]{15)}{15}{19}  \\ % 15
+		\ganttbar[progress=0,inline=false]{16)}{20}{20}     % 16
+	\end{ganttchart}
+	
+	\begin{enumerate}[nosep, label=\arabic*)]
+		\item Definição de Orientador. % 1
+  
+		\item Escolha do Tema. % 2
+		
+		\item Definição da Pergunta de Pesquisa. % 3
+		
+		\item Delimitação do Tema e Objetivos. % 4
+		
+		\item Escrita de Materiais e Métodos. % 5
+		
+        \item Implementação Ambiente de Teste % 6
+        
+        \item Validação do Ambiente de Experimento % 7
+        
+        \item Preparação para ações de simulação ou coleta de dados % 8
+
+        \item Apresentação da proposta de trabalho % 9
+        
+        \item Coleta de Dados % 10
+        
+        \item Análise dos dados % 11
+        
+        \item Redação do texto dos experimentos % 12
+        
+        \item Redação do texto de Análise, Discussão dos resultados e Considerações Finais % 13
+        
+        \item Finalização do texto % 14
+        
+        \item Preparação para apresentação % 15
+        
+        \item Revisão Final % 16
+
+	\end{enumerate}
+	
+	\label{fig:gantt-schedule}
+	
+\end{figure}
+
+
+\pagebreak
+
+\end{document}

@@ -10,6 +10,8 @@ status: draft
 
 # Artigos núcleo
 
+> **Notas de leitura para revisão pessoal.** Confirme os resultados e limites nas fontes originais antes de citá-los. O [artigo em Markdown](../07_Artigo_TCC/artigo_tcc_unitins.md) é a referência para o escopo atual.
+
 ## 1. Hwang et al. — Enhancing Incremental Summarization with Structured Representations
 
 **Prioridade: máxima**

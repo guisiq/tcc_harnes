@@ -9,6 +9,8 @@ status: draft
 ---
 
 # Arquitetura do harness
+
+> Nota técnica complementar; o protocolo científico vigente está no [artigo em Markdown](../07_Artigo_TCC/artigo_tcc_unitins.md).
       ↓
 ## Componentes
 
@@ -50,7 +52,7 @@ class MemoryWriter:
 
 Cada arquitetura implementa o mesmo contrato.
 
-O contrato é a reescrita integral GU-json de [[06_Referencias/referencias#Hwang et al. — structured incremental summarization|Hwang et al., 2024]], não o mecanismo de revisões programáticas de [[06_Referencias/referencias#PRISM|PRISM, 2025]]. O adapter de dados deve respeitar as políticas distintas de SUMIE e FactConsolidation-SH, conforme [[02_Metodologia/03_datasets|Datasets]].
+O contrato é a reescrita integral GU-json de [[06_Referencias/referencias#Hwang et al. — structured incremental summarization|Hwang et al., 2024]], não o mecanismo de revisões programáticas de [[06_Referencias/referencias#PRISM|PRISM, 2025]]. O adapter de dados deve respeitar a política do SUMIE e qualquer contraste opcional, conforme definido no [artigo atual](../07_Artigo_TCC/artigo_tcc_unitins.md#3-materiais-e-métodos).
 
 ## Adapters
 

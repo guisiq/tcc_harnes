@@ -10,6 +10,8 @@ status: draft
 
 # Justificativa e lacuna de pesquisa
 
+> **Nota de apoio para revisão pessoal.** Esta síntese não substitui a leitura dos artigos citados. O escopo e as afirmações vigentes estão em [artigo_tcc_unitins.md](../07_Artigo_TCC/artigo_tcc_unitins.md); confira cada afirmação empírica na fonte primária antes de reutilizá-la.
+
 ## Evidência de que JSON estruturado é relevante
 
 Hwang et al. comparam GO, GU e GM em texto e JSON no SUMIE e no BooookScore. Sob limite de memória, `GU_json` supera `GU_text`; o artigo também introduz `CoK_json`, que atualiza caminhos da estrutura e obtém resultados superiores às baselines comparadas. Os escritores avaliados são Gemini Ultra e Gemini Pro, portanto a evidência direta não é sobre modelos compactos.
