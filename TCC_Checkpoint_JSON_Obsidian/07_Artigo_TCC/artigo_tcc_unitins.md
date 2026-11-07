@@ -2,8 +2,8 @@
 title: "Modelos de linguagem compactos como escritores de memória"
 subtitle: "avaliação da atualização incremental de checkpoints JSON para agentes"
 author:
-  - "LOPES, Guilherme Henrique Siqueira^[Acadêmico do curso de Bacharelado em Sistemas de Informação da Universidade Estadual do Tocantins (Unitins), Palmas – TO. E-mail: [inserir].]"
-  - "COELHO, Alex^[Orientador. Docente do curso de Bacharelado em Sistemas de Informação da Unitins. [Nome completo e vínculo a confirmar.]]"
+  - "LOPES, Guilherme Henrique Siqueira^[Acadêmico do curso de Bacharelado em Sistemas de Informação da Universidade Estadual do Tocantins (Unitins), Palmas – TO.]"
+  - "COELHO, Alex^[Orientador. Mestre e Docente do curso de Bacharelado em Sistemas de Informação da Universidade Estadual do Tocantins (Unitins), Palmas – TO.]"
 date: "Palmas – TO, 2026"
 lang: pt-BR
 # Configuração usada na etapa de geração do DOCX (filtro zotero.lua do Better BibTeX).
@@ -24,56 +24,53 @@ campo vivo do Zotero (ADDIN ZOTERO_ITEM) e a lista de Referências será gerada 
 com o estilo CSL "Associação Brasileira de Normas Técnicas (Português - Brasil)".
 -->
 
-**Resumo:** Agentes baseados em modelos de linguagem que recebem informações em etapas precisam manter um estado persistente, e checkpoints JSON tornam esse estado explícito e verificável. Contudo, cada reescrita do checkpoint pode omitir fatos válidos, reter informação obsoleta, inventar conteúdo ou gerar estrutura inválida. Este trabalho propõe comparar representantes compactos de três paradigmas gerativos, autoregressivo decoder-only (Qwen3-0.6B), encoder-decoder (T5Gemma B-B) e difusão em blocos (Qwen3-0.6B BD3LM), atuando exclusivamente como escritores de memória no método Generate-Update em JSON (GU-JSON). Trata-se de pesquisa aplicada, quantitativa e experimental, na qual método de atualização, schema, prompt, orçamento de 300 tokens e dados são mantidos fixos, variando apenas o modelo escritor. O cenário principal é o benchmark SUMIE, de sumarização incremental de entidades, complementado por uma amostra delimitada do FactConsolidation-SH para observar a substituição de fatos obsoletos. A avaliação combinará validade do JSON e do schema; precisão, revocação e F1 do estado; acurácias de preservação, atualização e substituição; e taxas de fatos obsoletos e alucinados, analisadas por turno e por tipo de operação, com intervalos de confiança por bootstrap. Como contribuição esperada, o estudo fornecerá um protocolo reprodutível e evidências sobre os perfis de erro de modelos compactos na manutenção de estado, sem atribuir as diferenças exclusivamente à arquitetura.
+**Resumo:** Agentes baseados em modelos de linguagem que operam em múltiplas etapas dependem de um estado persistente para registrar as informações recebidas incrementalmente. Representar esse estado como um checkpoint JSON atualizado pelo método Generate-Update em JSON (GU-JSON) explicita atributos e valores sob memória limitada, mas exige que o modelo escritor reescreva toda a estrutura a cada turno, expondo o estado a falhas sintáticas, omissão de fatos válidos, alterações indevidas ou alucinações. Embora modelos de linguagem compactos sejam candidatos naturais a executar essa operação localmente com menor custo, a literatura validou o GU-JSON apenas em modelos de grande porte e ainda não comparou como diferentes paradigmas gerativos compactos se comportam nessa tarefa. Este trabalho compara três representantes compactos — Qwen3-0.6B (autoregressivo *decoder-only*), T5Gemma B-B (*encoder-decoder*) e Qwen3-0.6B BD3LM (difusão em blocos) — atuando exclusivamente como escritores de memória no método GU-JSON. O experimento controlado utiliza as sequências de sumarização incremental de entidades do benchmark SUMIE, mantendo constantes o schema JSON, o prompt *zero-shot* e o orçamento de saída de 300 tokens, e variando apenas o modelo escritor. A qualidade de cada transição será avaliada pela validade sintática do JSON e conformidade com o schema; pela precisão, revocação, F1 do estado e taxa de alucinação ao longo dos turnos; e pelas acurácias de preservação, adição e atualização por tipo de operação, com intervalos de confiança via *bootstrap* e comparações pareadas.
 
-**Palavras-chave:** memória de agentes; checkpoint JSON; modelos de linguagem compactos; avaliação experimental.
+**Palavras-chave:** Memória de agentes. Checkpoint JSON. Modelos de linguagem compactos. Sumarização incremental.
 
 **Title:** *Compact language models as memory writers: evaluating incremental updates of JSON checkpoints for agents*
 
-**Abstract:** Language-model-based agents that receive information in steps need to maintain a persistent state, and JSON checkpoints make this state explicit and verifiable. However, each rewrite of the checkpoint may omit valid facts, retain outdated information, invent content or produce an invalid structure. This work proposes to compare compact representatives of three generative paradigms, autoregressive decoder-only (Qwen3-0.6B), encoder-decoder (T5Gemma B-B) and block diffusion (Qwen3-0.6B BD3LM), acting exclusively as memory writers in the Generate-Update in JSON (GU-JSON) method. It is an applied, quantitative and experimental study in which the update method, schema, prompt, 300-token budget and data are kept fixed, varying only the writer model. The main scenario is the SUMIE incremental entity summarization benchmark, complemented by a delimited sample of FactConsolidation-SH to observe the supersession of outdated facts. The evaluation will combine JSON and schema validity; state precision, recall and F1; preservation, update and supersession accuracies; and stale and hallucinated fact rates, analyzed by turn and by operation type, with bootstrap confidence intervals. As an expected contribution, the study will provide a reproducible protocol and evidence on the error profiles of compact models in state maintenance, without attributing the differences exclusively to architecture.
+**Abstract:** Language-model-based agents operating across multiple steps rely on a persistent state to record information received incrementally. Representing this state as a JSON checkpoint updated through the Generate-Update in JSON (GU-JSON) method makes attributes and values explicit under limited memory, but requires the writer model to regenerate the entire structure at every turn, exposing the state to syntactic failures, omission of valid facts, unintended modifications or hallucinations. Although compact language models are natural candidates to perform this operation locally at lower cost, prior work has validated GU-JSON only with large models and has not yet compared how compact models from distinct generative paradigms behave in this role. This study compares three compact representatives — Qwen3-0.6B (autoregressive decoder-only), T5Gemma B-B (encoder-decoder) and Qwen3-0.6B BD3LM (block diffusion) — acting exclusively as memory writers under the GU-JSON method. The controlled experiment uses the incremental entity summarization sequences from the SUMIE benchmark, holding the JSON schema, zero-shot prompt and 300-token output budget constant while varying only the writer model. Transition quality will be evaluated through JSON syntactic validity and schema compliance; state precision, recall, F1 and hallucination rate across turns; and preservation, addition and update accuracies stratified by operation type, using bootstrap confidence intervals and paired comparisons.
 
-**Keywords:** agent memory; JSON checkpoint; small language models; experimental evaluation.
+**Keywords:** Agent memory. JSON checkpoint. Small language models. Incremental summarization.
 
 # 1 Introdução
 
-Agentes baseados em modelos de linguagem vêm sendo empregados em tarefas que se desenrolam em múltiplas etapas, nas quais a informação chega de forma incremental e as decisões posteriores dependem do que foi registrado anteriormente. Nesse cenário, a capacidade de manter um estado persistente e confiável deixa de ser um detalhe de implementação e passa a condicionar a confiabilidade do agente. Trabalhos recentes associam a consciência de estado e a memória à robustez de fluxos agênticos extensos [@muhoberacStateMemoryAll2025] e propõem avaliar a memória de agentes justamente sob interações incrementais e de longo prazo [@huEvaluatingMemoryLLM2025; @wuLongMemEvalBenchmarkingChat2024; @maharanaEvaluatingVeryLongTerm2024].
+Agentes baseados em modelos de linguagem vêm sendo empregados em tarefas de múltiplas etapas, nas quais novas observações chegam de forma sequencial e as decisões subsequentes dependem das informações registradas em turnos anteriores. Nesses fluxos, a manutenção de um estado persistente e consistente condiciona diretamente a confiabilidade operacional do sistema [@muhoberacStateMemoryAll2025]. Por essa razão, benchmarks recentes passaram a avaliar a memória de agentes sob interações incrementais e de longo alcance, examinando a capacidade de reter fatos relevantes, integrar novas evidências e lidar com atualizações ao longo de múltiplos turnos [@huEvaluatingMemoryLLM2025; @wuLongMemEvalBenchmarkingChat2024; @maharanaEvaluatingVeryLongTerm2024].
 
-Uma estratégia para lidar com esse problema consiste em condensar as interações anteriores em uma representação persistente estruturada, atualizada a cada nova observação. Em sumarização incremental com memória limitada, @hwangEnhancingIncrementalSummarization2024 relatam vantagem da atualização sobre representações em JSON em relação à atualização sobre texto livre. Um checkpoint JSON torna explícitos os campos do estado e permite compará-lo automaticamente com referências estruturadas. Entretanto, cada reescrita do checkpoint é também uma oportunidade de erro: o componente que o atualiza pode omitir fatos ainda válidos, manter informação obsoleta, alterar valores indevidamente, inventar conteúdo sem suporte ou produzir uma estrutura sintaticamente inválida.
+Como o acúmulo irrestrito do histórico de interações rapidamente excede ou degrada o uso da janela de contexto, uma abordagem recorrente consiste em consolidar as observações em uma representação estruturada persistente. Em tarefas de sumarização incremental com orçamento restrito de memória, @hwangEnhancingIncrementalSummarization2024 demonstraram que o método *Generate-Update* em JSON (GU-JSON) — no qual o modelo recebe o estado anterior e a nova observação e regenera o objeto JSON atualizado — alcança maior fidelidade que a atualização equivalente em texto livre. O uso de um checkpoint JSON explicita os pares de atributo e valor armazenados e permite inspecionar o estado de forma direta a cada transição [@jayalathPRISMEfficientLongRange2025; @yuenIntrinsicMemoryAgents2025]. Entretanto, como o método exige reescrever integralmente o objeto a cada etapa, o componente responsável pela escrita (*memory writer*) torna-se um ponto crítico de falha: a atualização pode tanto corromper a sintaxe do JSON ou violar o schema estipulado [@gengJSONSchemaBenchRigorousBenchmark2025] quanto omitir fatos ainda válidos, alterar valores indevidamente ou introduzir informações sem respaldo na entrada.
 
-Esse problema tem vínculo direto com a área de Sistemas de Informação. O checkpoint funciona como o repositório de informação do qual o agente depende para agir, e sua utilidade é determinada por atributos de qualidade da informação como exatidão, completude, atualidade e consistência. Avaliar o componente que escreve esse repositório é, portanto, avaliar a qualidade da informação mantida por um sistema baseado em inteligência artificial. Soma-se a isso uma dimensão organizacional: modelos de linguagem compactos podem ser executados localmente, com menor custo e maior controle sobre os dados, o que os torna candidatos a componentes especializados de sistemas agênticos [@luSmallLanguageModels2025; @sharmaSmallLanguageModels2025].
+Uma vez que a reescrita do checkpoint ocorre repetidamente a cada turno de interação, delegar essa operação a modelos de grande porte eleva o custo computacional e a latência do agente. Modelos de linguagem compactos (*small language models*, SLMs), que viabilizam execução local e menor consumo de recursos em subtarefas bem delimitadas e restritas por schema [@luSmallLanguageModels2025; @sharmaSmallLanguageModels2025], apresentam-se como alternativa para atuar como escritores dedicados de memória. Contudo, transformar um estado JSON anterior e uma nova observação textual em um novo objeto JSON completo impõe demandas distintas conforme o paradigma gerativo do modelo. Modelos autoregressivos *decoder-only* produzem a estrutura token a token da esquerda para a direita [@yangQwen3TechnicalReport2025]; modelos *encoder-decoder* separam a codificação bidirecional da entrada da decodificação sequencial do novo estado [@zhangEncoderDecoderGemmaImproving2025]; e modelos de difusão em blocos combinam geração autoregressiva entre blocos com refinamento paralelo de tokens mascarados no interior de cada bloco [@arriolaBlockDiffusionInterpolating2025].
 
-A literatura relacionada oferece bases para cada parte do problema, mas de forma fragmentada. Há estudos sobre representação estruturada da memória [@zengStructuralMemoryLLM2024; @jayalathPRISMEfficientLongRange2025; @yuenIntrinsicMemoryAgents2025], sobre métodos de atualização incremental [@hwangEnhancingIncrementalSummarization2024], sobre avaliação de memória em agentes [@hwangSUMIESyntheticBenchmark2025; @huEvaluatingMemoryLLM2025] e sobre geração de saídas estruturadas [@gengJSONSchemaBenchRigorousBenchmark2025]. Contudo, a evidência direta sobre o método Generate-Update em JSON (GU-JSON) foi obtida com modelos de grande porte, e os estudos que comparam paradigmas gerativos distintos, como o autoregressivo e o de difusão, tratam de outras tarefas e escalas [@luBitterLessonDiffusion2026]. Na busca bibliográfica realizada até o momento, não foi identificada uma comparação controlada entre representantes compactos de paradigmas gerativos diferentes atuando exclusivamente como escritores (*memory writers*) do mesmo checkpoint JSON. Essa lacuna é formulada de maneira operacional e permanece sujeita à confirmação pela revisão focal descrita na seção 3.2.
+Embora a literatura investigue separadamente a organização da memória em agentes [@zengStructuralMemoryLLM2024; @jayalathPRISMEfficientLongRange2025; @yuenIntrinsicMemoryAgents2025], a conformidade na geração de JSON [@gengJSONSchemaBenchRigorousBenchmark2025; @mundlerConstrainedDecodingDiffusion2025] e a sumarização incremental estruturada [@hwangEnhancingIncrementalSummarization2024; @hwangSUMIESyntheticBenchmark2025], o efeito do paradigma gerativo em escritores compactos de estado JSON permanece em aberto. O método GU-JSON e o benchmark de sumarização incremental de entidades SUMIE foram avaliados originalmente apenas com modelos proprietários de grande porte [@hwangEnhancingIncrementalSummarization2024; @hwangSUMIESyntheticBenchmark2025], ao passo que comparações recentes entre modelos autoregressivos e de difusão em fluxos agênticos concentraram-se em modelos de 7 a 8 bilhões de parâmetros operando sobre memória em texto livre [@luBitterLessonDiffusion2026]. Não se identificou, na literatura consultada, uma comparação controlada entre representantes compactos de paradigmas gerativos distintos atuando exclusivamente como escritores de um mesmo checkpoint JSON sob orçamento fixo de tokens.
 
-Diante disso, este trabalho é orientado pela seguinte pergunta de pesquisa: como representantes compactos de três paradigmas gerativos diferem na qualidade de atualizações GU-JSON no SUMIE, sob schema e limite de memória fixos?
+Diante dessa lacuna, este trabalho busca responder à seguinte pergunta de pesquisa: como representantes compactos dos paradigmas autoregressivo *decoder-only*, *encoder-decoder* e de difusão em blocos diferem na qualidade da atualização incremental de checkpoints pelo método GU-JSON no benchmark SUMIE, sob schema e limite de memória fixos?
 
-O objetivo geral é comparar representantes compactos autoregressivo decoder-only, encoder-decoder e de difusão como escritores de memória GU-JSON no cenário focal do SUMIE, mantendo fixos o schema, o orçamento de memória e o protocolo experimental. Para alcançá-lo, definem-se os seguintes objetivos específicos:
+O objetivo geral é comparar a qualidade da atualização incremental de checkpoints JSON produzida pelos modelos compactos Qwen3-0.6B (*decoder-only*), T5Gemma B-B (*encoder-decoder*) e Qwen3-0.6B BD3LM (difusão em blocos), atuando como escritores de memória no método GU-JSON, no benchmark SUMIE e sob condições experimentais controladas. Para alcançá-lo, definem-se três objetivos específicos:
 
-a) medir a validade sintática do JSON e a conformidade com o schema dos checkpoints produzidos por cada escritor;
-b) comparar a precisão, a revocação e o F1 do estado ao longo das atualizações do SUMIE;
-c) analisar a preservação, a adição e a atualização de informação por tipo de operação;
-d) verificar, em uma amostra delimitada do FactConsolidation-SH, o comportamento dos escritores na substituição de fatos obsoletos (*supersession*).
+a) avaliar a conformidade estrutural dos checkpoints produzidos por cada escritor a partir das taxas de validade sintática do JSON e de aderência ao schema ao longo das transições;
+b) comparar a fidelidade do estado mantido por cada escritor ao longo dos turnos de atualização do SUMIE, utilizando precisão, revocação, F1 do estado e taxa de alucinação;
+c) analisar o perfil de erro dos escritores segundo o tipo de operação exigida no SUMIE, contrastando a preservação de atributos inalterados com a adição e a atualização de informações.
 
-A relevância do estudo manifesta-se em três dimensões. Do ponto de vista científico, propõe um protocolo que separa a conformidade estrutural da fidelidade semântica do estado e examina sua evolução por turno e por tipo de operação. Do ponto de vista prático, produz evidências para a escolha de modelos compactos como componentes de memória em agentes executados localmente. Do ponto de vista metodológico, privilegia a reprodutibilidade, com artefatos versionados e preservação das saídas brutas. O estudo não pretende determinar um método de escrita universalmente superior nem atribuir as diferenças observadas exclusivamente à arquitetura dos modelos.
-
-Além desta introdução, o artigo está organizado da seguinte forma: a seção 2 apresenta a fundamentação sobre memória persistente em agentes e os trabalhos relacionados; a seção 3 descreve os materiais e métodos; a seção 4 apresenta os resultados esperados e o cronograma; e a seção 5 traz as considerações finais.
+O restante deste artigo está organizado da seguinte forma: a seção 2 apresenta a fundamentação teórica sobre memória persistente estruturada em agentes e posiciona os trabalhos relacionados; a seção 3 detalha os materiais e métodos do experimento; a seção 4 descreve os resultados esperados e o cronograma de execução; e a seção 5 apresenta as considerações finais.
 
 # 2 Memória persistente em agentes baseados em modelos de linguagem
 
-Esta seção organiza a fundamentação em cinco eixos: a representação estruturada da memória, o método de atualização incremental, a avaliação de memória, a geração de saídas estruturadas e os paradigmas gerativos dos modelos compactos. Ao final, os trabalhos mais próximos são comparados com a proposta.
+A manutenção de estado estruturado em agentes envolve decisões sobre o formato de representação da memória, o mecanismo de atualização incremental, os critérios de avaliação de fidelidade, a garantia de conformidade sintática e a escolha do modelo gerador. As subseções a seguir discutem esses cinco eixos e sintetizam os trabalhos mais próximos da presente proposta.
 
 ## 2.1 Representação estruturada da memória
 
-@zengStructuralMemoryLLM2024 compararam diferentes estruturas de memória, como trechos de texto (*chunks*), triplas de conhecimento, fatos atômicos, resumos e uma memória mista, combinadas a estratégias de recuperação, em quatro tarefas e seis conjuntos de dados. Os autores relatam vantagens dependentes da tarefa: trechos e resumos favorecem contextos longos, triplas e fatos atômicos favorecem raciocínio relacional e precisão, e a memória mista apresenta o comportamento mais equilibrado. O estudo contextualiza a escolha da representação, mas trata de recuperação de informação, e não da fidelidade de um estado reescrito a cada etapa.
+A escolha do formato de armazenamento condiciona a capacidade do agente de reter e consultar informações ao longo de interações extensas. Ao investigar diferentes estruturas de memória em agentes, @zengStructuralMemoryLLM2024 identificaram vantagens distintas conforme o formato adotado, evidenciando que resumos favorecem a condensação de contextos longos e que unidades factuais explícitas favorecem a precisão na retenção de detalhes — propriedades combinadas quando o estado de uma entidade é mantido como um conjunto estruturado de pares atributo-valor, ainda que aquele estudo avalie estratégias de recuperação e não a reescrita incremental do estado.
 
-Mais próximos do objeto deste trabalho estão os sistemas que mantêm uma memória estruturada persistente e a atualizam incrementalmente. O PRISM mantém uma memória tipada, organizada por um schema hierárquico, e a atualiza por meio de operações de caminho e valor validadas e aplicadas programaticamente [@jayalathPRISMEfficientLongRange2025]. Os Intrinsic Memory Agents atualizam a memória contextual de cada agente a partir da memória anterior e da saída mais recente, comparando templates manuais, genéricos e gerados pelo próprio modelo; na revisão de 2026, a variante genérica não exige JSON, e templates genéricos ou gerados superam os manuais em vários testes [@yuenIntrinsicMemoryAgents2025]. No SciBORG, agentes são acoplados a uma memória baseada em autômatos finitos para rastrear estado persistente em fluxos científicos extensos [@muhoberacStateMemoryAll2025]. Já a Chain-of-Memory concentra-se na construção da memória e no raciocínio sobre fragmentos recuperados [@xuChainofMemoryLightweightMemory2026].
+Sistemas voltados à persistência de estado ao longo de múltiplas etapas adotam mecanismos variados para estruturar e atualizar essa memória. O PRISM organiza a memória em um schema hierárquico tipado e realiza atualizações por meio de operações de caminho e valor validadas e aplicadas programaticamente [@jayalathPRISMEfficientLongRange2025]. De forma distinta, os Intrinsic Memory Agents reescrevem a memória contextual de cada agente a partir do estado anterior e da saída mais recente, avaliando templates manuais, genéricos e gerados pelo próprio modelo [@yuenIntrinsicMemoryAgents2025]. Outras arquiteturas recorrem a autômatos finitos para rastrear o estado operacional em fluxos científicos extensos, como o SciBORG [@muhoberacStateMemoryAll2025], ou priorizam a construção dinâmica de fragmentos para raciocínio em múltiplas etapas, como a Chain-of-Memory [@xuChainofMemoryLightweightMemory2026].
 
-Em conjunto, esses trabalhos mostram que a estrutura da memória e o método de escrita são decisões distintas. Eles fornecem precedentes para memórias estruturadas atualizadas incrementalmente, mas não demonstram a superioridade de um schema fixo nem avaliam a fidelidade de cada transição de estado. Neste trabalho, o schema fixo é uma escolha de controle experimental, e não uma tese sobre a melhor representação.
+Em conjunto, esses estudos demonstram que o formato de representação da memória e o mecanismo empregado para atualizá-la constituem dimensões independentes de projeto. Enquanto abordagens como o PRISM dependem de controladores programáticos externos e sistemas multiagente avaliam apenas o desempenho na tarefa final, a adoção de um schema JSON único e fixo permite isolar experimentalmente o processo de reescrita do estado e medir diretamente a fidelidade de cada transição.
 
 ## 2.2 Atualização incremental e o método Generate-Update em JSON
 
-@hwangEnhancingIncrementalSummarization2024 investigaram como manter resumos incrementais com memória limitada, comparando as estratégias Generate-Once (GO), Generate-Update (GU) e Generate-Merge (GM) em representações textuais e em JSON, nos conjuntos SUMIE e BooookScore, com os modelos Gemini Ultra e Gemini Pro. Sob memória limitada, a variante GU em JSON superou a variante GU em texto. Os autores também propuseram o Chain-of-Key em JSON (CoK-JSON), que atualiza caminhos específicos da estrutura e obteve resultados superiores às estratégias de base comparadas.
+@hwangEnhancingIncrementalSummarization2024 investigaram a manutenção de resumos incrementais sob orçamento restrito de memória, comparando as estratégias *Generate-Once* (GO), *Generate-Update* (GU) e *Generate-Merge* (GM) em representações textuais e em JSON nos conjuntos SUMIE e BooookScore, utilizando os modelos Gemini Ultra e Gemini Pro. Sob limite de tokens, a atualização sobre representações em JSON (GU-JSON) superou consistentemente a atualização equivalente em texto livre (GU-Text). Os autores também propuseram o *Chain-of-Key* em JSON (CoK-JSON), que decompõe a tarefa selecionando chaves específicas antes da atualização.
 
-No GU-JSON, a cada nova observação o escritor recebe o schema, o checkpoint corrente e a observação, e gera o checkpoint completo atualizado, conforme a Equação 1:
+No método GU-JSON, a cada nova observação o modelo escritor recebe o schema, o checkpoint corrente e a observação, gerando diretamente o checkpoint completo atualizado, conforme a Equação 1:
 
 $$
 M_t = G\left(S,\ M_{t-1},\ O_t\right) \qquad (1)
@@ -81,137 +78,121 @@ $$
 
 em que $S$ é o schema, $M_{t-1}$ é o checkpoint anterior, $O_t$ é a nova observação, $G$ é o modelo escritor e $M_t$ é o checkpoint resultante.
 
-Esse método não é adotado por ser o melhor disponível, já que o próprio estudo de origem relata desempenho superior do CoK-JSON. Ele é adotado por ser uma estratégia publicada, simples e replicável, que concentra toda a atualização no modelo escritor. Diferentemente de abordagens com operações programáticas, como o PRISM, o GU-JSON dispensa algoritmo de mesclagem, escolha de caminhos, recuperação de informação e mecanismos externos de resolução de conflito. Essa característica permite variar apenas o escritor, sem variar simultaneamente o algoritmo de atualização.
+Para a comparação entre modelos escritores compactos, o GU-JSON apresenta uma propriedade metodológica central: ele concentra toda a operação de manutenção do estado em uma única chamada ao modelo $G$. Diferentemente de métodos que decompõem a atualização em etapas de seleção de caminhos ou aplicam modificações parciais por código externo [@hwangEnhancingIncrementalSummarization2024; @jayalathPRISMEfficientLongRange2025], a reescrita integral exige que o próprio modelo preserve os campos inalterados, integre as novas informações e mantenha a estrutura JSON válida simultaneamente, permitindo avaliar diretamente o comportamento do escritor sem interferência de algoritmos auxiliares de mesclagem.
 
 ## 2.3 Avaliação de memória e de atualização de conhecimento
 
-O SUMIE é um benchmark sintético de sumarização incremental de entidades, no qual parágrafos sobre uma entidade chegam em sequência e devem ser incorporados a um resumo de atributos e valores [@hwangSUMIESyntheticBenchmark2025]. O conjunto contém repetição, informação nova, conflito e distração, e suas anotações são feitas por parágrafo. Um aspecto decisivo para este trabalho é a política de atualização do benchmark: o prompt de atualização publicado preserva atributos e valores anteriores e integra perspectivas conflitantes, de modo que uma opinião divergente não invalida automaticamente a anterior. A avaliação original combina correspondência exata com avaliação semântica de evidências por modelo de linguagem, e os autores relatam perfis distintos de precisão e revocação entre os modelos avaliados.
+O benchmark SUMIE foi desenvolvido especificamente para avaliar a sumarização incremental de entidades a partir de sequências de parágrafos que introduzem fatos novos, repetições, informações distratoras e pontos de vista divergentes [@hwangSUMIESyntheticBenchmark2025]. Cada parágrafo conta com anotações de atributos e valores relevantes da entidade descrita. Uma característica central do SUMIE é sua política de acumulação: como diferentes fontes ou parágrafos podem expressar perspectivas distintas sobre um mesmo atributo, o prompt de atualização de referência determina a preservação dos atributos prévios e a integração de visões conflitantes, sem que uma nova opinião invalide automaticamente a anterior. No estudo original, os autores observaram perfis contrastantes de precisão e revocação entre os modelos de grande porte avaliados.
 
-O MemoryAgentBench propõe avaliar agentes de memória por meio de interações incrementais de múltiplos turnos, organizadas em quatro competências, entre elas o esquecimento seletivo [@huEvaluatingMemoryLLM2025]. Seu subconjunto FactConsolidation adota uma regra temporal explícita: o fato mais recente invalida o anterior. O LongMemEval inclui a atualização de conhecimento e o raciocínio temporal entre as habilidades avaliadas em assistentes conversacionais [@wuLongMemEvalBenchmarkingChat2024], e o LoCoMo examina a memória em conversas muito longas, com centenas de turnos distribuídos em diversas sessões [@maharanaEvaluatingVeryLongTerm2024].
+Outros benchmarks recentes examinam a memória sob interações de múltiplos turnos, porém com foco na resposta a perguntas ao final da sequência. O MemoryAgentBench avalia quatro competências de memória — incluindo a consolidação de fatos e o esquecimento seletivo sob regras de precedência temporal [@huEvaluatingMemoryLLM2025] —, enquanto o LongMemEval enfatiza a atualização de conhecimento e o raciocínio temporal em assistentes conversacionais [@wuLongMemEvalBenchmarkingChat2024], e o LoCoMo investiga diálogos muito longos distribuídos em múltiplas sessões [@maharanaEvaluatingVeryLongTerm2024].
 
-Esses benchmarks avaliam sobretudo respostas finais, e não a fidelidade interna do estado mantido. Além disso, adotam políticas diferentes: no SUMIE, preservar perspectivas conflitantes faz parte da tarefa; no FactConsolidation, substituir o fato temporalmente obsoleto é o comportamento esperado. Este trabalho adapta essa motivação para a inspeção direta do checkpoint e trata as duas políticas como distintas, sem atribuir diferenças entre conjuntos de dados apenas ao tipo de operação.
+A análise conjunta desses benchmarks revela que avaliações baseadas apenas em respostas finais podem mascarar degradações progressivas do estado interno, como a perda silenciosa de atributos antigos ao longo dos turnos. Ao tomar o SUMIE como cenário experimental e inspecionar diretamente o checkpoint gerado em cada transição $M_t$, torna-se possível quantificar separadamente a capacidade do escritor de preservar atributos existentes, adicionar novos campos e atualizar valores já presentes.
 
 ## 2.4 Geração estruturada: validade sintática e conformidade com schema
 
-A produção de saídas estruturadas por modelos de linguagem envolve requisitos que podem ser verificados separadamente. O JSONSchemaBench avalia a conformidade de saídas com JSON Schemas reais de diferentes complexidades e compara frameworks de decodificação restrita [@gengJSONSchemaBenchRigorousBenchmark2025]. Antes dele, @gengGrammarConstrainedDecodingStructured2023 mostraram que gramáticas formais podem restringir a decodificação em tarefas estruturadas de processamento de linguagem natural sem ajuste fino. Para modelos de difusão, @mundlerConstrainedDecodingDiffusion2025 propõem decodificação restrita por gramáticas livres de contexto, mitigando falhas sintáticas, e @khanalAgentsDiffusionEnhancing2026 combinam modelos de difusão a aprendizado por reforço multiagente para gerar dados estruturados.
+A utilização de JSON como formato de estado exige distinguir a correção formal da saída de sua correção semântica. O benchmark JSONSchemaBench demonstra que modelos de linguagem apresentam taxas não triviais de falha sintática e de violação de restrições quando submetidos a JSON Schemas de diferentes complexidades [@gengJSONSchemaBenchRigorousBenchmark2025]. Para contornar essas falhas em modelos autoregressivos, técnicas de decodificação restrita por gramática filtram tokens inválidos durante a inferência sem necessidade de ajuste fino [@gengGrammarConstrainedDecodingStructured2023]. Mais recentemente, mecanismos análogos baseados em gramáticas livres de contexto [@mundlerConstrainedDecodingDiffusion2025] e em aprendizado por reforço multiagente [@khanalAgentsDiffusionEnhancing2026] foram propostos para elevar a conformidade sintática em modelos de linguagem por difusão.
 
-Duas consequências orientam o protocolo deste trabalho. A primeira é que JSON válido e conforme ao schema não garante memória correta: um checkpoint pode ser estruturalmente impecável e, ainda assim, perder fatos ou reter informação obsoleta. Por isso, métricas estruturais e semânticas são tratadas separadamente. A segunda é que mecanismos de decodificação restrita não estão igualmente disponíveis para os três paradigmas e acrescentariam uma variável ao experimento. Assim, o experimento principal é conduzido apenas por instrução (*prompt-only*), sem decodificação restrita.
+Na avaliação de escritores de memória, essa literatura impõe dois cuidados experimentais. Primeiro, a conformidade com o schema é condição necessária para a leitura automatizada do estado, mas não suficiente para garantir fidelidade: um objeto JSON sintaticamente válido pode omitir atributos essenciais ou conter valores alucinados, razão pela qual métricas estruturais e semânticas devem ser apuradas de forma independente. Segundo, como os motores de decodificação restrita atuam de maneira distinta sobre a geração sequencial e sobre o refinamento iterativo por difusão, a avaliação em regime puramente instrucional (*prompt-only*) é necessária para observar a capacidade intrínseca de cada modelo de preservar a sintaxe e o conteúdo do checkpoint.
 
 ## 2.5 Paradigmas gerativos e modelos de linguagem compactos
 
-Os modelos autoregressivos decoder-only geram texto token a token, da esquerda para a direita, condicionando cada token aos anteriores. A família Qwen3 é um exemplo recente, com modelos de diversas escalas, inclusive compactos [@yangQwen3TechnicalReport2025]. Os modelos encoder-decoder separam a leitura da entrada, feita por um codificador com atenção bidirecional, da geração da saída, feita por um decodificador. O T5Gemma obtém modelos desse tipo pela adaptação de modelos decoder-only pré-treinados, buscando melhor equilíbrio entre qualidade e eficiência [@zhangEncoderDecoderGemmaImproving2025]. A transformação de estado anterior e nova observação em novo estado é naturalmente compatível com esse formato de sequência para sequência.
+Os três paradigmas gerativos considerados neste estudo processam a relação entre entrada e saída sob princípios distintos. Modelos autoregressivos *decoder-only* fatoram a probabilidade da sequência da esquerda para a direita, gerando cada token condicionado ao prefixo já produzido; a família Qwen3 exemplifica esse paradigma em múltiplas escalas, incluindo modelos compactos de 0,6 bilhão de parâmetros [@yangQwen3TechnicalReport2025]. Modelos *encoder-decoder*, por sua vez, empregam um codificador com atenção bidirecional sobre toda a sequência de entrada antes de gerar a saída no decodificador; o T5Gemma obtém essa arquitetura pela adaptação de modelos *decoder-only* pré-treinados, visando combinar representação bidirecional do contexto com eficiência de inferência [@zhangEncoderDecoderGemmaImproving2025].
 
-Os modelos de linguagem por difusão geram texto por remoção iterativa de ruído sobre posições mascaradas, podendo refinar vários tokens em paralelo. @nieScalingMaskedDiffusion2024 estudaram o escalonamento de modelos de difusão mascarada em texto, e @gongScalingDiffusionLanguage2024 mostraram que modelos de difusão podem ser obtidos pela adaptação de modelos autoregressivos pré-treinados. A difusão em blocos (BD3LM) interpola os dois paradigmas: gera os blocos sequencialmente, de forma autoregressiva, e aplica difusão dentro de cada bloco [@arriolaBlockDiffusionInterpolating2025]. Quanto ao uso em agentes, @luBitterLessonDiffusion2026 avaliaram modelos de difusão de 7 a 8 bilhões de parâmetros e encontraram resultados dependentes da tarefa: dificuldades em controle e em chamadas de ferramentas, mas desempenho competitivo na sumarização de memória textual. Esses resultados, obtidos com modelos maiores e memória em texto livre, não permitem antecipar o desempenho de um escritor compacto de checkpoints JSON.
+Já os modelos de linguagem baseados em difusão formulam a geração como um processo iterativo de remoção de ruído sobre posições mascaradas, permitindo atualizar múltiplos tokens paralelamente [@nieScalingMaskedDiffusion2024], inclusive a partir da adaptação de pesos autoregressivos [@gongScalingDiffusionLanguage2024]. A arquitetura de difusão em blocos (*Block Diffusion*, BD3LM) interpola ambos os mecanismos ao gerar blocos de tokens de maneira autoregressiva enquanto aplica difusão discreta dentro de cada bloco [@arriolaBlockDiffusionInterpolating2025]. Em avaliação recente de modelos de difusão de 7 a 8 bilhões de parâmetros em fluxos agênticos, @luBitterLessonDiffusion2026 observaram fragilidades na geração de chamadas de ferramentas com sintaxe estrita, mas desempenho competitivo na sumarização de memória em texto livre — contraste que motiva investigar como um modelo compacto de difusão em blocos se comporta quando a sumarização de memória exige produzir um objeto JSON estruturado.
 
-Os modelos de linguagem compactos (*small language models*, SLMs) têm atraído interesse por tornarem a inteligência artificial mais acessível, econômica e eficiente, inclusive em dispositivos locais [@luSmallLanguageModels2025]. Há também a posição de que modelos pequenos são suficientes, e muitas vezes preferíveis, em cargas agênticas que exigem precisão sob restrições de schema e de API [@sharmaSmallLanguageModels2025]. Por outro lado, a execução em hardware modesto frequentemente depende de quantização, e modelos menores tendem a sofrer maiores perdas de acurácia sob quantização agressiva [@leeExploringTradeOffsQuantization2025]. Essas observações justificam avaliar modelos compactos como componentes especializados, desde que a precisão numérica e as condições de execução sejam controladas e registradas.
+O recorte em modelos compactos fundamenta-se na viabilidade de executá-los localmente com menor custo energético e financeiro [@luSmallLanguageModels2025] e na evidência de que modelos de menor escala podem atuar com eficácia em subtarefas agênticas repetitivas e bem delimitadas [@sharmaSmallLanguageModels2025]. Como a execução em hardware local frequentemente recorre à redução de precisão numérica e modelos menores apresentam maior sensibilidade à quantização agressiva [@leeExploringTradeOffsQuantization2025], a comparação experimental requer padronizar e documentar as condições de precisão e inferência.
 
 ## 2.6 Trabalhos relacionados
 
-O Quadro 1 sintetiza os trabalhos mais próximos da proposta segundo cinco critérios: a representação da memória, o mecanismo de atualização, os modelos e sua escala, o objeto da avaliação e a existência de comparação entre paradigmas gerativos. A última linha posiciona este trabalho em relação aos demais.
+O Quadro 1 sintetiza os estudos mais próximos da presente pesquisa segundo a representação da memória, o mecanismo de atualização, a escala dos modelos avaliados, o objeto da avaliação e a presença de comparação entre paradigmas gerativos.
 
 **Quadro 1 – Comparação entre trabalhos relacionados e a proposta**
 
 | Trabalho | Representação da memória | Atualização | Modelos e escala | Objeto da avaliação | Compara paradigmas gerativos |
 |---|---|---|---|---|---|
 | @hwangEnhancingIncrementalSummarization2024 | Texto e JSON | GO, GU, GM e CoK, executados pelo próprio modelo | Gemini Ultra e Gemini Pro (grande porte) | Qualidade de resumos incrementais (SUMIE e BooookScore) | Não |
-| @hwangSUMIESyntheticBenchmark2025 | Atributos e valores de entidades | Atualização com preservação de perspectivas | Diversos modelos de linguagem de grande porte | Precisão, revocação e F1 de atributos, com avaliação de evidências por modelo de linguagem | Não |
+| @hwangSUMIESyntheticBenchmark2025 | Atributos e valores de entidades | Atualização incremental com preservação de perspectivas | Modelos de linguagem de grande porte | Precisão, revocação e F1 de atributos no resumo | Não |
 | @jayalathPRISMEfficientLongRange2025 | Memória tipada hierárquica | Operações de caminho e valor aplicadas programaticamente | Modelos de contexto curto | Raciocínio de longo alcance (tarefa final) | Não |
-| @yuenIntrinsicMemoryAgents2025 | Memória contextual por agente; JSON em algumas variantes | Reescrita a partir da memória anterior e da saída recente | Modelos de linguagem em sistemas multiagente | Desempenho do sistema multiagente | Não |
-| @zengStructuralMemoryLLM2024 | Trechos, triplas, fatos atômicos, resumos e memória mista | Construção e recuperação | Modelos de linguagem de propósito geral | Desempenho em quatro tarefas e seis conjuntos de dados | Não |
+| @yuenIntrinsicMemoryAgents2025 | Memória contextual por agente (JSON em variantes específicas) | Reescrita a partir da memória anterior e da saída recente | Modelos de linguagem em sistemas multiagente | Desempenho do sistema multiagente | Não |
+| @zengStructuralMemoryLLM2024 | Trechos, triplas, fatos atômicos, resumos e memória mista | Construção e recuperação | Modelos de linguagem de propósito geral | Desempenho de recuperação em tarefas finais | Não |
 | @huEvaluatingMemoryLLM2025 | Diversos sistemas de memória | Interações incrementais de múltiplos turnos | Diversos agentes de memória | Respostas finais em quatro competências | Não |
-| @luBitterLessonDiffusion2026 | Texto livre e chamadas de ferramentas | Não se aplica | Modelos de difusão e autoregressivos de 7 a 8 bilhões de parâmetros | Desempenho em fluxos agênticos | Sim, sem checkpoint JSON |
-| @gengJSONSchemaBenchRigorousBenchmark2025 | JSON Schema | Não se aplica | Frameworks de decodificação restrita | Conformidade estrutural | Não |
-| **Proposta deste trabalho** | Checkpoint JSON de schema fixo | GU-JSON, com reescrita integral pelo escritor | Três representantes de cerca de 0,6 bilhão de parâmetros (autoregressivo, encoder-decoder e difusão) | Fidelidade do estado por transição, turno e operação, além da validade estrutural | Sim, sob protocolo controlado |
+| @luBitterLessonDiffusion2026 | Texto livre e chamadas de ferramentas | Sumarização textual | Modelos de difusão e autoregressivos de 7 a 8B | Desempenho em fluxos agênticos | Sim, sem checkpoint JSON |
+| @gengJSONSchemaBenchRigorousBenchmark2025 | JSON Schema | Não se aplica (geração estática) | Frameworks de decodificação restrita | Conformidade sintática e de schema | Não |
+| **Este trabalho** | Checkpoint JSON de schema fixo | GU-JSON, com reescrita integral pelo escritor | Três representantes compactos (~0,6B: autoregressivo, *encoder-decoder* e difusão em blocos) | Validade estrutural e fidelidade do estado por transição, turno e operação no SUMIE | Sim, sob protocolo controlado |
 
 Fonte: elaborado pelo autor (2026).
 
-Como mostra o Quadro 1, os trabalhos que fundamentam o GU-JSON utilizam modelos de grande porte; os que tratam de memória estruturada empregam mecanismos de atualização diferentes da reescrita integral; os benchmarks de memória avaliam respostas finais; e o estudo que compara paradigmas gerativos em agentes não examina checkpoints estruturados. A proposta diferencia-se por manter fixos o método, o schema, os dados e o orçamento, variando apenas o modelo escritor, e por avaliar diretamente a fidelidade do estado produzido a cada transição.
+Como evidencia o Quadro 1, os estudos que introduzem o GU-JSON e o SUMIE empregam modelos de grande porte; as propostas de memória estruturada como o PRISM utilizam operações programáticas em vez de reescrita integral pelo modelo; os benchmarks de memória avaliam respostas finais; e a comparação existente entre paradigmas autoregressivo e de difusão analisa modelos dez vezes maiores com memória em texto livre. Este trabalho preenche essa interseção ao manter constantes o método GU-JSON, o schema, o orçamento de tokens e as sequências do SUMIE para avaliar diretamente a qualidade estrutural e semântica dos checkpoints produzidos pelos três escritores compactos.
 
 # 3 Materiais e métodos
 
-Esta seção descreve o procedimento adotado para responder à pergunta de pesquisa. O desenho foi organizado de modo que cada objetivo específico corresponda a pelo menos um experimento, a um artefato e a evidências mensuráveis, conforme sintetizado na seção 3.11.
+Este estudo segue um delineamento experimental, aplicado e quantitativo em Ciência da Computação, comparando o perfil de erros estruturais e semânticos de três escritores compactos de memória ao longo dos turnos e das operações de atualização do benchmark público SUMIE. Como os experimentos utilizam exclusivamente conjuntos de dados sintéticos públicos e modelos de pesos abertos, sem envolvimento de seres humanos ou dados pessoais, o protocolo dispensa submissão a Comitê de Ética em Pesquisa. As subseções a seguir detalham as variáveis e hipóteses do experimento, o método GU-JSON e o prompt utilizado, a preparação das transições do SUMIE, os modelos avaliados, o *harness* de execução local, as métricas e o plano de análise estatística.
 
-## 3.1 Caracterização da pesquisa
+## 3.1 Desenho experimental e variáveis
 
-Quanto à natureza, a pesquisa é aplicada, pois busca gerar conhecimento para a escolha e a avaliação de componentes de memória em sistemas agênticos. Quanto à abordagem, é quantitativa, baseada em métricas calculadas automaticamente sobre os checkpoints produzidos. Quanto aos objetivos, é descritiva e comparativa, com hipóteses de trabalho explícitas. Quanto aos procedimentos, combina pesquisa bibliográfica e experimento computacional controlado, no qual uma única variável independente é manipulada e as demais condições são mantidas constantes. A pesquisa não envolve participantes humanos e utiliza apenas dados e modelos publicamente disponíveis, observadas as respectivas licenças.
-
-## 3.2 Procedimento de revisão da literatura
-
-A revisão adota uma busca estruturada, sem constituir uma revisão sistemática completa. Os conceitos de mapeamento sistemático orientam a classificação das contribuições e a identificação de lacunas [@petersenSystematicMappingStudies2008; @petersenGuidelinesConductingSystematic2015], e a distinção entre mapeamento e revisão sistemática da literatura delimita o alcance das conclusões [@kitchenhamSystematicLiteratureReviews2010a]. O procedimento compreende as seguintes etapas:
-
-a) definição de um conjunto inicial de artigos-semente: o estudo de Hwang et al. sobre sumarização incremental estruturada, o SUMIE, o MemoryAgentBench, o PRISM, os Intrinsic Memory Agents, os relatórios técnicos do Qwen3 e do T5Gemma, o trabalho sobre difusão em blocos e, como contrapontos, os estudos de Lu et al. e de Mündler et al. sobre difusão;
-b) busca por expressões conceituais que combinam agentes e memória estruturada com atualização incremental, por exemplo `("LLM agent" OR "language model agent") AND memory AND (structured OR JSON OR state) AND (update OR incremental OR consolidation)`, além de expressões sobre modelos de difusão e modelos encoder-decoder aplicados à geração estruturada, adaptadas à sintaxe de cada base consultada;
-c) aplicação de critérios de inclusão, que abrangem trabalhos sobre memória persistente ou estruturada em agentes, atualização incremental de estado, avaliação de memória, geração estruturada em JSON ou caracterização dos paradigmas avaliados, com texto completo acessível; e de critérios de exclusão, que afastam trabalhos centrados em recuperação aumentada ou bancos vetoriais sem atualização de estado, em ajuste fino extenso ou sem descrição suficiente do método;
-d) expansão por *snowballing* para trás, examinando as referências dos artigos-semente, e para frente, examinando os trabalhos que os citam [@wohlinGuidelinesSnowballingSystematic2014], encerrada quando duas iterações consecutivas não acrescentarem estudos primários relevantes;
-e) extração padronizada de título, ano, veículo, versões de preprint e de publicação, modelos e escala, tipo de memória, método de atualização, conjunto de dados, métricas, disponibilidade de código, licenças, relação com as perguntas de pesquisa, limitações e tipo de evidência, se direta, indireta ou contraponto.
-
-As referências são gerenciadas no Zotero, priorizando-se a versão publicada sobre o preprint e registrando-se separadamente as datas de preprint, revisão e publicação. Uma auditoria bibliográfica preliminar, concluída em novembro de 2026, verificou metadados, versões e o método das fontes centrais; os registros de cada busca serão preservados para permitir a reprodução do procedimento.
-
-## 3.3 Desenho experimental e variáveis
-
-O experimento manipula uma única variável independente, o modelo escritor, e mantém constantes todas as demais condições, conforme o Quadro 2.
+O experimento manipula como única variável independente o modelo escritor (*memory writer*) e mantém constantes o método de atualização, o schema, o prompt, o limite de tokens e as sequências de entrada, conforme sintetizado no Quadro 2.
 
 **Quadro 2 – Variáveis do experimento**
 
 | Tipo | Variável | Operacionalização |
 |---|---|---|
-| Independente | Modelo escritor | Qwen3-0.6B (autoregressivo decoder-only); T5Gemma B-B PrefixLM-IT (encoder-decoder); Qwen3-0.6B Diffusion BD3LM (difusão em blocos) |
-| Controlada | Método de atualização | GU-JSON, com reescrita integral do checkpoint |
-| Controlada | Schema | `{"state": {"chave": "valor"}}`, idêntico para todos os escritores e exemplos |
-| Controlada | Prompt | Mesmo prompt-base, sem exemplos (*zero-shot*), em inglês |
-| Controlada | Orçamento de saída | 300 tokens |
-| Controlada | Contexto de entrada | Até 8 mil tokens |
-| Controlada | Dados | Mesmas sequências, na mesma ordem, com os mesmos estados anteriores e estados esperados |
-| Controlada | Decodificação | Política determinística fixa e documentada, sem decodificação restrita |
-| Dependente | Qualidade estrutural | Validade do JSON e conformidade com o schema |
-| Dependente | Qualidade do estado | Precisão, revocação e F1 do estado; taxa de alucinação |
-| Dependente | Qualidade da transição | Acurácias de preservação, atualização e substituição; taxa de fatos obsoletos |
+| Independente | Modelo escritor | Qwen3-0.6B (autoregressivo *decoder-only*); T5Gemma B-B PrefixLM-IT (*encoder-decoder*); Qwen3-0.6B Diffusion BD3LM (difusão em blocos) |
+| Controlada | Método de atualização | GU-JSON, com reescrita integral do checkpoint a cada turno |
+| Controlada | Schema | `{"state": {"chave": "valor"}}`, idêntico para todos os escritores e instâncias |
+| Controlada | Prompt | Prompt-base *zero-shot* em inglês, sem instruções específicas por arquitetura |
+| Controlada | Orçamento de saída | Limite máximo fixo de 300 tokens gerados por transição |
+| Controlada | Contexto de entrada | Limite de até 8.192 tokens |
+| Controlada | Dados de entrada | Mesmas sequências do SUMIE, na mesma ordem, com os mesmos estados anteriores de referência |
+| Controlada | Decodificação | Geração determinística sem decodificação restrita por gramática (*prompt-only*) |
+| Dependente | Conformidade estrutural | Taxa de validade sintática do JSON (*JSON Validity*) e taxa de conformidade com o schema (*Schema Validity*) |
+| Dependente | Fidelidade global do estado | Precisão (*State Precision*), revocação (*State Recall*), F1 do estado (*State F1*) e taxa de alucinação (*Hallucination Rate*) |
+| Dependente | Fidelidade por operação | Acurácia de preservação (*Preservation Accuracy*) e acurácia de atualização (*Update Accuracy*, desdobrada em adição e modificação) |
 
 Fonte: elaborado pelo autor (2026).
 
-A pergunta principal (RQ1) indaga como os representantes compactos diferem na qualidade das atualizações GU-JSON no SUMIE, com schema e limite de 300 tokens fixos. As perguntas secundárias examinam como as diferenças de fidelidade variam ao longo da sequência de atualizações (RQ2); quais diferenças aparecem na adição, na integração e na preservação de informação, respeitando a política do SUMIE de manter perspectivas conflitantes (RQ3); e quais padrões observados no SUMIE se mantêm na amostra de contraste do FactConsolidation-SH, focada em substituição (RQ4).
+O desenho experimental responde à pergunta principal de pesquisa (RQ1) — como os três representantes compactos diferem na qualidade das atualizações GU-JSON no SUMIE sob schema e limite de 300 tokens fixos — e a duas questões analíticas desdobradas: como a conformidade estrutural e a fidelidade do estado evoluem ao longo da sequência de turnos de atualização (RQ2); e como os escritores diferem entre as operações de preservação de atributos anteriores, adição de novos atributos e atualização de atributos existentes no SUMIE (RQ3).
 
-Duas hipóteses de trabalho orientam a análise. A H1 estabelece que, sob GU-JSON, schema e orçamento fixos, os modelos selecionados apresentam diferenças mensuráveis na preservação do estado antigo e na incorporação de informação nova, sem previsão de ordenação entre eles. A H2, de caráter exploratório, estabelece que as diferenças entre escritores podem ser mais visíveis quando a informação nova substitui uma anterior do que em simples adições. Como a comparação entre SUMIE e FactConsolidation-SH também muda o conjunto de dados, ela não isola o efeito da operação, e a H2 permanece exploratória.
+Para orientar o teste empírico, formula-se a hipótese nula ($H_0$) de que não há diferença estatisticamente significativa nas métricas primárias de fidelidade do estado (F1 do estado, acurácia de preservação e acurácia de atualização) entre os três modelos escritores avaliados sob o protocolo GU-JSON no SUMIE. Em contrapartida, a hipótese alternativa ($H_1$) estabelece que os representantes avaliados apresentam diferenças estatisticamente significativas na preservação do estado prévio e na incorporação de novas informações ao longo das transições, refletindo perfis de erro distintos sob o mesmo orçamento de geração.
 
-## 3.4 Método de memória, schema e prompt
+## 3.2 Método de memória, schema e prompt
 
-O experimento aplica o GU-JSON conforme a Equação 1: a cada transição, o escritor recebe o schema, o checkpoint anterior e a nova observação, e deve devolver apenas o checkpoint completo atualizado. O schema é mínimo e único, `{"state": {"chave": "valor"}}`, e os atributos de ambos os conjuntos de dados são convertidos em pares atributo-valor dentro de `state`, sem campos específicos por conjunto. Essa representação é uma escolha de controle, cuja adequação aos estados acumulados do SUMIE será verificada no piloto, sem reduzir automaticamente opiniões conflitantes a um único valor.
+Em cada transição do experimento, aplica-se a formulação do GU-JSON (Equação 1): o escritor recebe o schema, o checkpoint de referência do turno anterior ($M_{t-1}$) e o parágrafo correspondente à nova observação ($O_t$), devendo produzir exclusivamente o objeto JSON atualizado ($M_t$). O uso do estado anterior de referência ($M_{t-1}$ padrão-ouro) como entrada em cada turno garante que todos os escritores sejam avaliados sob exatamente as mesmas condições em cada passo da sequência, evitando que uma falha sintática no turno $t$ inviabilize a mensuração das transições seguintes.
 
-O prompt-base, apresentado no Apêndice A, não contém informação específica de nenhuma arquitetura e explicita cinco regras: preservar a informação ainda válida; aplicar a informação introduzida pela nova observação; substituir fatos apenas quando a observação ou a tarefa estabelecerem explicitamente sua invalidade, preservando opiniões divergentes; não inventar fatos sem suporte; e respeitar o schema, retornando somente o objeto JSON completo. O orçamento de saída é fixo em 300 tokens, inspirado no cenário de memória limitada de @hwangEnhancingIncrementalSummarization2024, sem que se alegue replicação idêntica de sua contagem de tokens.
+Adota-se o schema mínimo `{"state": {"chave": "valor"}}`, no qual os atributos da entidade descrita no SUMIE são representados como chaves textuais dentro do objeto `state` e seus respectivos conteúdos como valores em texto. O prompt-base (Apêndice A) é redigido em inglês — idioma nativo do conjunto de dados — e estabelece seis instruções operacionais: preservar informações anteriores que permanecem válidas; incorporar informações explicitamente introduzidas pela nova observação; substituir valores prévios apenas quando a observação estabelecer sua invalidade, mantendo perspectivas divergentes válidas; não inventar fatos sem suporte; respeitar estritamente o schema; e retornar unicamente o objeto JSON completo. O orçamento máximo de saída é fixado em 300 tokens por transição, em consonância com o regime de memória limitada analisado por @hwangEnhancingIncrementalSummarization2024.
 
-Os adaptadores de cada modelo podem ajustar apenas aspectos técnicos da interface, como o template de conversa, os marcadores especiais e os parâmetros de geração, que serão documentados, sem alterar semanticamente o prompt. O modo de raciocínio explícito do Qwen3 será fixado e registrado, para que o raciocínio adicional não consuma o orçamento destinado ao JSON. A configuração inicial não utiliza exemplos; caso um escritor falhe sistematicamente em compreender o formato, poderá ser avaliado um único exemplo, idêntico para todos os escritores, documentado como nova condição.
+Os adaptadores de inferência de cada modelo limitam-se a aplicar o formato de entrada exigido pela respectiva interface (como marcadores de turno e desativação de blocos de raciocínio explícito no Qwen3 para que o orçamento de 300 tokens seja integralmente dedicado ao JSON), sem alterar o conteúdo instrucional do prompt.
 
-## 3.5 Dados e preparação das transições
+## 3.3 Conjunto de dados e preparação das transições
 
-O SUMIE é o conjunto de dados principal, por corresponder diretamente ao cenário em que o GU-JSON foi avaliado sob memória limitada.^[Disponível em: https://github.com/google-deepmind/sumie. O repositório é identificado como Apache-2.0; a revisão utilizada será registrada.] Cada etapa de uma sequência será convertida em uma transição composta pelo estado anterior, pela observação e pelo estado esperado. Como os dados públicos fornecem anotações por parágrafo, e não checkpoints acumulados nem rótulos de operação prontos, a construção dos estados esperados, a representação de múltiplas perspectivas, a política de canonicalização dos valores e os rótulos de operação (ADD, UPDATE e PRESERVE) serão documentados e validados no piloto, antes da coleta principal. Também será verificado se os estados de referência cabem no orçamento de 300 tokens, de modo que uma eventual impossibilidade de retenção integral não seja contabilizada como falha de preservação do escritor.
+O experimento utiliza o benchmark SUMIE [@hwangSUMIESyntheticBenchmark2025], disponibilizado publicamente sob licença Apache-2.0.^[Disponível em: https://github.com/google-deepmind/sumie.] No SUMIE, cada instância representa uma entidade descrita ao longo de uma sequência ordenada de parágrafos acompanhados das anotações de atributos e valores introduzidos ou mencionados em cada passo.
 
-O contraste exploratório utiliza uma amostra do FactConsolidation-SH, subconjunto do MemoryAgentBench, restrita a transições que envolvem substituição de fatos.^[Disponível em: https://huggingface.co/datasets/ai-hyz/MemoryAgentBench.] Os critérios e o tamanho da amostra serão fixados e documentados após a verificação da distribuição das operações e antes da execução dos escritores. Como o benchmark original avalia respostas finais, a construção dos estados esperados e dos rótulos de substituição (SUPERSEDE) é uma adaptação deste trabalho. A licença dos dados será confirmada na revisão efetivamente utilizada, pois há divergência entre a indicação do cartão do conjunto de dados e a do artigo.
+Para viabilizar a avaliação direta de transições de estado sob o método GU-JSON, cada etapa $t$ de uma entidade é estruturada como uma tupla $(M_{t-1}^*,\ O_t,\ M_t^*)$, em que $M_{t-1}^*$ é o estado acumulado de referência até o turno $t-1$, $O_t$ é o texto do parágrafo no turno $t$ e $M_t^*$ é o estado acumulado esperado após a incorporação de $O_t$. A partir da comparação entre $M_{t-1}^*$ e $M_t^*$, cada atributo esperado em $M_t^*$ recebe um rótulo determinístico de operação:
 
-Ficam fora da coleta os conjuntos FactConsolidation-MH, LoCoMo, LongMemEval e BooookScore, que ampliariam o domínio e as tarefas sem testar diretamente a pergunta principal.
+a) **PRESERVE:** atributo já presente em $M_{t-1}^*$ cujo valor não sofre alteração na observação $O_t$ e deve ser mantido intacto em $M_t$;
+b) **ADD:** atributo ausente em $M_{t-1}^*$ e introduzido pela primeira vez na observação $O_t$;
+c) **UPDATE:** atributo já existente em $M_{t-1}^*$ que recebe informação complementar ou nova perspectiva apresentada em $O_t$, respeitando a regra do SUMIE de integrar visões divergentes sem descartar arbitrariamente o registro anterior.
 
-## 3.6 Modelos avaliados
+Durante a preparação dos dados no estudo piloto, são verificadas as regras de canonicalização textual (normalização de espaços, caixa e pontuação) e o comprimento em tokens dos estados acumulados de referência $M_t^*$, assegurando que os estados esperados caibam integralmente no orçamento de 300 tokens e que eventuais omissões observadas decorram do comportamento do modelo escritor, e não de truncamento forçado pelo limite de saída. Caso haja disponibilidade de tempo no cronograma após a conclusão integral dos experimentos no SUMIE, prevê-se como verificação complementar opcional a aplicação do mesmo protocolo a uma amostra delimitada do subconjunto FactConsolidation-SH do MemoryAgentBench [@huEvaluatingMemoryLLM2025], a fim de observar o comportamento dos escritores em cenários com substituição temporal explícita de fatos (*supersession*).
 
-Os modelos foram selecionados segundo os seguintes critérios: possibilidade de execução local, disponibilidade pública, escala próxima entre si, adequação à geração de texto, representação clara de paradigmas distintos e, preferencialmente, ajuste por instruções. Os representantes são:
+## 3.4 Modelos avaliados
 
-a) Qwen3-0.6B, representante autoregressivo decoder-only e referência de comparação, com licença Apache-2.0 [@yangQwen3TechnicalReport2025];^[Disponível em: https://huggingface.co/Qwen/Qwen3-0.6B.]
-b) T5Gemma B-B PrefixLM-IT, representante encoder-decoder ajustado por instruções, de escala aproximada de 0,6 bilhão de parâmetros, cujo acesso exige o aceite dos termos de uso do Gemma [@zhangEncoderDecoderGemmaImproving2025];^[Disponível em: https://huggingface.co/google/t5gemma-b-b-prefixlm-it.]
-c) Qwen3-0.6B Diffusion BD3LM, representante de difusão em blocos [@arriolaBlockDiffusionInterpolating2025], cujo repositório, checkpoint exato e interface recomendada serão confirmados no início da implementação.
+Os três modelos escritores foram selecionados para representar paradigmas gerativos distintos mantendo escala aproximada (~0,6 bilhão de parâmetros), pesos publicamente acessíveis e viabilidade de execução em hardware local:
 
-Os três modelos diferem também em dados e objetivos de treinamento, tokenizador e pós-treinamento. Por isso, as conclusões referem-se aos representantes avaliados, e não aos paradigmas em abstrato. Caso algum modelo se mostre incompatível com o ambiente local durante a validação, a seleção será revista e a alteração documentada.
+a) **Qwen3-0.6B** [@yangQwen3TechnicalReport2025]: representante do paradigma autoregressivo *decoder-only*, distribuído sob licença Apache-2.0, utilizado como linha de base autoregressiva;^[Disponível em: https://huggingface.co/Qwen/Qwen3-0.6B.]
+b) **T5Gemma B-B PrefixLM-IT** [@zhangEncoderDecoderGemmaImproving2025]: representante do paradigma *encoder-decoder* ajustado por instruções, com codificador bidirecional e decodificador autoregressivo na faixa de 0,6 bilhão de parâmetros;^[Disponível em: https://huggingface.co/google/t5gemma-b-b-prefixlm-it.]
+c) **Qwen3-0.6B Diffusion BD3LM** [@arriolaBlockDiffusionInterpolating2025]: representante do paradigma de difusão discreta em blocos (*block diffusion*), que combina geração sequencial de blocos com refinamento paralelo de tokens mascarados.
 
-## 3.7 Ambiente de execução e harness experimental
+Como os três modelos possuem diferenças de pré-treinamento, tokenização e ajuste por instruções além da arquitetura de geração, a análise empírica compara o desempenho efetivo desses representantes compactos na tarefa de escrita de memória, sem extrapolar causalidade exclusiva para o paradigma gerativo em abstrato. Os identificadores exatos de revisão (*commit hashes*) dos pesos e a configuração numérica de inferência são fixados no arquivo de manifesto do experimento.
 
-A execução dos escritores ocorrerá em um notebook Lenovo IdeaPad Gaming 3i, com processador Intel Core i5 de 10ª geração, 24 GB de memória RAM e placa de vídeo GeForce GTX 1650, cuja memória de vídeo disponível será confirmada antes da coleta. Um segundo computador, com processador Intel Core i5 e 16 GB de RAM, será utilizado na preparação dos dados, na validação de schema, no cálculo das métricas e na análise. A precisão numérica e eventual quantização de cada modelo serão registradas e mantidas tão homogêneas quanto possível, dado que modelos pequenos são sensíveis à quantização agressiva [@leeExploringTradeOffsQuantization2025].
+## 3.5 Ambiente de execução e harness experimental
 
-Como a confiabilidade de agentes depende também da infraestrutura que envolve o modelo [@AgentHarnessEngineering2026], será construído um harness experimental que isola o escritor como único componente variável. O fluxo de cada transição segue as etapas: (i) um adaptador de conjunto de dados converte os dados de origem em transições; (ii) um construtor de prompt preenche o prompt-base com o schema, o estado anterior e a observação; (iii) um adaptador de escritor, com interface comum aos três modelos, recebe esses elementos e o orçamento de saída e devolve o texto gerado; (iv) a saída bruta é registrada antes de qualquer processamento; (v) um parser JSON verifica a validade sintática; (vi) um validador verifica a conformidade com o schema; (vii) um avaliador de estado compara o checkpoint produzido com o estado anterior e o estado esperado; e (viii) os resultados são armazenados por amostra, turno e escritor.
+Os experimentos de inferência serão executados localmente em um computador portátil Lenovo IdeaPad Gaming 3i equipado com processador Intel Core i5 de 10ª geração, 24 GB de memória RAM e unidade de processamento gráfico dedicada NVIDIA GeForce GTX 1650. Um segundo computador (Intel Core i5, 16 GB de RAM) será empregado nas etapas de pré-processamento do conjunto de dados, execução da suíte de testes unitários do validador e análise estatística dos resultados. Considerando a sensibilidade de modelos compactos à redução agressiva de precisão numérica [@leeExploringTradeOffsQuantization2025], o tipo de ponto flutuante (como `FP16` ou `BF16`) será mantido uniforme entre os modelos avaliados.
 
-Para cada transição serão registrados o identificador do experimento, o conjunto de dados, a amostra, o turno, o escritor, a semente, o hash e o texto do prompt, a saída bruta, o JSON interpretado, o estado esperado e eventuais erros. A reprodutibilidade será assegurada pelo registro das versões das bibliotecas e do commit do harness, pelo uso dos mesmos exemplos para todos os escritores e pela separação entre os resultados do piloto e os da análise confirmatória. Nenhuma saída será corrigida silenciosamente: a validade do JSON bruto será distinguida de eventual JSON reparado, e o parser e o validador serão cobertos por testes unitários.
+Para garantir que apenas o modelo escritor varie entre as execuções [@AgentHarnessEngineering2026], o pipeline é encapsulado em um *harness* experimental modular composto por oito etapas sequenciais por transição: (i) leitura da transição padronizada $(M_{t-1}^*,\ O_t,\ M_t^*)$; (ii) montagem do prompt a partir do template fixo; (iii) invocação do adaptador do escritor sob o limite de 300 tokens; (iv) gravação imediata da saída textual bruta em disco; (v) verificação de validade sintática por um *parser* JSON padrão; (vi) validação estrutural contra o schema definido; (vii) extração dos pares atributo-valor e cálculo das métricas semânticas de estado e de operação em relação a $M_{t-1}^*$ e $M_t^*$; e (viii) persistência dos indicadores da transição em registro estruturado (JSON Lines), acompanhado do identificador da amostra, turno, modelo, *hash* do prompt e versões das bibliotecas. Nenhuma etapa de pós-processamento ou reparo automático de sintaxe é aplicada sobre a saída bruta para o cálculo das métricas principais.
 
-## 3.8 Métricas de avaliação
+## 3.6 Métricas de avaliação
 
-Para o cálculo das métricas semânticas, cada checkpoint será convertido em unidades comparáveis do tipo caminho e valor, por exemplo `("state.preco", "290")`. A ordem das chaves é desconsiderada, e a normalização dos valores será mínima e definida antes da coleta, de modo a não penalizar paráfrases corretas nem aceitar valores incorretos. Como a avaliação original do SUMIE combina correspondência exata e avaliação semântica por modelo de linguagem, o F1 de estado aqui proposto é uma adaptação determinística, e seus valores não são diretamente comparáveis aos publicados.
-
-A precisão, a revocação e o F1 do estado são calculados conforme as Equações 2 a 4, em que $TP$ corresponde aos pares corretos presentes no checkpoint, $FP$ aos pares presentes, mas incorretos ou sem correspondência, e $FN$ aos pares esperados ausentes:
+Para a avaliação semântica dos checkpoints sintaticamente válidos e aderentes ao schema, o objeto JSON produzido é convertido em um conjunto de pares canônicos caminho-valor da forma `("state.<atributo>", "<valor_normalizado>")`, desconsiderando a ordenação das chaves. A precisão ($P$), a revocação ($R$) e a medida $F_1$ do estado em cada transição são definidas pelas Equações 2 a 4, nas quais $TP$ representa o número de pares presentes no checkpoint gerado que coincidem com o estado esperado $M_t^*$, $FP$ o número de pares gerados ausentes ou divergentes de $M_t^*$ e $FN$ o número de pares de $M_t^*$ omitidos pelo escritor:
 
 $$
 P = \frac{TP}{TP + FP} \qquad (2)
@@ -225,153 +206,130 @@ $$
 F_1 = \frac{2PR}{P + R} \qquad (4)
 $$
 
-As acurácias de atualização ($UA$) e de preservação ($PA$) são definidas pelas Equações 5 e 6:
+Para avaliar o comportamento do escritor segundo a natureza da transição em cada atributo, calculam-se a acurácia de atualização ($UA$), desdobrada nas operações `ADD` e `UPDATE`, e a acurácia de preservação ($PA$), correspondente à operação `PRESERVE`, conforme as Equações 5 e 6:
 
 $$
-UA = \frac{\text{modificações esperadas aplicadas corretamente}}{\text{modificações esperadas}} \qquad (5)
+UA = \frac{\text{atributos com operação ADD ou UPDATE registrados corretamente em } M_t}{\text{total de atributos com operação ADD ou UPDATE esperados em } M_t^*} \qquad (5)
 $$
 
 $$
-PA = \frac{\text{campos inalterados preservados corretamente}}{\text{campos que deveriam permanecer inalterados}} \qquad (6)
+PA = \frac{\text{atributos inalterados de } M_{t-1}^* \text{ mantidos corretamente em } M_t}{\text{total de atributos com operação PRESERVE esperados em } M_t^*} \qquad (6)
 $$
 
-O Quadro 3 reúne o conjunto completo de métricas e o domínio de aplicação de cada uma.
+O Quadro 3 sintetiza as métricas estruturais, de estado e de operação adotadas no protocolo.
 
-**Quadro 3 – Métricas de avaliação**
+**Quadro 3 – Métricas de avaliação do experimento**
 
-| Métrica | Definição | Aplicação |
-|---|---|---|
-| Validade do JSON (*JSON Validity*) | Percentual de saídas interpretáveis por um parser JSON padrão, sem reparo | Todas as transições |
-| Conformidade com o schema (*Schema Validity*) | Percentual de saídas que respeitam campos, tipos e cardinalidades do schema | Todas as transições |
-| Precisão do estado (*State Precision*) | Fração dos pares persistidos que estão corretos (Equação 2) | Todas as transições |
-| Revocação do estado (*State Recall*) | Fração dos pares esperados presentes no checkpoint (Equação 3) | Todas as transições |
-| F1 do estado (*State F1*) | Média harmônica entre precisão e revocação (Equação 4); métrica primária | Todas as transições |
-| Acurácia de preservação (*Preservation Accuracy*) | Fração dos campos que deveriam permanecer inalterados e foram preservados (Equação 6); métrica primária | Transições com operação PRESERVE |
-| Acurácia de atualização (*Update Accuracy*) | Fração das modificações esperadas aplicadas corretamente (Equação 5), reportada separadamente para ADD e UPDATE | Transições com operações ADD ou UPDATE |
-| Acurácia de substituição (*Supersession Accuracy*) | Percentual de valores obsoletos corretamente substituídos; métrica primária | Somente transições com invalidação explícita |
-| Taxa de fatos obsoletos (*Stale Fact Rate*) | Proporção de fatos que deveriam ter sido invalidados e permanecem no checkpoint | Somente transições com invalidação explícita |
-| Taxa de alucinação (*Hallucination Rate*) | Proporção de pares sem suporte na observação nem no estado anterior | Todas as transições |
+| Categoria | Métrica | Definição operacional | Escopo de cálculo |
+|---|---|---|---|
+| Estrutural | Validade do JSON (*JSON Validity*) | Proporção de saídas brutas interpretáveis por `json.loads` sem reparo sintático | Todas as transições |
+| Estrutural | Conformidade com o schema (*Schema Validity*) | Proporção de saídas que contêm exclusivamente o objeto raiz `state` mapeando chaves textuais a valores | Todas as transições |
+| Estado | Precisão do estado (*State Precision*) | Fração dos pares atributo-valor gerados em $M_t$ que estão corretos (Equação 2) | Transições válidas e na análise global (atribuindo zero a falhas estruturais) |
+| Estado | Revocação do estado (*State Recall*) | Fração dos pares esperados em $M_t^*$ recuperados corretamente em $M_t$ (Equação 3) | Transições válidas e na análise global |
+| Estado | F1 do estado (*State F1*) | Média harmônica entre precisão e revocação do estado (Equação 4); métrica semântica primária | Transições válidas e na análise global |
+| Estado | Taxa de alucinação (*Hallucination Rate*) | Proporção de pares gerados em $M_t$ sem correspondência nem suporte em $M_{t-1}^*$ ou $O_t$ | Transições com JSON válido |
+| Operação | Acurácia de preservação (*Preservation Accuracy*) | Fração dos atributos de $M_{t-1}^*$ não alterados por $O_t$ que foram retidos corretamente (Equação 6); métrica primária | Atributos rotulados como `PRESERVE` |
+| Operação | Acurácia de atualização (*Update Accuracy*) | Fração das inclusões e modificações introduzidas por $O_t$ aplicadas corretamente (Equação 5), reportada de forma agregada e separada para `ADD` e `UPDATE`; métrica primária | Atributos rotulados como `ADD` ou `UPDATE` |
 
 Fonte: elaborado pelo autor (2026).
 
-Para reduzir o risco de seleção posterior de resultados favoráveis, as métricas primárias são declaradas antecipadamente: F1 do estado, acurácia de preservação e acurácia de substituição. No SUMIE, a preservação de perspectivas divergentes válidas não é contabilizada como fato obsoleto.
+As métricas semânticas serão reportadas sob duas visões complementares: (i) **condicional à validade estrutural**, calculada sobre as transições em que o escritor produziu JSON válido e aderente ao schema, isolando a qualidade do conteúdo; e (ii) **global (*end-to-end*)**, atribuindo pontuação zero às transições com falha sintática, o que reflete a confiabilidade efetiva do escritor no pipeline.
 
-## 3.9 Fases experimentais
+## 3.7 Procedimento experimental e plano de análise
 
-O experimento será conduzido em quatro fases sequenciais:
+A execução experimental organiza-se em três fases sequenciais sobre o benchmark SUMIE:
 
-a) Fase 0 (verificação inicial): execução de 10 a 20 transições construídas manualmente para validar o carregamento dos modelos no ambiente local, o parser, o schema, o prompt e o formato de saída. Essa fase é realizada ainda no TCC I, para confirmar a viabilidade do ambiente, e seus resultados não integram a análise;
-b) Fase 1 (piloto no SUMIE): execução com aproximadamente 25 entidades para confirmar a adaptação do conjunto de dados, a construção dos estados acumulados, a canonicalização, a representação de perspectivas conflitantes sob 300 tokens e o cálculo das métricas. Os problemas de implementação identificados serão corrigidos antes da coleta confirmatória, e os resultados do piloto não serão misturados aos da análise principal;
-c) Fase 2 (experimento principal no SUMIE): execução dos três escritores nas mesmas sequências de sumarização incremental, com registro completo por transição;
-d) Fase 3 (contraste de substituição): execução dos três escritores na amostra previamente delimitada do FactConsolidation-SH, tratada como contraste exploratório, e não como avaliação geral de memória de agentes.
+a) **Fase 0 — Verificação funcional do *harness*:** execução de 15 transições sintéticas de teste para validar o carregamento local dos três modelos, a aplicação do prompt, o respeito ao orçamento de 300 tokens e a exatidão do *parser*, do validador de schema e do calculador de métricas (verificados por testes unitários);
+b) **Fase 1 — Estudo piloto no SUMIE:** execução em um subconjunto de 25 entidades (separado da amostra de teste principal) para calibrar as regras de canonicalização textual, verificar o comprimento em tokens dos estados acumulados $M_t^*$ e confirmar a ausência de truncamento;
+c) **Fase 2 — Experimento principal no SUMIE:** execução completa dos três escritores sobre o conjunto de avaliação do SUMIE, registrando todas as saídas brutas e métricas por transição, turno e operação.
 
-Em caso de atraso, a ordem de prioridade é manter o SUMIE, os três escritores, as métricas longitudinais, o orçamento fixo e o registro para reprodutibilidade, reduzindo ou removendo a amostra do FactConsolidation-SH antes de qualquer ampliação de escopo.
+Na análise estatística dos resultados da Fase 2, serão apuradas a média e a mediana de cada métrica por escritor, acompanhadas de intervalos de confiança de 95% estimados por *bootstrap* não paramétrico (10.000 reamostragens no nível da entidade, preservando a estrutura de dependência longitudinal entre os turnos de uma mesma sequência). Como os três modelos avaliam exatamente as mesmas transições, a verificação das hipóteses $H_0$ e $H_1$ será realizada por meio das diferenças pareadas entre escritores no nível de entidade e por testes não paramétricos pareados (teste de Friedman para a comparação global entre os três modelos e teste de Wilcoxon pareado com correção de Holm-Bonferroni para comparações dois a dois, adotando $\alpha = 0{,}05$). A evolução temporal será examinada por curvas de *State F1*, *Preservation Accuracy* e *JSON Validity* em função do índice do turno $t$.
 
-## 3.10 Plano de análise
+## 3.8 Rastreabilidade entre objetivos, experimentos e evidências
 
-As métricas serão calculadas e armazenadas por amostra, por turno e por operação, nunca apenas como médias agregadas. A análise compreenderá: (i) a qualidade agregada por escritor no SUMIE; (ii) a qualidade por turno, com curvas de F1, de acurácia de preservação e de taxa de fatos obsoletos ao longo da sequência; (iii) a qualidade por operação no SUMIE, separando ADD, UPDATE e PRESERVE; e (iv) a análise separada da amostra do FactConsolidation-SH.
+O Quadro 4 explicita o alinhamento metodológico entre cada objetivo específico formulado na introdução, o componente do *harness* responsável pela coleta, a evidência empírica gerada na Fase 2 e os critérios quantitativos de análise.
 
-Serão reportadas médias e medianas, com intervalos de confiança de 95% estimados por bootstrap, reamostrando entidades para preservar a dependência entre transições de uma mesma sequência. Como os três escritores processam os mesmos casos, as comparações serão feitas por diferenças pareadas, acompanhadas de tamanho de efeito quando aplicável. Se a geração for determinística, repetições idênticas não acrescentam variância; havendo estocasticidade inevitável, sementes adicionais serão executadas em um subconjunto. A ausência de diferença detectada será interpretada como ausência de evidência sob o protocolo e a precisão estatística obtida, e não como prova de equivalência entre os modelos.
+**Quadro 4 – Matriz de rastreabilidade entre objetivos específicos, artefatos e evidências**
 
-## 3.11 Relação entre objetivos, experimentos e evidências
-
-O Quadro 4 relaciona cada objetivo específico ao artefato que o viabiliza, ao experimento que o executa, à evidência produzida e à métrica e ao critério de análise.
-
-**Quadro 4 – Matriz de rastreabilidade entre objetivos, experimentos e evidências**
-
-| Objetivo específico | Artefato | Experimento | Evidência | Métrica e critério |
-|---|---|---|---|---|
-| a) Medir a validade do JSON e a conformidade com o schema | Parser JSON, validador de schema e registro das saídas brutas | Fases 2 e 3 (artefato validado na Fase 0) | Proporção de saídas válidas por escritor, turno e conjunto de dados; tipologia das falhas estruturais | Validade do JSON e conformidade com o schema, com IC de 95% e diferenças pareadas, sem reparo das saídas |
-| b) Comparar precisão, revocação e F1 do estado ao longo das atualizações | Estados esperados acumulados do SUMIE e avaliador de estado com canonicalização validada | Fase 2, após o piloto da Fase 1 | Resultados agregados por escritor e curvas de F1 por turno | Precisão, revocação e F1 do estado (primária), com IC de 95% e diferenças pareadas |
-| c) Analisar preservação, adição e atualização por operação | Rótulos de operação ADD, UPDATE e PRESERVE validados | Fase 2, com análise estratificada por operação | Acurácias por operação e escritor; curva de preservação por turno | Acurácia de preservação (primária), acurácia de atualização e taxa de alucinação, com IC de 95% |
-| d) Verificar o comportamento em substituição de fatos | Amostra delimitada e documentada do FactConsolidation-SH, com rótulos SUPERSEDE | Fase 3 | Taxas por escritor na amostra; confronto descritivo com os padrões do SUMIE | Acurácia de substituição (primária) e taxa de fatos obsoletos, em análise exploratória, sem inferência causal sobre a operação |
+| Objetivo específico | Artefato e procedimento | Evidência produzida | Métrica e critério de análise |
+|---|---|---|---|
+| a) Avaliar a conformidade estrutural dos checkpoints produzidos por cada escritor | *Parser* JSON, validador de schema e log de saídas brutas sem reparo automático | Tabela de validade por escritor, curva de validade por turno e distribuição das categorias de erro sintático (truncamento, chaves malformadas, texto extra) | *JSON Validity* e *Schema Validity* com IC de 95% por *bootstrap* e diferenças pareadas entre escritores |
+| b) Comparar a fidelidade do estado mantido ao longo dos turnos de atualização do SUMIE | Estados acumulados de referência ($M_t^*$) e avaliador determinístico de pares atributo-valor | Tabela comparativa global e condicional por escritor; curvas longitudinais de fidelidade ao longo dos turnos $t$ | *State Precision*, *State Recall*, *State F1* (primária) e *Hallucination Rate*, com IC de 95%, teste pareado e curvas por turno |
+| c) Analisar o perfil de erro dos escritores segundo o tipo de operação no SUMIE | Rotulador de operações (`PRESERVE`, `ADD`, `UPDATE`) entre $M_{t-1}^*$ e $M_t^*$ | Tabela e gráfico comparativo de desempenho estratificado por operação e curva de retenção de atributos ao longo dos turnos | *Preservation Accuracy* (primária) e *Update Accuracy* (`ADD` e `UPDATE`, primária), com IC de 95% e comparações pareadas |
 
 Fonte: elaborado pelo autor (2026).
 
-## 3.12 Ameaças à validade
+## 3.9 Limitações metodológicas e ameaças à validade
 
-Quanto à validade interna, os modelos não são perfeitamente pareados, pois diferem em treinamento, tokenizador e pós-treinamento, e a origem do candidato de difusão ainda precisa ser confirmada. Para mitigar essa ameaça, a escala foi aproximada, foram preferidos modelos ajustados por instruções, as demais condições foram fixadas e evita-se linguagem causal sobre arquiteturas. Os processos de decodificação também diferem entre os paradigmas, o que será tratado com orçamentos equivalentes, documentação dos parâmetros e ausência de decodificação restrita. Por fim, o schema pode interagir com o paradigma em direção desconhecida, risco reduzido pela adoção de uma estrutura simples e idêntica para todos.
+O delineamento experimental controla o método de atualização, o schema, o prompt, o orçamento de geração e os dados de entrada, mas está sujeito a limitações inerentes à comparação entre modelos pré-treinados distintos:
 
-Quanto à validade de construção, JSON válido não significa memória correta, razão pela qual a avaliação combina métricas estruturais, de estado e de transição. A adaptação das anotações e das políticas de conflito dos conjuntos de dados será documentada e validada no piloto, assim como a capacidade dos estados de referência sob o orçamento de 300 tokens.
-
-Quanto à validade externa, o SUMIE é sintético e representa a sumarização incremental de entidades, e a amostra do FactConsolidation-SH cobre apenas um contraste de substituição. Os resultados não serão generalizados para diálogos longos, tarefas de múltiplos saltos ou todos os tipos de memória.
-
-Quanto à validade de conclusão, a comparação entre os conjuntos de dados confunde operação e domínio, o que mantém a H2 exploratória. O grande número de métricas é tratado pela declaração prévia das métricas primárias, e a eventual execução determinística única é compensada pelo uso de muitas amostras e de intervalos por bootstrap. Resultados obtidos com modelos de difusão maiores ou com decodificação restrita não serão extrapolados para o protocolo deste trabalho. Quanto à validade de implementação, o parser e o validador terão testes unitários, a saída bruta será sempre preservada e nenhum JSON será corrigido silenciosamente.
+a) **Validade interna:** os três modelos comparados não compartilham o mesmo corpus de pré-treinamento, tokenizador nem procedimento de pós-treinamento. Assim, as diferenças medidas refletem o desempenho conjunto de cada modelo representante na escala de ~0,6B, e não o efeito isolado da arquitetura de geração. Para evitar distorções adicionais, todos os modelos são avaliados em regime *zero-shot prompt-only*, com precisão numérica padronizada e sem decodificação restrita externa;
+b) **Validade de construção:** a avaliação original do SUMIE utiliza um modelo de linguagem como juiz para verificar o alinhamento semântico de evidências [@hwangSUMIESyntheticBenchmark2025], ao passo que este protocolo emprega correspondência determinística após canonicalização textual. Essa escolha elimina a variância e o viés de um avaliador neural, mas exige validar as regras de normalização no piloto (Fase 1) e verificar que os estados de referência não excedam os 300 tokens;
+c) **Validade externa:** os resultados obtidos restringem-se à tarefa de sumarização incremental de entidades em um schema plano de pares chave-valor sob o método GU-JSON. O estudo avalia transições com estado anterior de referência ($M_{t-1}^*$ padrão-ouro) para isolar o erro por turno, não medindo a propagação acumulativa de erros em execução livre nem o impacto do checkpoint em tarefas finais de tomada de decisão do agente.
 
 # 4 Resultados esperados e cronograma
 
-Por se tratar da etapa de projeto, esta seção não apresenta resultados experimentais. São descritas as evidências que a execução deverá produzir para a discussão no TCC II e o cronograma que organiza as atividades até a conclusão do trabalho.
+Esta seção descreve os artefatos de análise e as contribuições esperadas a partir da execução do protocolo experimental no TCC II, bem como o cronograma físico das atividades.
 
-## 4.1 Evidências previstas
+## 4.1 Resultados e contribuições esperadas
 
-A execução das fases 2 e 3 deverá produzir: uma tabela de resultados agregados por escritor, com intervalos de confiança; curvas de F1, de acurácia de preservação e de taxa de fatos obsoletos por turno; uma tabela de acurácias por tipo de operação; a distribuição dos erros estruturais e semânticos por escritor; e uma tabela específica para a amostra de substituição. Esses artefatos são necessários para discutir o alcance de cada objetivo específico, conforme o Quadro 4.
+A execução completa da Fase 2 sobre o benchmark SUMIE produzirá quatro conjuntos principais de evidências empíricas, diretamente vinculados aos objetivos específicos do trabalho:
 
-O planejamento não pressupõe qual escritor apresentará melhor desempenho. Diferentes padrões são igualmente informativos: escritores com F1 agregado semelhante podem diferir em preservação ou em operações específicas, revelando perfis distintos de manutenção do estado; um escritor pode gerar JSON válido com alta frequência e, ainda assim, reter fatos obsoletos, o que evidenciaria que correção sintática não implica memória correta; e as diferenças observadas no SUMIE podem não se repetir na amostra de substituição, sugerindo dependência do tipo de informação e de operação. Caso não seja detectada diferença relevante, esse resultado também será relatado, delimitado pelo protocolo e pela precisão estatística alcançada.
-
-Espera-se, como contribuição, um protocolo reprodutível de avaliação que separa a conformidade estrutural da fidelidade do estado e a examina por turno e por operação; um harness e uma adaptação documentada do SUMIE e do FactConsolidation-SH para transições de estado; e evidências sobre os perfis de erro de modelos compactos de paradigmas distintos atuando como escritores de memória.
+1. **Caracterização da robustez estrutural por escritor (Objetivo a):** quantificação das taxas de *JSON Validity* e *Schema Validity* em regime *prompt-only* para o Qwen3-0.6B, o T5Gemma B-B e o Qwen3-0.6B BD3LM, acompanhada da classificação das falhas sintáticas (como fechamento incompleto por limite de tokens, omissão de delimitadores ou emissão de texto fora do objeto JSON). Esse resultado permitirá verificar se a geração iterativa por difusão em blocos ou a codificação bidirecional *encoder-decoder* apresentam maior ou menor estabilidade sintática que a geração autoregressiva *decoder-only* na escala de 0,6B.
+2. **Comparação da fidelidade global e longitudinal do estado (Objetivo b):** apuração de *State Precision*, *State Recall*, *State F1* e *Hallucination Rate* (nas visões condicional e global) e construção das curvas de desempenho em função do turno $t$. Essas curvas permitirão identificar como a qualidade do checkpoint degrada à medida que o estado acumulado cresce e se aproxima do orçamento de 300 tokens.
+3. **Decomposição do perfil de erro por operação de estado (Objetivo c):** comparação pareada entre *Preservation Accuracy* (`PRESERVE`) e *Update Accuracy* (`ADD` e `UPDATE`). Essa estratificação permitirá distinguir, por exemplo, um modelo conservador — que preserva com alta acurácia o estado anterior $M_{t-1}^*$, mas falha em incorporar novos atributos de $O_t$ — de um modelo propenso a sobrescrever ou esquecer campos válidos ao integrar novas informações.
+4. **Relação entre validade sintática e fidelidade semântica:** o cruzamento entre as métricas estruturais e semânticas permitirá demonstrar empiricamente em que medida checkpoints sintaticamente válidos ainda sofrem de omissão de atributos ou alucinação de valores, fornecendo um protocolo e um *harness* reutilizáveis para a avaliação de escritores compactos de memória.
 
 ## 4.2 Cronograma
 
-O cronograma foi derivado dos experimentos e das entregas do trabalho, abrange o TCC I e o TCC II e está organizado em quinzenas. As atividades são as seguintes, com as respectivas dependências entre parênteses:
+O cronograma abrange as etapas de elaboração e validação do projeto no TCC I (2026/2) e a implementação completa, coleta experimental, análise estatística e redação final no TCC II (2027/1), organizadas em períodos quinzenais. As atividades previstas e suas dependências diretas são listadas a seguir:
 
-1. Delimitação do tema e elaboração da ficha de tema.
-2. Revisão da literatura, com busca, *snowballing* e auditoria bibliográfica (1).
-3. Especificação do protocolo experimental: perguntas, schema, prompt-base e métricas (1, 2).
-4. Verificação de acesso e licenças de dados e modelos, incluindo a confirmação do checkpoint de difusão (3).
-5. Implementação do harness mínimo: adaptadores, registro, parser, validador e métricas básicas (3).
-6. Fase 0: verificação inicial e validação do ambiente local (4, 5).
-7. Redação da proposta do TCC I (2, 3).
-8. Apresentação à banca do TCC I e retificações (7).
-9. Adaptação do SUMIE: estados esperados, canonicalização e rótulos de operação (4, 6).
-10. Fase 1: piloto no SUMIE e correções do pipeline (9).
-11. Fase 2: experimento principal no SUMIE (10).
-12. Fase 3: seleção da amostra e execução no FactConsolidation-SH (4, 10).
-13. Análise estatística e produção das visualizações (11, 12).
-14. Redação dos resultados, da discussão e das considerações finais (11, 13).
-15. Revisão final, depósito e defesa do TCC II (14).
+1. Delimitação do tema, formulação do problema e definição dos objetivos.
+2. Levantamento e fichamento da bibliografia sobre memória em agentes, geração estruturada e SLMs (1).
+3. Especificação do protocolo experimental: variáveis, schema, prompt-base e métricas (1, 2).
+4. Verificação de disponibilidade, licenças e requisitos de execução local dos modelos e do SUMIE (3).
+5. Implementação da estrutura base do *harness*: adaptadores, *parser*, validador e testes unitários (3, 4).
+6. Execução da Fase 0 (verificação funcional local com transições sintéticas) (5).
+7. Redação e revisão do texto do projeto de TCC I (2, 3, 6).
+8. Apresentação do projeto de TCC I e incorporação das recomendações da banca (7).
+9. Preparação do conjunto SUMIE: construção dos estados acumulados $M_t^*$ e rotulagem de operações (`PRESERVE`, `ADD`, `UPDATE`) (4, 6).
+10. Execução da Fase 1 (estudo piloto em 25 entidades do SUMIE) e calibração da canonicalização (9).
+11. Execução da Fase 2 (experimento principal com os três modelos escritores no SUMIE) (10).
+12. Processamento estatístico (*bootstrap*, testes pareados, curvas por turno e estratificação por operação) e verificação complementar opcional (11).
+13. Elaboração das tabelas, gráficos e análise crítica dos resultados frente à literatura (12).
+14. Redação das seções de resultados, discussão e conclusões do artigo final (TCC II) (13).
+15. Revisão normativa e linguística, depósito final e defesa do TCC II (14).
 
-Os Quadros 5 e 6 distribuem essas atividades no tempo.
+Os períodos quinzenais planejados para cada atividade ao longo dos dois semestres (`Q1` a `Q20`, de agosto de 2026 a junho de 2027) estão sintetizados na Tabela 1, seguidos da relação numerada das atividades:
 
-**Quadro 5 – Cronograma quinzenal do TCC I (2026/2)**
+| Ativ. | Ago Q1 | Ago Q2 | Set Q3 | Set Q4 | Out Q5 | Out Q6 | Nov Q7 | Nov Q8 | Dez Q9 | Dez Q10 | Fev Q11 | Fev Q12 | Mar Q13 | Mar Q14 | Abr Q15 | Abr Q16 | Mai Q17 | Mai Q18 | Jun Q19 | Jun Q20 |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| 1- | X | X | | | | | | | | | | | | | | | | | | |
+| 2- | | X | X | X | X | X | | | | | | | | | | | | | | |
+| 3- | | | X | X | X | X | | | | | | | | | | | | | | |
+| 4- | | | | | X | X | X | | | | | | | | | | | | | |
+| 5- | | | | | | X | X | X | | | | | | | | | | | | |
+| 6- | | | | | | | X | X | | | | | | | | | | | | |
+| 7- | | | X | X | X | X | X | X | | | | | | | | | | | | |
+| 8- | | | | | | | | X | X | | | | | | | | | | | |
+| 9- | | | | | | | | | | | X | X | | | | | | | | |
+| 10- | | | | | | | | | | | | | X | | | | | | | |
+| 11- | | | | | | | | | | | | | | X | X | | | | | |
+| 12- | | | | | | | | | | | | | | | X | X | | | | |
+| 13- | | | | | | | | | | | | | | | | X | X | | | |
+| 14- | | | | | | | | | | | | | | X | X | X | X | X | | |
+| 15- | | | | | | | | | | | | | | | | | | | X | X |
 
-| Atividade | Ago 1ª | Ago 2ª | Set 1ª | Set 2ª | Out 1ª | Out 2ª | Nov 1ª | Nov 2ª | Dez 1ª | Dez 2ª |
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| 1 | X | X | | | | | | | | |
-| 2 | | X | X | X | X | X | X | | | |
-| 3 | | | X | X | X | X | | | | |
-| 4 | | | | | X | X | X | | | |
-| 5 | | | | | | X | X | X | | |
-| 6 | | | | | | | X | X | | |
-| 7 | | | X | X | X | X | X | X | | |
-| 8 | | | | | | | | X | X | |
-
+Tabela 1 – Cronograma de atividades para TCC I e II, com subdivisão quinzenal indicando tarefas realizadas e planejadas ao longo dos dois semestres.
 Fonte: elaborado pelo autor (2026).
-
-**Quadro 6 – Cronograma quinzenal do TCC II (2027/1)**
-
-| Atividade | Fev 1ª | Fev 2ª | Mar 1ª | Mar 2ª | Abr 1ª | Abr 2ª | Mai 1ª | Mai 2ª | Jun 1ª | Jun 2ª |
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| 9 | X | X | | | | | | | | |
-| 10 | | | X | | | | | | | |
-| 11 | | | | X | X | | | | | |
-| 12 | | | | | X | X | | | | |
-| 13 | | | | | | X | X | | | |
-| 14 | | | | X | X | X | X | X | | |
-| 15 | | | | | | | | | X | X |
-
-Fonte: elaborado pelo autor (2026).
-
-As datas do TCC II serão ajustadas ao calendário acadêmico de 2027/1. O cronograma será validado com o orientador e atualizado sempre que uma decisão metodológica alterar as atividades ou suas dependências.
 
 # 5 Considerações finais
 
-Este trabalho partiu do problema de manter um estado persistente e fiel em agentes baseados em modelos de linguagem que recebem informação em etapas, considerando que cada reescrita de um checkpoint JSON pode perder fatos válidos, reter informação obsoleta, inventar conteúdo ou corromper a estrutura. Para investigá-lo, propôs-se comparar representantes compactos dos paradigmas autoregressivo decoder-only, encoder-decoder e de difusão atuando exclusivamente como escritores de memória, com o objetivo de caracterizar como diferem quanto à validade estrutural, à fidelidade do estado, ao comportamento por operação e à substituição de fatos obsoletos.
+A confiabilidade de agentes baseados em modelos de linguagem que operam em múltiplas etapas depende da integridade do estado persistido ao longo da interação. Embora a representação desse estado em checkpoints JSON atualizados pelo método GU-JSON ofereça uma estrutura explícita e compacta sob memória limitada, a necessidade de regenerar todo o objeto a cada turno torna o estado vulnerável a falhas sintáticas e à perda ou distorção de informações. Investigar se modelos de linguagem compactos são capazes de executar essa reescrita com fidelidade — e como diferentes paradigmas gerativos se comportam nessa função — constitui um passo necessário para viabilizar componentes locais de memória em sistemas agênticos.
 
-O método proposto mantém fixos o GU-JSON, o schema, o prompt, o orçamento de 300 tokens e os dados, variando apenas o modelo escritor. A avaliação no SUMIE, complementada por uma amostra delimitada do FactConsolidation-SH, combina métricas estruturais, de estado e de transição, analisadas por turno e por operação, com intervalos de confiança e comparações pareadas. A principal contribuição esperada é um protocolo reprodutível que separa a correção sintática da fidelidade da memória, acompanhado de evidências sobre os perfis de erro de modelos compactos nessa função.
+Para responder a essa questão, este projeto delineou um protocolo experimental controlado sobre o benchmark de sumarização incremental de entidades SUMIE, mantendo fixos o método GU-JSON, o schema JSON, o prompt *zero-shot* e o limite de saída de 300 tokens, e variando exclusivamente o modelo escritor entre três representantes na escala de 0,6 bilhão de parâmetros: Qwen3-0.6B (autoregressivo *decoder-only*), T5Gemma B-B (*encoder-decoder*) e Qwen3-0.6B BD3LM (difusão em blocos). Ao dissociar a conformidade estrutural (*JSON Validity* e *Schema Validity*) da fidelidade semântica do estado (*State Precision*, *Recall*, *F1* e *Hallucination Rate*) e das acurácias por tipo de operação (`PRESERVE`, `ADD` e `UPDATE`), o desenho permite caracterizar com precisão os modos de falha de cada escritor ao longo dos turnos.
 
-O desenho possui limitações que restringem a interpretação dos resultados. Os modelos não são pareados em treinamento e tokenização, o que impede atribuir as diferenças exclusivamente à arquitetura. O SUMIE é sintético, o F1 de estado é uma adaptação não diretamente comparável à avaliação original, e o contraste com o FactConsolidation-SH não isola o efeito da operação de substituição. Além disso, o estudo adota um único método de escrita, um único orçamento de memória e não avalia o impacto do checkpoint no desempenho final do agente. A confirmação do checkpoint de difusão e a validação do ambiente local permanecem como condições para a execução.
-
-Como continuidade científica, sugere-se comparar, com os mesmos escritores, métodos de atualização alternativos, como a atualização por caminhos e as operações programáticas; avaliar o efeito da decodificação restrita em cada paradigma; variar o orçamento de memória e a complexidade do schema; investigar a atualização encadeada, em que os erros de cada escritor se propagam ao longo da sequência, e seu impacto em tarefas finais de agentes; empregar pares de modelos com treinamento mais controlado, como versões autoregressiva e de difusão derivadas de um mesmo modelo base, para aproximar a inferência sobre o paradigma; e construir casos de substituição dentro de um mesmo cenário, de modo a isolar o efeito dessa operação.
+Os resultados do experimento estão circunscritos aos três representantes avaliados, ao formato plano de pares atributo-valor e à avaliação por transições com estado anterior de referência, não devendo ser interpretados como prova causal isolada sobre arquiteturas nem generalizados diretamente para diálogos abertos de longo prazo. Como desdobramentos futuros, destacam-se a avaliação da atualização em regime autoregressivo encadeado — no qual o estado gerado pelo próprio escritor em $t-1$ alimenta o turno $t$, permitindo medir o acúmulo composto de erros —; a extensão do protocolo para cenários de substituição temporal explícita de fatos (*supersession*), como o FactConsolidation-SH; a comparação com métodos que atualizam apenas caminhos específicos do JSON, como o CoK-JSON; e a análise do impacto de decodificação restrita por gramática sobre cada paradigma gerativo.
 
 # Referências
 
@@ -408,40 +366,3 @@ NEW OBSERVATION:
 
 UPDATED STATE:
 ```
-
-<!--
-=====================================================================
-NOTAS DE VALIDAÇÃO — NÃO FAZEM PARTE DO ARTIGO (remover antes do DOCX)
-=====================================================================
-1. Orientador: confirmar nome completo, titulação e vínculo (ficha: "Alex Coelho - a confirmar").
-2. Semestre: a ficha diz "2025/2"; as aulas são de 2026.2. O texto usa 2026 (TCC I) e 2027/1 (TCC II, a confirmar).
-3. Formato: o Manual de TCC de SI (NDE, 2025) define TCC I como Projeto de Pesquisa; o formato
-   Artigo Completo vale para TCC II e exige submissão e aceite em veículo Qualis B2 ou superior.
-   Este documento segue o roteiro de artigo do Manual (título, autor, resumo, abstract,
-   palavras-chave, keywords, introdução, desenvolvimento com títulos temáticos, considerações
-   finais e referências), com conteúdo de proposta. Confirmar com o orientador se o TCC I
-   deve ser entregue neste formato ou na estrutura de projeto/monografia.
-4. Objetivos específicos: mantidos os 4 da ficha. As aulas recomendaram 3 (orientação verbal,
-   não norma). Alternativa: fundir b) e c) em "comparar a fidelidade do estado (P/R/F1) e por
-   operação (preservação, adição e atualização) ao longo das atualizações do SUMIE".
-5. Estado anterior: o plano experimental fala em "mesmos estados anteriores" para os três
-   escritores (estado de referência a cada transição). Confirmar se a avaliação será por
-   transição isolada (estado de referência) ou encadeada (estado gerado pelo próprio escritor).
-   O texto assume a primeira e coloca a encadeada como trabalho futuro.
-6. Checkpoint, repositório e API do Qwen3-0.6B Diffusion BD3LM: pendentes.
-7. Licenças: MemoryAgentBench (MIT no cartão vs. CC BY 4.0 no artigo v4); termos do Gemma (T5Gemma).
-8. Hardware: confirmar a VRAM da GTX 1650 e a geração do i5 do PC 2.
-9. Zotero:
-   - Hwang et al. (2024) está cadastrado como preprint; atualizar para Findings of EMNLP 2024,
-     p. 3830-3842, DOI 10.18653/v1/2024.findings-emnlp.220.
-   - "Agent Harness Engineering: A Survey" (AgentHarnessEngineering2026) está sem autores.
-   - Duplicatas: Petersen 2015 (usar petersenGuidelinesConductingSystematic2015) e
-     Kitchenham 2010 (usar kitchenhamSystematicLiteratureReviews2010a).
-   - Conferir versões publicadas de preprints (ex.: Gong 2024, Arriola 2025, Wu 2024 – ICLR 2025).
-   - Instalar o estilo CSL "Associação Brasileira de Normas Técnicas (Português - Brasil)":
-     https://www.zotero.org/styles/associacao-brasileira-de-normas-tecnicas
-   - Incluir uma referência de metodologia científica para a seção 3.1 (classificação da pesquisa).
-10. Bases de busca (seção 3.2): registrar as bases efetivamente consultadas e a data de cada busca.
-11. E-mail do autor na nota de rodapé.
-=====================================================================
--->
