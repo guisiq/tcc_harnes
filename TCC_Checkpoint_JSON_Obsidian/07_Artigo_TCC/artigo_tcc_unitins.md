@@ -128,7 +128,7 @@ Como evidencia o Quadro 1, os estudos que introduzem o GU-JSON e o SUMIE emprega
 
 # 3 Materiais e métodos
 
-Este estudo segue um delineamento experimental, aplicado e quantitativo em Ciência da Computação, comparando o perfil de erros estruturais e semânticos de três escritores compactos de memória ao longo dos turnos e das operações de atualização do benchmark público SUMIE. Como os experimentos utilizam exclusivamente conjuntos de dados sintéticos públicos e modelos de pesos abertos, sem envolvimento de seres humanos ou dados pessoais, o protocolo dispensa submissão a Comitê de Ética em Pesquisa. As subseções a seguir detalham as variáveis e hipóteses do experimento, o método GU-JSON e o prompt utilizado, a preparação das transições do SUMIE, os modelos avaliados, o *harness* de execução local, as métricas e o plano de análise estatística.
+Este estudo segue um delineamento experimental, aplicado e quantitativo em Ciência da Computação, comparando o perfil de erros estruturais e semânticos de três escritores compactos de memória ao longo dos turnos e das operações de atualização do benchmark público SUMIE.O experimentos utiliza exclusivamente dados sintéticos de acesso público e modelos de pesos abertos, sem envolver participantes humanos ou coleta e tratamento de dados pessoais. As subseções seguintes apresentam as variáveis e hipóteses do experimento, o método GU-JSON e o prompt utilizado, a preparação das transições do SUMIE, os modelos avaliados, o *harness* de execução local, as métricas e o plano de análise estatística.
 
 ## 3.1 Desenho experimental e variáveis
 
@@ -158,11 +158,9 @@ Para orientar o teste empírico, formula-se a hipótese nula ($H_0$) de que não
 
 ## 3.2 Método de memória, schema e prompt
 
-Em cada transição do experimento, aplica-se a formulação do GU-JSON (Equação 1): o escritor recebe o schema, o checkpoint de referência do turno anterior ($M_{t-1}$) e o parágrafo correspondente à nova observação ($O_t$), devendo produzir exclusivamente o objeto JSON atualizado ($M_t$). O uso do estado anterior de referência ($M_{t-1}$ padrão-ouro) como entrada em cada turno garante que todos os escritores sejam avaliados sob exatamente as mesmas condições em cada passo da sequência, evitando que uma falha sintática no turno $t$ inviabilize a mensuração das transições seguintes.
+Em cada transição do experimento, aplica-se a formulação do GU-JSON (Equação 1): o escritor recebe o schema, o checkpoint de referência do turno anterior ($M_{t-1}$) e o parágrafo correspondente à nova observação ($O_t$), devendo produzir exclusivamente o objeto JSON atualizado ($M_t$).
 
 Adota-se o schema mínimo `{"state": {"chave": "valor"}}`, no qual os atributos da entidade descrita no SUMIE são representados como chaves textuais dentro do objeto `state` e seus respectivos conteúdos como valores em texto. O prompt-base (Apêndice A) é redigido em inglês — idioma nativo do conjunto de dados — e estabelece seis instruções operacionais: preservar informações anteriores que permanecem válidas; incorporar informações explicitamente introduzidas pela nova observação; substituir valores prévios apenas quando a observação estabelecer sua invalidade, mantendo perspectivas divergentes válidas; não inventar fatos sem suporte; respeitar estritamente o schema; e retornar unicamente o objeto JSON completo. O orçamento máximo de saída é fixado em 1.200 tokens por transição, em consonância com o regime de memória limitada analisado por @hwangEnhancingIncrementalSummarization2024.
-
-Os adaptadores de inferência de cada modelo limitam-se a aplicar o formato de entrada exigido pela respectiva interface (como marcadores de turno e desativação de blocos de raciocínio explícito no Qwen3 para que o orçamento de 1.200 tokens seja integralmente dedicado ao JSON), sem alterar o conteúdo instrucional do prompt.
 
 ## 3.3 Conjunto de dados e preparação das transições
 
@@ -174,7 +172,7 @@ a) **PRESERVE:** atributo já presente em $M_{t-1}^*$ cujo valor não sofre alte
 b) **ADD:** atributo ausente em $M_{t-1}^*$ e introduzido pela primeira vez na observação $O_t$;
 c) **UPDATE:** atributo já existente em $M_{t-1}^*$ que recebe informação complementar ou nova perspectiva apresentada em $O_t$, respeitando a regra do SUMIE de integrar visões divergentes sem descartar arbitrariamente o registro anterior.
 
-Durante a preparação dos dados no estudo piloto, são verificadas as regras de canonicalização textual (normalização de espaços, caixa e pontuação) e o comprimento em tokens dos estados acumulados de referência $M_t^*$, assegurando que os estados esperados caibam integralmente no orçamento de 1.200 tokens e que eventuais omissões observadas decorram do comportamento do modelo escritor, e não de truncamento forçado pelo limite de saída. Caso haja disponibilidade de tempo no cronograma após a conclusão integral dos experimentos no SUMIE, prevê-se como verificação complementar opcional a aplicação do mesmo protocolo a uma amostra delimitada do subconjunto FactConsolidation-SH do MemoryAgentBench [@huEvaluatingMemoryLLM2025], a fim de observar o comportamento dos escritores em cenários com substituição temporal explícita de fatos (*supersession*).
+Durante a preparação dos dados no estudo piloto, são definidas regras de normalização textual que incluem espaços, caixa e pontuação, e verificado o comprimento em tokens dos estados acumulados de referência $M_t^*$. Os estados esperados devem caber integralmente no orçamento de 1.200 tokens, de modo que eventuais omissões possam ser atribuídas ao comportamento do modelo escritor, e não a truncamento forçado pelo limite de saída. Após o piloto, as regras metodológicas serão fixadas e aplicadas a todas as entidades da partição de avaliação do SUMIE para os três escritores.
 
 ## 3.4 Modelos avaliados
 
@@ -242,7 +240,7 @@ As métricas semânticas serão reportadas sob duas visões complementares: (i) 
 A execução experimental organiza-se em três fases sequenciais sobre o benchmark SUMIE:
 
 a) **Fase 0 — Verificação funcional do *harness*:** execução de 15 transições sintéticas de teste para validar o carregamento local dos três modelos, a aplicação do prompt, o respeito ao orçamento de 1.200 tokens e a exatidão do *parser*, do validador de schema e do calculador de métricas (verificados por testes unitários);
-b) **Fase 1 — Estudo piloto no SUMIE:** execução em um subconjunto de 25 entidades (separado da amostra de teste principal) para calibrar as regras de canonicalização textual, verificar o comprimento em tokens dos estados acumulados $M_t^*$ e confirmar a ausência de truncamento;
+b) **Fase 1 — Estudo piloto no SUMIE:** execução em um subconjunto de 25 entidades (separado da amostra de teste principal) para calibrar as regras de normalização textual, verificar o comprimento em tokens dos estados acumulados $M_t^*$ e confirmar a ausência de truncamento;
 c) **Fase 2 — Experimento principal no SUMIE:** execução completa dos três escritores sobre o conjunto de avaliação do SUMIE, registrando todas as saídas brutas e métricas por transição, turno e operação.
 
 Na análise estatística dos resultados da Fase 2, serão apuradas a média e a mediana de cada métrica por escritor, acompanhadas de intervalos de confiança de 95% estimados por *bootstrap* não paramétrico (10.000 reamostragens no nível da entidade, preservando a estrutura de dependência longitudinal entre os turnos de uma mesma sequência). Como os três modelos avaliam exatamente as mesmas transições, a verificação das hipóteses $H_0$ e $H_1$ será realizada por meio das diferenças pareadas entre escritores no nível de entidade e por testes não paramétricos pareados (teste de Friedman para a comparação global entre os três modelos e teste de Wilcoxon pareado com correção de Holm-Bonferroni para comparações dois a dois, adotando $\alpha = 0{,}05$). A evolução temporal será examinada por curvas de *State F1*, *Preservation Accuracy* e *JSON Validity* em função do índice do turno $t$.
@@ -266,8 +264,8 @@ Fonte: elaborado pelo autor (2026).
 O delineamento experimental controla o método de atualização, o schema, o prompt, o orçamento de geração e os dados de entrada, mas está sujeito a limitações inerentes à comparação entre modelos pré-treinados distintos:
 
 a) **Validade interna:** os três modelos comparados não compartilham o mesmo corpus de pré-treinamento, tokenizador nem procedimento de pós-treinamento. Assim, as diferenças medidas refletem o desempenho conjunto de cada modelo representante na escala de ~0,6B, e não o efeito isolado da arquitetura de geração. Para evitar distorções adicionais, todos os modelos são avaliados em regime *zero-shot prompt-only*, com precisão numérica padronizada e sem decodificação restrita externa;
-b) **Validade de construção:** a avaliação original do SUMIE utiliza um modelo de linguagem como juiz para verificar o alinhamento semântico de evidências [@hwangSUMIESyntheticBenchmark2025], ao passo que este protocolo emprega correspondência determinística após canonicalização textual. Essa escolha elimina a variância e o viés de um avaliador neural, mas exige validar as regras de normalização no piloto (Fase 1) e verificar que os estados de referência não excedam os 1.200 tokens;
-c) **Validade externa:** os resultados obtidos restringem-se à tarefa de sumarização incremental de entidades em um schema plano de pares chave-valor sob o método GU-JSON. O estudo avalia transições com estado anterior de referência ($M_{t-1}^*$ padrão-ouro) para isolar o erro por turno, não medindo a propagação acumulativa de erros em execução livre nem o impacto do checkpoint em tarefas finais de tomada de decisão do agente.
+b) **Validade de construção:** a avaliação original do SUMIE utiliza um modelo de linguagem como juiz para verificar o alinhamento semântico de evidências [@hwangSUMIESyntheticBenchmark2025], ao passo que este protocolo emprega correspondência determinística baseada nas regras de normalização textual definidas no piloto. Essa escolha elimina a variância e o viés de um avaliador neural, mas exige validar essas regras no piloto (Fase 1) e verificar que os estados de referência não excedam os 1.200 tokens;
+c) **Validade externa:** os resultados obtidos restringem-se à tarefa de sumarização incremental de entidades em um schema plano de pares chave-valor sob o método GU-JSON. O estudo avalia transições com um estado de referência em cada turno, não medindo a propagação acumulativa de erros em execução livre nem o impacto do checkpoint em tarefas finais de tomada de decisão do agente.
 
 # 4 Resultados esperados e cronograma
 
@@ -290,14 +288,14 @@ O cronograma abrange as etapas de elaboração e validação do projeto no TCC I
 2. Levantamento e fichamento da bibliografia sobre memória em agentes, geração estruturada e SLMs (1).
 3. Especificação do protocolo experimental: variáveis, schema, prompt-base e métricas (1, 2).
 4. Verificação de disponibilidade, licenças e requisitos de execução local dos modelos e do SUMIE (3).
-5. Implementação da estrutura base do *harness*: adaptadores, *parser*, validador e testes unitários (3, 4).
-6. Execução da Fase 0 (verificação funcional local com transições sintéticas) (5).
-7. Redação e revisão do texto do projeto de TCC I (2, 3, 6).
-8. Apresentação do projeto de TCC I e incorporação das recomendações da banca (7).
-9. Preparação do conjunto SUMIE: construção dos estados acumulados $M_t^*$ e rotulagem de operações (`PRESERVE`, `ADD`, `UPDATE`) (4, 6).
-10. Execução da Fase 1 (estudo piloto em 25 entidades do SUMIE) e calibração da canonicalização (9).
-11. Execução da Fase 2 (experimento principal com os três modelos escritores no SUMIE) (10).
-12. Processamento estatístico (*bootstrap*, testes pareados, curvas por turno e estratificação por operação) e verificação complementar opcional (11).
+5. Redação e revisão do texto do projeto de TCC I (2, 3, 4).
+6. Apresentação do projeto de TCC I e incorporação das recomendações da banca (5).
+7. Preparação do conjunto SUMIE: construção dos estados acumulados $M_t^*$ e rotulagem de operações (`PRESERVE`, `ADD`, `UPDATE`) (4).
+8. Implementação da estrutura base do *harness*: adaptadores, *parser*, validador e testes unitários (3, 4).
+9. Execução da Fase 0 (verificação funcional local com transições sintéticas) (8).
+10. Execução da Fase 1 (estudo piloto em 25 entidades do SUMIE) e calibração das regras de normalização textual (7, 9).
+11. Execução da Fase 2 (experimento principal com os três modelos escritores em toda a partição de avaliação do SUMIE) (10).
+12. Processamento estatístico (*bootstrap*, testes pareados, curvas por turno e estratificação por operação) (11).
 13. Elaboração das tabelas, gráficos e análise crítica dos resultados frente à literatura (12).
 14. Redação das seções de resultados, discussão e conclusões do artigo final (TCC II) (13).
 15. Revisão normativa e linguística, depósito final e defesa do TCC II (14).
@@ -307,20 +305,20 @@ Os períodos quinzenais planejados para cada atividade ao longo dos dois semestr
 | Ativ. | Ago Q1 | Ago Q2 | Set Q3 | Set Q4 | Out Q5 | Out Q6 | Nov Q7 | Nov Q8 | Dez Q9 | Dez Q10 | Fev Q11 | Fev Q12 | Mar Q13 | Mar Q14 | Abr Q15 | Abr Q16 | Mai Q17 | Mai Q18 | Jun Q19 | Jun Q20 |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | 1- | X | X | | | | | | | | | | | | | | | | | | |
-| 2- | | X | X | X | X | X | | | | | | | | | | | | | | |
+| 2- | X | X | X | X | | | | | | | | | | | | | | | | |
 | 3- | | | X | X | X | X | | | | | | | | | | | | | | |
-| 4- | | | | | X | X | X | | | | | | | | | | | | | |
-| 5- | | | | | | X | X | X | | | | | | | | | | | | |
-| 6- | | | | | | | X | X | | | | | | | | | | | | |
-| 7- | | | X | X | X | X | X | X | | | | | | | | | | | | |
-| 8- | | | | | | | | X | X | | | | | | | | | | | |
-| 9- | | | | | | | | | | | X | X | | | | | | | | |
-| 10- | | | | | | | | | | | | | X | | | | | | | |
-| 11- | | | | | | | | | | | | | | X | X | | | | | |
-| 12- | | | | | | | | | | | | | | | X | X | | | | |
-| 13- | | | | | | | | | | | | | | | | X | X | | | |
-| 14- | | | | | | | | | | | | | | X | X | X | X | X | | |
-| 15- | | | | | | | | | | | | | | | | | | | X | X |
+| 4- | | | | X | X | X | | | | | | | | | | | | | | |
+| 5- | | | X | X | X | X | X | X | | | | | | | | | | | | |
+| 6- | | | | | | | | | X | X | | | | | | | | | | |
+| 7- | | | | | | | | | | | X | X | | | | | | | | |
+| 8- | | | | | | | | | | | X | X | X | X | | | | | | |
+| 9- | | | | | | | | | | | | | | X | | | | | | |
+| 10- | | | | | | | | | | | | | | | X | | | | | |
+| 11- | | | | | | | | | | | | | | | | X | X | | | |
+| 12- | | | | | | | | | | | | | | | | | | X | | |
+| 13- | | | | | | | | | | | | | | | | | | X | X | |
+| 14- | | | | | | | | | | | | | | | | | | | X | X |
+| 15- | | | | | | | | | | | | | | | | | | | | X |
 
 Tabela 1 – Cronograma de atividades para TCC I e II, com subdivisão quinzenal indicando tarefas realizadas e planejadas ao longo dos dois semestres.
 Fonte: elaborado pelo autor (2026).
@@ -331,7 +329,7 @@ A confiabilidade de agentes baseados em modelos de linguagem que operam em múlt
 
 Para responder a essa questão, este projeto delineou um protocolo experimental controlado sobre o benchmark de sumarização incremental de entidades SUMIE, mantendo fixos o método GU-JSON, o schema JSON, o prompt *zero-shot* e o limite de saída de 1.200 tokens, e variando exclusivamente o modelo escritor entre três representantes na escala de 0,6 bilhão de parâmetros: Qwen3-0.6B (autoregressivo *decoder-only*), T5Gemma B-B (*encoder-decoder*) e Qwen3-0.6B BD3LM (difusão em blocos). Ao dissociar a conformidade estrutural (*JSON Validity* e *Schema Validity*) da fidelidade semântica do estado (*State Precision*, *Recall*, *F1* e *Hallucination Rate*) e das acurácias por tipo de operação (`PRESERVE`, `ADD` e `UPDATE`), o desenho permite caracterizar com precisão os modos de falha de cada escritor ao longo dos turnos.
 
-Os resultados do experimento estão circunscritos aos três representantes avaliados, ao formato plano de pares atributo-valor e à avaliação por transições com estado anterior de referência, não devendo ser interpretados como prova causal isolada sobre arquiteturas nem generalizados diretamente para diálogos abertos de longo prazo. Como desdobramentos futuros, destacam-se a avaliação da atualização em regime autoregressivo encadeado — no qual o estado gerado pelo próprio escritor em $t-1$ alimenta o turno $t$, permitindo medir o acúmulo composto de erros —; a extensão do protocolo para cenários de substituição temporal explícita de fatos (*supersession*), como o FactConsolidation-SH; a comparação com métodos que atualizam apenas caminhos específicos do JSON, como o CoK-JSON; e a análise do impacto de decodificação restrita por gramática sobre cada paradigma gerativo.
+Os resultados do experimento estão circunscritos aos três representantes avaliados, ao formato plano de pares atributo-valor e à avaliação por transições com estado anterior de referência, não devendo ser interpretados como prova causal isolada sobre arquiteturas nem generalizados diretamente para diálogos abertos de longo prazo. Como desdobramentos futuros, destacam-se a avaliação da atualização em regime autoregressivo encadeado — no qual o estado gerado pelo próprio escritor em $t-1$ alimenta o turno $t$, permitindo medir o acúmulo composto de erros —; a comparação com métodos que atualizam apenas caminhos específicos do JSON, como o CoK-JSON; e a análise do impacto de decodificação restrita por gramática sobre cada paradigma gerativo.
 
 # Referências
 
