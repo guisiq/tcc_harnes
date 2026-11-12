@@ -36,7 +36,9 @@ com o estilo CSL "Associação Brasileira de Normas Técnicas (Português - Bras
 
 # 1 Introdução
 
-Agentes baseados em modelos de linguagem vêm sendo empregados em tarefas de múltiplas etapas, nas quais novas observações chegam de forma sequencial e as decisões subsequentes dependem das informações registradas em turnos anteriores. Nesses fluxos, a manutenção de um estado persistente e consistente condiciona diretamente a confiabilidade operacional do sistema [@muhoberacStateMemoryAll2025]. Por essa razão, benchmarks recentes passaram a avaliar a memória de agentes sob interações incrementais e de longo alcance, examinando a capacidade de reter fatos relevantes, integrar novas evidências e lidar com atualizações ao longo de múltiplos turnos [@huEvaluatingMemoryLLM2025; @wuLongMemEvalBenchmarkingChat2024; @maharanaEvaluatingVeryLongTerm2024].
+Agentes baseados em modelos de linguagem vêm sendo empregados em tarefas de múltiplas etapas, nas quais novas observações chegam de forma sequencial e as decisões subsequentes dependem das informações registradas em turnos anteriores. Para viabilizar esse funcionamento, um *harness* de agente reúne mecanismos de software que organizam a interação do modelo com o ambiente, incluindo o fornecimento de contexto, o uso de ferramentas e o controle das ações [@AgentHarnessEngineering2026]. Entre esses mecanismos está o gerenciamento de memória, que envolve a geração, a atualização e a recuperação de informações relevantes [@zengStructuralMemoryLLM2024].
+
+Nesses fluxos, a manutenção de um estado persistente e consistente condiciona diretamente a confiabilidade operacional do sistema [@muhoberacStateMemoryAll2025]. Por essa razão, benchmarks recentes passaram a avaliar a memória de agentes sob interações incrementais e de longo alcance, examinando a capacidade de reter fatos relevantes, integrar novas evidências e lidar com atualizações ao longo de múltiplos turnos [@huEvaluatingMemoryLLM2025; @wuLongMemEvalBenchmarkingChat2024; @maharanaEvaluatingVeryLongTerm2024].
 
 Como o acúmulo irrestrito do histórico de interações rapidamente excede ou degrada o uso da janela de contexto, uma abordagem recorrente consiste em consolidar as observações em uma representação estruturada persistente. Em tarefas de sumarização incremental com orçamento restrito de memória, @hwangEnhancingIncrementalSummarization2024 demonstraram que o método *Generate-Update* em JSON (GU-JSON) — no qual o modelo recebe o estado anterior e a nova observação e regenera o objeto JSON atualizado — alcança maior fidelidade que a atualização equivalente em texto livre. O uso de um checkpoint JSON explicita os pares de atributo e valor armazenados e permite inspecionar o estado de forma direta a cada transição [@jayalathPRISMEfficientLongRange2025; @yuenIntrinsicMemoryAgents2025]. Entretanto, como o método exige reescrever integralmente o objeto a cada etapa, o componente responsável pela escrita (*memory writer*) torna-se um ponto crítico de falha: a atualização pode tanto corromper a sintaxe do JSON ou violar o schema estipulado [@gengJSONSchemaBenchRigorousBenchmark2025] quanto omitir fatos ainda válidos, alterar valores indevidamente ou introduzir informações sem respaldo na entrada.
 
@@ -54,13 +56,21 @@ b) comparar a fidelidade do estado mantido por cada escritor ao longo dos turnos
 
 c) analisar o perfil de erro dos escritores segundo o tipo de operação exigida no SUMIE, contrastando a preservação de atributos inalterados com a adição e a atualização de informações.
 
-O restante deste artigo está organizado da seguinte forma: a seção 2 apresenta a revisão bibliográfica sobre memória persistente estruturada em agentes e os trabalhos relacionados; a seção 3 detalha os materiais e métodos do experimento; a seção 4 apresenta os resultados esperados, a arquitetura experimental proposta e o cronograma de execução; e a seção 5 apresenta as considerações finais.
+O restante deste artigo está organizado da seguinte forma: a seção 2 apresenta a revisão bibliográfica sobre *harness*, memória persistente estruturada em agentes e os trabalhos relacionados; a seção 3 detalha os materiais e métodos do experimento; a seção 4 apresenta os resultados esperados, a arquitetura experimental proposta e o cronograma de execução; e a seção 5 apresenta as considerações finais.
 
 # 2 Revisão Bibliográfica
 
-A manutenção de estado estruturado em agentes envolve decisões sobre o formato de representação da memória, o mecanismo de atualização incremental, os critérios de avaliação de fidelidade, a garantia de conformidade sintática e a escolha do modelo gerador. As subseções a seguir discutem esses cinco eixos e sintetizam os trabalhos mais próximos da presente proposta.
+A compreensão da escrita de memória exige situá-la na arquitetura mais ampla do *harness* e examinar decisões sobre a representação e a atualização do estado, a avaliação de sua fidelidade, a conformidade sintática e a escolha do modelo gerador. As subseções a seguir contextualizam esses aspectos e sintetizam os trabalhos mais próximos da presente proposta.
 
-## 2.1 Representação estruturada da memória
+## 2.1 *Harness* de agentes e gerenciamento de memória
+
+Um *harness* de agentes corresponde à camada de software que envolve o modelo de linguagem e organiza seu funcionamento em tarefas de múltiplas etapas. Ele seleciona o contexto, disponibiliza ferramentas, coordena a execução de ações e pode verificar os resultados obtidos. Por isso, o comportamento observado depende tanto do modelo quanto dos mecanismos que o cercam [@AgentHarnessEngineering2026].
+
+O gerenciamento de memória integra essa camada ao organizar informações que podem ser úteis em interações posteriores. A geração ou atualização de memória produz e mantém os registros, enquanto a recuperação seleciona os conteúdos relevantes para compor o contexto de chamadas posteriores ao modelo [@zengStructuralMemoryLLM2024; @AgentHarnessEngineering2026]. A representação adotada e a fidelidade da escrita, portanto, condicionam as informações disponíveis para recuperação.
+
+Neste trabalho, investiga-se apenas a escrita incremental da memória, sem avaliar os métodos de recuperação nem o desempenho de um agente completo. O *harness* experimental descrito na seção 3.5 tem finalidade distinta: padronizar as entradas, a execução dos escritores e a avaliação das saídas.
+
+## 2.2 Representação estruturada da memória
 
 A escolha do formato de armazenamento condiciona a capacidade do agente de reter e consultar informações ao longo de interações extensas. Ao investigar diferentes estruturas de memória em agentes, @zengStructuralMemoryLLM2024 identificaram vantagens distintas conforme o formato adotado, evidenciando que resumos favorecem a condensação de contextos longos e que unidades factuais explícitas favorecem a precisão na retenção de detalhes — propriedades combinadas quando o estado de uma entidade é mantido como um conjunto estruturado de pares atributo-valor, ainda que aquele estudo avalie estratégias de recuperação e não a reescrita incremental do estado.
 
@@ -68,7 +78,7 @@ Sistemas voltados à persistência de estado ao longo de múltiplas etapas adota
 
 Em conjunto, esses estudos demonstram que o formato de representação da memória e o mecanismo empregado para atualizá-la constituem dimensões independentes de projeto. Enquanto abordagens como o PRISM dependem de controladores programáticos externos e sistemas multiagente avaliam apenas o desempenho na tarefa final, a adoção de um schema JSON único e fixo permite isolar experimentalmente o processo de reescrita do estado e medir diretamente a fidelidade de cada transição.
 
-## 2.2 Atualização incremental e o método Generate-Update em JSON
+## 2.3 Atualização incremental e o método Generate-Update em JSON
 
 @hwangEnhancingIncrementalSummarization2024 investigaram a manutenção de resumos incrementais sob orçamento restrito de memória, comparando as estratégias *Generate-Once* (GO), *Generate-Update* (GU) e *Generate-Merge* (GM) em representações textuais e em JSON nos conjuntos SUMIE e BooookScore, utilizando os modelos Gemini Ultra e Gemini Pro. Sob limite de tokens, a atualização sobre representações em JSON (GU-JSON) superou consistentemente a atualização equivalente em texto livre (GU-Text). Os autores também propuseram o *Chain-of-Key* em JSON (CoK-JSON), que decompõe a tarefa selecionando chaves específicas antes da atualização.
 
@@ -82,7 +92,7 @@ em que $S$ é o schema, $M_{t-1}$ é o checkpoint anterior, $O_t$ é a nova obse
 
 Para a comparação entre modelos escritores compactos, o GU-JSON apresenta uma propriedade metodológica central: ele concentra toda a operação de manutenção do estado em uma única chamada ao modelo $G$. Diferentemente de métodos que decompõem a atualização em etapas de seleção de caminhos ou aplicam modificações parciais por código externo [@hwangEnhancingIncrementalSummarization2024; @jayalathPRISMEfficientLongRange2025], a reescrita integral exige que o próprio modelo preserve os campos inalterados, integre as novas informações e mantenha a estrutura JSON válida simultaneamente, permitindo avaliar diretamente o comportamento do escritor sem interferência de algoritmos auxiliares de mesclagem.
 
-## 2.3 Avaliação de memória e de atualização de conhecimento
+## 2.4 Avaliação de memória e de atualização de conhecimento
 
 O benchmark SUMIE foi desenvolvido especificamente para avaliar a sumarização incremental de entidades a partir de sequências de parágrafos que introduzem fatos novos, repetições, informações distratoras e pontos de vista divergentes [@hwangSUMIESyntheticBenchmark2025]. Cada parágrafo conta com anotações de atributos e valores relevantes da entidade descrita. Uma característica central do SUMIE é sua política de acumulação: como diferentes fontes ou parágrafos podem expressar perspectivas distintas sobre um mesmo atributo, o prompt de atualização de referência determina a preservação dos atributos prévios e a integração de visões conflitantes, sem que uma nova opinião invalide automaticamente a anterior. No estudo original, os autores observaram perfis contrastantes de precisão e revocação entre os modelos de grande porte avaliados.
 
@@ -90,13 +100,13 @@ Outros benchmarks recentes examinam a memória sob interações de múltiplos tu
 
 A análise conjunta desses benchmarks revela que avaliações baseadas apenas em respostas finais podem mascarar degradações progressivas do estado interno, como a perda silenciosa de atributos antigos ao longo dos turnos. Ao tomar o SUMIE como cenário experimental e inspecionar diretamente o checkpoint gerado em cada transição $M_t$, torna-se possível quantificar separadamente a capacidade do escritor de preservar atributos existentes, adicionar novos campos e atualizar valores já presentes.
 
-## 2.4 Geração estruturada: validade sintática e conformidade com schema
+## 2.5 Geração estruturada: validade sintática e conformidade com schema
 
 A utilização de JSON como formato de estado exige distinguir a correção formal da saída de sua correção semântica. O benchmark JSONSchemaBench demonstra que modelos de linguagem apresentam taxas não triviais de falha sintática e de violação de restrições quando submetidos a JSON Schemas de diferentes complexidades [@gengJSONSchemaBenchRigorousBenchmark2025]. Para contornar essas falhas em modelos autoregressivos, técnicas de decodificação restrita por gramática filtram tokens inválidos durante a inferência sem necessidade de ajuste fino [@gengGrammarConstrainedDecodingStructured2023]. Mais recentemente, mecanismos análogos baseados em gramáticas livres de contexto [@mundlerConstrainedDecodingDiffusion2025] e em aprendizado por reforço multiagente [@khanalAgentsDiffusionEnhancing2026] foram propostos para elevar a conformidade sintática em modelos de linguagem por difusão.
 
 Na avaliação de escritores de memória, essa literatura impõe dois cuidados experimentais. Primeiro, a conformidade com o schema é condição necessária para a leitura automatizada do estado, mas não suficiente para garantir fidelidade: um objeto JSON sintaticamente válido pode omitir atributos essenciais ou conter valores alucinados, razão pela qual métricas estruturais e semânticas devem ser apuradas de forma independente. Segundo, como os motores de decodificação restrita atuam de maneira distinta sobre a geração sequencial e sobre o refinamento iterativo por difusão, a avaliação em regime puramente instrucional (*prompt-only*) é necessária para observar a capacidade intrínseca de cada modelo de preservar a sintaxe e o conteúdo do checkpoint.
 
-## 2.5 Paradigmas gerativos e modelos de linguagem compactos
+## 2.6 Paradigmas gerativos e modelos de linguagem compactos
 
 Os três paradigmas gerativos considerados neste estudo processam a relação entre entrada e saída sob princípios distintos. Modelos autoregressivos *decoder-only* fatoram a probabilidade da sequência da esquerda para a direita, gerando cada token condicionado ao prefixo já produzido; a família Qwen3 exemplifica esse paradigma em múltiplas escalas, incluindo modelos compactos de 0,6 bilhão de parâmetros [@yangQwen3TechnicalReport2025]. Modelos *encoder-decoder*, por sua vez, empregam um codificador com atenção bidirecional sobre toda a sequência de entrada antes de gerar a saída no decodificador; o T5Gemma obtém essa arquitetura pela adaptação de modelos *decoder-only* pré-treinados, visando combinar representação bidirecional do contexto com eficiência de inferência [@zhangEncoderDecoderGemmaImproving2025].
 
@@ -104,7 +114,7 @@ Já os modelos de linguagem baseados em difusão formulam a geração como um pr
 
 O recorte em modelos compactos fundamenta-se na viabilidade de executá-los localmente com menor custo energético e financeiro [@luSmallLanguageModels2025] e na evidência de que modelos de menor escala podem atuar com eficácia em subtarefas agênticas repetitivas e bem delimitadas [@sharmaSmallLanguageModels2025]. Como a execução em hardware local frequentemente recorre à redução de precisão numérica e modelos menores apresentam maior sensibilidade à quantização agressiva [@leeExploringTradeOffsQuantization2025], a comparação experimental requer padronizar e documentar as condições de precisão e inferência.
 
-## 2.6 Trabalhos relacionados
+## 2.7 Trabalhos relacionados
 
 O Quadro 1 sintetiza os estudos mais próximos da presente pesquisa segundo a representação da memória, o mecanismo de atualização, a escala dos modelos avaliados, o objeto da avaliação e a presença de comparação entre paradigmas gerativos.
 
@@ -184,11 +194,11 @@ c) **Qwen3-0.6B Diffusion BD3LM** [@arriolaBlockDiffusionInterpolating2025]: rep
 
 Como os três modelos possuem diferenças de pré-treinamento, tokenização e ajuste por instruções além da arquitetura de geração, a análise empírica compara o desempenho efetivo desses representantes compactos na tarefa de escrita de memória, sem extrapolar causalidade exclusiva para o paradigma gerativo em abstrato. Os identificadores exatos de revisão (*commit hashes*) dos pesos e a configuração numérica de inferência são fixados no arquivo de manifesto do experimento.
 
-## 3.5 Ambiente de execução e harness experimental
+## 3.5 Ambiente de execução e *harness* experimental
 
 Os experimentos de inferência serão executados localmente em um computador portátil Lenovo IdeaPad Gaming 3i equipado com processador Intel Core i5 de 10ª geração, 24 GB de memória RAM e unidade de processamento gráfico dedicada NVIDIA GeForce GTX 1650. Um segundo computador (Intel Core i5, 16 GB de RAM) será empregado nas etapas de pré-processamento do conjunto de dados, execução da suíte de testes unitários do validador e análise estatística dos resultados. Considerando a sensibilidade de modelos compactos à redução agressiva de precisão numérica [@leeExploringTradeOffsQuantization2025], o tipo de ponto flutuante (como `FP16` ou `BF16`) será mantido uniforme entre os modelos avaliados.
 
-Para a adjudicação semântica dos casos que não forem resolvidos pela correspondência textual, prevê-se utilizar o modelo de pesos abertos Gemma 3 1B Instruct (`google/gemma-3-1b-it`), independente dos três escritores avaliados, convertido para GGUF com quantização `Q4_K_M` e executado localmente, sob a licença Gemma e seus termos de uso.^[Modelo e termos de acesso: https://huggingface.co/google/gemma-3-1b-it.] A configuração será aceita no piloto somente se o pico de memória residente do processo do juiz não exceder 4 GiB; também serão registrados versão, hash dos pesos, runtime, tamanho de contexto e latência. Como o juiz só será invocado para divergências, não se estabelece limite de tempo por chamada.
+Para avaliar semanticamente os casos que não forem resolvidos pela correspondência textual, prevê-se utilizar o modelo de pesos abertos Gemma 3 1B Instruct (`google/gemma-3-1b-it`), independente dos três escritores avaliados, convertido para GGUF com quantização `Q4_K_M` e executado localmente, sob a licença Gemma e seus termos de uso.^[Modelo e termos de acesso: https://huggingface.co/google/gemma-3-1b-it.] A configuração será aceita no piloto somente se o pico de memória residente do processo do juiz não exceder 4 GiB; também serão registrados versão, hash dos pesos, runtime, tamanho de contexto e latência. Como o juiz só será invocado para divergências, não se estabelece limite de tempo por chamada.
 
 Para garantir que apenas o modelo escritor varie entre as execuções [@AgentHarnessEngineering2026], o pipeline é encapsulado em um *harness* experimental modular composto por nove etapas sequenciais por transição: (i) leitura da transição padronizada $(M_{t-1}^*,\ O_t,\ M_t^*)$; (ii) montagem do prompt a partir do template fixo; (iii) invocação do adaptador do escritor sob o limite de 1.200 tokens; (iv) gravação imediata da saída textual bruta em disco; (v) verificação de validade sintática por um *parser* JSON padrão; (vi) validação estrutural contra o schema definido; (vii) correspondência direta dos pares atributo-valor após normalização textual; (viii) envio ao juiz local somente das divergências não resolvidas nessa etapa, com as anotações do SUMIE e o contexto da transição; e (ix) persistência das saídas brutas, decisões do juiz, métricas e proveniência em registros JSON Lines. O identificador do escritor não será incluído no pedido de julgamento. Nenhuma etapa de reparo ou alteração é aplicada à saída original do escritor.
 
@@ -208,7 +218,7 @@ $$
 F_1 = \frac{2PR}{P + R} \qquad (4)
 $$
 
-As métricas primárias serão calculadas com o procedimento híbrido descrito acima. Para transparência, também serão reportadas as métricas estritas de correspondência após normalização, a proporção de casos encaminhados ao juiz, a proporção de decisões incertas e a latência de adjudicação. Para fatos omitidos ou combinados em outros valores/campos, o juiz poderá examinar o estado gerado completo e as anotações; não poderá inferir suporte apenas por plausibilidade geral.
+As métricas primárias serão calculadas com o procedimento híbrido descrito acima. Para transparência, também serão reportadas as métricas estritas de correspondência após normalização, a proporção de casos encaminhados ao juiz, a proporção de decisões incertas. Para fatos omitidos ou combinados em outros valores/campos, o juiz poderá examinar o estado gerado completo e as anotações; não poderá inferir suporte apenas por plausibilidade geral.
 
 Para avaliar o comportamento do escritor segundo a natureza da transição em cada atributo, calculam-se a acurácia de atualização ($UA$), desdobrada nas operações `ADD` e `UPDATE`, e a acurácia de preservação ($PA$), correspondente à operação `PRESERVE`, conforme as Equações 5 e 6:
 
@@ -239,7 +249,7 @@ O Quadro 3 sintetiza as métricas estruturais, de estado e de operação adotada
 
 Fonte: elaborado pelo autor (2026).
 
-As métricas semânticas serão reportadas sob duas visões complementares: (i) **condicional à validade estrutural**, calculada sobre as transições em que o escritor produziu JSON válido e aderente ao schema, isolando a qualidade do conteúdo; e (ii) **global (*end-to-end*)**, atribuindo pontuação zero às transições com falha sintática, o que reflete a confiabilidade efetiva do escritor no pipeline. Em ambas, serão apresentados separadamente os resultados estritos e os resultados híbridos com adjudicação semântica.
+As métricas semânticas serão reportadas sob duas visões complementares: (i) **condicional à validade estrutural**, calculada sobre as transições em que o escritor produziu JSON válido e aderente ao schema, isolando a qualidade do conteúdo; e (ii) **global (*end-to-end*)**, atribuindo pontuação zero às transições com falha sintática, o que reflete a confiabilidade efetiva do escritor no pipeline. Em ambas, serão apresentados separadamente os resultados estritos e os resultados híbridos com avaliação semântica pelo juiz.
 
 ## 3.7 Procedimento experimental e plano de análise
 
@@ -270,7 +280,7 @@ Fonte: elaborado pelo autor (2026).
 O delineamento experimental controla o método de atualização, o schema, o prompt, o orçamento de geração e os dados de entrada, mas está sujeito a limitações inerentes à comparação entre modelos pré-treinados distintos:
 
 a) **Validade interna:** os três modelos comparados não compartilham o mesmo corpus de pré-treinamento, tokenizador nem procedimento de pós-treinamento. Assim, as diferenças medidas refletem o desempenho conjunto de cada modelo representante na escala de ~0,6B, e não o efeito isolado da arquitetura de geração. Para evitar distorções adicionais, todos os modelos são avaliados em regime *zero-shot prompt-only*, com precisão numérica padronizada e sem decodificação restrita externa;
-b) **Validade de construção:** a avaliação original do SUMIE utiliza um modelo de linguagem como juiz para verificar o alinhamento semântico de evidências [@hwangSUMIESyntheticBenchmark2025]. Este protocolo combina correspondência direta após normalização com um juiz local aberto apenas para divergências, fornecendo-lhe as anotações pertinentes do SUMIE. O juiz pode introduzir viés ou inconsistência; para reduzir esse risco, sua versão, quantização e prompt serão congelados, as decisões serão cegas à identidade do escritor, casos incertos serão reportados e uma amostra será auditada manualmente. Também serão divulgados os resultados estritos sem juiz, a frequência de adjudicação e o pico de memória medido. O piloto deverá confirmar as regras de comparação e o limite de 4 GiB;
+b) **Validade de construção:** a avaliação original do SUMIE utiliza um modelo de linguagem como juiz para verificar o alinhamento semântico de evidências [@hwangSUMIESyntheticBenchmark2025]. Este protocolo combina correspondência direta após normalização com um juiz local aberto apenas para divergências, fornecendo-lhe as anotações pertinentes do SUMIE. O juiz pode introduzir viés ou inconsistência; para reduzir esse risco, sua versão, quantização e prompt serão congelados, as decisões serão cegas à identidade do escritor, casos incertos serão reportados e uma amostra será auditada manualmente. Também serão divulgados os resultados estritos sem juiz, a frequência de casos enviados ao juiz e o pico de memória medido. O piloto deverá confirmar as regras de comparação e o limite de 4 GiB;
 c) **Validade externa:** os resultados obtidos restringem-se à tarefa de sumarização incremental de entidades em um schema plano de pares chave-valor sob o método GU-JSON. O estudo avalia transições com um estado de referência em cada turno, não medindo a propagação acumulativa de erros em execução livre nem o impacto do checkpoint em tarefas finais de tomada de decisão do agente.
 
 # 4 Resultados
@@ -354,7 +364,7 @@ Os resultados a serem obtidos estarão circunscritos aos três representantes av
 
 # Apêndice A – Prompt-base do escritor de memória
 
-O prompt-base é mantido em inglês, idioma dos conjuntos de dados e dos modelos avaliados, e é idêntico para os três escritores. Os marcadores entre chaves duplas são substituídos pelo harness a cada transição.
+O prompt-base é mantido em inglês, idioma dos conjuntos de dados e dos modelos avaliados, e é idêntico para os três escritores. Os marcadores entre chaves duplas são substituídos pelo *harness* a cada transição.
 
 ```text
 You are the memory-state updater of an autonomous agent.
