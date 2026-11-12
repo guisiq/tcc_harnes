@@ -1,0 +1,44 @@
+{
+  "instituicao": "UNIVERSIDADE ESTADUAL DO TOCANTINS – UNITINS",
+  "campus": "CAMPUS DE PALMAS – TO",
+  "curso": "CURSO DE BACHARELADO EM SISTEMAS DE INFORMAÇÃO",
+  "local": "PALMAS/TO",
+  "orientador_titulo": "Prof. Me.",
+  "apresentacao": "Trabalho de Conclusão de Curso apresentado ao Curso de Sistemas de Informação da Universidade Estadual do Tocantins – UNITINS como parte dos requisitos para a obtenção do grau de Bacharel em Sistemas de Informação, sob a orientação do professor Me. {orientador}.",
+  "siglas": {
+    "ABNT": "Associação Brasileira de Normas Técnicas",
+    "AR": "Autoregressivo (Autoregressive)",
+    "BD3LM": "Block Discrete Denoising Diffusion Language Model (Difusão em Blocos)",
+    "CoK-JSON": "Chain-of-Key em JSON",
+    "GM": "Generate-Merge",
+    "GO": "Generate-Once",
+    "GU-JSON": "Generate-Update em JSON",
+    "IC": "Intervalo de Confiança",
+    "JSON": "JavaScript Object Notation",
+    "LLM": "Large Language Model (Modelo de Linguagem de Grande Porte)",
+    "PA": "Preservation Accuracy (Acurácia de Preservação)",
+    "SLM": "Small Language Model (Modelo de Linguagem Compacto)",
+    "SUMIE": "Synthetic Benchmark for Incremental Entity Summarization",
+    "UA": "Update Accuracy (Acurácia de Atualização)",
+    "UNITINS": "Universidade Estadual do Tocantins"
+  },
+  "ajustes_zotero": {
+    "gengGrammarConstrainedDecodingStructured2023": {
+      "event-title": "Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing"
+    },
+    "hwangEnhancingIncrementalSummarization2024": {
+      "type": "paper-conference",
+      "container-title": "Findings of the Association for Computational Linguistics: EMNLP 2024",
+      "event-title": "Findings of the Association for Computational Linguistics: EMNLP 2024",
+      "page": "3830-3842",
+      "DOI": "10.18653/v1/2024.findings-emnlp.220",
+      "URL": "https://aclanthology.org/2024.findings-emnlp.220/"
+    },
+    "hwangSUMIESyntheticBenchmark2025": {
+      "event-title": "Proceedings of the 31st International Conference on Computational Linguistics"
+    },
+    "jayalathPRISMEfficientLongRange2025": {
+      "event-title": "Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing"
+    }
+  }
+}

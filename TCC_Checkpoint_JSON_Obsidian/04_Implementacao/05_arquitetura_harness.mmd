@@ -1,0 +1,38 @@
+flowchart TB
+    subgraph RUN[Preparação e execução pareada]
+        direction LR
+        INPUTS[SUMIE + anotações<br/>Configuração + manifesto + pesos]
+        TRANS[Adaptador e preparador<br/>M* anterior, observação,<br/>M* esperado e operações]
+        ORCH[Orquestrador<br/>e construtor de prompt]
+        WRITERS[Adapters de escritores<br/>Qwen3-0.6B | T5Gemma B-B<br/>Qwen3-0.6B BD3LM]
+        RAW[(Log de saídas brutas)]
+        INPUTS --> TRANS --> ORCH --> WRITERS --> RAW
+    end
+
+    subgraph EVAL[Avaliação estrutural e semântica]
+        direction LR
+        STRUCT[Parser JSON<br/>e validador de schema]
+        MATCH[Normalização textual<br/>e correspondência direta]
+        ROUTE{Correspondência<br/>resolvida?}
+        STRICT[Métricas estritas]
+        JUDGE[Gate de divergências<br/>Gemma 3 1B Instruct<br/>Q4_K_M; teto 4 GiB a validar]
+        DECISION[Decisão semântica<br/>equivalente / não equivalente / incerto]
+        HYBRID[Métricas híbridas]
+        STRUCT --> MATCH --> ROUTE
+        ROUTE -->|sim| STRICT
+        ROUTE -->|não| JUDGE --> DECISION --> HYBRID
+    end
+
+    subgraph REPORT[Persistência e análise]
+        direction LR
+        RECORDS[(Registros JSONL<br/>e manifesto)]
+        STATS[Bootstrap e testes pareados]
+        OUTPUT[(Tabelas e gráficos)]
+        RECORDS --> STATS --> OUTPUT
+    end
+
+    RAW --> STRUCT
+    TRANS -. estados de referência .-> MATCH
+    TRANS -. anotações, sem writer_id .-> JUDGE
+    STRICT --> RECORDS
+    HYBRID --> RECORDS

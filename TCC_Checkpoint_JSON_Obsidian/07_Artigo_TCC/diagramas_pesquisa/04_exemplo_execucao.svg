@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Exemplo sintético de uma transição GU-JSON</title>
+  <desc id="desc">Preservar a localização, adicionar Wi-Fi e integrar duas opiniões divergentes sobre preço. A saída completa contém três pares corretos. O exemplo é construído manualmente, não é uma inferência real nem uma instância SUMIE.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0 0 8 4 0 8" fill="none" stroke="#51657c" stroke-width="1.5"/></marker>
+    <style>text{font-family:Arial,sans-serif;fill:#172f49}.title{font-size:28px;font-weight:700}.head{font-size:20px;font-weight:700}.body{font-size:17px}.small{font-size:15px}.code{font:16px Consolas,monospace}.line{fill:none;stroke:#51657c;stroke-width:2;marker-end:url(#arrow)}</style>
+  </defs>
+  <rect width="1200" height="720" rx="18" fill="#fff"/>
+  <text x="40" y="46" class="small">04 / EXEMPLO DIDÁTICO · SEM INFERÊNCIA DE MODELOS</text>
+  <text x="40" y="85" class="title">Atualizar não significa apagar uma perspectiva ainda válida.</text>
+  <rect x="40" y="120" width="470" height="172" rx="12" fill="#edf4ff" stroke="#9bb6d7"/>
+  <text x="60" y="156" class="head">Estado anterior de referência</text>
+  <text x="60" y="193" class="code">{"state": {</text>
+  <text x="80" y="220" class="code">"location": "city center",</text>
+  <text x="80" y="247" class="code">"price": "expensive (reviewer A)"</text>
+  <text x="60" y="274" class="code">}}</text>
+  <rect x="40" y="315" width="470" height="125" rx="12" fill="#f3efff" stroke="#a99acb"/>
+  <text x="60" y="351" class="head">Nova observação (O atual)</text>
+  <text x="60" y="386" class="body">"Reviewer B describes the price as affordable.</text>
+  <text x="60" y="415" class="body">The hotel offers free Wi-Fi."</text>
+  <path d="M510 207 H545 V280 H575" class="line"/>
+  <path d="M510 377 H545 V300 H575" class="line"/>
+  <rect x="580" y="120" width="580" height="320" rx="12" fill="#eaf7f2" stroke="#88b9a7"/>
+  <text x="600" y="156" class="head">Saída completa esperada / ilustrativa</text>
+  <text x="600" y="201" class="code">{"state": {</text>
+  <text x="620" y="236" class="code">"location": "city center",</text>
+  <text x="620" y="271" class="code">"price": "expensive (reviewer A);</text>
+  <text x="716" y="297" class="code">affordable (reviewer B)",</text>
+  <text x="620" y="332" class="code">"wifi": "free"</text>
+  <text x="600" y="367" class="code">}}</text>
+  <text x="600" y="414" class="small">A quebra visual do valor price não faz parte do JSON.</text>
+  <rect x="40" y="475" width="350" height="98" rx="12" fill="#edf4ff" stroke="#9bb6d7"/>
+  <text x="60" y="512" class="head">PRESERVE · location</text>
+  <text x="60" y="546" class="body">Manter localização sem alteração</text>
+  <rect x="425" y="475" width="350" height="98" rx="12" fill="#f3efff" stroke="#a99acb"/>
+  <text x="445" y="512" class="head">UPDATE · price</text>
+  <text x="445" y="546" class="body">Integrar A e B, sem descartar A</text>
+  <rect x="810" y="475" width="350" height="98" rx="12" fill="#eaf7f2" stroke="#88b9a7"/>
+  <text x="830" y="512" class="head">ADD · wifi</text>
+  <text x="830" y="546" class="body">Registrar o novo atributo</text>
+  <text x="40" y="618" class="body">Comparação estrita ilustrativa: TP = 3 · FP = 0 · FN = 0 → precisão = revocação = F1 = 1,00.</text>
+  <text x="40" y="650" class="body">PA = 1/1 · ADD = 1/1 · UPDATE = 1/1 · UA = 2/2. Nenhuma divergência exige juiz.</text>
+  <text x="40" y="695" class="small">Fonte: elaborado pelo autor (2026). Dados e saída fictícios; não extraídos do SUMIE nem produzidos por um escritor real.</text>
+</svg>

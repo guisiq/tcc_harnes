@@ -10,8 +10,6 @@ status: draft
 
 # Ameaças à validade
 
-> **Rascunho para revisão pessoal — não usar como protocolo vigente sem conferir o artigo.** Esta nota contém decisões anteriores: orçamento de 300 tokens, FactConsolidation-SH como contraste central e métricas de supersession/stale facts. O artigo atual usa 1.200 tokens e SUMIE como único cenário principal; FactConsolidation-SH é apenas complementar e opcional. Confira o [artigo em Markdown](../07_Artigo_TCC/artigo_tcc_unitins.md) e atualize esta nota após validar as fontes.
-
 ## Validade interna
 
 ### Modelos não são perfeitamente pareados

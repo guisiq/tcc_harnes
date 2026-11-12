@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">Protocolo de execução e controles experimentais</title>
+  <desc id="desc">Verificação funcional com 15 transições sintéticas, piloto com 25 entidades separadas e experimento principal com três escritores. Os controles são fixados antes do experimento principal e as comparações são pareadas por entidade.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0 0 8 4 0 8" fill="none" stroke="#51657c" stroke-width="1.5"/></marker>
+    <style>text{font-family:Arial,sans-serif;fill:#172f49}.title{font-size:28px;font-weight:700}.head{font-size:21px;font-weight:700}.body{font-size:18px}.small{font-size:16px}.line{fill:none;stroke:#51657c;stroke-width:2;marker-end:url(#arrow)}</style>
+  </defs>
+  <rect width="1200" height="650" rx="18" fill="#fff"/>
+  <text x="40" y="46" class="small">02 / PROTOCOLO E CONTROLES</text>
+  <text x="40" y="85" class="title">Verificar, calibrar e somente então comparar.</text>
+  <rect x="40" y="125" width="340" height="245" rx="12" fill="#edf4ff" stroke="#9bb6d7"/>
+  <text x="62" y="162" class="head">Fase 0 · Verificação funcional</text>
+  <text x="62" y="203" class="body" font-weight="700">15 transições sintéticas</text>
+  <text x="62" y="242" class="small">Carregar escritores e juiz local</text>
+  <text x="62" y="272" class="small">Testar parser, schema e logs</text>
+  <text x="62" y="302" class="small">Verificar limite de 1.200 tokens</text>
+  <text x="62" y="332" class="small">Medir memória do juiz: ≤ 4 GiB</text>
+  <path d="M380 247 H420" class="line"/>
+  <rect x="430" y="125" width="340" height="245" rx="12" fill="#f3efff" stroke="#a99acb"/>
+  <text x="452" y="162" class="head">Fase 1 · Piloto no SUMIE</text>
+  <text x="452" y="203" class="body" font-weight="700">25 entidades separadas</text>
+  <text x="452" y="242" class="small">Fixar normalização textual</text>
+  <text x="452" y="272" class="small">Checar tamanho das referências</text>
+  <text x="452" y="302" class="small">Auditar decisões do juiz</text>
+  <text x="452" y="332" class="small">Congelar configurações e pesos</text>
+  <path d="M770 247 H810" class="line"/>
+  <rect x="820" y="125" width="340" height="245" rx="12" fill="#eaf7f2" stroke="#88b9a7"/>
+  <text x="842" y="162" class="head">Fase 2 · Experimento principal</text>
+  <text x="842" y="203" class="body" font-weight="700">Partição de avaliação SUMIE</text>
+  <text x="842" y="242" class="small">Executar os três escritores</text>
+  <text x="842" y="272" class="small">Mesmas transições e referências</text>
+  <text x="842" y="302" class="small">Salvar saídas brutas sem reparo</text>
+  <text x="842" y="332" class="small">Registrar métricas e proveniência</text>
+  <rect x="40" y="410" width="540" height="157" rx="12" fill="#f3f6fa" stroke="#adbccf"/>
+  <text x="62" y="447" class="head">O que permanece constante</text>
+  <text x="62" y="483" class="small">GU-JSON · schema · prompt zero-shot em inglês</text>
+  <text x="62" y="513" class="small">Saída ≤ 1.200 tokens · contexto ≤ 8.192 tokens</text>
+  <text x="62" y="543" class="small">Geração determinística · sem restrição por gramática</text>
+  <rect x="610" y="410" width="550" height="157" rx="12" fill="#f3f6fa" stroke="#adbccf"/>
+  <text x="632" y="447" class="head">Como comparar os resultados</text>
+  <text x="632" y="483" class="small">IC de 95%: bootstrap por entidade (10.000 amostras)</text>
+  <text x="632" y="513" class="small">Friedman global; Wilcoxon pareado + Holm-Bonferroni</text>
+  <text x="632" y="543" class="small">Curvas por turno e análise por PRESERVE / ADD / UPDATE</text>
+  <text x="40" y="609" class="body">Comparação dos representantes selecionados, não isolamento causal do paradigma gerativo.</text>
+  <text x="40" y="635" class="small">Fonte: elaborado pelo autor (2026). Protocolo planejado; as etapas não são apresentadas como já executadas.</text>
+</svg>

@@ -10,8 +10,6 @@ status: draft
 
 # Prompt base
 
-> Rascunho técnico complementar. Antes de usar na coleta, confira o protocolo vigente no [artigo em Markdown](../07_Artigo_TCC/artigo_tcc_unitins.md) e valide o prompt no piloto.
-
 ## Objetivo
 
 Criar uma instrução sem informação específica da arquitetura.

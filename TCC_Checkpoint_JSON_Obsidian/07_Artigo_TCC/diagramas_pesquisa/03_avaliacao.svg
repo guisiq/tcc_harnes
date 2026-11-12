@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Pipeline de avaliação estrutural e semântica</title>
+  <desc id="desc">Salvar a saída bruta, testar JSON e schema, comparar pares normalizados e enviar somente divergências ao juiz sem identificação do escritor. Falhas são registradas, sem reparo automático. Métricas estritas e híbridas são reportadas separadamente.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0 0 8 4 0 8" fill="none" stroke="#51657c" stroke-width="1.5"/></marker>
+    <style>text{font-family:Arial,sans-serif;fill:#172f49}.title{font-size:28px;font-weight:700}.head{font-size:20px;font-weight:700}.body{font-size:17px}.small{font-size:15px}.line{fill:none;stroke:#51657c;stroke-width:2;marker-end:url(#arrow)}</style>
+  </defs>
+  <rect width="1200" height="760" rx="18" fill="#fff"/>
+  <text x="40" y="46" class="small">03 / AVALIAÇÃO E RASTREABILIDADE</text>
+  <text x="40" y="85" class="title">Separar formato, fidelidade e natureza da operação.</text>
+  <rect x="40" y="120" width="270" height="105" rx="12" fill="#edf4ff" stroke="#9bb6d7"/>
+  <text x="60" y="156" class="head">1. Salvar saída bruta</text>
+  <text x="60" y="186" class="body">Sem limpeza ou correção</text>
+  <text x="60" y="209" class="small">Preservar evidência original</text>
+  <path d="M310 173 H345" class="line"/>
+  <rect x="350" y="120" width="270" height="105" rx="12" fill="#edf4ff" stroke="#9bb6d7"/>
+  <text x="370" y="156" class="head">2. Parser JSON</text>
+  <text x="370" y="190" class="body">A sintaxe é válida?</text>
+  <path d="M620 173 H655" class="line"/>
+  <text x="628" y="158" class="small">sim</text>
+  <rect x="660" y="120" width="290" height="105" rx="12" fill="#edf4ff" stroke="#9bb6d7"/>
+  <text x="680" y="156" class="head">3. Validar schema</text>
+  <text x="680" y="190" class="body">state: objeto de textos</text>
+  <path d="M485 225 V272 H975" class="line"/>
+  <text x="498" y="250" class="small">não</text>
+  <path d="M805 225 V253 H975" class="line"/>
+  <text x="817" y="246" class="small">não</text>
+  <rect x="980" y="120" width="180" height="175" rx="12" fill="#fff1ed" stroke="#d7a193"/>
+  <text x="997" y="156" class="head">Registrar falha</text>
+  <text x="997" y="190" class="small">Sintaxe ou schema</text>
+  <text x="997" y="218" class="small">Não reparar saída</text>
+  <text x="997" y="246" class="small">Sem avaliação</text>
+  <text x="997" y="267" class="small">semântica condicional</text>
+  <path d="M805 225 V310 H175 V335" class="line"/>
+  <text x="725" y="302" class="small">sim: avaliar conteúdo</text>
+  <rect x="40" y="340" width="290" height="133" rx="12" fill="#eaf7f2" stroke="#88b9a7"/>
+  <text x="60" y="376" class="head">4. Comparação direta</text>
+  <text x="60" y="407" class="body">Pares caminho-valor</text>
+  <text x="60" y="435" class="small">Normalizar espaços, caixa</text>
+  <text x="60" y="457" class="small">e pontuação; ignorar ordem</text>
+  <path d="M330 405 H385" class="line"/>
+  <text x="340" y="391" class="small">divergência</text>
+  <rect x="390" y="340" width="360" height="133" rx="12" fill="#f3efff" stroke="#a99acb"/>
+  <text x="410" y="376" class="head">5. Juiz local condicional</text>
+  <text x="410" y="407" class="body">Gemma 3 1B IT · GGUF Q4_K_M</text>
+  <text x="410" y="435" class="small">Consulta referências, observação e anotações</text>
+  <text x="410" y="457" class="small">Não recebe a identidade do escritor</text>
+  <path d="M750 405 H795" class="line"/>
+  <rect x="800" y="340" width="360" height="133" rx="12" fill="#eaf7f2" stroke="#88b9a7"/>
+  <text x="820" y="376" class="head">6. Métricas e registros JSONL</text>
+  <text x="820" y="407" class="body">Precisão · revocação · F1 · alucinação</text>
+  <text x="820" y="435" class="small">PRESERVE · ADD · UPDATE</text>
+  <text x="820" y="457" class="small">Saída, decisões, erros e proveniência</text>
+  <path d="M185 473 V505 H980 V478" class="line"/>
+  <text x="390" y="496" class="small">Correspondências diretas contam sem consultar o juiz</text>
+  <rect x="40" y="545" width="1120" height="135" rx="12" fill="#f3f6fa" stroke="#adbccf"/>
+  <text x="60" y="582" class="head">Regras de reporte</text>
+  <text x="60" y="613" class="body">Estrito e híbrido em separado; correspondências um-para-um; decisões incertas não contam como acerto.</text>
+  <text x="60" y="642" class="body">Fidelidade condicional: apenas saídas aderentes. Visão global: falha sintática recebe zero.</text>
+  <text x="60" y="666" class="small">Falhas de schema devem ser identificadas separadamente; não atribuir fidelidade sem conteúdo avaliável.</text>
+  <text x="40" y="722" class="small">Fonte: elaborado pelo autor (2026), a partir das seções 3.5 e 3.6 do artigo. Juiz e configuração sujeitos ao piloto.</text>
+</svg>

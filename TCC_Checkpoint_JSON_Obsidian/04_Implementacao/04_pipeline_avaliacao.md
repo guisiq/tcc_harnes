@@ -10,8 +10,6 @@ status: draft
 
 # Pipeline de avaliação
 
-> Nota técnica complementar; não confundir o exemplo operacional com uma regra já validada. Confira as métricas e o protocolo no [artigo em Markdown](../07_Artigo_TCC/artigo_tcc_unitins.md).
-
 ## Passo 1 — parse
 
 ```text
@@ -35,7 +33,7 @@ Quando necessário:
 - strings: evitar normalização semântica excessiva;
 - números: preservar tipo esperado.
 
-Definir e validar valores canônicos antes da coleta: igualdade textual ingênua pode penalizar paráfrases corretas. O SUMIE original combina correspondência exata e avaliação semântica por LLM; esta normalização determinística é uma adaptação, não reprodução de seu F1. [[06_Referencias/referencias#Hwang et al. — SUMIE|SUMIE]]; consultar as [métricas do artigo](../07_Artigo_TCC/artigo_tcc_unitins.md#3-materiais-e-métodos).
+Definir e validar valores canônicos antes da coleta: igualdade textual ingênua pode penalizar paráfrases corretas. O SUMIE original combina correspondência exata e avaliação semântica por LLM; esta normalização determinística é uma adaptação, não reprodução de seu F1. [[06_Referencias/referencias#Hwang et al. — SUMIE|SUMIE]]; [[02_Metodologia/05_metricas|Métricas do TCC]].
 
 ## Passo 4 — comparação de estado
 

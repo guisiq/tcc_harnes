@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Arquitetura da pesquisa — diagramas e execução GU-JSON</title>
+  <style>
+    :root { font-family: system-ui, sans-serif; color: #172f49; background: #edf1f6; line-height: 1.65; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    a { color: #254c83; text-underline-offset: .2em; }
+    a:hover { color: #68479a; }
+    :focus-visible { outline: 3px solid #8454b8; outline-offset: 4px; }
+    .skip { position: absolute; top: -5rem; left: 1rem; padding: 1rem; background: white; z-index: 1; }
+    .skip:focus { top: 1rem; }
+    header { background: #172f49; color: white; padding: 3.5rem max(1.25rem, calc((100% - 1120px) / 2)); }
+    .eyebrow { font-size: .78rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
+    header .eyebrow { color: #b6d6ee; }
+    h1 { font-size: clamp(2rem, 5vw, 3.3rem); line-height: 1.12; max-width: 20ch; margin: .8rem 0 1.2rem; }
+    header p { max-width: 76ch; color: #dce5ef; }
+    nav { display: flex; flex-wrap: wrap; gap: .7rem 1.5rem; margin-top: 1.6rem; }
+    nav a { color: white; }
+    main { max-width: 1200px; margin: auto; padding: 2rem 1.25rem; }
+    section { background: white; border: 1px solid #d5dfeb; border-radius: 14px; padding: 1.8rem; margin-bottom: 1.6rem; }
+    h2 { font-size: 1.6rem; line-height: 1.3; margin: .3rem 0 1rem; }
+    h3 { font-size: 1.05rem; }
+    p { margin: .7rem 0; }
+    .muted, figcaption, .hint { color: #4a5e73; font-size: .9rem; }
+    .notice { border-left: 4px solid #77529f; background: #f4f0fb; padding: .8rem 1rem; }
+    .tools, .actions { display: flex; flex-wrap: wrap; gap: .7rem; align-items: center; margin: 1rem 0; }
+    button, select { font: inherit; border: 1px solid #94a8be; border-radius: 7px; padding: .6rem .9rem; min-height: 44px; }
+    button { cursor: pointer; color: white; background: #172f49; }
+    button.secondary { background: white; color: #172f49; }
+    select { background: white; color: #172f49; max-width: 100%; }
+    figure { margin: 1.4rem 0 0; }
+    figure img { display: block; width: 100%; height: auto; border: 1px solid #e0e6ee; border-radius: 10px; }
+    figcaption { margin-top: .8rem; }
+    .download { font-size: .9rem; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+    .grid > * { min-width: 0; }
+    pre, textarea { font: .9rem/1.65 Consolas, monospace; background: #f3f6fa; color: #172f49; border: 1px solid #cbd6e3; border-radius: 8px; padding: 1rem; }
+    pre { white-space: pre-wrap; overflow-wrap: anywhere; margin: .5rem 0 1rem; }
+    textarea { width: 100%; min-height: 230px; resize: vertical; }
+    label { display: block; font-weight: 650; }
+    .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(125px, 1fr)); gap: .7rem; margin-block: 1rem; }
+    .metric { padding: .8rem; background: #edf4ff; border: 1px solid #bacde5; border-radius: 8px; }
+    .metric span { display: block; font-size: .8rem; }
+    .metric strong { display: block; font-size: 1.35rem; }
+    #status { padding: .9rem 1rem; border-left: 4px solid #217357; background: #eaf7f2; overflow-wrap: anywhere; }
+    #status.error { border-color: #a63e2e; background: #fff1ed; }
+    #status.warning { border-color: #906c1b; background: #fff8e6; }
+    #operations { padding-left: 1.5rem; }
+    details { margin-top: 1rem; }
+    summary { cursor: pointer; font-weight: 650; }
+    footer { padding: .5rem 1.25rem 2rem; text-align: center; color: #4a5e73; }
+    @media (max-width: 700px) {
+      section { padding: 1rem; }
+      .grid { grid-template-columns: 1fr; }
+      main { padding-inline: .7rem; }
+    }
+    @page { size: A4 landscape; margin: 12mm; }
+    @media print {
+      :root { background: white; font-size: 10pt; }
+      header, nav, .tools, .actions, .download, .screen-only, footer { display: none; }
+      main { max-width: none; padding: 0; }
+      section { border: 0; padding: 0; margin: 0; border-radius: 0; }
+      .sheet { break-before: page; }
+      figure { break-inside: avoid; margin-top: .5rem; }
+      figure img { max-height: 145mm; object-fit: contain; border: 0; }
+      figcaption { font-size: 9pt; }
+      h2 { font-size: 17pt; margin-top: 0; }
+      pre, textarea, .metric, .notice, #status { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      textarea { min-height: 180px; }
+      .metrics { grid-template-columns: repeat(5, 1fr); }
+      body.print-figure header, body.print-figure #texto-secao, body.print-figure #exemplo, body.print-figure .sheet { display: none; }
+      body.print-figure .sheet.print-target { display: block; break-before: auto; }
+      body.print-figure .sheet.print-target img { max-height: 165mm; }
+      body.print-figure .sheet.print-target .intro { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+  <header>
+    <div class="eyebrow">TCC / Materiais e métodos / Material para validação</div>
+    <h1>Arquitetura da pesquisa</h1>
+    <p>Escritores compactos de memória no método GU-JSON. Quatro figuras independentes e uma execução didática editável, alinhadas ao protocolo do artigo.</p>
+    <nav aria-label="Seções">
+      <a href="#texto-secao">Texto para a seção</a>
+      <a href="#arquitetura">Arquitetura</a>
+      <a href="#protocolo">Protocolo</a>
+      <a href="#avaliacao">Avaliação</a>
+      <a href="#execucao">Exemplo visual</a>
+      <a href="#exemplo">Testar execução</a>
+    </nav>
+  </header>
+  <main id="conteudo">
+    <div class="tools">
+      <button type="button" id="print-all">Imprimir tudo / salvar como PDF</button>
+      <span class="hint">Offline: abra este HTML no navegador. Mantenha os quatro SVGs na mesma pasta.</span>
+    </div>
+    <section id="texto-secao">
+      <div class="eyebrow">Sugestão de inserção após a seção 3.5</div>
+      <h2>Arquitetura experimental e exemplo de transição</h2>
+      <p>O experimento será organizado em um harness que mantém constantes o método GU-JSON, o schema, o prompt zero-shot e o orçamento de saída de 1.200 tokens, variando o modelo escritor. Em cada transição, o escritor receberá o estado anterior de referência e a nova observação, devendo regenerar o checkpoint JSON completo. O estado esperado será utilizado exclusivamente na avaliação, e a previsão produzida não será reutilizada como entrada do turno seguinte (Figura 1).</p>
+      <p>A execução seguirá três fases: verificação funcional com transições sintéticas, estudo piloto para fixação dos critérios de avaliação e experimento principal nas mesmas transições do SUMIE para os três escritores (Figura 2). A saída textual bruta será persistida antes da validação sintática e estrutural, sem reparo automático. As correspondências de conteúdo serão verificadas inicialmente por normalização textual, com encaminhamento das divergências ao juiz local, sem identificação do escritor (Figura 3).</p>
+      <p>No exemplo sintético da Figura 4, a localização permanece válida e deve ser preservada; a informação sobre Wi-Fi deve ser adicionada; e uma nova avaliação de preço deve ser integrada à perspectiva anterior. A atualização não deve substituir arbitrariamente uma opinião ainda válida, em conformidade com a política de acumulação adotada para o SUMIE.</p>
+      <p class="notice">Este material ilustra o protocolo planejado. O exemplo é fictício, não pertence ao SUMIE e não é uma saída real dos modelos. A numeração das figuras é local e deve ser ajustada ao inseri-las no artigo. O artigo original não foi alterado.</p>
+    </section>
+    <section class="sheet" id="arquitetura">
+      <div class="eyebrow">Figura 1 / visão geral</div>
+      <h2>Arquitetura experimental</h2>
+      <p class="intro">O controle está na entrada: cada escritor recebe a mesma transição de referência. O alvo esperado não é exposto ao escritor.</p>
+      <figure>
+        <img src="01_arquitetura.svg" width="1200" height="650" alt="Fluxo: estado anterior de referência e observação → prompt fixo → um dos três escritores → checkpoint completo → avaliação. O alvo esperado vai apenas para o avaliador; não há realimentação da previsão.">
+        <figcaption><strong>Figura 1 — Arquitetura experimental da escrita de memória GU-JSON.</strong> Fonte: elaborado pelo autor (2026).</figcaption>
+      </figure>
+      <div class="actions">
+        <a class="download" href="01_arquitetura.svg" download>Baixar SVG independente</a>
+        <button type="button" class="secondary" data-print="arquitetura">Imprimir somente esta figura</button>
+      </div>
+    </section>
+    <section class="sheet" id="protocolo">
+      <div class="eyebrow">Figura 2 / delineamento</div>
+      <h2>Protocolo e controles experimentais</h2>
+      <p class="intro">As configurações são fixadas no piloto, antes da comparação principal. O bootstrap preserva os turnos de cada entidade.</p>
+      <figure>
+        <img src="02_protocolo.svg" width="1200" height="650" alt="Três fases: 15 transições sintéticas de verificação, piloto com 25 entidades separadas e experimento principal no SUMIE. Constantes: GU-JSON, schema, prompt, orçamento e dados. Comparação pareada por entidade.">
+        <figcaption><strong>Figura 2 — Fases de execução, variáveis controladas e plano de análise.</strong> Fonte: elaborado pelo autor (2026).</figcaption>
+      </figure>
+      <div class="actions">
+        <a class="download" href="02_protocolo.svg" download>Baixar SVG independente</a>
+        <button type="button" class="secondary" data-print="protocolo">Imprimir somente esta figura</button>
+      </div>
+    </section>
+    <section class="sheet" id="avaliacao">
+      <div class="eyebrow">Figura 3 / qualidade e evidências</div>
+      <h2>Pipeline de avaliação</h2>
+      <p class="intro">Formato válido não garante conteúdo fiel. As falhas estruturais, a correspondência estrita e as decisões semânticas devem permanecer distinguíveis.</p>
+      <figure>
+        <img src="03_avaliacao.svg" width="1200" height="760" alt="Salvar saída bruta → parser JSON → schema → pares normalizados → juiz local somente para divergências → métricas e JSONL. Falhas são registradas sem reparo; decisões incertas não contam como acerto.">
+        <figcaption><strong>Figura 3 — Avaliação estrutural, correspondência direta e adjudicação semântica condicional.</strong> Fonte: elaborado pelo autor (2026).</figcaption>
+      </figure>
+      <div class="actions">
+        <a class="download" href="03_avaliacao.svg" download>Baixar SVG independente</a>
+        <button type="button" class="secondary" data-print="avaliacao">Imprimir somente esta figura</button>
+      </div>
+    </section>
+    <section class="sheet" id="execucao">
+      <div class="eyebrow">Figura 4 / exemplo sintético</div>
+      <h2>Uma transição, três operações</h2>
+      <p class="intro">O checkpoint é reescrito integralmente, mesmo quando parte dos atributos apenas precisa ser preservada.</p>
+      <figure>
+        <img src="04_exemplo_execucao.svg" width="1200" height="720" alt="Estado anterior: localização no centro e preço caro segundo A. Nova observação: preço acessível segundo B e Wi-Fi gratuito. Saída completa preserva localização, integra as opiniões de preço e adiciona Wi-Fi. Três pares corretos, F1 igual a 1.">
+        <figcaption><strong>Figura 4 — Exemplo sintético de preservação, adição e atualização em uma transição GU-JSON.</strong> Fonte: elaborado pelo autor (2026). Dados e saída fictícios.</figcaption>
+      </figure>
+      <div class="actions">
+        <a class="download" href="04_exemplo_execucao.svg" download>Baixar SVG independente</a>
+        <button type="button" class="secondary" data-print="execucao">Imprimir somente esta figura</button>
+      </div>
+    </section>
+    <section class="sheet" id="exemplo">
+      <div class="eyebrow">Laboratório didático / execução local no navegador</div>
+      <h2>Teste uma saída de checkpoint</h2>
+      <p>Edite a saída ou carregue um cenário. A execução verifica sintaxe, contrato estrutural e correspondência estrita com a referência sintética.</p>
+      <p class="notice">Não há chamada a modelos, tokenizador ou juiz. A normalização didática remove pontuação, uniformiza caixa e espaços; não implementa equivalência semântica. FP significa par não correspondente, não alucinação confirmada. O harness científico e seus critérios não são substituídos por esta demonstração.</p>
+      <div class="grid">
+        <div>
+          <h3>1. Estado anterior de referência</h3>
+          <pre id="previous"></pre>
+          <h3>2. Nova observação</h3>
+          <p lang="en">Reviewer B describes the price as affordable. The hotel offers free Wi-Fi.</p>
+        </div>
+        <div>
+          <h3>3. Estado esperado</h3>
+          <pre id="expected"></pre>
+          <p class="hint">PRESERVE: location · UPDATE: price · ADD: wifi.<br>As opiniões A e B continuam representadas.</p>
+        </div>
+      </div>
+      <form id="simulation">
+        <label for="scenario">Cenário ilustrativo</label>
+        <div class="actions">
+          <select id="scenario" name="scenario">
+            <option value="correct">Saída correta</option>
+            <option value="missing">Omissão de atributo preservado</option>
+            <option value="overwrite">Substituição indevida da opinião anterior</option>
+            <option value="extra">Fato adicional sem suporte no exemplo</option>
+            <option value="syntax">JSON com erro de sintaxe</option>
+            <option value="schema">JSON válido, schema inválido</option>
+          </select>
+          <button type="button" class="secondary" id="load">Carregar cenário</button>
+        </div>
+        <label for="generated">4. Saída bruta para avaliar</label>
+        <p class="hint" id="generated-help">Objeto com uma única chave raiz state; atributos com valores textuais. Texto extra e blocos Markdown não são reparados. Alterações exigem nova execução.</p>
+        <textarea id="generated" name="generated" spellcheck="false" aria-describedby="generated-help"></textarea>
+        <div class="actions">
+          <button type="submit">Executar validação</button>
+          <button type="button" class="secondary" id="reset">Restaurar exemplo correto</button>
+          <button type="button" class="secondary" id="export">Baixar registro JSON</button>
+        </div>
+      </form>
+      <div id="result" aria-live="polite" aria-atomic="true">
+        <h3>5. Resultado da execução</h3>
+        <p id="status"></p>
+        <div id="metrics" class="metrics"></div>
+        <ul id="operations"></ul>
+      </div>
+      <details class="screen-only">
+        <summary>Como validar e reutilizar este material</summary>
+        <ol>
+          <li>A saída correta deve resultar em TP=3, FP=0, FN=0 e F1=1,00.</li>
+          <li>A omissão de location deve resultar em TP=2, FP=0, FN=1 e F1=0,80; PRESERVE falha.</li>
+          <li>A substituição de price deve resultar em TP=2, FP=1, FN=1 e F1≈0,67; UPDATE falha.</li>
+          <li>O atributo adicional deve resultar em TP=3, FP=1, FN=0 e F1≈0,86.</li>
+          <li>Erros de sintaxe ou schema devem interromper a comparação semântica, sem reparar a saída.</li>
+          <li>Inverta a ordem das chaves ou altere caixa e espaços: a comparação normalizada deve manter os acertos.</li>
+          <li>Baixe o registro para inspecionar a entrada, a saída bruta e os resultados didáticos.</li>
+          <li>Para o artigo, utilize os SVGs como figuras vetoriais. Para PDF, use os botões de impressão; cada figura fica em página separada.</li>
+        </ol>
+        <p>Base documental: <a href="../artigo_tcc_unitins.md">artigo, seções 3.1–3.7</a>. Os limites de tokens, uso do juiz e testes estatísticos são descritos, não executados neste HTML.</p>
+      </details>
+      <noscript><p class="notice">Ative JavaScript para executar os testes. Os diagramas e o texto permanecem disponíveis sem JavaScript.</p></noscript>
+    </section>
+  </main>
+  <footer>Material de apoio à revisão metodológica · Diagramas vetoriais independentes · Sem dependências externas</footer>
+  <script>
+    "use strict";
+    const previous = { state: { location: "city center", price: "expensive (reviewer A)" } };
+    const expected = { state: {
+      location: "city center",
+      price: "expensive (reviewer A); affordable (reviewer B)",
+      wifi: "free"
+    } };
+    const observation = "Reviewer B describes the price as affordable. The hotel offers free Wi-Fi.";
+    const editor = document.getElementById("generated");
+    const scenario = document.getElementById("scenario");
+    const status = document.getElementById("status");
+    const metrics = document.getElementById("metrics");
+    const operations = document.getElementById("operations");
+    const format = (value) => JSON.stringify(value, null, 2);
+    const normalize = (value) => value.toLocaleLowerCase("en").replace(/\p{P}/gu, " ").replace(/\s+/gu, " ").trim();
+    const percent = (value) => value === null ? "N/A" : value.toLocaleString("pt-BR", { style: "percent", maximumFractionDigits: 1 });
+    const isObject = (value) => value !== null && typeof value === "object" && !Array.isArray(value);
+    document.getElementById("previous").textContent = format(previous);
+    document.getElementById("expected").textContent = format(expected);
+
+    function loadScenario() {
+      const sample = JSON.parse(format(expected));
+      switch (scenario.value) {
+        case "missing": delete sample.state.location; break;
+        case "overwrite": sample.state.price = "affordable (reviewer B)"; break;
+        case "extra": sample.state.pool = "heated"; break;
+        case "syntax": editor.value = '{"state": {"wifi": "free",}}'; return;
+        case "schema": editor.value = format({ state: { wifi: true } }); return;
+      }
+      editor.value = format(sample);
+    }
+
+    function addMetric(label, value) {
+      const card = document.createElement("div");
+      card.className = "metric";
+      const caption = document.createElement("span");
+      caption.textContent = label;
+      const number = document.createElement("strong");
+      number.textContent = value;
+      card.append(caption, number);
+      metrics.append(card);
+    }
+
+    function evaluate() {
+      const record = {
+        demonstration: true,
+        real_model_inference: false,
+        semantic_judge_used: false,
+        comparison: "illustrative_normalized_exact_match",
+        previous_state: previous,
+        observation,
+        expected_state: expected,
+        raw_output: editor.value,
+        json_valid: false,
+        schema_valid: null,
+        conditional_metrics: null,
+        operations: [],
+        error: null
+      };
+      metrics.replaceChildren();
+      operations.replaceChildren();
+      status.className = "";
+      let generated;
+      try {
+        generated = JSON.parse(editor.value);
+      } catch (error) {
+        if (!(error instanceof SyntaxError)) throw error;
+        record.error = { stage: "json_parser", message: error.message };
+        status.className = "error";
+        status.textContent = "Falha sintática: " + error.message + " A saída foi preservada sem reparo; métricas semânticas condicionais não se aplicam. Na visão global do artigo, a falha sintática recebe zero.";
+        addMetric("JSON válido", "Não");
+        addMetric("Schema", "Não avaliado");
+        return record;
+      }
+      record.json_valid = true;
+      const validSchema = isObject(generated)
+        && Object.keys(generated).length === 1
+        && Object.hasOwn(generated, "state")
+        && isObject(generated.state)
+        && Object.values(generated.state).every((value) => typeof value === "string");
+      record.schema_valid = validSchema;
+      addMetric("JSON válido", "Sim");
+      addMetric("Schema válido", validSchema ? "Sim" : "Não");
+      if (!validSchema) {
+        record.error = { stage: "schema_validator", message: "Esperado: objeto raiz apenas com state, contendo objeto de valores textuais." };
+        status.className = "error";
+        status.textContent = "Falha estrutural: " + record.error.message + " Comparação semântica não executada; falha de schema registrada separadamente.";
+        return record;
+      }
+      const state = generated.state;
+      const matches = (key) => Object.hasOwn(state, key) && normalize(state[key]) === normalize(expected.state[key]);
+      const keys = Object.keys(expected.state);
+      const tp = keys.filter(matches).length;
+      const fp = Object.keys(state).length - tp;
+      const fn = keys.length - tp;
+      const precision = tp + fp ? tp / (tp + fp) : null;
+      const recall = tp / keys.length;
+      const f1 = 2 * tp / (2 * tp + fp + fn);
+      const results = keys.map((key) => ({
+        path: "state." + key,
+        type: !Object.hasOwn(previous.state, key) ? "ADD"
+          : normalize(previous.state[key]) === normalize(expected.state[key]) ? "PRESERVE" : "UPDATE",
+        correct: matches(key)
+      }));
+      const accuracy = (types) => {
+        const applicable = results.filter((item) => types.includes(item.type));
+        return applicable.length ? applicable.filter((item) => item.correct).length / applicable.length : null;
+      };
+      record.conditional_metrics = {
+        tp, fp, fn, precision, recall, f1,
+        preservation_accuracy: accuracy(["PRESERVE"]),
+        addition_accuracy: accuracy(["ADD"]),
+        update_only_accuracy: accuracy(["UPDATE"]),
+        update_accuracy: accuracy(["ADD", "UPDATE"])
+      };
+      record.operations = results;
+      status.className = fp || fn ? "warning" : "";
+      status.textContent = fp || fn
+        ? "Comparação estrita concluída com divergências. No protocolo científico, divergências seriam adjudicadas pelo juiz; esta demonstração não confirma alucinações nem equivalência semântica."
+        : "Comparação estrita concluída: todos os pares correspondem à referência sintética. Nenhuma divergência exige adjudicação.";
+      for (const [label, value] of [
+        ["TP / FP / FN", `${tp} / ${fp} / ${fn}`],
+        ["Precisão", percent(precision)], ["Revocação", percent(recall)],
+        ["F1 estrito", f1.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })],
+        ["PA · PRESERVE", percent(accuracy(["PRESERVE"]))],
+        ["Acurácia ADD", percent(accuracy(["ADD"]))],
+        ["Acurácia UPDATE", percent(accuracy(["UPDATE"]))],
+        ["UA · ADD + UPDATE", percent(accuracy(["ADD", "UPDATE"]))]
+      ]) addMetric(label, value);
+      for (const item of results) {
+        const li = document.createElement("li");
+        li.textContent = `${item.type} — ${item.path}: ${item.correct ? "correspondência estrita" : "ausente ou divergente"}.`;
+        operations.append(li);
+      }
+      return record;
+    }
+
+    document.getElementById("simulation").addEventListener("submit", (event) => {
+      event.preventDefault();
+      evaluate();
+    });
+    document.getElementById("load").addEventListener("click", () => { loadScenario(); evaluate(); });
+    document.getElementById("reset").addEventListener("click", () => {
+      scenario.value = "correct";
+      loadScenario();
+      evaluate();
+    });
+    editor.addEventListener("input", () => {
+      metrics.replaceChildren();
+      operations.replaceChildren();
+      status.className = "warning";
+      status.textContent = "Saída alterada. Execute a validação para atualizar o resultado.";
+    });
+    document.getElementById("export").addEventListener("click", () => {
+      const record = evaluate();
+      const url = URL.createObjectURL(new Blob([format(record)], { type: "application/json" }));
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "execucao_gu_json_didatica.json";
+      document.body.append(link);
+      link.click();
+      link.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    });
+    document.getElementById("print-all").addEventListener("click", () => window.print());
+    document.querySelectorAll("[data-print]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const target = document.getElementById(button.dataset.print);
+        document.body.classList.add("print-figure");
+        target.classList.add("print-target");
+        try { window.print(); }
+        finally {
+          document.body.classList.remove("print-figure");
+          target.classList.remove("print-target");
+        }
+      });
+    });
+    loadScenario();
+    evaluate();
+  </script>
+</body>
+</html>

@@ -10,8 +10,6 @@ status: draft
 
 # Formato dos dados
 
-> Nota técnica complementar. Os exemplos são ilustrativos; o protocolo e o escopo vigentes estão no [artigo em Markdown](../07_Artigo_TCC/artigo_tcc_unitins.md).
-
 ## Transition record
 
 JSONL recomendado:
