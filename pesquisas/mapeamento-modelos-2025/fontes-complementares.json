@@ -1,0 +1,39 @@
+{
+  "data_limite": "2026-11-12",
+  "llama_cpp_revision": "827466b9efa0574806bad7732bcd78bfb6d9311d",
+  "vllm_revision": "b6f417fcd1c291b0cbb013579e7c697ace4e4e0a",
+  "modelos": [
+    "sbintuitions/sarashina2.2-0.5b",
+    "sbintuitions/sarashina2.2-1b",
+    "openai-community/gpt2",
+    "microsoft/bitnet-b1.58-2B-4T",
+    "Qwen/Qwen3-0.6B",
+    "google/gemma-3-1b-it",
+    "google/gemma-3-270m",
+    "google/functiongemma-270m-it",
+    "Qwen/Qwen2.5-0.5B-Instruct",
+    "Gustavosta/MagicPrompt-Stable-Diffusion",
+    "google/gemma-3-270m-it",
+    "distilbert/distilgpt2",
+    "ornith-ai/Ornith-1.0-9B",
+    "ornith-ai/Ornith-1.0-35B",
+    "Qwen/Qwen2.5-0.5B"
+  ],
+  "buscas": [
+    {"arquivo": "ranking-pequenos-bruto.json", "url": "https://huggingface.co/api/models?pipeline_tag=text-generation&num_parameters=min:0,max:1B&sort=likes&direction=-1&limit=20&full=true"},
+    {"arquivo": "busca-sarashina.json", "url": "https://huggingface.co/api/models?author=sbintuitions&search=sarashina2.2&limit=100"}
+  ],
+  "fontes_runtime": [
+    {"arquivo": "llama-conversion-llama.py", "url": "https://raw.githubusercontent.com/ggml-org/llama.cpp/827466b9efa0574806bad7732bcd78bfb6d9311d/conversion/llama.py"},
+    {"arquivo": "gemma3-270m-public.html", "url": "https://huggingface.co/google/gemma-3-270m"},
+    {"arquivo": "gemma3-1b-public.html", "url": "https://huggingface.co/google/gemma-3-1b-pt"},
+    {"arquivo": "t5gemma-public.html", "url": "https://huggingface.co/google/t5gemma-b-b-prefixlm"},
+    {"arquivo": "qwen3-anuncio.html", "url": "https://qwenlm.github.io/blog/qwen3/"},
+    {"arquivo": "sarashina-anuncio.html", "url": "https://huggingface.co/sbintuitions/sarashina2.2-0.5b"}
+  ],
+  "exclusoes_ranking": [
+    {"id": "microsoft/bitnet-b1.58-2B-4T", "motivo": "Model card declara 2B parametros; tensores empacotados produzem falso positivo no filtro do Hub."},
+    {"id": "ornith-ai/Ornith-1.0-9B", "motivo": "Model card identifica modelo de 9B; nao aceitar a indexacao do Hub como prova de <=1B."},
+    {"id": "ornith-ai/Ornith-1.0-35B", "motivo": "Model card identifica modelo de 35B; nao aceitar a indexacao do Hub como prova de <=1B."}
+  ]
+}

@@ -39,7 +39,7 @@
   <text x="60" y="435" class="small">Normalizar espaços, caixa</text>
   <text x="60" y="457" class="small">e pontuação; ignorar ordem</text>
   <path d="M330 405 H385" class="line"/>
-  <text x="340" y="391" class="small">divergência</text>
+  <text x="360" y="330" class="small" text-anchor="middle">divergências</text>
   <rect x="390" y="340" width="360" height="133" rx="12" fill="#f3efff" stroke="#a99acb"/>
   <text x="410" y="376" class="head">5. Juiz local condicional</text>
   <text x="410" y="407" class="body">Gemma 3 1B IT · GGUF Q4_K_M</text>

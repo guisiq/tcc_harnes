@@ -1,0 +1,61 @@
+{
+  "data_limite": "2026-11-12",
+  "llama_cpp_revision": "827466b9efa0574806bad7732bcd78bfb6d9311d",
+  "vllm_revision": "b6f417fcd1c291b0cbb013579e7c697ace4e4e0a",
+  "modelos": [
+    "gbatzolis/CoBit",
+    "nict-astrec-att/prahokbart_base",
+    "codelion/dhara-70m",
+    "teapotai/tinyteapot",
+    "Thalesian/cuneiformBase-400m"
+  ],
+  "buscas": [
+    {
+      "arquivo": "busca-cobit.json",
+      "url": "https://huggingface.co/api/models?search=CoBit&limit=100"
+    },
+    {
+      "arquivo": "busca-arche.json",
+      "url": "https://huggingface.co/api/models?author=caiovicentino&search=arche&limit=100"
+    },
+    {
+      "arquivo": "arche-api.json",
+      "url": "https://huggingface.co/api/models/caiovicentino/arche",
+      "pode_ser_restrito": true
+    }
+  ],
+  "fontes_runtime": [
+    {
+      "arquivo": "cobit-owt-medium-config.py",
+      "url": "https://raw.githubusercontent.com/GBATZOLIS/BitstreamDiffusion/a6ba2413e3fc70a30a7bd9d1a2d1af13024e3f88/configs/owt/rate_bits_edm_weight_medium_24x1024.py"
+    },
+    {
+      "arquivo": "cobit-owt-small-config.py",
+      "url": "https://raw.githubusercontent.com/GBATZOLIS/BitstreamDiffusion/a6ba2413e3fc70a30a7bd9d1a2d1af13024e3f88/configs/owt/rate_bits_edm_weight.py"
+    },
+    {
+      "arquivo": "cobit-license.txt",
+      "url": "https://raw.githubusercontent.com/GBATZOLIS/BitstreamDiffusion/a6ba2413e3fc70a30a7bd9d1a2d1af13024e3f88/LICENSE"
+    },
+    {
+      "arquivo": "arche-readme.md",
+      "url": "https://raw.githubusercontent.com/caiovicentino/arche/b1a697a105ddd48f09925b7884e7d041a497a96d/README.md"
+    },
+    {
+      "arquivo": "arche-tree.json",
+      "url": "https://api.github.com/repos/caiovicentino/arche/git/trees/b1a697a105ddd48f09925b7884e7d041a497a96d?recursive=1"
+    },
+    {
+      "arquivo": "arche-releases.json",
+      "url": "https://api.github.com/repos/caiovicentino/arche/releases"
+    },
+    {
+      "arquivo": "arche-license.txt",
+      "url": "https://raw.githubusercontent.com/caiovicentino/arche/b1a697a105ddd48f09925b7884e7d041a497a96d/LICENSE"
+    },
+    {
+      "arquivo": "prahokbart-paper.html",
+      "url": "https://aclanthology.org/2025.coling-main.87/"
+    }
+  ]
+}

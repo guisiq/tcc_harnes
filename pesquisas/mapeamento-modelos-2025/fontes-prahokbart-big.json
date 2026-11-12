@@ -1,0 +1,8 @@
+{
+  "data_limite": "2026-11-12",
+  "llama_cpp_revision": "827466b9efa0574806bad7732bcd78bfb6d9311d",
+  "vllm_revision": "b6f417fcd1c291b0cbb013579e7c697ace4e4e0a",
+  "modelos": ["nict-astrec-att/prahokbart_big"],
+  "buscas": [],
+  "fontes_runtime": []
+}

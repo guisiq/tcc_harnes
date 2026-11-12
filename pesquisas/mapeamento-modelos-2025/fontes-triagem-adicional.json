@@ -1,0 +1,24 @@
+{
+  "data_limite": "2026-11-12",
+  "modelos": [
+    "ltg/dual-lm-470m",
+    "UT-IFML/dQwen3.5-0.8B-Base",
+    "fredzzp/open-dcoder-0.5B",
+    "fredzzp/plaidq-0.7b",
+    "Shuibai12138/CDLM-0.5B",
+    "avgJo3/a2d-gpt-neox-160M",
+    "avgJo3/a2d-gpt-neox-400M",
+    "hdlm-group/hdlm-base-epsilon-0.05",
+    "diffutron/DiffutronLM-0.3B-1st-Stage",
+    "ai-forever/Zarya-0.6B",
+    "fwerkor/CID-v1-0.4B",
+    "Hengchang-Liu/D3LM-from-nt",
+    "Thalesian/Pretrain-AKK-60m",
+    "codllm/codllm-base-deploy",
+    "ArsenyIvanov/mdlm-lm1b",
+    "ArsenyIvanov/mdlm-moe-lm1b",
+    "ArsenyIvanov/emoe-lm1b"
+  ],
+  "buscas": [],
+  "fontes_runtime": []
+}

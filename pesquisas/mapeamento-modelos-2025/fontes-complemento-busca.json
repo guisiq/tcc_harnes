@@ -1,0 +1,40 @@
+{
+  "data_limite": "2026-11-12",
+  "llama_cpp_revision": "827466b9efa0574806bad7732bcd78bfb6d9311d",
+  "vllm_revision": "b6f417fcd1c291b0cbb013579e7c697ace4e4e0a",
+  "modelos": [
+    "google/t5gemma-2-270m-270m"
+  ],
+  "buscas": [
+    {
+      "arquivo": "busca-redllm.json",
+      "url": "https://huggingface.co/api/models?search=RedLLM&limit=100&sort=likes&direction=-1"
+    },
+    {
+      "arquivo": "busca-redpajama-encoder.json",
+      "url": "https://huggingface.co/api/models?search=redpajama-encoder&limit=100&sort=likes&direction=-1"
+    }
+  ],
+  "fontes_runtime": [
+    {
+      "arquivo": "t5gemma2-card-publico.html",
+      "url": "https://huggingface.co/google/t5gemma-2-270m-270m"
+    },
+    {
+      "arquivo": "artigo-t5gemma2.html",
+      "url": "https://arxiv.org/html/2512.14856"
+    },
+    {
+      "arquivo": "artigo-redllm.html",
+      "url": "https://arxiv.org/html/2510.26622"
+    },
+    {
+      "arquivo": "llama-issue-t5gemma2.json",
+      "url": "https://api.github.com/repos/ggml-org/llama.cpp/issues/22670"
+    },
+    {
+      "arquivo": "llama-comentarios-t5gemma2.json",
+      "url": "https://api.github.com/repos/ggml-org/llama.cpp/issues/22670/comments?per_page=100"
+    }
+  ]
+}
