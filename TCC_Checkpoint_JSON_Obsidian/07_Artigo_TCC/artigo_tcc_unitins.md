@@ -58,7 +58,7 @@ c) analisar o perfil de erro dos escritores segundo o tipo de operação exigida
 
 O restante deste artigo está organizado da seguinte forma: a seção 2 apresenta a revisão bibliográfica sobre *harness*, memória persistente estruturada em agentes e os trabalhos relacionados; a seção 3 detalha os materiais e métodos do experimento; a seção 4 apresenta os resultados esperados, a arquitetura experimental proposta e o cronograma de execução; e a seção 5 apresenta as considerações finais.
 
-# 2 Revisão Bibliográfica
+# 2 Referencial Teórico
 
 A compreensão da escrita de memória exige situá-la na arquitetura mais ampla do *harness* e examinar decisões sobre a representação e a atualização do estado, a avaliação de sua fidelidade, a conformidade sintática e a escolha do modelo gerador. As subseções a seguir contextualizam esses aspectos e sintetizam os trabalhos mais próximos da presente proposta.
 
