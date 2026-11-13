@@ -1,0 +1,142 @@
+TY  - GEN
+TI  - MemLoRA: Distilling Expert Adapters for On-Device Memory Systems
+AU  - Bini, Massimo
+AU  - Bohdal, Ondrej
+AU  - Michieli, Umberto
+AU  - Akata, Zeynep
+AU  - Ozay, Mete
+AU  - Ceritli, Taha
+PY  - 2025
+DA  - 2025/12/04
+UR  - https://arxiv.org/abs/2512.04763v1
+AB  - Memory-augmented Large Language Models (LLMs) have demonstrated remarkable consistency during prolonged dialogues by storing relevant memories and incorporating them as context. Such memory-based personalization is also key in on-device settings that allow users to keep their conversations and data private. However, memory-augmented systems typically rely on LLMs that are too costly for local on-device deployment. Even though Small Language Models (SLMs) are more suitable for on-device inference than LLMs, they cannot achieve sufficient performance. Additionally, these LLM-based systems lack native visual capabilities, limiting their applicability in multimodal contexts. In this paper, we introduce (i) MemLoRA, a novel memory system that enables local deployment by equipping SLMs with specialized memory adapters, and (ii) its vision extension MemLoRA-V, which integrates small Vision-Language Models (SVLMs) to memory systems, enabling native visual understanding. Following knowledge distillation principles, each adapter is trained separately for specific memory operations$\unicode{x2013}$knowledge extraction, memory update, and memory-augmented generation. Equipped with memory adapters, small models enable accurate on-device memory operations without cloud dependency. On text-only operations, MemLoRA outperforms 10$\times$ larger baseline models (e.g., Gemma2-27B) and achieves performance comparable to 60$\times$ larger models (e.g., GPT-OSS-120B) on the LoCoMo benchmark. To evaluate visual understanding operations instead, we extend LoCoMo with challenging Visual Question Answering tasks that require direct visual reasoning. On this, our VLM-integrated MemLoRA-V shows massive improvements over caption-based approaches (81.3 vs. 23.7 accuracy) while keeping strong performance in text-based tasks, demonstrating the efficacy of our method in multimodal contexts.
+N1  - Correção de CONTEXT: o texto explicita entradas de memória e saída JSON com id, texto e evento ADD/UPDATE/DELETE; adaptadores de modelos compactos executam extração e atualização textual.
+ER  - 
+
+TY  - GEN
+TI  - The Bitter Lesson of Diffusion Language Models for Agentic Workflows: A Comprehensive Reality Check
+AU  - Lu, Qingyu
+AU  - Ding, Liang
+AU  - Zhang, Kanjian
+AU  - Zhang, Jinxia
+AU  - Tao, Dacheng
+PY  - 2026
+DA  - 2026/01/19
+UR  - https://arxiv.org/abs/2601.12979v3
+AB  - The pursuit of real-time agentic interaction has driven interest in Diffusion-based Large Language Models (dLLMs) as alternatives to auto-regressive backbones, promising to break the sequential latency bottleneck. However, does such efficiency gains translate into effective agentic behavior? In this work, we present a comprehensive evaluation of dLLMs (e.g., LLaDA, Dream) across two distinct agentic paradigms: Embodied Agents (requiring long-horizon planning) and Tool-Calling Agents (requiring precise formatting). Contrary to the efficiency hype, our results on Agentboard and BFCL reveal a "bitter lesson": current dLLMs fail to serve as reliable agentic backbones, frequently leading to systematically failure. (1) In Embodied settings, dLLMs suffer repeated attempts, failing to branch under temporal feedback. (2) In Tool-Calling settings, dLLMs fail to maintain symbolic precision (e.g. strict JSON schemas) under diffusion noise. To assess the potential of dLLMs in agentic workflows, we introduce DiffuAgent, a multi-agent evaluation framework that integrates dLLMs as plug-and-play cognitive cores. Our analysis shows that dLLMs are effective in non-causal roles (e.g., memory summarization and tool selection) but require the incorporation of causal, precise, and logically grounded reasoning mechanisms into the denoising process to be viable for agentic tasks.
+N1  - Comparador de paradigmas: DiffuAgent estuda difusão e autoregressão em agentes, inclusive sumarização de memória; não avalia escrita incremental de checkpoint JSON.
+ER  - 
+
+TY  - GEN
+TI  - AlpsBench: An LLM Personalization Benchmark for Real-Dialogue Memorization and Preference Alignment
+AU  - Xiao, Jianfei
+AU  - Yu, Xiang
+AU  - Wang, Chengbing
+AU  - Zheng, Wuqiang
+AU  - Lin, Xinyu
+AU  - Liu, Kaining
+AU  - Ding, Hongxun
+AU  - Zhang, Yang
+AU  - Wang, Wenjie
+AU  - Feng, Fuli
+AU  - He, Xiangnan
+PY  - 2026
+DA  - 2026/03/09
+UR  - https://arxiv.org/abs/2603.26680v2
+AB  - As Large Language Models (LLMs) evolve into lifelong AI assistants, LLM personalization has become a critical frontier. However, progress is currently bottlenecked by the absence of a gold-standard evaluation benchmark. Existing benchmarks either overlook personalized information management that is critical for personalization or rely heavily on synthetic dialogues, which exhibit an inherent distribution gap from real-world dialogue. To bridge this gap, we introduce AlpsBench, An LLM PerSonalization benchmark derived from real-world human-LLM dialogues. AlpsBench comprises 2,500 long-term interaction sequences curated from WildChat, paired with human-verified structured memories that encapsulate both explicit and implicit personalization signals. We define four pivotal tasks - personalized information extraction, updating, retrieval, and utilization - and establish protocols to evaluate the entire lifecycle of memory management. Our benchmarking of frontier LLMs and memory-centric systems reveals that: (i) models struggle to reliably extract latent user traits; (ii) memory updating faces a performance ceiling even in the strongest models; (iii) retrieval accuracy declines sharply in the presence of large distractor pools; and (iv) while explicit memory mechanisms improve recall, they do not inherently guarantee more preference-aligned or emotionally resonant responses. AlpsBench aims to provide a comprehensive framework.
+N1  - AlpsBench é um benchmark primário com memória estruturada e avaliação direta da memória após retenção, adição e modificação.
+ER  - 
+
+TY  - GEN
+TI  - MemReader: From Passive to Active Extraction for Long-Term Agent Memory
+AU  - Kang, Jingyi
+AU  - Li, Chunyu
+AU  - Chen, Ding
+AU  - Tang, Bo
+AU  - Xiong, Feiyu
+AU  - Li, Zhiyu
+PY  - 2026
+DA  - 2026/04/09
+UR  - https://arxiv.org/abs/2604.07877v2
+AB  - Long-term memory is fundamental for personalized and autonomous agents, yet populating it remains a bottleneck. Existing systems treat memory extraction as a one-shot, passive transcription from context to structured entries, which struggles with noisy dialogue, missing references, and cross-turn dependencies, leading to memory pollution, low-value writes, and inconsistency. In this paper, we introduce the MemReader family for active long-term memory extraction in agent systems: MemReader-0.6B, a compact and cost-efficient passive extractor distilled for accurate and schema-consistent structured outputs, and MemReader-4B, an active extractor optimized with Group Relative Policy Optimization (GRPO) to make memory writing decisions. Under a ReAct-style paradigm, MemReader-4B explicitly evaluates information value, reference ambiguity, and completeness before acting, and can selectively write memories, defer incomplete inputs, retrieve historical context, or discard irrelevant chatter. Experiments on LOCOMO, LongMemEval, and HaluMem show that MemReader consistently outperforms existing extraction-based baselines. In particular, MemReader-4B achieves state-of-the-art performance on tasks involving knowledge updating, temporal reasoning, and hallucination reduction. These results suggest that effective agent memory requires not merely extracting more information, but performing reasoning-driven and selective memory extraction to build low-noise and dynamically evolving long-term memory. Furthermore, MemReader has been integrated into MemOS and is being deployed in real-world applications. To support future research and adoption, we release the models and provide public API access.
+N1  - MemReader combina extração estruturada compacta com decisões de escrita ao longo de interações; o modelo ativo e o passivo têm funções diferentes.
+ER  - 
+
+TY  - GEN
+TI  - DimMem: Dimensional Structuring for Efficient Long-Term Agent Memory
+AU  - Qiu, Wentao
+AU  - Hu, Haotian
+AU  - Wang, Fanyi
+AU  - Kong, Jinwei
+AU  - Zhang, Yu
+PY  - 2026
+DA  - 2026/05/15
+UR  - https://arxiv.org/abs/2605.15759v3
+AB  - Large language model (LLM) agents require long-term memory to leverage information from past interactions. However, existing memory systems often face a fidelity--efficiency trade-off: raw dialogue histories are expensive, while flat facts or summaries may discard the structure needed for precise recall. We propose \textbf{DimMem}, a lightweight dimensional memory framework that represents each memory as an atomic, typed, and self-contained unit with explicit fields such as time, location, reason, purpose, and keywords. This representation exposes the structure needed for dimension-aware retrieval, memory update, and selective assistant-context recall without storing full histories in the model context. Across LoCoMo-10 and LongMemEval-S, DimMem achieves \textbf{81.43\%} and \textbf{78.20\%} overall accuracy, respectively, outperforming existing lightweight memory systems while reducing LoCoMo per-query token cost by \textbf{24\%}. We further show that dimensional memory extraction is learnable by compact models: after fine-tuning on the DimMem schema, a Qwen3-4B extractor surpasses LightMem with GPT-4.1-mini on both benchmarks and reaches performance comparable to, or better than, much larger extractors in key settings. These results suggest that explicit dimensional structuring is an effective and efficient foundation for long-term memory in LLM agents. Code is available at https://github.com/ChowRunFa/DimMem.
+N1  - DimMem organiza memórias em registros dimensionais atualizáveis e treina um extrator Qwen3-4B para esse esquema.
+ER  - 
+
+TY  - GEN
+TI  - CMI-Mem: Toward Generalizable Long-Term Memory Management via CMI-Augmented Reinforcement Learning
+AU  - Wang, Yubo
+AU  - Zhao, Qiuyu
+AU  - Sun, Zenghui
+AU  - Dong, Shichao
+AU  - Lan, Jinsong
+AU  - Zhu, Xiaoyong
+AU  - Li, Haoyang
+AU  - Zheng, Bo
+AU  - Chen, Lei
+PY  - 2026
+DA  - 2026/07/15
+UR  - https://arxiv.org/abs/2607.20553v2
+AB  - Memory Manager models are pivotal in agent systems. Existing reinforcement-learning methods commonly use LLM-judged synthetic question-answer (QA) pairs: this provides useful downstream task grounding, but values memory through a sampled query distribution and a fixed reader. We propose CMI-Mem, a lightweight RL memory manager with a hybrid reward. Its extrinsic QA term measures end-task correctness, while its intrinsic Conditional Mutual Information (CMI) term evaluates the information contributed by new conversational inputs relative to the current memory state without conditioning on a sampled QA query. The two signals are complementary: QA anchors task utility, whereas CMI provides per-operation supervision for relevant, non-redundant memory construction. Experiments demonstrate improved transfer across memory-use scenarios, together with more efficient training and inference from the per-operation CMI signal. Our codes are available at: https://github.com/Wyb0627/CMIMem , and the CMI-Mem-4B model checkpoint is available at: https://www.modelscope.cn/models/wyb0627/CMIMem-4B
+N1  - Correção de CONTEXT: o texto descreve memória em quatro tipos e operações de atualização; o gestor CMI-Mem-4B é treinado para construí-la.
+ER  - 
+
+TY  - GEN
+TI  - PGMem: Tightly Coupled Persona-Memory Graph for Lifelong Personalized Agents
+AU  - Choi, Wonjun
+AU  - Kim, Yerim
+AU  - Lee, Yukyung
+AU  - Yoon, Susik
+PY  - 2026
+DA  - 2026/08/03
+UR  - https://arxiv.org/abs/2608.01708v2
+AB  - Long-term personalized dialogue agents must track user preferences as their personas evolve. Existing memory systems organize past events well, but store personas as flat profiles detached from the events that justify them. This loose coupling leads to the memory-persona validity gap and the persona-aware retrieval gap. We propose PGMem, a heterogeneous persona-memory graph that connects event and persona nodes through typed provenance and evidence edges, keeping each persona signal traceable to the events that support or revise it. At retrieval time, PGMem expands from query-relevant seeds and ranks signals by evidential validity. Across three benchmarks with small language model backbones, PGMem consistently outperforms summary-based, persona-aware, graph-structured, and agentic memory baselines, and improves performance as the context grows. The source code of PGMem is available at https://github.com/wonjunchoi23/pgmem/
+N1  - Correção de CONTEXT: o texto descreve construção incremental do grafo com modelo compacto e validação humana dos rótulos de arestas.
+ER  - 
+
+TY  - GEN
+TI  - Making Prospective Memory SLM-Shaped: Typed Intention Stores for Small-Model Agents
+AU  - Zhao, Jinqing
+AU  - Wu, Chengcan
+PY  - 2026
+DA  - 2026/09/01
+UR  - https://arxiv.org/abs/2609.01272v1
+AB  - Prospective memory means carrying out a deferred intention at the right future cue while other work continues. Benchmarks now isolate it as an agent skill, yet frontier LLMs still struggle: the best published PM-Bench scaffold reaches only 65.1% Set-F1. We argue that this loop is schema-constrained state tracking rather than open-ended reasoning, and that small models can execute it when the action space is typed. We propose the Prospective Intention Store (PIS) that puts lifecycle logic in code and scoped language work on the model. The scaffold is agentic and training-free: no selector fine-tuning and no trajectory distillation. On PM-Bench, DeepSeek-Chat with PIS reaches 82.9% Set-F1. On Gemma-E2B, Set-F1 is only 4.2% without a store and at most 6.6% under seven retrospective memories, while PIS reaches 66.2%. PIS further reaches 70.1% Set-F1, where retrospective memory methods stay at most 54.4%. PIS sets a new state of the art on this benchmark and enables small models to surpass the published large-model scaffold.
+N1  - PIS mantém intenções tipadas em interações sucessivas, testa um modelo Qwen3.5-4B e avalia o conjunto de intenções devidas; a lógica de ciclo de vida é feita em código.
+ER  - 
+
+TY  - GEN
+TI  - AMU:Admission and Memory Update for Personalized Conversations---Structured Memory with SLM Guided Control
+AU  - Hwang, Tao
+AU  - Diao, Yishi
+PY  - 2026
+DA  - 2026/09/29
+UR  - https://arxiv.org/abs/2609.36976v2
+AB  - Large language models (LLMs) have become the foundation of personalized assistants, but maintaining persistent user memory across long-term interactions remains challenging. Existing memory systems often focus on storage, retrieval, or consolidation, while memory writing remains less controlled: transient requests, duplicate statements, and outdated user states may enter memory and later be retrieved for personalization. In this paper, we present AMU: Admission and Memory Update for Personalized Conversations, an SLM-guided (Small language model guided) structured framework for writing-time memory control. AMU uses structured memory filtering to decide what should enter memory and SLM-guided storage management to determine whether an admitted record should be stored separately, discarded as a duplicate, or fused as an update. We evaluate AMU in a controlled memory writing and retrieval setting. Experimental results show that AMU maintains cleaner and more retrievable personalized memories.
+N1  - AMU usa SLM compacto na decisão de admissão e atualização de memórias estruturadas; Qwen3.5-2B é o gestor, enquanto 0.6B é o modelo de embeddings.
+ER  - 
+
+TY  - GEN
+TI  - DiffuPlan: Editable Planning State for Diffusion Language Model Agents
+AU  - Zhou, Qisheng
+AU  - Xiong, Zhen
+AU  - Tan, Qiaoyu
+PY  - 2026
+DA  - 2026/10/17
+UR  - https://arxiv.org/abs/2610.24717v1
+AB  - Diffusion language models (dLLMs) are emerging as an alternative to autoregressive (AR) language models, yet dLLM agents largely inherit an interaction protocol designed for AR generation: once intermediate state is written, later observations can only be incorporated by appending more text. This is a poor match to a defining capability of dLLMs -- reconstructing earlier text conditioned on context that appears both before and after it. We ask whether this capability can support a different agent-state paradigm in which intermediate planning state is directly revisable as evidence arrives. We introduce DiffuPlan, a diffusion search agent that maintains a single editable planning state and reconstructs only the affected steps when later evidence resolves an entity or changes the search route. To support variable-length revisions, we introduce Expansion-Partition Marginalization (EPM), which marginalizes over equivalent expansion paths. We further adapt diffusion trajectory RL to multi-turn search. Across four multi-hop QA benchmarks, DiffuPlan achieves 50.24 average F1, outperforming strong AR search agents. More importantly, under identical data and training, editable planning state improves the diffusion agent by 2.44 F1 versus only 0.47 for its AR source model. These results show that dLLMs need not imitate append-only AR agents: revising committed state is a distinct agentic advantage.
+N1  - Comparador de paradigmas: DiffuPlan revisa plano textual editável e compara difusão com modelo autoregressivo; o estado não é um checkpoint GU-JSON.
+ER  - 

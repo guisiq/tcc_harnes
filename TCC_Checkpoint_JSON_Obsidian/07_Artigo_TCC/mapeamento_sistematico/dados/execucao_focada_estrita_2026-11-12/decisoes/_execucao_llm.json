@@ -1,0 +1,8 @@
+{
+  "data_utc": "2026-11-12T20:30:34.8425502Z",
+  "modelo": "claude-haiku-5.5",
+  "sdk": "GitHub.Copilot.SDK 1.0.31",
+  "roteiro_sha256": "4b509d9c764e1f7122bef8df9ce2534f1614b099640d9eb590c8b826dcd6d53b",
+  "registros_por_requisicao": 10,
+  "limite_creditos": 160
+}

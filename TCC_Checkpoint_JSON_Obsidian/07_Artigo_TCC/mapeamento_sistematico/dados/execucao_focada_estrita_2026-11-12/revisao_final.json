@@ -1,0 +1,188 @@
+[
+  {
+    "key": "arxiv:2510.04568",
+    "incluir": false,
+    "motivo": "COSMIR atualiza memória estruturada, mas o resumo relata desempenho em QA; não identifica escritor de até 4B, avaliação direta da fidelidade do estado nem comparação de paradigmas.",
+    "verificacao": "R"
+  },
+  {
+    "key": "arxiv:2512.21280",
+    "incluir": false,
+    "motivo": "SMART SLM extrai e indexa fatos de documentos, mas o resumo não demonstra atualização incremental de um estado persistente entre entradas.",
+    "verificacao": "R"
+  },
+  {
+    "key": "arxiv:2602.18493",
+    "incluir": false,
+    "motivo": "UMA mantém um banco estruturado por CRUD, mas a avaliação descrita mede respostas em QA; o rastreamento em Ledger-QA não é uma comparação direta do conteúdo da memória atualizada.",
+    "verificacao": "T",
+    "fonte": "https://arxiv.org/html/2602.18493v2"
+  },
+  {
+    "key": "arxiv:2603.26680",
+    "incluir": true,
+    "tipo": "NUCLEO",
+    "motivo": "AlpsBench é um benchmark primário com memória estruturada e avaliação direta da memória após retenção, adição e modificação.",
+    "representacao": "Registros de preferências com identificador, tipo, categoria, valor e confiança",
+    "atualizacao": "Retenção, adição e modificação a partir de novos diálogos",
+    "modelos": "LLMs e sistemas de memória, incluindo DeepSeek-v3.2 e Qwen3-max; não foca escritores de até 4B",
+    "avaliacao": "F1 por correspondência semântica entre memória atualizada e referência humana; também recuperação e uso",
+    "paradigmas": "Não identificado",
+    "verificacao": "T",
+    "fonte": "https://arxiv.org/html/2603.26680v2"
+  },
+  {
+    "key": "arxiv:2604.07877",
+    "incluir": true,
+    "tipo": "NUCLEO",
+    "motivo": "MemReader combina extração estruturada compacta com decisões de escrita ao longo de interações; o modelo ativo e o passivo têm funções diferentes.",
+    "representacao": "Entradas estruturadas de memória extraídas de conversas",
+    "atualizacao": "Extração passiva ou escrita seletiva com recuperação, adiamento e descarte",
+    "modelos": "MemReader-0.6B para extração passiva; MemReader-4B para gestão ativa",
+    "avaliacao": "QA e gestão de memória em LoCoMo, LongMemEval e HaluMem; atualização de conhecimento e alucinação",
+    "paradigmas": "Não identificado",
+    "verificacao": "T",
+    "fonte": "https://arxiv.org/html/2604.07877v2"
+  },
+  {
+    "key": "arxiv:2605.15343",
+    "incluir": false,
+    "motivo": "O foco de Belief Engine é a dinâmica de opiniões em deliberação; a atualização numérica de crença é feita por regra log-odds, não pela escrita de um estado textual como no recorte.",
+    "verificacao": "R"
+  },
+  {
+    "key": "arxiv:2605.15759",
+    "incluir": true,
+    "tipo": "NUCLEO",
+    "motivo": "DimMem organiza memórias em registros dimensionais atualizáveis e treina um extrator Qwen3-4B para esse esquema.",
+    "representacao": "Registros atômicos tipados com tempo, local, motivo, finalidade e palavras-chave",
+    "atualizacao": "Identificação e atualização de memórias por dimensões e ordem temporal",
+    "modelos": "Extrator Qwen3-4B ajustado ao esquema; outros extratores de maior porte",
+    "avaliacao": "Acurácia de QA em LoCoMo e LongMemEval e eficiência de recuperação/atualização",
+    "paradigmas": "Não identificado",
+    "verificacao": "T",
+    "fonte": "https://arxiv.org/html/2605.15759v3"
+  },
+  {
+    "key": "arxiv:2605.20616",
+    "incluir": false,
+    "motivo": "Auto-Dreamer consolida uma memória tipada entre sessões, mas o resumo não evidencia escritor de até 4B nem avaliação direta da fidelidade do estado; compara métodos de consolidação, não paradigmas gerativos.",
+    "verificacao": "R"
+  },
+  {
+    "key": "arxiv:2606.12154",
+    "incluir": false,
+    "motivo": "O armazenamento é construído offline a partir de documentos; o modelo de 1B é usado no atendimento, e o resumo não demonstra atualização incremental de estado por escritor compacto.",
+    "verificacao": "R"
+  },
+  {
+    "key": "arxiv:2608.18952",
+    "incluir": false,
+    "motivo": "rEDMRec usa operações em canais tipados, mas o estudante leve é o recomendador, não necessariamente o escritor; duplicação do banco e qualidade da recomendação não estabelecem fidelidade semântica do estado.",
+    "verificacao": "R"
+  },
+  {
+    "key": "arxiv:2609.01272",
+    "incluir": true,
+    "tipo": "NUCLEO",
+    "motivo": "PIS mantém intenções tipadas em interações sucessivas, testa um modelo Qwen3.5-4B e avalia o conjunto de intenções devidas; a lógica de ciclo de vida é feita em código.",
+    "representacao": "Registro tipado de intenções prospectivas",
+    "atualizacao": "Código controla ciclo de vida, reagendamento e cancelamento; o modelo participa da seleção",
+    "modelos": "Gemma-E2B e Qwen3.5-4B, além de DeepSeek-Chat e Qwen3-8B",
+    "avaliacao": "Set-F1 de intenções devidas e erros de atualização no PM-Bench, não fidelidade do registro completo",
+    "paradigmas": "Não identificado",
+    "verificacao": "T",
+    "fonte": "https://arxiv.org/pdf/2609.01272v1"
+  },
+  {
+    "key": "arxiv:2609.10540",
+    "incluir": false,
+    "motivo": "Programmable World Model avalia estado persistente de entidades, mas o objeto principal é a geração de vídeo e estados do mundo visual, excluídos pelo recorte E4.",
+    "verificacao": "R"
+  },
+  {
+    "key": "arxiv:2609.36976",
+    "incluir": true,
+    "tipo": "NUCLEO",
+    "motivo": "AMU usa SLM compacto na decisão de admissão e atualização de memórias estruturadas; Qwen3.5-2B é o gestor, enquanto 0.6B é o modelo de embeddings.",
+    "representacao": "Registros estruturados de memória pessoal",
+    "atualizacao": "Filtragem de admissão; mantém, descarta duplicatas ou funde atualizações",
+    "modelos": "Qwen3.5-2B para gestão; Qwen3-Embedding-0.6B para recuperação",
+    "avaliacao": "Correção das ações de escrita, redundância e recuperação; avaliação adicional de respostas",
+    "paradigmas": "Não identificado",
+    "verificacao": "T",
+    "fonte": "https://arxiv.org/html/2609.36976v2"
+  },
+  {
+    "key": "arxiv:2512.04763",
+    "incluir": true,
+    "tipo": "NUCLEO",
+    "motivo": "Correção de CONTEXT: o texto explicita entradas de memória e saída JSON com id, texto e evento ADD/UPDATE/DELETE; adaptadores de modelos compactos executam extração e atualização textual.",
+    "representacao": "Fatos textuais; operações em JSON com id, texto e evento, não reescrita integral GU-JSON",
+    "atualizacao": "Adaptadores especializados decidem adição, atualização e exclusão de entradas Mem0",
+    "modelos": "Qwen2.5-1.5B e Gemma2-2B, com adaptadores LoRA destilados",
+    "avaliacao": "QA conversacional no LoCoMo, latência e eficiência; extensão visual separada",
+    "paradigmas": "Não identificado",
+    "verificacao": "T",
+    "fonte": "https://arxiv.org/html/2512.04763v1"
+  },
+  {
+    "key": "arxiv:2607.20553",
+    "incluir": true,
+    "tipo": "NUCLEO",
+    "motivo": "Correção de CONTEXT: o texto descreve memória em quatro tipos e operações de atualização; o gestor CMI-Mem-4B é treinado para construí-la.",
+    "representacao": "Estado dividido em memória central, episódica, semântica e procedural",
+    "atualizacao": "Agentes por tipo aplicam operações como adicionar, substituir, fundir e atualizar",
+    "modelos": "Gestor CMI-Mem-4B baseado em Qwen3-4B; também versão 8B",
+    "avaliacao": "QA e generalização; recompensa de informação por operação, não uma medida direta de fidelidade do estado",
+    "paradigmas": "Não identificado",
+    "verificacao": "T",
+    "fonte": "https://arxiv.org/html/2607.20553v2"
+  },
+  {
+    "key": "arxiv:2608.01708",
+    "incluir": true,
+    "tipo": "NUCLEO",
+    "motivo": "Correção de CONTEXT: o texto descreve construção incremental do grafo com modelo compacto e validação humana dos rótulos de arestas.",
+    "representacao": "Grafo de eventos e persona com nós e arestas de evidência tipados",
+    "atualizacao": "Acrescenta nós e liga evidências de apoio, contradição e mudança entre turnos",
+    "modelos": "Qwen3-1.7B e Gemma-3-1B nos experimentos",
+    "avaliacao": "QA e validação humana de 25 arestas por tipo; acerto de 36% em contradição e 52% em mudança",
+    "paradigmas": "Não identificado",
+    "verificacao": "T",
+    "fonte": "https://arxiv.org/html/2608.01708v2"
+  },
+  {
+    "key": "arxiv:2606.13115",
+    "incluir": false,
+    "motivo": "G-Long extrai triplas para grafo incremental, mas os extratores examinados são Qwen3-8B e Llama3.1-8B; a avaliação relatada é sobretudo de resposta e recuperação.",
+    "verificacao": "T",
+    "fonte": "https://arxiv.org/html/2606.13115v1"
+  },
+  {
+    "key": "arxiv:2601.12979",
+    "incluir": true,
+    "tipo": "COMPARADOR",
+    "motivo": "Comparador de paradigmas: DiffuAgent estuda difusão e autoregressão em agentes, inclusive sumarização de memória; não avalia escrita incremental de checkpoint JSON.",
+    "representacao": "Resumos textuais de memória; chamadas de ferramentas em JSON são outra tarefa",
+    "atualizacao": "Sumarização do histórico do agente, sem checkpoint GU-JSON",
+    "modelos": "LLaDA-8B e Dream-7B versus Qwen-8B e Ministral-8B, entre outros",
+    "avaliacao": "Desempenho de agentes e chamadas de ferramentas; sumarização e formato JSON em experimentos distintos",
+    "paradigmas": "Sim, difusão versus autoregressão em tarefas agênticas",
+    "verificacao": "T",
+    "fonte": "https://arxiv.org/html/2601.12979v3"
+  },
+  {
+    "key": "arxiv:2610.24717",
+    "incluir": true,
+    "tipo": "COMPARADOR",
+    "motivo": "Comparador de paradigmas: DiffuPlan revisa plano textual editável e compara difusão com modelo autoregressivo; o estado não é um checkpoint GU-JSON.",
+    "representacao": "Plano intermediário textual editável",
+    "atualizacao": "Reconstrói passos afetados quando chegam novas evidências",
+    "modelos": "LLaDA2.0-mini e seu modelo de origem autoregressivo Ling-mini-2.0",
+    "avaliacao": "F1 de respostas em busca multi-hop e custo de geração, não fidelidade de checkpoint",
+    "paradigmas": "Sim, estado editável versus append-only em difusão e autoregressão",
+    "verificacao": "T",
+    "fonte": "https://arxiv.org/html/2610.24717v1"
+  }
+]

@@ -1,0 +1,44 @@
+{
+  "versao": "3-focada",
+  "data_execucao": "2026-11-12",
+  "inicio": "2025-07-01",
+  "fim": "2026-11-12",
+  "fonte": "arXiv API",
+  "pagina": 200,
+  "intervalo_segundos": 3.2,
+  "consultas": [
+    {
+      "id": "F1",
+      "objetivo": "Memória estruturada ou entidades com atualização incremental",
+      "expressao": "(ti:\"entity summarization\" OR abs:\"entity summarization\" OR ti:\"entity state\" OR abs:\"entity state\" OR ti:\"structured memory\" OR abs:\"structured memory\" OR ti:\"JSON memory\" OR abs:\"JSON memory\") AND (ti:incremental OR abs:incremental OR ti:update OR abs:update OR ti:updating OR abs:updating OR ti:revision OR abs:revision) AND (ti:\"language model\" OR abs:\"language model\" OR ti:agent OR abs:agent)"
+    },
+    {
+      "id": "F2",
+      "objetivo": "Modelos compactos que escrevem ou gerem memória",
+      "expressao": "(ti:\"small language model\" OR abs:\"small language model\" OR ti:\"compact language model\" OR abs:\"compact language model\" OR ti:SLM OR abs:SLM OR ti:compact OR abs:compact OR ti:\"0.6B\" OR abs:\"0.6B\" OR ti:\"4B\" OR abs:\"4B\") AND (ti:\"memory update\" OR abs:\"memory update\" OR ti:\"memory writing\" OR abs:\"memory writing\" OR ti:\"memory management\" OR abs:\"memory management\" OR ti:\"structured memory\" OR abs:\"structured memory\" OR ti:\"memory extraction\" OR abs:\"memory extraction\")"
+    },
+    {
+      "id": "F3",
+      "objetivo": "Difusão em memória ou estado editável de agentes",
+      "expressao": "(ti:\"diffusion language model\" OR abs:\"diffusion language model\" OR ti:\"block diffusion\" OR abs:\"block diffusion\" OR ti:dLLM OR abs:dLLM) AND (ti:memory OR abs:memory OR ti:state OR abs:state) AND (ti:agent OR abs:agent OR ti:edit OR abs:edit OR ti:update OR abs:update OR ti:incremental OR abs:incremental)"
+    },
+    {
+      "id": "F4",
+      "objetivo": "JSON estruturado relacionado a memória, estado ou entidades em modelos compactos ou de difusão",
+      "expressao": "(ti:JSON OR abs:JSON OR ti:\"structured output\" OR abs:\"structured output\") AND (ti:SLM OR abs:SLM OR ti:\"small language model\" OR abs:\"small language model\" OR ti:\"diffusion language model\" OR abs:\"diffusion language model\") AND (ti:memory OR abs:memory OR ti:state OR abs:state OR ti:entity OR abs:entity)"
+    },
+    {
+      "id": "F5",
+      "objetivo": "Referências explícitas ao método GU-JSON ou ao benchmark SUMIE",
+      "expressao": "(ti:\"GU-JSON\" OR abs:\"GU-JSON\" OR ti:SUMIE OR abs:SUMIE)"
+    }
+  ],
+  "controles": [
+    { "nome": "Intrinsic Memory Agents", "id_arxiv": "2508.08997" },
+    { "nome": "The Bitter Lesson of Diffusion Language Models for Agentic Workflows", "id_arxiv": "2601.12979" },
+    { "nome": "AMU", "id_arxiv": "2609.36976" },
+    { "nome": "MemReader", "id_arxiv": "2604.07877" },
+    { "nome": "Supersede", "id_arxiv": "2606.27472" },
+    { "nome": "DiffuPlan", "id_arxiv": "2610.24717" }
+  ]
+}

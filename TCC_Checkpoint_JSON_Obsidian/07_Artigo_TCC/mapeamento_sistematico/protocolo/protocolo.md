@@ -47,9 +47,12 @@ IC4 geração estruturada por compactos ou difusão. Exclusão: E1–E9 (ver rot
 ## 5. Triagem por LLM e custo
 
 - Lotes embaralhados por SHA-256 com sementes fixas; QGS distribuído sem marcação (controles ocultos).
-- 20 registros por requisição, sessão nova sem ferramentas, saída validada por esquema JSON.
-- Política de custo: somente modelos de menor preço por token; teto rígido de **1.000 créditos** acumulado em
-  `custo_llm.jsonl` e repassado ao servidor (`SessionLimits.MaxAiCredits`).
+- 20 registros por bloco por padrão; uma sessão sem ferramentas por bloco, reutilizada por até três tentativas
+  para completar as decisões. A saída é validada por esquema JSON; pendências fazem o comando retornar erro.
+- Política de custo: somente modelos de menor preço por token; o teto de **1.000 créditos por pasta** acumula
+  retomadas em `custo_llm.jsonl`. O script reserva pelo menos 30 créditos por sessão e repassa essa reserva ao
+  servidor (`SessionLimits.MaxAiCredits`). Para várias pastas, somar os gastos e reduzir os limites das novas
+  execuções para respeitar o teto global escolhido.
 
 ## 6. Extração e relatório
 

@@ -1,0 +1,250 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/47O8+A3EwPixlwDISykt4kwBCKA</id>
+  <title>arXiv Query: search_query=( (ti:JSON OR abs:JSON OR ti:"structured output" OR abs:"structured output") AND (ti:SLM OR abs:SLM OR ti:"small language model" OR abs:"small language model" OR ti:"diffusion language model" OR abs:"diffusion language model") AND (ti:memory OR abs:memory OR ti:state OR abs:state OR ti:entity OR abs:entity) ) AND submittedDate:"202507010000 TO 202611122359"&amp;id_list=&amp;start=0&amp;max_results=200</title>
+  <updated>2026-11-12T20:02:09Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=((ti:JSON+OR+(abs:JSON+OR+(ti:%22structured+output%22+OR+abs:%22structured+output%22)))+AND+((ti:SLM+OR+(abs:SLM+OR+(ti:%22small+language+model%22+OR+(abs:%22small+language+model%22+OR+(ti:%22diffusion+language+model%22+OR+abs:%22diffusion+language+model%22)))))+AND+(ti:memory+OR+(abs:memory+OR+(ti:state+OR+(abs:state+OR+(ti:entity+OR+abs:entity)))))))+AND+submittedDate:%22202507010000+TO+202611122359%22&amp;start=0&amp;max_results=200&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>200</opensearch:itemsPerPage>
+  <opensearch:totalResults>10</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2510.09211v2</id>
+    <title>DICE: Structured Reasoning in LLMs through SLM-Guided Chain-of-Thought Correction</title>
+    <updated>2025-10-20T08:57:20Z</updated>
+    <link href="https://arxiv.org/abs/2510.09211v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2510.09211v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>When performing reasoning tasks with user-specific requirements, such as strict output formats, large language models (LLMs) often prioritize reasoning over adherence to detailed instructions. Fine-tuning LLMs on supervised datasets to address this is impractical due to high computational costs and limited parameter access. To tackle this, we propose DICE, a lightweight framework that guides small language models (SLMs) to refine LLMs' outputs through chain-of-thought (CoT) correction. DICE decouples the process by first prompting LLMs to generate natural language responses, then using trained SLMs to analyze and refine these outputs to meet structured output specifications. This framework preserves LLMs' broad knowledge and reasoning capabilities while ensuring the outputs conform to user demands. Specifically, DICE first constructs structured CoT adaptation datasets via a two-stage method and subsequently applies a dual-tuning strategy to fine-tune SLMs for generating structured outputs in an analyze-then-answer pattern. Experiments demonstrate that DICE improves the average format accuracy and content correctness of LLM outputs by 35.4\% and 29.4\%, respectively, achieving state-of-the-art (SOTA) performance over other competitive baselines.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-10-10T09:45:35Z</published>
+    <arxiv:comment>This paper was accepted to the EMNLP 2025 main conference</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Yiqi Li</name>
+    </author>
+    <author>
+      <name>Yusheng Liao</name>
+    </author>
+    <author>
+      <name>Zhe Chen</name>
+    </author>
+    <author>
+      <name>Yanfeng Wang</name>
+    </author>
+    <author>
+      <name>Yu Wang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2601.07152v1</id>
+    <title>Agents of Diffusion: Enhancing Diffusion Language Models with Multi-Agent Reinforcement Learning for Structured Data Generation (Extended Version)</title>
+    <updated>2026-01-12T02:49:09Z</updated>
+    <link href="https://arxiv.org/abs/2601.07152v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2601.07152v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Generating high-quality structured data such as JSON records, remains a fundamental challenge for large language models (LLMs), particularly when semantic richness must coexist with strict schema adherence. While autoregressive LLMs offer strong structural consistency, they often struggle with semantic variation and output diversity. In contrast, diffusion language models (DLMs) introduce powerful mechanisms for semantic richness and bidirectional decoding, yet lack the inductive biases needed for reliable structure preservation. We present Agents of Diffusion (AoD), a novel framework that unifies the generative flexibility of DLMs with the reasoning capabilities of autoregressive models through language-mediated reinforcement learning. AoD frames structured text generation as a multi-agent alignment process, where a prompt optimization agent collaborates with a judge agent to iteratively guide a DLM using natural language feedback. This approach enables controllable, schema-consistent generation without modifying model parameters or relying on handcrafted constraints. AoD advances the state of controllable generation by demonstrating that diffusion models, when supervised by cooperative agents, can achieve both high semantic novelty and structural fidelity. Across multiple structured data benchmarks, AoD consistently outperforms diffusion and autoregressive baselines, establishing a new path forward for structure-aware, diversity-enhanced text synthesis.</summary>
+    <category term="cs.MA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-01-12T02:49:09Z</published>
+    <arxiv:primary_category term="cs.MA"/>
+    <arxiv:journal_ref>Proc. of the 25th International Conference on Autonomous Agents and Multiagent Systems (AAMAS 2026)</arxiv:journal_ref>
+    <author>
+      <name>Aja Khanal</name>
+    </author>
+    <author>
+      <name>Kaushik T. Ranade</name>
+    </author>
+    <author>
+      <name>Rishabh Agrawal</name>
+    </author>
+    <author>
+      <name>Kalyan S. Basu</name>
+    </author>
+    <author>
+      <name>Apurva Narayan</name>
+    </author>
+    <arxiv:doi>10.65109/GGJL7344</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.65109/GGJL7344" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2601.12979v3</id>
+    <title>The Bitter Lesson of Diffusion Language Models for Agentic Workflows: A Comprehensive Reality Check</title>
+    <updated>2026-04-24T07:46:42Z</updated>
+    <link href="https://arxiv.org/abs/2601.12979v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2601.12979v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The pursuit of real-time agentic interaction has driven interest in Diffusion-based Large Language Models (dLLMs) as alternatives to auto-regressive backbones, promising to break the sequential latency bottleneck. However, does such efficiency gains translate into effective agentic behavior? In this work, we present a comprehensive evaluation of dLLMs (e.g., LLaDA, Dream) across two distinct agentic paradigms: Embodied Agents (requiring long-horizon planning) and Tool-Calling Agents (requiring precise formatting). Contrary to the efficiency hype, our results on Agentboard and BFCL reveal a "bitter lesson": current dLLMs fail to serve as reliable agentic backbones, frequently leading to systematically failure. (1) In Embodied settings, dLLMs suffer repeated attempts, failing to branch under temporal feedback. (2) In Tool-Calling settings, dLLMs fail to maintain symbolic precision (e.g. strict JSON schemas) under diffusion noise. To assess the potential of dLLMs in agentic workflows, we introduce DiffuAgent, a multi-agent evaluation framework that integrates dLLMs as plug-and-play cognitive cores. Our analysis shows that dLLMs are effective in non-causal roles (e.g., memory summarization and tool selection) but require the incorporation of causal, precise, and logically grounded reasoning mechanisms into the denoising process to be viable for agentic tasks.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-01-19T11:45:39Z</published>
+    <arxiv:comment>ACL 2026 - Main Conference</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Qingyu Lu</name>
+    </author>
+    <author>
+      <name>Liang Ding</name>
+    </author>
+    <author>
+      <name>Kanjian Zhang</name>
+    </author>
+    <author>
+      <name>Jinxia Zhang</name>
+    </author>
+    <author>
+      <name>Dacheng Tao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2602.12468v2</id>
+    <title>Continuous Diffusion Models Can Obey Formal Syntax</title>
+    <updated>2026-05-27T11:13:24Z</updated>
+    <link href="https://arxiv.org/abs/2602.12468v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2602.12468v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion language models offer a promising alternative to autoregressive models due to their global, non-causal generation process, but their continuous latent dynamics make discrete constraints -- e.g., the output should be a JSON file that matches a given schema -- difficult to impose. We introduce a training-free guidance method for steering continuous diffusion language models to satisfy formal syntactic constraints expressed using regular expressions. Our approach constructs an analytic score estimating the probability that a latent state decodes to a valid string accepted by a given regular expression, and uses its gradient to guide sampling, without training auxiliary classifiers. The denoising process targets the base model conditioned on syntactic validity. We implement our method in Diffinity on top of the PLAID diffusion model and evaluate it on 180 regular-expression constraints over JSON and natural-language benchmarks. Diffinity achieves 68-96\% constraint satisfaction while incurring only a small perplexity cost relative to unconstrained sampling, outperforming autoregressive constrained decoding in both constraint satisfaction and output quality. Diffinity is open-sourced at github.com/large-loris-models/Diffinity.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.FL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-02-12T22:55:05Z</published>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Jinwoo Kim</name>
+    </author>
+    <author>
+      <name>Taylor Berg-Kirkpatrick</name>
+    </author>
+    <author>
+      <name>Loris D'Antoni</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2603.29232v1</id>
+    <title>Long-Document QA with Chain-of-Structured-Thought and Fine-Tuned SLMs</title>
+    <updated>2026-03-31T04:03:07Z</updated>
+    <link href="https://arxiv.org/abs/2603.29232v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2603.29232v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Large language models (LLMs) are widely applied to data analytics over documents, yet direct reasoning over long, noisy documents remains brittle and error-prone. Hence, we study document question answering (QA) that consolidates dispersed evidence into a structured output (e.g., a table, graph, or chunks) to support reliable, verifiable QA. We propose a two-pillar framework, LiteCoST, to achieve both high accuracy and low latency with small language models (SLMs). Pillar 1: Chain-of-Structured-Thought (CoST). We introduce a CoST template, a schema-aware instruction that guides a strong LLM to produce both a step-wise CoST trace and the corresponding structured output. The process induces a minimal structure, normalizes entities/units, aligns records, serializes the output, and verifies/refines it, yielding auditable supervision. Pillar 2: SLM fine-tuning. The compact models are trained on LLM-generated CoST data in two stages: Supervised Fine-Tuning for structural alignment, followed by Group Relative Policy Optimization (GRPO) incorporating triple rewards for answer/format quality and process consistency. By distilling structure-first behavior into SLMs, this approach achieves LLM-comparable quality on multi-domain long-document QA using 3B/7B SLMs, while delivering 2-4x lower latency than GPT-4o and DeepSeek-R1 (671B). The code is available at https://github.com/HKUSTDial/LiteCoST.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-03-31T04:03:07Z</published>
+    <arxiv:comment>26 pages, 17 figures, 10 tables. Accepted at ICLR 2026</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Zhuowen Liang</name>
+    </author>
+    <author>
+      <name>Xiaotian Lin</name>
+    </author>
+    <author>
+      <name>Zhengxuan Zhang</name>
+    </author>
+    <author>
+      <name>Yuyu Luo</name>
+    </author>
+    <author>
+      <name>Haixun Wang</name>
+    </author>
+    <author>
+      <name>Nan Tang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.10212v1</id>
+    <title>Relational Probing: LM-to-Graph Adaptation for Financial Prediction</title>
+    <updated>2026-04-11T13:43:56Z</updated>
+    <link href="https://arxiv.org/abs/2604.10212v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2604.10212v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Language models can be used to identify relationships between financial entities in text. However, while structured output mechanisms exist, prompting-based pipelines still incur autoregressive decoding costs and decouple graph construction from downstream optimization. We propose \emph{Relational Probing}, which replaces the standard language-model head with a relation head that induces a relational graph directly from language-model hidden states and is trained jointly with the downstream task model for stock-trend prediction. This approach both learns semantic representations and preserves the strict structure of the induced relational graph. It enables language-model outputs to go beyond text, allowing them to be reshaped into task-specific formats for downstream models. To enhance reproducibility, we provide an operational definition of small language models (SLMs): models that can be fine-tuned end-to-end on a single 24GB GPU under specified batch-size and sequence-length settings. Experiments use Qwen3 backbones (0.6B/1.7B/4B) as upstream SLMs and compare against a co-occurrence baseline. Relational Probing yields consistent performance improvements at competitive inference cost.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-04-11T13:43:56Z</published>
+    <arxiv:comment>Accpeted by The 2nd Workskop on Advances in Financial AI Workshop: Towards Agentic and Responsible Systems at ICLR 2026</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Yingjie Niu</name>
+    </author>
+    <author>
+      <name>Changhong Jin</name>
+    </author>
+    <author>
+      <name>Rian Dolphin</name>
+    </author>
+    <author>
+      <name>Ruihai Dong</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.14314v1</id>
+    <title>DharmaOCR: Specialized Small Language Models for Structured OCR that outperform Open-Source and Commercial Baselines</title>
+    <updated>2026-04-15T18:17:11Z</updated>
+    <link href="https://arxiv.org/abs/2604.14314v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2604.14314v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This manuscript introduces DharmaOCR Full and Lite, a pair of specialized small language models (SSLMs) for structured OCR that jointly optimize transcription quality, generation stability, and inference cost. It also presents DharmaOCR-Benchmark, a benchmark that covers printed, handwritten, and legal/administrative documents, and proposes a unified evaluation protocol that measures fidelity and structure while explicitly tracking text degeneration as a first-class benchmark metric (alongside unit cost). Beyond reporting degeneration rates, the manuscript empirically shows degeneration is not merely a quality failure, since it materially worsens production performance by increasing response time, reducing throughput, and inflating computational cost due to abnormally long generations. To the best of the author's knowledge, as a methodological contribution, this is the first application of Direct Preference Optimization (DPO) for OCR, explicitly using degenerate generations as rejected examples to penalize looping behavior. Combined with Supervised Fine-Tuning (SFT) for enforcing a strict JSON schema (header, margin, footer, and text), DPO consistently reduces degeneration rate across model families (up to 87.6% relative) while preserving or improving extraction quality. The resulting models, namely, DharmaOCR Full (7B) and DharmaOCR Lite (3B), set a new state-of-the-art on DharmaOCR-Benchmark, outperforming each open-source and commercial baseline model evaluated regarding extraction quality, reaching 0.925 and 0.911 scores with 0.40% and 0.20% degeneration rates. AWQ quantization reduced up to 22% per-page cost with negligible quality loss, enabling a strong quality-cost trade-off in comparison to proprietary OCR APIs and open-source alternatives.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-04-15T18:17:11Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Gabriel Pimenta de Freitas Cardoso</name>
+    </author>
+    <author>
+      <name>Caio Lucas da Silva Chacon</name>
+    </author>
+    <author>
+      <name>Jonas Felipe da Fonseca Oliveira</name>
+    </author>
+    <author>
+      <name>Paulo Henrique de Medeiros Araujo</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.10438v1</id>
+    <title>Continuous Interaction Diffusion: A Diffusion-Native Runtime for Asynchronous Tool-Augmented Reasoning</title>
+    <updated>2026-08-11T03:35:59Z</updated>
+    <link href="https://arxiv.org/abs/2608.10438v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.10438v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Large language models increasingly rely on external tools to access up-to-date information, perform computation, and interact with the outside world. For autoregressive models, tool use naturally fits the generation process: the model emits a tool call, waits for the result, and then continues generating. Diffusion language models (dLLMs), however, reason by repeatedly refining many parts of their output in parallel, making this stop-and-resume interaction pattern unnecessarily restrictive. It can force tool decisions before the model's reasoning has stabilized, delay useful observations until a discrete call finishes, and introduce redundant refinement and tool execution, potentially hurting both task accuracy and inference efficiency.
+  We introduce Continuous Interaction Diffusion (CID), a diffusion-native model--runtime architecture that integrates tool interaction into iterative denoising. CID separates a model-read-only fact channel, a thought channel represented by a Typed Cognitive Tensor, and a display channel. Information needs can emerge before a textual or JSON call is fully serialized, allowing perceptual bindings to launch external reads while denoising continues. Returned results are projected into the evolving thought state and can revise earlier cognition and display regions. Persistent bindings reuse static results without repeated external execution and refresh changing sources when needed. CID is designed to expose evidence earlier, overlap tool latency with model computation, reduce duplicate external work, and preserve useful computation after new evidence arrives. We formalize the architecture, runtime, and training objectives, and define an evaluation protocol for task quality and end-to-end efficiency. This first paper focuses on read-only tools and makes no empirical performance claims.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-11T03:35:59Z</published>
+    <arxiv:comment>15 pages, 5 figures, 1 table</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Yuhang Cao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.32900v1</id>
+    <title>Constraints Are Graphs, Not Chains: Exact Decoding for Diffusion Language Models</title>
+    <updated>2026-09-26T19:40:43Z</updated>
+    <link href="https://arxiv.org/abs/2609.32900v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.32900v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion language models (dLLMs) predict masked positions in arbitrary order, but their exact constrained decoders still encode constraints as sequential languages, whose state must track every unresolved dependency between positions. For relational constraints this encoding grows exponentially: for same-order copy, every finite automaton needs $4^k$ states, deterministic or nondeterministic, and every context-free grammar has size $2^{Ω(k)}$, while the factor graph of the same relation has size $O(k)$ and a 16-entry peak table. We introduce FactorDLM, a training-free decoder that represents finite-domain relations as a factor graph and, at each denoising step, conditions the model's mean-field prediction on that graph exactly by variable elimination. Decoding cost then grows exponentially with the induced width of the constraint graph, which replaces automaton size as the governing parameter. Because a finite automaton is a chain-shaped factor graph, one compiler enforces syntax and nonlocal relations together: on JSON records with cross-field references, a schema automaton alone leaves references dangling, relational factors alone produce malformed JSON, and the combined plan is valid on both counts, including on records of variable length. Across nine relational benchmarks and three backbones, every output satisfies every declared constraint at 0.4-6.9% projection overhead, where unconstrained decoding is 0-79% valid, and compiled projection answers repeated queries 13.6x faster than CP-SAT with eight parallel workers. Because model-free rules solve three of five standard benchmarks, we construct benchmarks with exact chance and fixed-template floors, on which selecting among exact constrained samples beats greedy projection. Which encoding is cheaper, sequential state or direct factors, depends on the constraint and is computable before decoding begins.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.FL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-26T19:40:43Z</published>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Jianchang Su</name>
+    </author>
+    <author>
+      <name>Wei Zhang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.33355v1</id>
+    <title>Unmask the State: When Does State Adaptation Matter for Masked Diffusion Language Models</title>
+    <updated>2026-09-27T08:27:32Z</updated>
+    <link href="https://arxiv.org/abs/2609.33355v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.33355v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Masked diffusion language models (MDMs) admit flexible generation orders, making the unmasking strategy an inference decision. Existing methods vary in how they prioritize positions, control parallelism, restrict selection regions, revise predictions, or plan future denoising, yet it remains unclear when these choices should change during generation. We study this question through strategy reversals, where an alternative action becomes preferable to a fixed choice. We organize MDM inference into five axes--score, cardinality, region, commitment, and planning--and define adaptation opportunity as the one-step utility advantage of the best candidate action over a validation-selected fixed action. This view shows that adaptation value depends on both the frequency and magnitude of such reversals. Across three MDMs and ten tasks, adaptation opportunities are highly heterogeneous, with some regimes exhibiting concentrated and predictable one-step gains. This motivates selective adaptation: lightweight detectors calibrated on validation prompts identify high-opportunity states, capturing, for example, 56.9 percent of the candidate-set oracle opportunity by adapting only the top 10 percent of states on LLaDA-8B constrained JSON filling. Our transition-level results suggest that state adaptation is most useful when applied selectively rather than uniformly.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-27T08:27:32Z</published>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Injin Kong</name>
+    </author>
+    <author>
+      <name>Sunghwan Choi</name>
+    </author>
+    <author>
+      <name>Yohan Jo</name>
+    </author>
+  </entry>
+</feed>

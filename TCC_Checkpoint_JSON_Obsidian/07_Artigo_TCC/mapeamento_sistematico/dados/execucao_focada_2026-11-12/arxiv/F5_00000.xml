@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/AkGjM69cR5a3gii0cSOpagbURYg</id>
+  <title>arXiv Query: search_query=( (ti:"GU-JSON" OR abs:"GU-JSON" OR ti:SUMIE OR abs:SUMIE) ) AND submittedDate:"202507010000 TO 202611122359"&amp;id_list=&amp;start=0&amp;max_results=200</title>
+  <updated>2026-11-12T20:02:12Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=(ti:%22GU-JSON%22+OR+(abs:%22GU-JSON%22+OR+(ti:SUMIE+OR+abs:SUMIE)))+AND+submittedDate:%22202507010000+TO+202611122359%22&amp;start=0&amp;max_results=200&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>200</opensearch:itemsPerPage>
+  <opensearch:totalResults>7</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2507.00838v2</id>
+    <title>Stylometry recognizes human and LLM-generated texts in short samples</title>
+    <updated>2025-07-15T11:31:45Z</updated>
+    <link href="https://arxiv.org/abs/2507.00838v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2507.00838v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The paper explores stylometry as a method to distinguish between texts created by Large Language Models (LLMs) and humans, addressing issues of model attribution, intellectual property, and ethical AI use. Stylometry has been used extensively to characterise the style and attribute authorship of texts. By applying it to LLM-generated texts, we identify their emergent writing patterns. The paper involves creating a benchmark dataset based on Wikipedia, with (a) human-written term summaries, (b) texts generated purely by LLMs (GPT-3.5/4, LLaMa 2/3, Orca, and Falcon), (c) processed through multiple text summarisation methods (T5, BART, Gensim, and Sumy), and (d) rephrasing methods (Dipper, T5). The 10-sentence long texts were classified by tree-based models (decision trees and LightGBM) using human-designed (StyloMetrix) and n-gram-based (our own pipeline) stylometric features that encode lexical, grammatical, syntactic, and punctuation patterns. The cross-validated results reached a performance of up to .87 Matthews correlation coefficient in the multiclass scenario with 7 classes, and accuracy between .79 and 1. in binary classification, with the particular example of Wikipedia and GPT-4 reaching up to .98 accuracy on a balanced dataset. Shapley Additive Explanations pinpointed features characteristic of the encyclopaedic text type, individual overused words, as well as a greater grammatical standardisation of LLMs with respect to human-written texts. These results show -- crucially, in the context of the increasingly sophisticated LLMs -- that it is possible to distinguish machine- from human-generated texts at least for a well-defined text type.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-07-01T15:08:53Z</published>
+    <arxiv:primary_category term="cs.CL"/>
+    <arxiv:journal_ref>Expert Systems with Applications 296, 129001 (2026)</arxiv:journal_ref>
+    <author>
+      <name>Karol Przystalski</name>
+    </author>
+    <author>
+      <name>Jan K. Argasiński</name>
+    </author>
+    <author>
+      <name>Iwona Grabska-Gradzińska</name>
+    </author>
+    <author>
+      <name>Jeremi K. Ochab</name>
+    </author>
+    <arxiv:doi>10.1016/j.eswa.2025.129001</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1016/j.eswa.2025.129001" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2507.12929v1</id>
+    <title>Thick-Thin non-Autonomous Julia Sets</title>
+    <updated>2025-07-17T09:09:37Z</updated>
+    <link href="https://arxiv.org/abs/2507.12929v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2507.12929v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Hereditarily non uniformly perfect (HNUP) sets were introduced by Stankewitz, Sugawa, and Sumi in \cite{SSS} who gave several examples of such sets based on Cantor set-like constructions using nested intervals. For non-autonomous iteration where one considers compositions of polynomials from a sequence which is in general allowed to vary, the Julia set is uniformly perfect for all sequences with suitably bounded coefficients, while Comerford, Stankewitz and Sumi showed in \cite{CSS} that for certain sequences of polynomials with unbounded coefficients, it is possible to have Julia sets which are HNUP. In this manuscript we give an example of a non-autonomous polynomial sequences whose Julia sets lie in between these two extremes in that they are not uniformly perfect, but also not HNUP. In addition we show that these Julia sets can be expressed as a `thick-thin' decomposition consisting of a ${\mathrm F}_σ$ subset which is a countable union of uniformly perfect sets and a ${\mathrm G}_δ$ subset which is HNUP.</summary>
+    <category term="math.DS" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-07-17T09:09:37Z</published>
+    <arxiv:comment>44 pages, 4 figures</arxiv:comment>
+    <arxiv:primary_category term="math.DS"/>
+    <author>
+      <name>Mark Comerford</name>
+    </author>
+    <author>
+      <name>Hiroki Sumi</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2507.20026v2</id>
+    <title>A Unified Semiclassical Framework for Ultrafast Competitive Electron Transfer in Multiredox Molecular Systems</title>
+    <updated>2026-09-17T14:59:22Z</updated>
+    <link href="https://arxiv.org/abs/2507.20026v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2507.20026v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Ultrafast multistage electron transfer (ET) in molecular systems with multiple redox centers is fundamental to photochemical energy conversion, including processes in natural photosynthesis, molecular optoelectronics, and organic photovoltaics. These systems often operate under nonequilibrium conditions, where solvent relaxation, intramolecular vibrations, and competing ET pathways jointly determine reaction kinetics and product yields. In this chapter, we present a unified semiclassical framework for modeling ultrafast, competitive ET in multiredox compounds embedded in polar environments with complex relaxation dynamics. The approach constructs diabatic free energy surfaces (FESs) in a multidimensional coordinate space that integrates both polarization and relaxation components of the environment within a unified representation. Electron dynamics are described using a stochastic point-transition method that captures the coupling between nonadiabatic quantum transitions and classical nuclear motion. The formalism generalizes and unifies several established semiclassical models - including the Najbar-Tachiya, Zusman-Beratan, and Sumi-Marcus approaches - and supports efficient simulation of multistage ET cascades. As an application, we investigate ultrafast charge separation in donor-acceptor-acceptor (D-A1-A2) triads, showing how hot charge shift to a secondary acceptor can suppress nonequilibrium charge recombination. Numerical simulations reveal how reorganization energies, vibrational coupling, molecular geometry, and bending angle collectively influence ET efficiency. The proposed framework offers a general and scalable tool for the rational design of photofunctional molecular systems.</summary>
+    <category term="physics.chem-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="quant-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-07-26T17:49:55Z</published>
+    <arxiv:comment>53 pages, 19 figures</arxiv:comment>
+    <arxiv:primary_category term="physics.chem-ph"/>
+    <arxiv:journal_ref>Feskov, S. V.; Ivanov, A. I. In: Advances in Quantum Science I; Onishi, T., Ed.; Springer Nature Singapore: Singapore, 2026; pp 281-334</arxiv:journal_ref>
+    <author>
+      <name>Serguei Feskov</name>
+    </author>
+    <author>
+      <name>Anatoly Ivanov</name>
+    </author>
+    <arxiv:doi>10.1007/978-981-95-9717-8_7</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1007/978-981-95-9717-8_7" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2512.24830v1</id>
+    <title>Experimental Study on Fracture Structure of Sumi-Wari</title>
+    <updated>2025-12-31T12:46:57Z</updated>
+    <link href="https://arxiv.org/abs/2512.24830v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2512.24830v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Local variations in surface tension can induce complex fracture dynamics in thin interfacial films. Here, we investigate the fracture patterns that emerge when a localized surface-tension perturbation is applied to a sumi film supported on a water-glycerol subphase. Sumi is a traditional Japanese carbon black ink, and this process, referred to as sumi-wari, produces aesthetically pleasing, star-shaped crack patterns with multiple spikes radiating from the perturbation site. The number of crack spikes increases with the viscosity of the subphase, controlled here by the addition of glycerol. Atomic force microscopy measurements reveal that the effective stiffness of the sumi f ilm decreases as glycerol concentration increases. This suggests a strong coupling between the subphase properties and the mechanics of the sumi film. To capture the dynamics of sumi-wari, a phenomenological model is outlined, based on an overdamped equation of motion for particles connected by breakable springs. Numerical simulations reproduce both the morphology and the experimental trends of sumi-wari: the number of cracks and their temporal evolution depend on the spring stiffness, mirroring the behavior observed for subphases with different viscosities. These findings demonstrate how the interplay between surface-tension gradients, subphase properties, and film mechanics governs local fracture and pattern formation in fluid-supported thin films</summary>
+    <category term="nlin.PS" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-12-31T12:46:57Z</published>
+    <arxiv:comment>9 pages, 14 figures</arxiv:comment>
+    <arxiv:primary_category term="nlin.PS"/>
+    <author>
+      <name>Michiko Shimokawa</name>
+    </author>
+    <author>
+      <name>Lucas Goehring</name>
+    </author>
+    <author>
+      <name>Akie Kinoshita</name>
+    </author>
+    <author>
+      <name>Ludovic Pauchard</name>
+    </author>
+    <author>
+      <name>Hidetsugu Sakaguchid</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.07329v1</id>
+    <title>Distilling Photon-Counting CT into Routine Chest CT through Clinically Validated Degradation Modeling</title>
+    <updated>2026-04-08T17:47:35Z</updated>
+    <link href="https://arxiv.org/abs/2604.07329v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2604.07329v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Photon-counting CT (PCCT) provides superior image quality with higher spatial resolution and lower noise compared to conventional energy-integrating CT (EICT), but its limited clinical availability restricts large-scale research and clinical deployment. To bridge this gap, we propose SUMI, a simulated degradation-to-enhancement method that learns to reverse realistic acquisition artifacts in low-quality EICT by leveraging high-quality PCCT as reference. Our central insight is to explicitly model realistic acquisition degradations, transforming PCCT into clinically plausible lower-quality counterparts and learning to invert this process. The simulated degradations were validated for clinical realism by board-certified radiologists, enabling faithful supervision without requiring paired acquisitions at scale. As outcomes of this technical contribution, we: (1) train a latent diffusion model on 1,046 PCCTs, using an autoencoder first pre-trained on both these PCCTs and 405,379 EICTs from 145 hospitals to extract general CT latent features that we release for reuse in other generative medical imaging tasks; (2) construct a large-scale dataset of over 17,316 publicly available EICTs enhanced to PCCT-like quality, with radiologist-validated voxel-wise annotations of airway trees, arteries, veins, lungs, and lobes; and (3) demonstrate substantial improvements: across external data, SUMI outperforms state-of-the-art image translation methods by 15% in SSIM and 20% in PSNR, improves radiologist-rated clinical utility in reader studies, and enhances downstream top-ranking lesion detection performance, increasing sensitivity by up to 15% and F1 score by up to 10%. Our results suggest that emerging imaging advances can be systematically distilled into routine EICT using limited high-quality scans as reference.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-04-08T17:47:35Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Junqi Liu</name>
+    </author>
+    <author>
+      <name>Xinze Zhou</name>
+    </author>
+    <author>
+      <name>Wenxuan Li</name>
+    </author>
+    <author>
+      <name>Scott Ye</name>
+    </author>
+    <author>
+      <name>Arkadiusz Sitek</name>
+    </author>
+    <author>
+      <name>Xiaofeng Yang</name>
+    </author>
+    <author>
+      <name>Yucheng Tang</name>
+    </author>
+    <author>
+      <name>Daguang Xu</name>
+    </author>
+    <author>
+      <name>Kai Ding</name>
+    </author>
+    <author>
+      <name>Kang Wang</name>
+    </author>
+    <author>
+      <name>Yang Yang</name>
+    </author>
+    <author>
+      <name>Alan L. Yuille</name>
+    </author>
+    <author>
+      <name>Zongwei Zhou</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.19005v1</id>
+    <title>Sumi: Open Uniform Diffusion Language Model from Scratch</title>
+    <updated>2026-06-17T12:32:46Z</updated>
+    <link href="https://arxiv.org/abs/2606.19005v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.19005v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion models have become a promising alternative to autoregressive models. Among these, uniform diffusion language models (UDLMs) permit any token to be updated at any step, in principle enabling more flexible generation. However, no UDLM has yet been pretrained from scratch at both large parameter scale and large token budget. Both autoregressive modeling and masked diffusion modeling already have capable models at scale that the community can study and build on; uniform diffusion has none. A scratch-pretrained UDLM at scale would provide a clean reference point for studying scaling behavior, generation dynamics, controllability, and trade-offs against established autoregressive and masked diffusion models. To this end, we introduce Sumi ("ink" in Japanese), a fully open 7B uniform diffusion language model pretrained from scratch on 1.5T tokens. Sumi performs competitively with autoregressive models trained at comparable token budgets on knowledge, reasoning, and coding benchmarks, while under-performing on commonsense benchmarks, where our education-heavy data mixture is a likely contributor. We release our model weights, checkpoints, and full training recipe, including a complete specification of the data mixture over publicly available corpora. We hope this release enables the community to study native uniform diffusion at scale and catalyzes work on its as-yet poorly understood aspects.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-17T12:32:46Z</published>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Mengyu Ye</name>
+    </author>
+    <author>
+      <name>Keito Kudo</name>
+    </author>
+    <author>
+      <name>Wataru Ikeda</name>
+    </author>
+    <author>
+      <name>Ryosuke Matsuda</name>
+    </author>
+    <author>
+      <name>Keisuke Sakaguchi</name>
+    </author>
+    <author>
+      <name>Jun Suzuki</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.08115v2</id>
+    <title>SUMI: Scalable Unified Model for 3D Point Cloud Inference</title>
+    <updated>2026-08-15T18:51:33Z</updated>
+    <link href="https://arxiv.org/abs/2608.08115v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.08115v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Point cloud completion commonly follows a coarse-to-fine paradigm, where a low-density coarse shape is first predicted and then upsampled to the target resolution. Although recent methods have improved global structure recovery, the fine stage often remains limited by simple upsampling and insufficient interaction with coarse structural features, making local detail reconstruction challenging. We propose SUMI, a diffusion-enhanced refinement module for coarse-to-fine point cloud completion. Unlike prior diffusion-based completion methods that use diffusion as a standalone point generator, SUMI injects noisy geometric features into cross-attention with coarse structural features, enabling reverse denoising to refine local geometry while preserving global consistency. SUMI can also be integrated into existing coarse-to-fine models as a flexible refinement module. Experiments on PCN, ShapeNet-55/34, and MVP demonstrate consistent improvements over strong baselines. SUMI achieves the best overall CD and F1-score on PCN, reduces CD by up to 16.1% on ShapeNet-55, and obtains the best CD across all output densities on MVP.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-08T12:56:54Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Yanlong Li</name>
+    </author>
+    <author>
+      <name>Kanchana Thilakarathna</name>
+    </author>
+  </entry>
+</feed>

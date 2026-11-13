@@ -1,0 +1,71 @@
+{
+  "data_utc": "2026-11-12T20:05:46.2444016+00:00",
+  "protocolo_sha256": "d0a74ee78e5942febd44044be6a9d31aac4cdc2393bbf522604a042a3cbda2b4",
+  "consultas": [
+    {
+      "id": "F1",
+      "expressao": "((ti:\"entity summarization\" OR abs:\"entity summarization\" OR ti:\"entity state\" OR abs:\"entity state\" OR ti:\"structured memory\" OR abs:\"structured memory\" OR ti:\"JSON memory\" OR abs:\"JSON memory\") AND (ti:incremental OR abs:incremental OR ti:update OR abs:update OR ti:updating OR abs:updating OR ti:revision OR abs:revision) AND (ti:\"language model\" OR abs:\"language model\" OR ti:agent OR abs:agent)) AND submittedDate:[202507010000 TO 202611122359]",
+      "total": 52,
+      "paginas": [
+        {
+          "arquivo": "F1_00000.xml",
+          "inicio": 0,
+          "retornados": 52,
+          "sha256": "51c083303293fb4724caa9e973cf50b195302789e09847a04846a413aea422b2"
+        }
+      ]
+    },
+    {
+      "id": "F2",
+      "expressao": "((ti:\"small language model\" OR abs:\"small language model\" OR ti:\"compact language model\" OR abs:\"compact language model\" OR ti:SLM OR abs:SLM OR ti:compact OR abs:compact OR ti:\"0.6B\" OR abs:\"0.6B\" OR ti:\"4B\" OR abs:\"4B\") AND (ti:\"memory update\" OR abs:\"memory update\" OR ti:\"memory writing\" OR abs:\"memory writing\" OR ti:\"memory management\" OR abs:\"memory management\" OR ti:\"structured memory\" OR abs:\"structured memory\" OR ti:\"memory extraction\" OR abs:\"memory extraction\")) AND submittedDate:[202507010000 TO 202611122359]",
+      "total": 71,
+      "paginas": [
+        {
+          "arquivo": "F2_00000.xml",
+          "inicio": 0,
+          "retornados": 71,
+          "sha256": "6b645438c2dcd9d451067cefaf128f453ad8e49744e33941dd83108607f18b39"
+        }
+      ]
+    },
+    {
+      "id": "F3",
+      "expressao": "((ti:\"diffusion language model\" OR abs:\"diffusion language model\" OR ti:\"block diffusion\" OR abs:\"block diffusion\" OR ti:dLLM OR abs:dLLM) AND (ti:\"agent memory\" OR abs:\"agent memory\" OR ti:\"memory summarization\" OR abs:\"memory summarization\" OR ti:\"planning state\" OR abs:\"planning state\" OR ti:\"editable state\" OR abs:\"editable state\" OR ti:\"structured memory\" OR abs:\"structured memory\" OR ti:\"memory update\" OR abs:\"memory update\" OR ti:\"memory writing\" OR abs:\"memory writing\")) AND submittedDate:[202507010000 TO 202611122359]",
+      "total": 2,
+      "paginas": [
+        {
+          "arquivo": "F3_00000.xml",
+          "inicio": 0,
+          "retornados": 2,
+          "sha256": "1a1fb4ca46339f2d2a7ecdf95d57c32293762457db4daa4edf7f3556df81d6f1"
+        }
+      ]
+    },
+    {
+      "id": "F4",
+      "expressao": "((ti:JSON OR abs:JSON OR ti:\"structured output\" OR abs:\"structured output\") AND (ti:SLM OR abs:SLM OR ti:\"small language model\" OR abs:\"small language model\" OR ti:\"diffusion language model\" OR abs:\"diffusion language model\") AND (ti:memory OR abs:memory OR ti:state OR abs:state OR ti:entity OR abs:entity)) AND submittedDate:[202507010000 TO 202611122359]",
+      "total": 10,
+      "paginas": [
+        {
+          "arquivo": "F4_00000.xml",
+          "inicio": 0,
+          "retornados": 10,
+          "sha256": "0d3dc3709a52251e066239e880a4795bbafdc8293af596f94d782efcbe95ea28"
+        }
+      ]
+    },
+    {
+      "id": "F5",
+      "expressao": "((ti:\"GU-JSON\" OR abs:\"GU-JSON\" OR ti:SUMIE OR abs:SUMIE)) AND submittedDate:[202507010000 TO 202611122359]",
+      "total": 7,
+      "paginas": [
+        {
+          "arquivo": "F5_00000.xml",
+          "inicio": 0,
+          "retornados": 7,
+          "sha256": "fe11e9d82bcb7f976900ad7ff61284a283d359381557fc81d920fa187ac730bb"
+        }
+      ]
+    }
+  ]
+}

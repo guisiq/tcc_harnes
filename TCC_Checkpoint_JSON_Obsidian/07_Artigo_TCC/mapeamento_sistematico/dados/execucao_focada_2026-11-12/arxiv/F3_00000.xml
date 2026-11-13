@@ -1,0 +1,2431 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/vCTPe7fowKLfEeEAtv18H1KBdIs</id>
+  <title>arXiv Query: search_query=( (ti:"diffusion language model" OR abs:"diffusion language model" OR ti:"block diffusion" OR abs:"block diffusion" OR ti:dLLM OR abs:dLLM) AND (ti:memory OR abs:memory OR ti:state OR abs:state) AND (ti:agent OR abs:agent OR ti:edit OR abs:edit OR ti:update OR abs:update OR ti:incremental OR abs:incremental) ) AND submittedDate:"202507010000 TO 202611122359"&amp;id_list=&amp;start=0&amp;max_results=200</title>
+  <updated>2026-11-12T20:02:05Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=((ti:%22diffusion+language+model%22+OR+(abs:%22diffusion+language+model%22+OR+(ti:%22block+diffusion%22+OR+(abs:%22block+diffusion%22+OR+(ti:dLLM+OR+abs:dLLM)))))+AND+((ti:memory+OR+(abs:memory+OR+(ti:state+OR+abs:state)))+AND+(ti:agent+OR+(abs:agent+OR+(ti:edit+OR+(abs:edit+OR+(ti:update+OR+(abs:update+OR+(ti:incremental+OR+abs:incremental)))))))))+AND+submittedDate:%22202507010000+TO+202611122359%22&amp;start=0&amp;max_results=200&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>200</opensearch:itemsPerPage>
+  <opensearch:totalResults>75</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2507.04504v2</id>
+    <title>Unveiling the Potential of Diffusion Large Language Model in Controllable Generation</title>
+    <updated>2025-09-26T01:46:39Z</updated>
+    <link href="https://arxiv.org/abs/2507.04504v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2507.04504v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Controllable generation is a fundamental task in NLP with many applications, providing a basis for function calling to agentic communication. However, even state-of-the-art autoregressive Large Language Models (LLMs) today exhibit unreliability when required to generate structured output. Inspired by the current new diffusion-based large language models (dLLM), we realize that the architectural difference, especially the global information-sharing mechanism for language modeling, may be the key to unlock next-level controllable generation. To explore the possibility, we propose Self-adaptive Schema Scaffolding ($S^3$), a novel framework that enables dLLM to stably generate reliable structured outputs (e.g., JSON) by utilizing its innate reverse reasoning capability and global context awareness. $S^3$ initiates a schematic template directly in the output context as a starting state for dLLM, offering a more robust and general method than intricate prompt optimization. Experiments demonstrate that our method substantially unlocks the dLLM's potential in controllable generation in terms of structure adherence, content fidelity, and faithfulness. These results establish new perspectives and practical pathways for deploying language models in controllable generation tasks.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-07-06T18:41:34Z</published>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Zhen Xiong</name>
+    </author>
+    <author>
+      <name>Yujun Cai</name>
+    </author>
+    <author>
+      <name>Zhecheng Li</name>
+    </author>
+    <author>
+      <name>Yiwei Wang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2508.13148v2</id>
+    <title>MDPO: Overcoming the Training-Inference Divide of Masked Diffusion Language Models</title>
+    <updated>2025-09-25T12:56:49Z</updated>
+    <link href="https://arxiv.org/abs/2508.13148v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2508.13148v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion language models, as a promising alternative to traditional autoregressive (AR) models, enable faster generation and richer conditioning on bidirectional context. However, they suffer from a key discrepancy between training and inference: during inference, MDLMs progressively reveal the structure of the generated sequence by producing fewer and fewer masked tokens, whereas this structure is ignored in training as tokens are masked at random. Although this discrepancy between training and inference can lead to suboptimal performance, it has been largely overlooked by previous works, leaving closing this gap between the two stages an open problem. To address this, we frame the problem of learning effective denoising trajectories as a sequential decision-making problem and use the resulting framework to apply reinforcement learning. We propose a novel Masked Diffusion Policy Optimization (MDPO) to exploit the Markov property diffusion possesses and explicitly train the model under the same progressive refining schedule used at inference. MDPO matches the performance of the previous state-of-the-art (SOTA) method with 60x fewer gradient updates, while achieving average improvements of 9.6% on MATH500 and 54.2% on Countdown over SOTA when trained within the same number of weight updates. Additionally, we improve the remasking strategy of MDLMs as a plug-in inference replacement to overcome the limitation that the model cannot refine tokens flexibly. This training-free method, termed Running Confidence Remasking (RCR), consistently enhances performance and provides further improvements when used with MDPO. Our findings establish great potential for investigating the discrepancy between pre-training and inference of MDLMs. Code: https://github.com/autonomousvision/mdpo. Project Page: https://cli212.github.io/MDPO/.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-08-18T17:58:13Z</published>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Haoyu He</name>
+    </author>
+    <author>
+      <name>Katrin Renz</name>
+    </author>
+    <author>
+      <name>Yong Cao</name>
+    </author>
+    <author>
+      <name>Andreas Geiger</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2509.23094v2</id>
+    <title>d$^2$Cache: Accelerating Diffusion-Based LLMs via Dual Adaptive Caching</title>
+    <updated>2026-02-16T06:46:00Z</updated>
+    <link href="https://arxiv.org/abs/2509.23094v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2509.23094v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion-based large language models (dLLMs), despite their promising performance, still suffer from inferior inference efficiency. This is because dLLMs rely on bidirectional attention and cannot directly benefit from the standard key-value (KV) cache as autoregressive models (ARMs) do. To tackle this issue, we introduce \textit{Dual aDaptive Cache} (d$^2$Cache), which is a training-free approximate KV cache framework for accelerating dLLM inference. d$^2$Cache features a two-stage fine-grained selection strategy to identify tokens and adaptively update their KV states at each decoding step, while caching the KV states of the remaining tokens for reuse. Furthermore, d$^2$Cache naturally offers a more reliable decoding alternative, which can enable quasi left-to-right generation and mitigate premature overconfidence in tokens at the end of the sequence. Extensive experimental results on two representative dLLMs (\ie, LLaDA and Dream) demonstrate that d$^2$Cache not only achieves substantial inference speedups, but also yields consistent improvements in generation quality. The code is available at https://github.com/Kamichanw/d2Cache.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-09-27T04:07:23Z</published>
+    <arxiv:comment>Accepted by ICLR 2026, 21 pages, 9 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Yuchu Jiang</name>
+    </author>
+    <author>
+      <name>Yue Cai</name>
+    </author>
+    <author>
+      <name>Xiangzhong Luo</name>
+    </author>
+    <author>
+      <name>Jiale Fu</name>
+    </author>
+    <author>
+      <name>Jiarui Wang</name>
+    </author>
+    <author>
+      <name>Chonghan Liu</name>
+    </author>
+    <author>
+      <name>Xu Yang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2509.24389v1</id>
+    <title>LLaDA-MoE: A Sparse MoE Diffusion Language Model</title>
+    <updated>2025-09-29T07:38:59Z</updated>
+    <link href="https://arxiv.org/abs/2509.24389v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2509.24389v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We introduce LLaDA-MoE, a large language diffusion model with the Mixture-of-Experts (MoE) architecture, trained from scratch on approximately 20T tokens. LLaDA-MoE achieves competitive performance with significantly reduced computational overhead by maintaining a 7B-parameter capacity while activating only 1.4B parameters during inference. Our empirical evaluation reveals that LLaDA-MoE achieves state-of-the-art performance among diffusion language models with larger parameters, surpassing previous diffusion language models LLaDA, LLaDA 1.5, and Dream across multiple benchmarks. The instruct-tuned model LLaDA-MoE-7B-A1B-Instruct demonstrates capabilities comparable to Qwen2.5-3B-Instruct in knowledge understanding, code generation, mathematical reasoning, agent and alignment tasks, despite using fewer active parameters. Our results show that integrating a sparse MoE architecture into the training objective of masked diffusion language models still brings out MoE's strengths under efficient inference with few active parameters, and opens ample room for further exploration of diffusion language models. LLaDA-MoE models are available at Huggingface.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-09-29T07:38:59Z</published>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Fengqi Zhu</name>
+    </author>
+    <author>
+      <name>Zebin You</name>
+    </author>
+    <author>
+      <name>Yipeng Xing</name>
+    </author>
+    <author>
+      <name>Zenan Huang</name>
+    </author>
+    <author>
+      <name>Lin Liu</name>
+    </author>
+    <author>
+      <name>Yihong Zhuang</name>
+    </author>
+    <author>
+      <name>Guoshan Lu</name>
+    </author>
+    <author>
+      <name>Kangyu Wang</name>
+    </author>
+    <author>
+      <name>Xudong Wang</name>
+    </author>
+    <author>
+      <name>Lanning Wei</name>
+    </author>
+    <author>
+      <name>Hongrui Guo</name>
+    </author>
+    <author>
+      <name>Jiaqi Hu</name>
+    </author>
+    <author>
+      <name>Wentao Ye</name>
+    </author>
+    <author>
+      <name>Tieyuan Chen</name>
+    </author>
+    <author>
+      <name>Chenchen Li</name>
+    </author>
+    <author>
+      <name>Chengfu Tang</name>
+    </author>
+    <author>
+      <name>Haibo Feng</name>
+    </author>
+    <author>
+      <name>Jun Hu</name>
+    </author>
+    <author>
+      <name>Jun Zhou</name>
+    </author>
+    <author>
+      <name>Xiaolu Zhang</name>
+    </author>
+    <author>
+      <name>Zhenzhong Lan</name>
+    </author>
+    <author>
+      <name>Junbo Zhao</name>
+    </author>
+    <author>
+      <name>Da Zheng</name>
+    </author>
+    <author>
+      <name>Chongxuan Li</name>
+    </author>
+    <author>
+      <name>Jianguo Li</name>
+    </author>
+    <author>
+      <name>Ji-Rong Wen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2510.02291v2</id>
+    <title>Test-Time Anchoring for Discrete Diffusion Posterior Sampling</title>
+    <updated>2026-01-30T03:35:27Z</updated>
+    <link href="https://arxiv.org/abs/2510.02291v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2510.02291v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>While continuous diffusion models have achieved remarkable success, discrete diffusion offers a unified framework for jointly modeling text and images. Beyond unification, discrete diffusion provides faster inference, finer control, and principled training-free guidance, making it well-suited for posterior sampling. Existing approaches to posterior sampling using discrete diffusion face severe challenges: derivative-free guidance yields sparse signals, continuous relaxations limit applicability, and split Gibbs samplers suffer from the curse of dimensionality. To overcome these limitations, we introduce Anchored Posterior Sampling (APS), built on two key innovations: quantized expectation for gradient-like guidance in discrete embedding space, and anchored remasking for adaptive decoding. APS achieves state-of-the-art performance among discrete diffusion samplers on both linear and nonlinear inverse problems across the standard image benchmarks. We demonstrate the generality of APS through training-free stylization and text-guided editing. We further apply APS to a large-scale diffusion language model, showing consistent improvement in question answering.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="stat.ML" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-10-02T17:58:37Z</published>
+    <arxiv:comment>Preprint</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Litu Rout</name>
+    </author>
+    <author>
+      <name>Andreas Lugmayr</name>
+    </author>
+    <author>
+      <name>Yasamin Jafarian</name>
+    </author>
+    <author>
+      <name>Srivatsan Varadharajan</name>
+    </author>
+    <author>
+      <name>Constantine Caramanis</name>
+    </author>
+    <author>
+      <name>Sanjay Shakkottai</name>
+    </author>
+    <author>
+      <name>Ira Kemelmacher-Shlizerman</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2511.09611v3</id>
+    <title>MMaDA-Parallel: Multimodal Large Diffusion Language Models for Thinking-Aware Editing and Generation</title>
+    <updated>2025-11-18T06:18:34Z</updated>
+    <link href="https://arxiv.org/abs/2511.09611v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2511.09611v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>While thinking-aware generation aims to improve performance on complex tasks, we identify a critical failure mode where existing sequential, autoregressive approaches can paradoxically degrade performance due to error propagation. To systematically analyze this issue, we propose ParaBench, a new benchmark designed to evaluate both text and image output modalities. Our analysis using ParaBench reveals that this performance degradation is strongly correlated with poor alignment between the generated reasoning and the final image. To resolve this, we propose a parallel multimodal diffusion framework, MMaDA-Parallel, that enables continuous, bidirectional interaction between text and images throughout the entire denoising trajectory. MMaDA-Parallel is trained with supervised finetuning and then further optimized by Parallel Reinforcement Learning (ParaRL), a novel strategy that applies semantic rewards along the trajectory to enforce cross-modal consistency. Experiments validate that our model significantly improves cross-modal alignment and semantic consistency, achieving a 6.9\% improvement in Output Alignment on ParaBench compared to the state-of-the-art model, Bagel, establishing a more robust paradigm for thinking-aware image synthesis. Our code is open-sourced at https://github.com/tyfeld/MMaDA-Parallel</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-11-12T18:58:21Z</published>
+    <arxiv:comment>Project Page: https://tyfeld.github.io/mmadaparellel.github.io/</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Ye Tian</name>
+    </author>
+    <author>
+      <name>Ling Yang</name>
+    </author>
+    <author>
+      <name>Jiongfan Yang</name>
+    </author>
+    <author>
+      <name>Anran Wang</name>
+    </author>
+    <author>
+      <name>Yu Tian</name>
+    </author>
+    <author>
+      <name>Jiani Zheng</name>
+    </author>
+    <author>
+      <name>Haochen Wang</name>
+    </author>
+    <author>
+      <name>Zhiyang Teng</name>
+    </author>
+    <author>
+      <name>Zhuochen Wang</name>
+    </author>
+    <author>
+      <name>Yinjie Wang</name>
+    </author>
+    <author>
+      <name>Yunhai Tong</name>
+    </author>
+    <author>
+      <name>Mengdi Wang</name>
+    </author>
+    <author>
+      <name>Xiangtai Li</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2511.19473v3</id>
+    <title>WavefrontDiffusion: Dynamic Decoding Schedule for Improved Reasoning</title>
+    <updated>2026-03-02T07:35:28Z</updated>
+    <link href="https://arxiv.org/abs/2511.19473v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2511.19473v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion Language Models (DLMs) have shown strong potential for text generation and are becoming a competitive alternative to autoregressive models. The denoising strategy plays an important role in determining the quality of their outputs. Mainstream denoising strategies include Standard Diffusion and BlockDiffusion. Standard Diffusion performs global denoising without restricting the update range, often finalizing incomplete context and causing premature end-of-sequence predictions. BlockDiffusion updates fixed-size blocks in a preset order, but its rigid structure can break apart coherent semantic units and disrupt reasoning. We present WavefrontDiffusion, a dynamic decoding approach that expands a wavefront of active tokens outward from finalized positions. This adaptive process follows the natural flow of semantic structure while keeping computational cost equal to block-based methods. Across four benchmarks in reasoning and code generation, WavefrontDiffusion achieves state-of-the-art performance while producing outputs with higher semantic fidelity, showing the value of adaptive scheduling for more coherent and efficient generation.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-11-22T07:33:00Z</published>
+    <arxiv:comment>19 pages. 3 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <arxiv:journal_ref>ICLR 2026</arxiv:journal_ref>
+    <author>
+      <name>Haojin Yang</name>
+    </author>
+    <author>
+      <name>Rui Hu</name>
+    </author>
+    <author>
+      <name>Zequn Sun</name>
+    </author>
+    <author>
+      <name>Rui Zhou</name>
+    </author>
+    <author>
+      <name>Yujun Cai</name>
+    </author>
+    <author>
+      <name>Yiwei Wang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2512.06776v2</id>
+    <title>From Next-Token to Next-Block: A Principled Adaptation Path for Diffusion LLMs</title>
+    <updated>2026-01-30T16:55:51Z</updated>
+    <link href="https://arxiv.org/abs/2512.06776v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2512.06776v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion Language Models (DLMs) enable fast generation, yet training large DLMs from scratch is costly. As a practical shortcut, adapting off-the-shelf Auto-Regressive (AR) model weights into a DLM could quickly equip the DLM with strong long-context generation capabilies. Prior "adaptation" attempts either modify logits or randomly grow attention masks to Full-Sequence diffusion, or simply transplant AR weights into a Block-Diffusion recipe, leaving two key questions unaddressed: where is the final destination of adaptation, and how to adapt better? For manifold benefits, we reframe the whole AR-to-DLM adaptation under the Block-Diffusion paradigm, transitioning from block size 1 to the final Block-Diffusion state. Concretely, the principled pathway of adaptation is designed as follows: we keep a context-causal path where causal attention is kept in the prefix, an efficient parallel adaptation procedure where an AR guidance is maintained, and gradual increment of the generation block size for a smoother transition. Built on these components, the adaptation is proved competitive on various models at different scales. With better adaptation, we propose NBDiff-7B that could inherit the long-context modeling and reasoning capabilities, and achieve state-of-the-art performance among the 7B-class DLMs. Codes: https://github.com/YuchuanTian/NBDiff.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-12-07T10:28:21Z</published>
+    <arxiv:comment>14 pages, 5 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Yuchuan Tian</name>
+    </author>
+    <author>
+      <name>Yuchen Liang</name>
+    </author>
+    <author>
+      <name>Shuo Zhang</name>
+    </author>
+    <author>
+      <name>Yingte Shu</name>
+    </author>
+    <author>
+      <name>Guangwen Yang</name>
+    </author>
+    <author>
+      <name>Wei He</name>
+    </author>
+    <author>
+      <name>Sibo Fang</name>
+    </author>
+    <author>
+      <name>Tianyu Guo</name>
+    </author>
+    <author>
+      <name>Kai Han</name>
+    </author>
+    <author>
+      <name>Chao Xu</name>
+    </author>
+    <author>
+      <name>Hanting Chen</name>
+    </author>
+    <author>
+      <name>Xinghao Chen</name>
+    </author>
+    <author>
+      <name>Yunhe Wang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2512.14008v2</id>
+    <title>Sparse-LaViDa: Sparse Multimodal Discrete Diffusion Language Models</title>
+    <updated>2026-07-15T22:52:21Z</updated>
+    <link href="https://arxiv.org/abs/2512.14008v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2512.14008v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Masked Discrete Diffusion Models (MDMs) have achieved strong performance across a wide range of multimodal tasks, including image understanding, generation, and editing. However, their inference speed remains suboptimal due to the need to repeatedly process redundant masked tokens at every sampling step. In this work, we propose Sparse-LaViDa, a novel modeling framework that dynamically truncates unnecessary masked tokens at each inference step to accelerate MDM sampling. To preserve generation quality, we introduce specialized register tokens that serve as compact representations for the truncated tokens. Furthermore, to ensure consistency between training and inference, we design a specialized attention mask that faithfully matches the truncated sampling procedure during training. Built upon the state-of-the-art unified MDM LaViDa-O, Sparse-LaViDa achieves up to a 2x speedup across diverse tasks including text-to-image generation, image editing, and mathematical reasoning, while maintaining generation quality.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-12-16T02:06:06Z</published>
+    <arxiv:comment>18 pages (12 pages for the main paper and 6 pages for the appendix), 9 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Shufan Li</name>
+    </author>
+    <author>
+      <name>Jiuxiang Gu</name>
+    </author>
+    <author>
+      <name>Kangning Liu</name>
+    </author>
+    <author>
+      <name>Zhe Lin</name>
+    </author>
+    <author>
+      <name>Zijun Wei</name>
+    </author>
+    <author>
+      <name>Aditya Grover</name>
+    </author>
+    <author>
+      <name>Jason Kuen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2512.22234v2</id>
+    <title>DiRL: An Efficient Post-Training Framework for Diffusion Language Models</title>
+    <updated>2026-01-06T06:47:46Z</updated>
+    <link href="https://arxiv.org/abs/2512.22234v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2512.22234v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion Language Models (dLLMs) have emerged as promising alternatives to Auto-Regressive (AR) models. While recent efforts have validated their pre-training potential and accelerated inference speeds, the post-training landscape for dLLMs remains underdeveloped. Existing methods suffer from computational inefficiency and objective mismatches between training and inference, severely limiting performance on complex reasoning tasks such as mathematics. To address this, we introduce DiRL, an efficient post-training framework that tightly integrates FlexAttention-accelerated blockwise training with LMDeploy-optimized inference. This architecture enables a streamlined online model update loop, facilitating efficient two-stage post-training (Supervised Fine-Tuning followed by Reinforcement Learning). Building on this framework, we propose DiPO, the first unbiased Group Relative Policy Optimization (GRPO) implementation tailored for dLLMs. We validate our approach by training DiRL-8B-Instruct on high-quality math data. Our model achieves state-of-the-art math performance among dLLMs and surpasses comparable models in the Qwen2.5 series on several benchmarks.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-12-23T08:33:19Z</published>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Ying Zhu</name>
+    </author>
+    <author>
+      <name>Jiaxin Wan</name>
+    </author>
+    <author>
+      <name>Xiaoran Liu</name>
+    </author>
+    <author>
+      <name>Siyang He</name>
+    </author>
+    <author>
+      <name>Qiqi Wang</name>
+    </author>
+    <author>
+      <name>Xu Guo</name>
+    </author>
+    <author>
+      <name>Tianyi Liang</name>
+    </author>
+    <author>
+      <name>Zengfeng Huang</name>
+    </author>
+    <author>
+      <name>Ziwei He</name>
+    </author>
+    <author>
+      <name>Xipeng Qiu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2601.06428v3</id>
+    <title>BackPlay: Head-Only Look-Back Self-Correction for Diffusion Language Models</title>
+    <updated>2026-04-22T22:08:24Z</updated>
+    <link href="https://arxiv.org/abs/2601.06428v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2601.06428v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion Language Models (DLMs) decode multiple tokens in parallel, but aggressive multi-token decoding amplifies cross-token dependency errors and can sharply degrade generation quality. We propose BackPlay, a frozen-backbone self-correction framework that trains only a lightweight correction head on a finetuned DLM without updating any backbone or adapter parameters. Because the head is trained on errors produced by the same frozen generator used at inference time, its training distribution aligns with the error patterns of the deployed model. We further introduce Look-back Correction, a training mechanism that injects predictions from earlier, more corrupted denoising states into later, richer contexts, enabling the head to leverage later context to detect mistakes made in earlier generation steps. During inference, BackPlay periodically revisits previously generated tokens through selective remasking and regeneration to limit error accumulation. Across mathematical reasoning and code generation benchmarks, BackPlay improves the speed--quality trade-off of the underlying DLM under multi-token decoding.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-01-10T05:04:33Z</published>
+    <arxiv:comment>16 pages</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Liming Liu</name>
+    </author>
+    <author>
+      <name>Binxuan Huang</name>
+    </author>
+    <author>
+      <name>Zixuan Zhang</name>
+    </author>
+    <author>
+      <name>Xin Liu</name>
+    </author>
+    <author>
+      <name>Bing Yin</name>
+    </author>
+    <author>
+      <name>Tuo Zhao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2601.07152v1</id>
+    <title>Agents of Diffusion: Enhancing Diffusion Language Models with Multi-Agent Reinforcement Learning for Structured Data Generation (Extended Version)</title>
+    <updated>2026-01-12T02:49:09Z</updated>
+    <link href="https://arxiv.org/abs/2601.07152v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2601.07152v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Generating high-quality structured data such as JSON records, remains a fundamental challenge for large language models (LLMs), particularly when semantic richness must coexist with strict schema adherence. While autoregressive LLMs offer strong structural consistency, they often struggle with semantic variation and output diversity. In contrast, diffusion language models (DLMs) introduce powerful mechanisms for semantic richness and bidirectional decoding, yet lack the inductive biases needed for reliable structure preservation. We present Agents of Diffusion (AoD), a novel framework that unifies the generative flexibility of DLMs with the reasoning capabilities of autoregressive models through language-mediated reinforcement learning. AoD frames structured text generation as a multi-agent alignment process, where a prompt optimization agent collaborates with a judge agent to iteratively guide a DLM using natural language feedback. This approach enables controllable, schema-consistent generation without modifying model parameters or relying on handcrafted constraints. AoD advances the state of controllable generation by demonstrating that diffusion models, when supervised by cooperative agents, can achieve both high semantic novelty and structural fidelity. Across multiple structured data benchmarks, AoD consistently outperforms diffusion and autoregressive baselines, establishing a new path forward for structure-aware, diversity-enhanced text synthesis.</summary>
+    <category term="cs.MA" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-01-12T02:49:09Z</published>
+    <arxiv:primary_category term="cs.MA"/>
+    <arxiv:journal_ref>Proc. of the 25th International Conference on Autonomous Agents and Multiagent Systems (AAMAS 2026)</arxiv:journal_ref>
+    <author>
+      <name>Aja Khanal</name>
+    </author>
+    <author>
+      <name>Kaushik T. Ranade</name>
+    </author>
+    <author>
+      <name>Rishabh Agrawal</name>
+    </author>
+    <author>
+      <name>Kalyan S. Basu</name>
+    </author>
+    <author>
+      <name>Apurva Narayan</name>
+    </author>
+    <arxiv:doi>10.65109/GGJL7344</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.65109/GGJL7344" title="doi"/>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2601.07351v2</id>
+    <title>Beyond Hard Masks: Progressive Token Evolution for Diffusion Language Models</title>
+    <updated>2026-01-16T06:24:27Z</updated>
+    <link href="https://arxiv.org/abs/2601.07351v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2601.07351v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion Language Models (DLMs) offer a promising alternative for language modeling by enabling parallel decoding through iterative refinement. However, most DLMs rely on hard binary masking and discrete token assignments, which hinder the revision of early decisions and underutilize intermediate probabilistic representations. In this paper, we propose EvoToken-DLM, a novel diffusion-based language modeling approach that replaces hard binary masks with evolving soft token distributions. EvoToken-DLM enables a progressive transition from masked states to discrete outputs, supporting revisable decoding. To effectively support this evolution, we introduce continuous trajectory supervision, which aligns training objectives with iterative probabilistic updates. Extensive experiments across multiple benchmarks show that EvoToken-DLM consistently achieves superior performance, outperforming strong diffusion-based and masked DLM baselines. Project webpage: https://aim-uofa.github.io/EvoTokenDLM.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-01-12T09:25:14Z</published>
+    <arxiv:comment>Project webpage: https://aim-uofa.github.io/EvoTokenDLM</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Linhao Zhong</name>
+    </author>
+    <author>
+      <name>Linyu Wu</name>
+    </author>
+    <author>
+      <name>Bozhen Fang</name>
+    </author>
+    <author>
+      <name>Tianjian Feng</name>
+    </author>
+    <author>
+      <name>Chenchen Jing</name>
+    </author>
+    <author>
+      <name>Wen Wang</name>
+    </author>
+    <author>
+      <name>Jiaheng Zhang</name>
+    </author>
+    <author>
+      <name>Hao Chen</name>
+    </author>
+    <author>
+      <name>Chunhua Shen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2601.12979v3</id>
+    <title>The Bitter Lesson of Diffusion Language Models for Agentic Workflows: A Comprehensive Reality Check</title>
+    <updated>2026-04-24T07:46:42Z</updated>
+    <link href="https://arxiv.org/abs/2601.12979v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2601.12979v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The pursuit of real-time agentic interaction has driven interest in Diffusion-based Large Language Models (dLLMs) as alternatives to auto-regressive backbones, promising to break the sequential latency bottleneck. However, does such efficiency gains translate into effective agentic behavior? In this work, we present a comprehensive evaluation of dLLMs (e.g., LLaDA, Dream) across two distinct agentic paradigms: Embodied Agents (requiring long-horizon planning) and Tool-Calling Agents (requiring precise formatting). Contrary to the efficiency hype, our results on Agentboard and BFCL reveal a "bitter lesson": current dLLMs fail to serve as reliable agentic backbones, frequently leading to systematically failure. (1) In Embodied settings, dLLMs suffer repeated attempts, failing to branch under temporal feedback. (2) In Tool-Calling settings, dLLMs fail to maintain symbolic precision (e.g. strict JSON schemas) under diffusion noise. To assess the potential of dLLMs in agentic workflows, we introduce DiffuAgent, a multi-agent evaluation framework that integrates dLLMs as plug-and-play cognitive cores. Our analysis shows that dLLMs are effective in non-causal roles (e.g., memory summarization and tool selection) but require the incorporation of causal, precise, and logically grounded reasoning mechanisms into the denoising process to be viable for agentic tasks.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-01-19T11:45:39Z</published>
+    <arxiv:comment>ACL 2026 - Main Conference</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Qingyu Lu</name>
+    </author>
+    <author>
+      <name>Liang Ding</name>
+    </author>
+    <author>
+      <name>Kanjian Zhang</name>
+    </author>
+    <author>
+      <name>Jinxia Zhang</name>
+    </author>
+    <author>
+      <name>Dacheng Tao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2601.20332v3</id>
+    <title>Window-Diffusion: Accelerating Diffusion Language Model Inference with Windowed Token Pruning and Caching</title>
+    <updated>2026-09-15T03:06:05Z</updated>
+    <link href="https://arxiv.org/abs/2601.20332v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2601.20332v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion language models (DLMs) generate text through iterative denoising, but inference requires full-sequence attention at every iteration, resulting in substantial redundant computation on masked tokens. Block-wise diffusion can reduce this cost, yet it typically relies on retraining and constrained update orders, limiting its direct applicability to pretrained DLMs. Our token-level analysis reveals pronounced structural locality in DLM inference. Decoding is driven by a small set of prefix-localized active tokens; the influence of distant undecoded context diminishes rapidly, and decoded tokens exhibit stage-wise temporal stability, enabling reuse of intermediate representations except for a brief post-decode transient. Motivated by these observations, we propose \textbf{\placeholder}\footnote{The source code is available at https://github.com/vhicrgit/Window-Diffusion.}, a window-based token pruning and caching method for inference. We maintain a local computation window that slides rightward as denoising progresses, and partition undecoded tokens into: (i) \textit{active tokens} that are computed online, (ii) \textit{buffer tokens} whose KV states are cached and periodically refreshed, and (iii) \textit{far-field tokens} that are pruned outside the window. Computation is restricted to active and buffer tokens within the window, while far-field tokens are omitted at each stage. Experiments on LLaDA and Dream show that, under matched compute budgets, our method achieves up to $99\times$ inference speedup while largely preserving generation performance.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-01-28T07:49:20Z</published>
+    <arxiv:comment>The manuscript has been accepted for APPT 2026. Code is available at https://github.com/vhicrgit/Window-Diffusion</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Fengrui Zuo</name>
+    </author>
+    <author>
+      <name>Zhiwei Ke</name>
+    </author>
+    <author>
+      <name>Yiming Liu</name>
+    </author>
+    <author>
+      <name>Wenqi Lou</name>
+    </author>
+    <author>
+      <name>Chao Wang</name>
+    </author>
+    <author>
+      <name>Xuehai Zhou</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2602.02544v2</id>
+    <title>SPA-Cache: Singular Proxies for Adaptive Caching in Diffusion Language Models</title>
+    <updated>2026-05-23T13:49:06Z</updated>
+    <link href="https://arxiv.org/abs/2602.02544v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2602.02544v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>While Diffusion Language Models (DLMs) offer a flexible, arbitrary-order alternative to the autoregressive paradigm, their non-causal nature precludes standard KV caching, forcing costly hidden state recomputation at every decoding step. Existing DLM caching approaches reduce this cost by selective hidden state updates; however, they are still limited by (i) costly token-wise update identification heuristics and (ii) rigid, uniform budget allocation that fails to account for heterogeneous hidden state dynamics. To address these challenges, we present SPA-Cache that jointly optimizes update identification and budget allocation in DLM cache. First, we derive a low-dimensional singular proxy that enables the identification of update-critical tokens in a low-dimensional subspace, substantially reducing the overhead of update identification. Second, we introduce an adaptive strategy that allocates fewer updates to stable layers without degrading generation quality. Together, these contributions significantly improve the efficiency of DLMs, yielding up to an $8\times$ throughput improvement over vanilla decoding and a $2$--$4\times$ speedup over existing caching baselines.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-01-30T05:22:44Z</published>
+    <arxiv:comment>Accepted by ICML 2026.The code repository is available at https://github.com/wenhao728/spa-cache</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Wenhao Sun</name>
+    </author>
+    <author>
+      <name>Rong-Cheng Tu</name>
+    </author>
+    <author>
+      <name>Yifu Ding</name>
+    </author>
+    <author>
+      <name>Zhao Jin</name>
+    </author>
+    <author>
+      <name>Jingyi Liao</name>
+    </author>
+    <author>
+      <name>Yongcheng Jing</name>
+    </author>
+    <author>
+      <name>Dacheng Tao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2602.06462v4</id>
+    <title>Diffusion-State Policy Optimization for Masked Diffusion Language Models</title>
+    <updated>2026-05-19T02:44:29Z</updated>
+    <link href="https://arxiv.org/abs/2602.06462v4" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2602.06462v4" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Masked diffusion language models generate text through iterative masked-token filling, but terminal-only rewards on final completions provide coarse credit assignment for the intermediate filling decisions that shape the generation process. We propose Diffusion-State Policy Optimization (DiSPO), a plug-in credit-assignment layer that directly optimizes intermediate filling decisions. At selected intermediate masked states, DiSPO branches by resampling the currently masked positions from rollout-cached logits, scores the resulting completions, and updates only the newly filled tokens, requiring no additional multi-step diffusion rollouts or optimizer steps. We formalize a fixed-state objective for branched completions and derive a policy-gradient estimator that reuses the same rollouts as terminal-feedback policy optimization. Experiments on LLaDA-8B-Instruct show that DiSPO consistently improves terminal-feedback baselines, including diffu-GRPO and SPG, on math and planning benchmarks under matched rollout compute and optimizer steps, supporting its use as a general plug-in for masked diffusion policy optimization. Our project page is available at https://daioba.github.io/dispo .</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-02-06T07:47:22Z</published>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Daisuke Oba</name>
+    </author>
+    <author>
+      <name>Hiroki Furuta</name>
+    </author>
+    <author>
+      <name>Naoaki Okazaki</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2602.08048v1</id>
+    <title>TDGNet: Hallucination Detection in Diffusion Language Models via Temporal Dynamic Graphs</title>
+    <updated>2026-02-08T16:35:30Z</updated>
+    <link href="https://arxiv.org/abs/2602.08048v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2602.08048v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion language models (D-LLMs) offer parallel denoising and bidirectional context, but hallucination detection for D-LLMs remains underexplored. Prior detectors developed for auto-regressive LLMs typically rely on single-pass cues and do not directly transfer to diffusion generation, where factuality evidence is distributed across the denoising trajectory and may appear, drift, or be self-corrected over time. We introduce TDGNet, a temporal dynamic graph framework that formulates hallucination detection as learning over evolving token-level attention graphs. At each denoising step, we sparsify the attention graph and update per-token memories via message passing, then apply temporal attention to aggregate trajectory-wide evidence for final prediction. Experiments on LLaDA-8B and Dream-7B across QA benchmarks show consistent AUROC improvements over output-based, latent-based, and static-graph baselines, with single-pass inference and modest overhead. These results highlight the importance of temporal reasoning on attention graphs for robust hallucination detection in diffusion language models.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-02-08T16:35:30Z</published>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Arshia Hemmat</name>
+    </author>
+    <author>
+      <name>Philip Torr</name>
+    </author>
+    <author>
+      <name>Yongqiang Chen</name>
+    </author>
+    <author>
+      <name>Junchi Yu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2602.08905v1</id>
+    <title>Efficient and Stable Reinforcement Learning for Diffusion Language Models</title>
+    <updated>2026-02-09T17:04:23Z</updated>
+    <link href="https://arxiv.org/abs/2602.08905v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2602.08905v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Reinforcement Learning (RL) is crucial for unlocking the complex reasoning capabilities of Diffusion-based Large Language Models (dLLMs). However, applying RL to dLLMs faces unique challenges in efficiency and stability. To address these challenges, we propose Spatio-Temporal Pruning (STP), a framework designed to simultaneously improve the efficiency and stability of RL for dLLMs. STP compresses the redundancy in the generative process through: (1) \textit{spatial pruning}, which constrains the exploration space using static priors; and (2) \textit{temporal pruning}, which bypasses redundant late-stage refinement steps. Our theoretical analysis demonstrates that STP strictly reduces the variance of the log-likelihood estimation, thereby ensuring more stable policy updates. Extensive experiments demonstrate that STP surpasses state-of-the-art baselines in both efficiency and accuracy. Our code is available at https://github.com/Lolo1222/STP.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-02-09T17:04:23Z</published>
+    <arxiv:comment>13 pages, 3 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Jiawei Liu</name>
+    </author>
+    <author>
+      <name>Xiting Wang</name>
+    </author>
+    <author>
+      <name>Yuanyuan Zhong</name>
+    </author>
+    <author>
+      <name>Defu Lian</name>
+    </author>
+    <author>
+      <name>Yu Yang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2603.01331v3</id>
+    <title>MetaState: Persistent Working Memory Enhances Reasoning in Discrete Diffusion Language Models</title>
+    <updated>2026-07-10T20:54:45Z</updated>
+    <link href="https://arxiv.org/abs/2603.01331v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2603.01331v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Discrete diffusion language models (dLLMs) generate text by iteratively denoising a masked sequence. However, standard dLLMs condition each denoising step solely on the current hard-masked sequence, while intermediate continuous representations are discarded after sampling and remasking. We term this bottleneck the \textbf{Information Island} issue: continuous information remains isolated within individual denoising steps and fails to propagate across the trajectory. This bottleneck is especially harmful for reasoning, which requires intermediate reasoning state to be preserved and updated across many denoising steps. To address this limitation, we introduce \textbf{MetaState}, a lightweight recurrent augmentation that equips a frozen dLLM backbone with persistent, fixed-size working memory. MetaState comprises three modules with a shared time conditioner: a cross-attention \textbf{Mixer} that reads backbone activations into memory slots, a GRU-style \textbf{Updater} that integrates information across steps, and a cross-attention \textbf{Injector} that writes the updated memory back into the backbone. We train these modules with a dedicated $K$-step unrolling pipeline to learn multi-step dynamics. MetaState adds only ${\sim}0.6\%$ trainable parameters while keeping the backbone frozen, and consistently improves reasoning performance over frozen baselines on mathematical reasoning and code generation benchmarks, with an average gain of 4.5 percentage points across all evaluations.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-03-02T00:16:35Z</published>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Kejing Xia</name>
+    </author>
+    <author>
+      <name>Mingzhe Li</name>
+    </author>
+    <author>
+      <name>Lixuan Wei</name>
+    </author>
+    <author>
+      <name>Zhenbang Du</name>
+    </author>
+    <author>
+      <name>Xiangchi Yuan</name>
+    </author>
+    <author>
+      <name>Dachuan Shi</name>
+    </author>
+    <author>
+      <name>Qirui Jin</name>
+    </author>
+    <author>
+      <name>Wenke Lee</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2603.01563v3</id>
+    <title>Efficient Token-Level Policy Optimization for Masked Diffusion Models via Velocity Alignment</title>
+    <updated>2026-10-27T16:51:22Z</updated>
+    <link href="https://arxiv.org/abs/2603.01563v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2603.01563v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Reinforcement Learning with Verifiable Rewards (RLVR) successfully aligns autoregressive models in rigorous domains like mathematical reasoning and code generation. However, applying RLVR to Diffusion Large Language Models (dLLMs) is hindered by intractable sequence-level likelihoods, forcing existing methods to rely on unstable, high-variance approximations. We propose Sequence Likelihood-Free Policy Optimization (LFPO), an efficient framework that circumvents this bottleneck by formulating policy alignment as discrete velocity alignment. Inspired by continuous flow matching, LFPO eschews trajectory-level estimation and directly optimizes denoising logits via contrastive token-level updates, providing a stable, low-variance surrogate. Furthermore, predicting terminal solutions from intermediate states implicitly straightens the generation trajectory, enabling high-quality sampling with significantly fewer denoising iterations. Extensive experiments on reasoning and coding benchmarks demonstrate that LFPO matches or exceeds the accuracy of likelihood-based baselines while substantially accelerating inference.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-03-02T07:42:55Z</published>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Chenxing Wei</name>
+    </author>
+    <author>
+      <name>Jiazhen Kang</name>
+    </author>
+    <author>
+      <name>Hong Wang</name>
+    </author>
+    <author>
+      <name>Jianqing Zhang</name>
+    </author>
+    <author>
+      <name>Hao Jiang</name>
+    </author>
+    <author>
+      <name>Xiaolong Xu</name>
+    </author>
+    <author>
+      <name>Ningyuan Sun</name>
+    </author>
+    <author>
+      <name>Ying He</name>
+    </author>
+    <author>
+      <name>F. Richard Yu</name>
+    </author>
+    <author>
+      <name>Yao Shu</name>
+    </author>
+    <author>
+      <name>Bo Jiang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2603.05454v1</id>
+    <title>Beyond Scattered Acceptance: Fast and Coherent Inference for DLMs via Longest Stable Prefixes</title>
+    <updated>2026-03-05T18:25:26Z</updated>
+    <link href="https://arxiv.org/abs/2603.05454v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2603.05454v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion Language Models (DLMs) promise highly parallel text generation, yet their practical inference speed is often bottlenecked by suboptimal decoding schedulers. Standard approaches rely on 'scattered acceptance'-committing high confidence tokens at disjoint positions throughout the sequence. This approach inadvertently fractures the Key-Value (KV) cache, destroys memory locality, and forces the model into costly, repeated repairs across unstable token boundaries. To resolve this, we present the Longest Stable Prefix (LSP) scheduler, a training-free and model-agnostic inference paradigm based on monolithic prefix absorption. In each denoising step, LSP evaluates token stability via a single forward pass, dynamically identifies a contiguous left-aligned block of stable predictions, and snaps its boundary to natural linguistic or structural delimiters before an atomic commitment. This prefix-first topology yields dual benefits: systemically, it converts fragmented KV cache updates into efficient, contiguous appends; algorithmically, it preserves bidirectional lookahead over a geometrically shrinking active suffix, drastically reducing token flip rates and denoiser calls. Extensive evaluations on LLaDA-8B and Dream-7B demonstrate that LSP accelerates inference by up to 3.4x across rigorous benchmarks including mathematical reasoning, code generation, multilingual (CJK) tasks, and creative writing while matching or slightly improving output quality. By fundamentally restructuring the commitment topology, LSP bridges the gap between the theoretical parallelism of DLMs and practical hardware efficiency.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-03-05T18:25:26Z</published>
+    <arxiv:comment>Accepted at ICLR 2026</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Pengxiang Li</name>
+    </author>
+    <author>
+      <name>Joey Tsai</name>
+    </author>
+    <author>
+      <name>Hongwei Xue</name>
+    </author>
+    <author>
+      <name>Kunyu Shi</name>
+    </author>
+    <author>
+      <name>Shilin Yan</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2603.07815v3</id>
+    <title>HybridStitch: Token-Adaptive Model Stitching for Efficient Diffusion Generation</title>
+    <updated>2026-10-14T04:33:47Z</updated>
+    <link href="https://arxiv.org/abs/2603.07815v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2603.07815v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Iterative diffusion generation requires different amounts of model capacity at different token positions. Prior model combinations allocate capacity by denoising step or by drafting and verification role. We present HybridStitch, a training-free framework that uses token-level feedback to select the model supplying each adopted update. Continuous image refinement and discrete language commitment operate on a shared generation state, while model-specific KV buffers provide attention context for selected queries. HybridStitch achieves 1.63--1.68$\times$ faster image generation and 1.15--1.58$\times$ diffusion large language model (dLLM) throughput on four main benchmarks. Estimated dLLM decode query cost decreases by 50--66% with comparable generation quality.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-03-08T21:34:50Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Desen Sun</name>
+    </author>
+    <author>
+      <name>Jason Hon</name>
+    </author>
+    <author>
+      <name>Jintao Zhang</name>
+    </author>
+    <author>
+      <name>Sihang Liu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2603.09184v1</id>
+    <title>Latent-DARM: Bridging Discrete Diffusion And Autoregressive Models For Reasoning</title>
+    <updated>2026-03-10T04:45:26Z</updated>
+    <link href="https://arxiv.org/abs/2603.09184v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2603.09184v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Most multi-agent systems rely exclusively on autoregressive language models (ARMs) that are based on sequential generation. Although effective for fluent text, ARMs limit global reasoning and plan revision. On the other hand, Discrete Diffusion Language Models (DDLMs) enable non-sequential, globally revisable generation and have shown strong planning capabilities, but their limited text fluency hinders direct collaboration with ARMs. We introduce Latent-DARM, a latent-space communication framework bridging DDLM (planners) and ARM (executors), maximizing collaborative benefits. Across mathematical, scientific, and commonsense reasoning benchmarks, Latent-DARM outperforms text-based interfaces on average, improving accuracy from 27.0% to 36.0% on DART-5 and from 0.0% to 14.0% on AIME2024. Latent-DARM approaches the results of state-of-the-art reasoning models while using less than 2.2% of its token budget. This work advances multi-agent collaboration among agents with heterogeneous models.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-03-10T04:45:26Z</published>
+    <arxiv:comment>Published at LIT Workshop at ICLR 2026</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Lina Berrayana</name>
+    </author>
+    <author>
+      <name>Ahmed Heakl</name>
+    </author>
+    <author>
+      <name>Abdullah Sohail</name>
+    </author>
+    <author>
+      <name>Thomas Hofmann</name>
+    </author>
+    <author>
+      <name>Salman Khan</name>
+    </author>
+    <author>
+      <name>Wei Chen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2603.12554v3</id>
+    <title>Reinforcement Learning for Diffusion LLMs with Entropy-Guided Step Selection and Stepwise Advantages</title>
+    <updated>2026-11-07T16:14:43Z</updated>
+    <link href="https://arxiv.org/abs/2603.12554v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2603.12554v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Reinforcement learning (RL) has been effective for post-training autoregressive (AR) language models, but extending these methods to diffusion language models (DLMs) is challenging due to intractable sequence-level likelihoods. Existing approaches therefore rely on surrogate likelihoods or heuristic approximations, which can introduce bias and obscure the sequential structure of denoising. We formulate diffusion-based sequence generation as a finite-horizon Markov decision process over the denoising trajectory and derive an exact, unbiased policy gradient that decomposes over denoising steps and is expressed in terms of intermediate advantages, without requiring explicit evaluation of the sequence likelihood. To obtain a practical and compute-efficient estimator, we (i) select denoising steps for policy updates via an entropy-guided approximation bound, and (ii) estimate intermediate advantages using a one-step denoising reward naturally provided by the diffusion model, avoiding costly multi-step rollouts. Experiments on coding and logical reasoning benchmarks demonstrate state-of-the-art results, with strong competitive performance on mathematical reasoning, outperforming existing RL post-training approaches for DLMs. Code is available at https://github.com/vishnutez/egspo-dllm-rl.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-03-13T01:38:44Z</published>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Vishnu Teja Kunde</name>
+    </author>
+    <author>
+      <name>Fatemeh Doudi</name>
+    </author>
+    <author>
+      <name>Mahdi Farahbakhsh</name>
+    </author>
+    <author>
+      <name>Dileep Kalathil</name>
+    </author>
+    <author>
+      <name>Krishna Narayanan</name>
+    </author>
+    <author>
+      <name>Jean-Francois Chamberland</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2603.18489v3</id>
+    <title>EntropyCache: Decoded Token Entropy Guided KV Caching for Diffusion Language Models</title>
+    <updated>2026-11-04T01:11:39Z</updated>
+    <link href="https://arxiv.org/abs/2603.18489v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2603.18489v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion-based large language models (dLLMs) rely on bidirectional attention, which prevents lossless KV caching and requires a full forward pass at every denoising step. Existing approximate KV caching methods reduce this cost by selectively updating cached states, but their decision overhead scales with context length or model depth. We propose EntropyCache, a training-free KV caching method that uses the maximum entropy of newly decoded token distributions as a constant-cost signal for deciding when to recompute. Our design is grounded in two empirical observations: (1) decoded token entropy correlates with KV cache drift, providing a cheap proxy for cache staleness, and (2) feature volatility of decoded tokens persists for multiple steps after unmasking, motivating recomputation of the $k$ most recently decoded tokens. The skip-or-recompute decision requires only $O(V)$ computation per step, independent of context length and model scale. Experiments on LLaDA-8B-Instruct and Dream-7B-Instruct show that EntropyCache achieves $15.2\times$-$26.4\times$ speedup on standard benchmarks and $22.4\times$-$24.1\times$ on chain-of-thought benchmarks, with competitive accuracy and decision overhead accounting for only $0.5\%$ of inference time. Code is available at https://github.com/mscheong01/EntropyCache.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-03-19T04:46:34Z</published>
+    <arxiv:comment>NeurIPS 2026</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Minsoo Cheong</name>
+    </author>
+    <author>
+      <name>Donghyun Son</name>
+    </author>
+    <author>
+      <name>Woosang Lim</name>
+    </author>
+    <author>
+      <name>Sungjoo Yoo</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2603.22241v2</id>
+    <title>MemDLM: Memory-Enhanced DLM Training</title>
+    <updated>2026-04-13T08:19:37Z</updated>
+    <link href="https://arxiv.org/abs/2603.22241v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2603.22241v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion Language Models (DLMs) offer attractive advantages over Auto-Regressive (AR) models, such as full-attention parallel decoding and flexible generation. However, standard DLM training uses a static, single-step masked prediction objective that never exposes the model to the progressive denoising dynamics of inference, and forces all contextual information to be maintained purely through token-space attention, which becomes increasingly diluted as context length grows. We propose MemDLM (Memory-Enhanced DLM), which introduces a second memory channel by embedding a simulated denoising trajectory into training via Bi-level Optimization. An inner loop updates a set of fast weights, forming a Parametric Memory that captures the local trajectory experience, while an outer loop updates the base model conditioned on this memory. By offloading part of the memorization burden from token-space attention to parameter space, MemDLM yields faster convergence, stronger long-context representations, and lower training loss, even when the fast weights are discarded at inference time. Re-enabling the inner loop at inference provides an additional prompt-specific adaptation effect, where the Parametric Memory acts as an emergent in-weight retrieval mechanism on challenging Needle-in-a-Haystack tasks. Code: https://github.com/JarvisPei/MemDLM.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-03-23T17:39:56Z</published>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Zehua Pei</name>
+    </author>
+    <author>
+      <name>Hui-Ling Zhen</name>
+    </author>
+    <author>
+      <name>Weizhe Lin</name>
+    </author>
+    <author>
+      <name>Sinno Jialin Pan</name>
+    </author>
+    <author>
+      <name>Yunhe Wang</name>
+    </author>
+    <author>
+      <name>Mingxuan Yuan</name>
+    </author>
+    <author>
+      <name>Bei Yu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.26436v2</id>
+    <title>Targeted Remasking: Replacing Token Editing with Token-to-Mask Refinement in Discrete Diffusion Language Models</title>
+    <updated>2026-05-31T04:33:39Z</updated>
+    <link href="https://arxiv.org/abs/2605.26436v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.26436v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Discrete masked diffusion language models such as LLaDA generate text through iterative denoising, where mask tokens are progressively replaced with predicted tokens. LLaDA2.1 introduced a Token-to-Token (T2T) editing mechanism that accelerates generation by directly replacing committed tokens suspected of being incorrect. However, we identify fundamental limitations of T2T editing: it couples error detection with replacement, pollutes the generation context with potentially incorrect tokens, and introduces a train-inference noise mismatch where systematic model-generated errors differ from the random perturbations seen during training. We propose Token-to-Mask (T2M) remasking, a training-free, drop-in replacement for T2T editing that resets suspected erroneous tokens back to the mask state, allowing the diffusion process to re-predict them under cleaner context. We design and empirically validate three complementary error detection strategies -- probability-based, trigger-mirrored, and temporal-difference-based -- and provide a unified theoretical analysis showing that T2M remasking purifies the generation context, converts systematic inference errors back to the model's native mask noise type, and enables delayed commitment for joint multi-position optimization. Comprehensive experiments across 12 benchmarks spanning knowledge, reasoning, mathematics, coding, and instruction following show that T2M generally improves performance on tasks requiring precise token-level output, with the largest gain on mathematics (+5.92% on CMATH). Error analysis on CMATH reveals that the dominant failure mode is last-mile token corruption -- where correct reasoning produces a corrupted final answer -- and that T2M repairs 59.4% of such cases.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-04-06T17:39:11Z</published>
+    <arxiv:comment>This paper has been significantly revised, expanded, and superseded by a more comprehensive version available at arXiv:2604.18738. The authors have chosen to withdraw this version to avoid overlap and direct readers to the updated work</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Lin Yao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2607.16204v2</id>
+    <title>Masked Diffusion Language Models are Strong and Steerable Text-Based World Models for Agentic RL</title>
+    <updated>2026-10-07T21:03:07Z</updated>
+    <link href="https://arxiv.org/abs/2607.16204v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2607.16204v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Recent growth in reinforcement learning (RL) has surfaced a need for diverse, specialized training environments. Hand-curated environments with fixed task and reward difficulties become ineffective signals as model performance improves, and sparse rewards over long horizons induce mode collapse on specific workflows or tool structures. World models that simulate environment states have matched pure rollout performance, making them promising for scaling diversity on-demand. However, autoregressive (AR) world models suffer from a left-to-right bias preventing conditioning on globally interdependent state anchors such as tool schemas, prior turns, and expected outcomes. We (i) formalize text-based world modeling as a steerable transition-dynamics problem decomposed into initial state, task context, tool schemas, domain rules, and steering directives, and (ii) curate 239,403 grounded state-action trajectories spanning nine open-source environments and twelve frontier model families. We compare AR LMs and masked diffusion language models (MDLMs), showing MDLMs, via bidirectional anchor-aware denoising, achieve better coherence, groundedness, and empirically validated rollout diversity than LLMs over 4x their parameter size, at comparable inference latency. We introduce a plug-and-play GRPO training framework with deterministic state checks, and perform zero-shot transfer ablations on three OOD environments (ScienceWorld, ALFWorld, AppWorld) across three 1.2B-7B agent backbones (LFM2.5, Qwen3, Mistral), achieving up to 47% absolute gains over baselines without environment-specific fine-tuning. We further conduct behavioral analysis of failure modes under adversarial scenarios and human evaluation on realism, outcome correctness, and training utility. We open-source our work to encourage research in this direction.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-07T00:40:32Z</published>
+    <arxiv:comment>Accepted to NeurIPS 2026 Dataset: https://huggingface.co/PatronusAI/world_model_corpus Training code: https://github.com/patronus-ai/mdlm_world_modeling</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Darshan Deshpande</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.06885v1</id>
+    <title>Don't Retrain, Align: Adapting Autoregressive LMs to Diffusion LMs via Representation Alignment</title>
+    <updated>2026-05-07T19:35:48Z</updated>
+    <link href="https://arxiv.org/abs/2605.06885v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.06885v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion language models (DLMs) have recently demonstrated capabilities that complement standard autoregressive (AR) models, particularly in non-sequential generation and bidirectional editing. Although recent work has shown that pretrained autoregressive checkpoints can be converted into diffusion language models, existing recipes primarily transfer parameters through continued denoising training with objective- and attention-level modifications. We instead ask whether the internal representation geometry learned by next-token prediction can be explicitly preserved during AR-to-DLM conversion. We hypothesize that much of the semantic structure learned by AR pretraining can transfer across generation orders, and thus DLM training should be viewed as relearning the decoding path rather than relearning language representations. To investigate this, we introduce REPR-ALIGN, a representation alignment objective that adapts a bidirectional masked diffusion model to reuse representations from a pretrained AR model of identical architecture. Concretely, we align the hidden states of the DLM to the frozen AR model at every layer using cosine similarity, while optimizing the standard masked denoising objective. This simple alignment, with no adapters and no architectural changes beyond the attention mask, yields up to 4x training acceleration in our setting and is particularly effective in low-data regimes. Our results suggest that linguistic representations can transfer across generation order, and that representation alignment provides a simple and effective technique for training diffusion language models. Code is available at https://github.com/pengzhangzhi/Open-dLLM.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-07T19:35:48Z</published>
+    <arxiv:comment>Code available at https://github.com/pengzhangzhi/Open-dLLM</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Fred Zhangzhi Peng</name>
+    </author>
+    <author>
+      <name>Alexis Fox</name>
+    </author>
+    <author>
+      <name>Anru R. Zhang</name>
+    </author>
+    <author>
+      <name>Alexander Tong</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.23163v2</id>
+    <title>Fast-dDrive: Efficient Block-Diffusion VLM for Autonomous Driving</title>
+    <updated>2026-05-25T07:32:46Z</updated>
+    <link href="https://arxiv.org/abs/2605.23163v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.23163v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>End-to-end autonomous driving via Vision-Language-Action (VLA) models demands a precarious balance between high-fidelity trajectory planning and efficient inference. Existing paradigms typically fall short: autoregressive (AR) VLAs are memory-bandwidth-bound on edge hardware and prone to exposure-bias drift, while full-sequence diffusion models preclude KV-cache reuse and suffer from "logical leakage" that violates the fundamental perceive-then-plan causality. We present Fast-dDrive, a block-diffusion VLA that performs bidirectional refinement within semantic units while enforcing strict causal ordering across them. Leveraging the observation that driving VLAs often emit structured JSON-like outputs, Fast-dDrive freezes structural tokens into a section scaffold and employs a section-aware training recipe that prioritizes safety-critical planning. We further introduce Scaffold Speculative Decoding to achieve AR-equivalent quality at significantly higher throughput. Finally, we propose a low-overhead test-time scaling scheme: by forking $N$ stochastic trajectory rollouts from a single shared-prefix KV cache and averaging them, we effectively suppress prediction variance at a fractional computational cost. Empirical results demonstrate that Fast-dDrive redefines the speed-accuracy frontier for driving agents. On the WOD-E2E test set, Fast-dDrive achieves SOTA ADE@3s and ADE@5s, alongside the highest RFS among diffusion-based VLAs; on nuScenes, it reduces average L2 error to $0.32$m (a $22\%$ improvement). When integrated with SGLang, our framework delivers $12\times$ throughput speedup over the AR baseline, narrowing the gap between high-capacity VLAs and the efficiency demands of real-time on-vehicle deployment.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-22T02:31:32Z</published>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Kewei Zhang</name>
+    </author>
+    <author>
+      <name>Jin Wang</name>
+    </author>
+    <author>
+      <name>Sensen Gao</name>
+    </author>
+    <author>
+      <name>Chengyue Wu</name>
+    </author>
+    <author>
+      <name>Yulong Cao</name>
+    </author>
+    <author>
+      <name>Songyang Han</name>
+    </author>
+    <author>
+      <name>Boris Ivanovic</name>
+    </author>
+    <author>
+      <name>Langechuan Liu</name>
+    </author>
+    <author>
+      <name>Marco Pavone</name>
+    </author>
+    <author>
+      <name>Song Han</name>
+    </author>
+    <author>
+      <name>Daquan Zhou</name>
+    </author>
+    <author>
+      <name>Enze Xie</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.26120v1</id>
+    <title>Dynamic-dLLM: Dynamic Cache-Budget and Adaptive Parallel Decoding for Training-Free Acceleration of Diffusion LLM</title>
+    <updated>2026-05-27T02:47:50Z</updated>
+    <link href="https://arxiv.org/abs/2606.26120v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.26120v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion Large Language Models (dLLMs) offer a promising alternative to autoregressive models, excelling in text generation tasks due to their bidirectional attention mechanisms. However, their computational complexity scales on the order of L cubed with the sequence length L. This poses significant challenges for long-sequence and real-time applications, primarily due to the lack of compatibility with key-value caching and the non-autoregressive nature of denoising steps. Existing acceleration methods rely on static caching or parallel decoding strategies, which fail to account for the dynamic behavior of token properties across layers and decoding steps. We propose Dynamic-dLLM, a training-free framework that enhances dLLM inference efficiency through two components: Dynamic Cache Updating (DCU), which adaptively allocates cache-update budgets based on layer-wise token dynamics, and Adaptive Parallel Decoding (APD), which dynamically calibrates decoding thresholds to balance generation quality and efficiency. Extensive experiments on models like LLaDA-8B-Instruct, LLaDA-1.5, and Dream-v0-7B-Instruct across benchmarks such as MMLU, GSM8K, and HumanEval demonstrate that Dynamic-dLLM significantly improves inference speed. It attains an average speedup exceeding 3 times while maintaining performance. Dynamic-dLLM outperforms state-of-the-art acceleration methods and provides a plug-and-play solution for efficient dLLM deployment without compromising performance. The code is available at https://github.com/TianyiWu233/DYNAMIC-DLLM.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-27T02:47:50Z</published>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Tianyi Wu</name>
+    </author>
+    <author>
+      <name>Xiaoxi Sun</name>
+    </author>
+    <author>
+      <name>Yanhua Jiao</name>
+    </author>
+    <author>
+      <name>Yulin Li</name>
+    </author>
+    <author>
+      <name>Yixin Chen</name>
+    </author>
+    <author>
+      <name>YunHao Cao</name>
+    </author>
+    <author>
+      <name>YiQi Hu</name>
+    </author>
+    <author>
+      <name>Zhuotao Tian</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.29233v2</id>
+    <title>BlockBatch: Multi-Scale Consensus Decoding for Efficient Diffusion Language Model Inference</title>
+    <updated>2026-05-30T19:57:27Z</updated>
+    <link href="https://arxiv.org/abs/2605.29233v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.29233v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion language models (dLLMs) generate text by iteratively denoising multiple token positions in parallel, offering an attractive alternative to strictly autoregressive decoding. In practice, however, block-wise dLLM inference exposes a difficult granularity trade-off: small blocks preserve local conditioning but require many denoising steps, whereas large blocks expose more parallelism but can make premature commitments and accumulate cache error. Existing acceleration methods typically choose a single block size per request, leaving the complementarity among block sizes unused. We show that block size itself is a useful branching dimension. Different block sizes induce related but non-identical KV-cache trajectories: branches often share an initial prefix, bifurcate at semantically decisive positions, and later agree on syntactically lightweight tokens. Motivated by this structure, we propose BlockBatch, a training-free online inference framework that executes multiple block-size branches for the same request inside a batched forward pass. BlockBatch coordinates these branches through confidence-gated token merging, leader-based synchronization, and periodic full-sequence refreshes that re-anchor local block updates to a globally consistent KV state. Across 3 representative dLLMs and 4 datasets, BlockBatch reduces denoising NFEs by 26.6\% on average and achieves a 1.33$\times$ average end-to-end speedup over Fast-dLLM while preserving accuracy. These results identify block-size diversity as a practical and previously underexplored axis for branch-parallel dLLM inference.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-28T01:48:29Z</published>
+    <arxiv:comment>23 pages, including references and appendices</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Xiaoyou Wu</name>
+    </author>
+    <author>
+      <name>Cheng-Jhih Shih</name>
+    </author>
+    <author>
+      <name>Binfei Ji</name>
+    </author>
+    <author>
+      <name>Yong Liu</name>
+    </author>
+    <author>
+      <name>Yingyan Celine Lin</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.29727v4</id>
+    <title>Bastion: Budget-Aware Speculative Decoding with Tree-structured Block Diffusion Drafting</title>
+    <updated>2026-10-28T05:42:31Z</updated>
+    <link href="https://arxiv.org/abs/2605.29727v4" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.29727v4" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Block-diffusion drafters have recently emerged as a powerful alternative for speculative decoding by predicting multiple future-token distributions in a single parallel step. However, since these parallel predictions are sampled from position-wise marginals rather than fully conditioned sequences, committing to a single greedy path often fails to capture the target model's preferred trajectory. To address this, we propose BASTION, a budget-aware speculative decoding framework with tree-based diffusion drafting. Unlike existing methods that rely on static tree topologies, BASTION dynamically constructs query-dependent trees by balancing draft quality against hardware constraints. Our framework integrates three synergistic components: (1) an acceptance surrogate that estimates expected accepted length via path confidence, (2) an online latency estimator that calibrates a hardware-aware roofline model, and (3) an adaptive best-first expansion that grows the tree until marginal gains no longer justify incremental verification costs. BASTION is training-free, preserves the target model's distribution, and requires no per-setting tuning. Across diverse benchmarks and GPU architectures, BASTION achieves up to a $6.61\times$ speedup over standard autoregressive decoding, outperforming state-of-the-art block-diffusion baselines by 39%.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-28T10:21:34Z</published>
+    <arxiv:comment>NeurIPS 2026</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Soowon Oh</name>
+    </author>
+    <author>
+      <name>Nam Cao</name>
+    </author>
+    <author>
+      <name>Yujin Kim</name>
+    </author>
+    <author>
+      <name>Hojung Jung</name>
+    </author>
+    <author>
+      <name>Huzama Ahmad</name>
+    </author>
+    <author>
+      <name>Sangmin Bae</name>
+    </author>
+    <author>
+      <name>Se-Young Yun</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.03924v2</id>
+    <title>Knowledge Editing for Masked Diffusion Language Models</title>
+    <updated>2026-09-02T11:43:17Z</updated>
+    <link href="https://arxiv.org/abs/2606.03924v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.03924v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Knowledge editing aims to update or correct factual knowledge in a language model. A widely used approach, locate-then-edit, first localizes a fact within the model and then edits the weights there. To date, such methods have been developed exclusively for autoregressive models (ARMs). Whether they work for masked diffusion models (MDMs), which model text bidirectionally and generate by iterative denoising rather than next-token prediction, remains an open question. We address it by transferring locate-then-edit to MDMs and comparing multiple MDMs with their matched ARMs. Our central finding has two parts. First, where an edit should be applied transfers between them: the same early-to-mid-layer MLP at the last subject token is most effective for both. Second, this shared location does not guarantee a shared outcome. Single-token edits succeed in both, but as targets grow longer, editing degrades far more sharply in the MDMs than in the ARMs. The failure stems from how the edited fact is generated: producing a multi-token target passes through intermediate states in which the target is partially unmasked, for which the edit was never optimized. Guided by this diagnosis, we introduce a simple correction that optimizes the edit including such states, substantially restoring multi-token performance. Our code is available at https://github.com/holi-lab/MDM-KE.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-02T17:14:37Z</published>
+    <arxiv:comment>25 pages, 7 figures, 27 tables. Accepted to EMNLP 2026</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Haewon Park</name>
+    </author>
+    <author>
+      <name>Yohan Jo</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.04236v1</id>
+    <title>Supportive Token Revealing for Fast Diffusion Language Model Decoding</title>
+    <updated>2026-06-02T21:35:54Z</updated>
+    <link href="https://arxiv.org/abs/2606.04236v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.04236v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Discrete diffusion language models can generate text efficiently by updating multiple masked positions in parallel, but this parallelism introduces a quality-latency trade-off. Aggressive decoding may commit mutually dependent tokens too early, while conservative decoding requires many denoising steps. Existing methods address this tension by deciding which tokens are safe to reveal using confidence or dependency criteria. However, avoiding unsafe commits does not necessarily make the remaining masked sequence easy to decode, since uncertain tokens may depend on masked tokens, creating a bottleneck for denoising steps. We propose AXON, a training-free module that can be added on top of existing parallel decoding strategies for diffusion language models. Rather than replacing the base decoder, AXON monitors the remaining uncertain masked tokens and intervenes only when their current state suggests that additional context is needed. It then shifts the criterion from which tokens are safest to reveal to which confident reveals would best support later denoising. AXON selects anchors, confident masked tokens that uncertain positions attend to, using attention, uncertainty, and confidence signals. Experiments on reasoning and code-generation benchmarks across multiple diffusion language models show that AXON improves the quality-latency trade-off of existing parallel decoders, often reducing the number of function evaluations while maintaining or improving accuracy.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-02T21:35:54Z</published>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Giries Abu Ayoub</name>
+    </author>
+    <author>
+      <name>Mario Barbara</name>
+    </author>
+    <author>
+      <name>Lluís Pastor-Pérez</name>
+    </author>
+    <author>
+      <name>Tanja Bien</name>
+    </author>
+    <author>
+      <name>Aneesh Barthakur</name>
+    </author>
+    <author>
+      <name>Alaa Maalouf</name>
+    </author>
+    <author>
+      <name>Loay Mualem</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.08501v2</id>
+    <title>Back on Track: Aligning Rewards and States for Reasoning in Diffusion Large Language Models</title>
+    <updated>2026-09-06T03:07:01Z</updated>
+    <link href="https://arxiv.org/abs/2606.08501v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.08501v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Reinforcement learning (RL) holds immense promise for enhancing the reasoning capabilities of diffusion large language models (dLLMs). However, progress is fundamentally constrained by a dual misalignment between authentic generation trajectory and the gradient update process: (i) Process-reward misalignment. Sparse, terminal rewards are indiscriminately assigned to all intermediate steps of the generation process, failing to provide discriminative credit assignment. (ii) State-trajectory misalignment. Policy updates are often diverted toward artificial, out-of-trajectory states, squandering gradients on less informative samples. To address these limitations, we introduce Process Aligned Policy Optimization (PAPO), a novel framework that holistically aligns the RL update with the dLLM's generative trajectory via Step-Aware Process Rewards (SPR) that transform sparse terminal rewards into dense, step-wise credit, and Entropy-Guided Historical Re-enactment (EHR) that replays authentic trajectories at high-uncertainty steps. Extensive experiments on four benchmarks demonstrate that PAPO significantly outperforms baselines, achieving gains of 4.5% on GSM8K, 4.8% on MATH500, 42.2% on Countdown and 16.1% on Sudoku.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-07T07:59:55Z</published>
+    <arxiv:comment>Accepted to EMNLP 2026</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Yawen Shao</name>
+    </author>
+    <author>
+      <name>Jie Xiao</name>
+    </author>
+    <author>
+      <name>Kai Zhu</name>
+    </author>
+    <author>
+      <name>Yu Liu</name>
+    </author>
+    <author>
+      <name>Hongchen Luo</name>
+    </author>
+    <author>
+      <name>Xueyang Fu</name>
+    </author>
+    <author>
+      <name>Yang Cao</name>
+    </author>
+    <author>
+      <name>Wei Zhai</name>
+    </author>
+    <author>
+      <name>Zheng-Jun Zha</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.12841v1</id>
+    <title>TimeROME-DLM: Temporal Causal Tracing and Low-Rank Inference-Time Knowledge Editing for Masked Diffusion Language Models</title>
+    <updated>2026-06-11T03:09:57Z</updated>
+    <link href="https://arxiv.org/abs/2606.12841v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.12841v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Masked diffusion language models (MDLMs) such as LLaDA now rival autoregressive (AR) LLMs, but every existing knowledge-editing and unlearning method (ROME, MEMIT, etc.) targets AR transformers and either makes assumptions that fail under iterative denoising, or requires gradient updates whose backward-pass activations cost tens of GB of extra VRAM and which collapse MDLMs at standard learning rates. We introduce TimeROME-DLM, the first training-free, gradient-free, inference-time knowledge-editing framework for MDLMs. It couples two components: a Temporal Indirect Effect (TIE) causal-tracing protocol that identifies, for each fact, the coordinate whose intervention most strongly drives the object prediction at later denoising steps; and a closed-form, low-rank residual edit memory that aggregates subject keys and target deltas across all forget facts and applies a single ridge-regularised update at that coordinate at every diffusion forward, with sparsification to limit utility spillover. Backbone weights stay frozen; only three hyperparameters (alpha, lambda, q) are tuned on a small validation split. On TOFU forget01 with TOFU-finetuned LLaDA-8B-Base, TimeROME-DLM cuts forget-set log-probability by roughly 83 nats. The same configuration transfers to LLaDA-8B-Instruct, Dream-7B, MMaDA-8B, DiffuLLaMA-7B, and LLaDA-MoE-1.4B. It keeps retain-set log-probability nearly flat (within ~1 nat at the utility-safe operating point) across 50 sequentially inserted facts, delivers a four- to fourteen-fold wall-clock speedup with zero additional VRAM over the strongest converged training-time baseline, and scales sub-linearly to 400 facts. TimeROME-DLM closes the locate-then-edit gap between AR LLMs and MDLMs at a fraction of the computational cost.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-11T03:09:57Z</published>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Zhengtao Yao</name>
+    </author>
+    <author>
+      <name>Liuyang Song</name>
+    </author>
+    <author>
+      <name>Hongbo Zhang</name>
+    </author>
+    <author>
+      <name>Chenhao Wei</name>
+    </author>
+    <author>
+      <name>Haoyan Xu</name>
+    </author>
+    <author>
+      <name>Guang Yang</name>
+    </author>
+    <author>
+      <name>Siheng Wang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.28758v1</id>
+    <title>X-Mind: Efficient Visual Chain-of-Thought via Predictive World Model for End-to-End Driving</title>
+    <updated>2026-06-27T06:17:50Z</updated>
+    <link href="https://arxiv.org/abs/2606.28758v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.28758v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Predicting future states is essential for autonomous agents, yet current Vision-Language-Action (VLA) models fundamentally lack this capability, relying instead on reactive perception-action mapping. While integrating Predictive World Models (PWMs) addresses this gap, existing approaches either incur prohibitive cascaded latency or act as shallow terminal tasks that fail to deeply embed forward-looking reasoning. To endow VLA models with this reasoning capability, we propose X-Mind. Rather than treating PWMs as an external auxiliary module, this framework internalizes them as the Visual Chain-of-Thought (Visual CoT). By enforcing a world rollout prior to action, the model is constrained to imagine future evolution first, yielding a driving policy that is robustly grounded in environmental dynamics and aware of the future consequences its actions will unfold. The challenge here is efficiency, and we tackle it on two fronts. First, we introduce a compact representation of visual thinking: an abstract sketch that fuses a Bird's-Eye-View (BEV) layout with abstract driving priors (e.g., navigation intents and traffic rules). Rather than rolling out dense future frames, the model reasons over this sketch as a mental canvas; aided by a Deep Compression Autoencoder (DC-AE), a 12-frame future rollout is reduced to merely 96 tokens, alleviating the long-context computational bottleneck. Second, to accelerate generation further, we propose a recurrent block diffusion scheme that unrolls the denoising steps across the layers of the large drive model, folding iterative refinement into the backbone's one forward pass. Trained and validated on large-scale real-world data, X-Mind achieves competitive end-to-end driving performance, which makes it a highly practical, low-latency solution that successfully deploys large-scale cognitive reasoning directly onto resource-constrained vehicle platforms.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-27T06:17:50Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Bohao Zhao</name>
+    </author>
+    <author>
+      <name>Chengrui Wei</name>
+    </author>
+    <author>
+      <name>Guangfeng Jiang</name>
+    </author>
+    <author>
+      <name>Ruixin Liu</name>
+    </author>
+    <author>
+      <name>Xuejie Lv</name>
+    </author>
+    <author>
+      <name>Liu Liang</name>
+    </author>
+    <author>
+      <name>Sutao Deng</name>
+    </author>
+    <author>
+      <name>Xiuyang Fan</name>
+    </author>
+    <author>
+      <name>Pengkun Zheng</name>
+    </author>
+    <author>
+      <name>Jinyun Zhou</name>
+    </author>
+    <author>
+      <name>Rui Guo</name>
+    </author>
+    <author>
+      <name>Hanpeng Liu</name>
+    </author>
+    <author>
+      <name>Yutong Zheng</name>
+    </author>
+    <author>
+      <name>Yi Guo</name>
+    </author>
+    <author>
+      <name>Xinlong Zheng</name>
+    </author>
+    <author>
+      <name>Qingyu Luo</name>
+    </author>
+    <author>
+      <name>Zhuangzhuang Ding</name>
+    </author>
+    <author>
+      <name>Yu Zhang</name>
+    </author>
+    <author>
+      <name>Hang Zhang</name>
+    </author>
+    <author>
+      <name>Xianming Liu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.29066v2</id>
+    <title>$x$-Prediction Flow: Efficient Continuous Decoding for Masked Diffusion Language Models</title>
+    <updated>2026-08-17T02:35:18Z</updated>
+    <link href="https://arxiv.org/abs/2606.29066v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.29066v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Masked diffusion language models (MDLMs) generate text by iteratively unmasking tokens, but their standard decoder reduces each step to a binary action: a position is either committed to a single token or left fully masked, discarding rich predictive information rather than carrying it forward, and forcing premature, irrevocable commitments that lead to poor performance under a limited decoding budget. In this paper, we reinterpret mask prediction as a clean-state prediction ($x$-prediction) and show that it can be used to induce a continuous flow in the input embedding space. Building on this view, we propose a continuous decoding framework for MDLMs where tokens can accumulate partial progress at each diffusion step and remain revisable. To match the uneven contextual constraints across positions in language, we replace the globally synchronous schedule in image diffusion with a confidence-based asynchronous update in which the diffusion progress is token-wise accumulated. Additionally, we introduce a lightweight policy network and formulate its training as a reinforcement learning problem. Applied to pretrained LLaDA, our decoder retains 83--97% of full-budget accuracy using under 15% of the diffusion steps, largely outperforming discrete mask-prediction decoding at matched budgets.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-27T19:51:35Z</published>
+    <arxiv:comment>under review</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Weitian Wang</name>
+    </author>
+    <author>
+      <name>Lianlei Shan</name>
+    </author>
+    <author>
+      <name>Shubham Rai</name>
+    </author>
+    <author>
+      <name>Cecilia De La Parra</name>
+    </author>
+    <author>
+      <name>Akash Kumar</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2607.15655v2</id>
+    <title>Planner-Guided Recursive Exploration for Diffusion Language Model Decoding</title>
+    <updated>2026-10-13T05:24:31Z</updated>
+    <link href="https://arxiv.org/abs/2607.15655v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2607.15655v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Masked diffusion language models (DLMs) enable parallel text generation by iteratively refining masked tokens, offering a promising alternative to autoregressive decoding. Recent search-based decoding methods improve the accuracy--efficiency trade-off by exploring multiple candidate decoding trajectories before committing token updates. However, existing search-based decoding methods face two key limitations. First, they offer limited guidance on when search is actually beneficial for the current decoding state. Second, they typically rely on a shallow one-step search horizon, which may favor locally promising but suboptimal decoding trajectories. To address these limitations, we propose PRED, a planner-guided recursive exploration framework for DLM decoding. PRED employs a learned planner to determine when search should be triggered, and performs adaptive multi-step rollout to evaluate candidate trajectories over longer horizons. Moreover, the same planner is recursively applied to intermediate rollout states to determine whether additional branch expansion is needed, allowing PRED to re-initiate search when necessary. Experiments across multiple benchmarks and DLM backbones show that PRED achieves a better accuracy--efficiency trade-off than existing confidence-based and search-based decoding methods.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-07-17T06:04:04Z</published>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Yingqian Cui</name>
+    </author>
+    <author>
+      <name>Wei Deng</name>
+    </author>
+    <author>
+      <name>Lantao Mei</name>
+    </author>
+    <author>
+      <name>Hang Li</name>
+    </author>
+    <author>
+      <name>Charu C. Aggarwal</name>
+    </author>
+    <author>
+      <name>Hui Liu</name>
+    </author>
+    <author>
+      <name>Yue Xing</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2607.16872v1</id>
+    <title>Trace-Based On-Policy Distillation for Masked Diffusion Language Models</title>
+    <updated>2026-07-18T16:25:17Z</updated>
+    <link href="https://arxiv.org/abs/2607.16872v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2607.16872v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion large language models (dLLMs) are a promising alternative to autoregressive generation. However, reasoning-oriented post-training for dLLMs remains challenging. Supervised fine-tuning (SFT) for dLLMs requires dense but often off-policy masked states, while reinforcement learning (RL) relies on sparse rewards or value modeling. This paper proposes \textbf{trace-based on-policy distillation (TOPD)}, a teacher-supervised framework that transfers reasoning ability to a target dLLM without reward estimation. The key idea is to supervise a dLLM on its own denoising trajectory, focusing on the trace-aligned token decisions that form the final response. Specifically, TOPD samples on-policy diffusion trajectories from the target dLLM, obtains teacher token distributions from a teacher model on the corresponding partially denoised states, and updates the target dLLM with a token-level Reverse Kullback-Leibler (Reverse-KL) objective. This design preserves dense teacher supervision while aligning training with the model's own denoising states. On mathematical reasoning benchmarks, TOPD enables SDAR-4B-Chat to match the MATH500 accuracy of its RL-trained counterpart TraDo-4B-Instruct, with gains of +5.7 under static evaluation and +4.5 under dynamic evaluation. Compared with the RL-trained counterpart, TOPD achieves this with 4$\times$ fewer rollout rounds, corresponding to an estimated 96.0$\times$ to-accuracy model-compute speedup.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-07-18T16:25:17Z</published>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Haolin Ren</name>
+    </author>
+    <author>
+      <name>Ziyang Huang</name>
+    </author>
+    <author>
+      <name>Chenhao Yuan</name>
+    </author>
+    <author>
+      <name>Jun Zhao</name>
+    </author>
+    <author>
+      <name>Kang Liu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.17573v1</id>
+    <title>GroupKV: Hierarchical KV Cache Management for Long-Context Diffusion LLM Inference</title>
+    <updated>2026-07-30T16:19:56Z</updated>
+    <link href="https://arxiv.org/abs/2609.17573v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.17573v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion large language models (dLLMs) are emerging as a promising generative paradigm that complements autoregressive decoding. In long-context settings, KV cache bloat and offloading transfer overhead have become primary bottlenecks in inference systems. Meanwhile, the periodic full-sequence recomputation and localized token updates in dLLMs make the KV lifecycle substantially more dynamic, complicating cache management and prefetch scheduling while making heavyweight token-level indexing or clustering schemes harder to amortize effectively during decoding.
+  To address these challenges, we present \textsc{GroupKV}, a lightweight hierarchical KV cache management system for long-context dLLM inference. We observe that under block-wise decoding, tokens within the same generation block tend to access highly overlapping and spatially concentrated context regions, making group-level sparse selection effective. Building on this observation, \textsc{GroupKV} partitions the context into contiguous groups and performs coarse-to-fine sparse selection. \textsc{GroupKV} further exploits cross-layer consistency to enable predictive prefetching, and incorporates a staleness correction mechanism to maintain cache coherence under dynamic KV updates. Additionally, \textsc{GroupKV} adopts streaming prefill to reduce peak memory consumption during prefilling.
+  Experiments show that \textsc{GroupKV} extends the maximum serviceable context length by up to $48.00\times$ under constrained GPU memory, improves end-to-end inference performance by up to $3.73\times$ in offload-based long-context settings, and maintains competitive task accuracy.</summary>
+    <category term="cs.OS" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.DC" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-07-30T16:19:56Z</published>
+    <arxiv:primary_category term="cs.OS"/>
+    <author>
+      <name>Jinhao Wang</name>
+    </author>
+    <author>
+      <name>Zhexin Hu</name>
+    </author>
+    <author>
+      <name>Kangjie Zhou</name>
+    </author>
+    <author>
+      <name>Xin Zhou</name>
+    </author>
+    <author>
+      <name>Fangfang Liu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.08086v3</id>
+    <title>Archer: Adaptive Reuse of Cached Hidden States for Efficient Rollback in Diffusion Language Models</title>
+    <updated>2026-10-15T16:56:51Z</updated>
+    <link href="https://arxiv.org/abs/2608.08086v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.08086v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion language models (DLMs) can revise earlier predictions as context evolves, but rollback requires costly full-sequence recomputation. Conventional key-value (KV) caching assumes immutable historical states and is difficult to reconcile with such revision. We introduce Adaptive Reuse of Cached Hidden States for Efficient Rollback (Archer), a training-free caching method for rollback-capable DLMs. Archer recomputes the mutable response at every update while reusing prompt K/V within a bounded response-state neighborhood. This asymmetric boundary amortizes prompt computation without restricting rollback. Bounded reuse also delays feedback from tentative tokens while keeping response revision active. Our analysis characterizes the cache boundary, bounds state-dependent approximation error, and gives a decoder-margin condition for preserving full-refresh decisions. On code-generation benchmarks, Archer achieves the best mean performance of 33.63% with a 2.57x mean speedup, reaching 2.95x speedup on a single benchmark. On non-code benchmarks, Archer achieves up to 4.33x speedup over LLaDA-Confidence while improving average accuracy. Controlled analyses support the delayed prompt feedback mechanism. Our code is available at https://github.com/Hxnng/Archer</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-08T12:13:10Z</published>
+    <arxiv:comment>26 pages, 7 figures, 12 tables; revised manuscript, updated author list and affiliations</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Xuning He</name>
+    </author>
+    <author>
+      <name>Qingyuan Shi</name>
+    </author>
+    <author>
+      <name>Zinan Sheng</name>
+    </author>
+    <author>
+      <name>Yongding Tao</name>
+    </author>
+    <author>
+      <name>Huanyu Liu</name>
+    </author>
+    <author>
+      <name>Ge Li</name>
+    </author>
+    <author>
+      <name>Xue Jiang</name>
+    </author>
+    <author>
+      <name>Yihong Dong</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.08167v1</id>
+    <title>Wiener Representation Filtering for VLM Hallucination Suppression</title>
+    <updated>2026-08-08T14:51:17Z</updated>
+    <link href="https://arxiv.org/abs/2608.08167v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.08167v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Vision-language models (VLMs) excel at open-ended captioning and visual QA but often describe objects, attributes, or relations absent from the image, a phenomenon known as object hallucination. We propose a {training-free, post-hoc representation editing technique} that operates in the representation space of the language backbone. The method performs a lightweight, one-time offline calibration on a modest paired dataset to estimate the required covariance structures, using only forward passes and empirical second-order statistics with no gradient updates or fine-tuning, after which the correction is absorbed directly into the model's existing weights. By modeling hidden states as a superposition of truthful and hallucination-associated components, we derive a Wiener-type estimator whose optimal gains are given in closed form from the covariances of paired truthful and hallucinated representations. An eigendecomposition yields mode-wise attenuation that respects a stability criterion, i.e., the filter responds continuously to estimation noise. The correction is applied once to the feed-forward output projections of selected deeper layers, at inference time, the model runs unchanged and at the same speed. Experiments on LLaVA-1.5, MiniGPT-4, Gemma3, and mPLUG-Owl2 demonstrate consistent reductions in object hallucination on CHAIR, POPE, and MME while maintaining caption fluency and overall response quality. We further demonstrate the generality of our approach on the TempCompass video understanding benchmark and on discrete diffusion language models for grounded dialogue, showing that representation filtering reduces hallucinations even in temporal video reasoning and multi-step, sequence-wide denoising settings.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-08T14:51:17Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Ameen Ali</name>
+    </author>
+    <author>
+      <name>Tamim Zoabi</name>
+    </author>
+    <author>
+      <name>Lidor Brami</name>
+    </author>
+    <author>
+      <name>Lior Wolf</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.13925v1</id>
+    <title>CForce: Boosting Parallel Decoding for dLLMs via Consistency Forcing</title>
+    <updated>2026-08-14T03:52:33Z</updated>
+    <link href="https://arxiv.org/abs/2608.13925v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.13925v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion large language models (dLLMs) accelerate language generation by predicting multiple masks in a single forward pass. However, existing dLLMs can suffer from unreliable predictions in early denoising stages under aggressive parallelism strategies, leading to errors that can propagate to later stages. To tackle this issue, we present Consistency Forcing (CForce) for dLLMs, a distillation method to force the mask predictions of early stages to align with those of later stages. CForce trains the model on pre-collected self-rollout trajectories, thereby improving training-inference alignment. We introduce Confidence Adaptive KL Divergence as a distillation objective to conjoin the merits of forward and reverse KL. We further provide a theoretical analysis for the consistency objective to explain why CForce can approximately minimize the prediction error of early stages. Critically, the same formulation applies to both mask-to-token decoding and edit-capable decoding; in the edit-capable case, later token-to-token refinements provide additional supervision for earlier masked-state predictions. Experiments on non-edit and edit-capable LLaDA models show improved speed-quality trade-offs, especially under high-parallelism decoding budgets. Code is available at: https://github.com/inclusionAI/dFactory.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-14T03:52:33Z</published>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Yuji Ren</name>
+    </author>
+    <author>
+      <name>Chenkai Xu</name>
+    </author>
+    <author>
+      <name>Zhuocheng Gong</name>
+    </author>
+    <author>
+      <name>Jianguo Li</name>
+    </author>
+    <author>
+      <name>Zhijie Deng</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.22090v1</id>
+    <title>Semantic Reasoning Denoising: Correcting Language Model Reasoning with Semantic Operators</title>
+    <updated>2026-08-22T19:43:46Z</updated>
+    <link href="https://arxiv.org/abs/2608.22090v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.22090v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Large language models can produce fluent reasoning traces whose local semantic errors propagate to an incorrect conclusion, while unconstrained self-correction may preserve, amplify, or introduce errors. Existing diffusion language models provide iterative refinement, but usually define noise as token masking or replacement rather than as errors in the reasoning process. We present Semantic Reasoning Denoising (SRD), an operatorized Markov denoising method for natural-language reasoning trajectories. SRD represents semantic noise with executable error operators that describe the error type, its location, and the corrupted and repaired propositions. Composing these operators constructs progressively noisier states. During training, the model learns to identify the semantic noise active in the current trajectory and to reconstruct the paired adjacent lower-noise state. During inference, noise-level-aware denoising repeatedly predicts an inverse operator and checks whether it is applicable, so each executed update makes a localized move toward a stable trajectory. Across six in-domain benchmarks spanning mathematics, code, knowledge, and commonsense, SRD improves the strongest same backbone baseline by 3.2 points on average. On seven cross-dataset transfer targets, it remains competitive with Llama-3-8B-Instruct and improves the strongest Qwen3-8B baseline average by 2.9 points. Analyses of noise sources, objectives, and denoising depth further show that structured semantic-noise prediction and iterative operator execution are central to the improvement.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-22T19:43:46Z</published>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Yujiao Yang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.03796v1</id>
+    <title>LLaDA-Image: Building Strong Image Generators with Fully Open Training Recipes</title>
+    <updated>2026-09-03T13:02:40Z</updated>
+    <link href="https://arxiv.org/abs/2609.03796v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.03796v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We introduce LLaDA-Image, a unified framework that pairs a 6B Diffusion Transformer (DiT) trained from scratch with a frozen vision-language understanding module built on the LLaDA2.0-Mini diffusion language model backbone. Instead of relying heavily on paired image-text data from the beginning, we first build a strong visual generative prior through image-only pre-training and mid-training. The generation pipeline comprises 220M samples, 98 of which are real images. For efficient and scalable optimization, we use parameter-free RMSNorm throughout the DiT together with the Muon optimizer. The resulting unified model produces highly photorealistic images while accurately following fine-grained editing instructions. We further distill LLaDA-Image into LLaDA-Image-Turbo, enabling fast inference in 2-4 sampling steps. On Qwen-Image-Bench, LLaDA-Image achieves overall scores of 53.53 and 53.38 on the English and Chinese tracks, respectively, setting a new state-of-the-art among open-source models on both tracks. To support further research on capable and efficient generative models, we release our model weights, training code, and detailed recipes.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-03T13:02:40Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Chuyan Chen</name>
+    </author>
+    <author>
+      <name>Haoxing Chen</name>
+    </author>
+    <author>
+      <name>Kun Chen</name>
+    </author>
+    <author>
+      <name>Zhenglin Cheng</name>
+    </author>
+    <author>
+      <name>Long Cui</name>
+    </author>
+    <author>
+      <name>Ruishan Fang</name>
+    </author>
+    <author>
+      <name>Zhangxuan Gu</name>
+    </author>
+    <author>
+      <name>Zhicheng Huang</name>
+    </author>
+    <author>
+      <name>Zhenzhong Lan</name>
+    </author>
+    <author>
+      <name>Yuanting Lei</name>
+    </author>
+    <author>
+      <name>Haoquan Li</name>
+    </author>
+    <author>
+      <name>Jianguo Li</name>
+    </author>
+    <author>
+      <name>Rongchuan Li</name>
+    </author>
+    <author>
+      <name>Sidu Li</name>
+    </author>
+    <author>
+      <name>Tao Lin</name>
+    </author>
+    <author>
+      <name>Deyuan Liu</name>
+    </author>
+    <author>
+      <name>Jiacheng Liu</name>
+    </author>
+    <author>
+      <name>Lin Liu</name>
+    </author>
+    <author>
+      <name>Yuxuan Lou</name>
+    </author>
+    <author>
+      <name>Zhisheng Lu</name>
+    </author>
+    <author>
+      <name>Yuxin Ma</name>
+    </author>
+    <author>
+      <name>Shuheng Shen</name>
+    </author>
+    <author>
+      <name>Peng Sun</name>
+    </author>
+    <author>
+      <name>Chaoyang Wang</name>
+    </author>
+    <author>
+      <name>Hongjun Wang</name>
+    </author>
+    <author>
+      <name>Xiaomei Wang</name>
+    </author>
+    <author>
+      <name>Yongxin Wang</name>
+    </author>
+    <author>
+      <name>Chengzhang Wu</name>
+    </author>
+    <author>
+      <name>Hongru Wu</name>
+    </author>
+    <author>
+      <name>Jun Xie</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.04778v1</id>
+    <title>Diffusion Language Models for Mobile Edge Agentic AI: Foundations, Applications, and Challenges</title>
+    <updated>2026-09-04T06:16:49Z</updated>
+    <link href="https://arxiv.org/abs/2609.04778v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.04778v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion language models (DLMs) offer a non-autoregressive alternative for mobile edge agentic artificial intelligence (AI) by refining tokens through iterative denoising rather than left-to-right decoding. Compared with autoregressive Transformer-based large language models (LLMs), DLMs can update multiple uncertain tokens in parallel and exploit bidirectional context throughout the generation process, enabling more flexible quality-latency trade-offs beyond fixed sequential decoding. These properties are particularly attractive for edge agents, where partial refinement, early exit, and constraint-guided correction can reduce response delay and communication overhead while improving robustness under noisy, incomplete, or dynamic contexts. This survey reviews DLM foundations and analyzes their suitability for edge settings under latency, memory, energy, bandwidth, privacy, and reliability constraints. We cover resource-efficient architectures, training and inference acceleration, compression, edge/cloud deployment, communication-aware serving, Internet of Things (IoT)/wireless applications, and evaluation of DLM-based agents. We further discuss open issues in long-context state management, split inference, trustworthy execution, multimodal grounding, and reproducible benchmarking. The goal is to connect DLM modeling properties, including bidirectionality, parallel refinement, controllability, and quality-latency elasticity, with system-level requirements of future mobile edge intelligence.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-04T06:16:49Z</published>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Chenqi Li</name>
+    </author>
+    <author>
+      <name>Minghui Min</name>
+    </author>
+    <author>
+      <name>Dusit Niyato</name>
+    </author>
+    <author>
+      <name>Wei Ni</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.13287v1</id>
+    <title>LLaDA-UI: Bringing Block-wise Diffusion to Vision-Language GUI Agents</title>
+    <updated>2026-09-09T05:53:39Z</updated>
+    <link href="https://arxiv.org/abs/2609.13287v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.13287v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion large language models (dLLMs) achieve high decoding efficiency through block-parallel, arbitrary-order generation, making them attractive for latency-sensitive applications. GUI agents represent a natural testbed for this paradigm, as they must repeatedly perceive screen states and emit structured, spatially grounded actions in real time. However, whether dLLMs can be extended into capable multimodal GUI agents while preserving their parallel decoding advantage remains an open question. We present LLaDA-UI, a 16.7B-parameter MoE-based, block-wise diffusion vision-language GUI agent. LLaDA-UI follows a two-stage training pipeline: general multimodal pre-training aligns a native-resolution vision encoder with the LLaDA2.0-mini-base diffusion language backbone, followed by GUI-agent supervised fine-tuning on diverse mobile, desktop, web, and grounding data. Across widely adopted grounding benchmarks and navigation benchmarks spanning multiple platforms, LLaDA-UI substantially outperforms Qwen2.5-VL-7B and surpasses Qwen3-VL-8B on four of six reported GUI benchmarks. These results establish block-wise diffusion as a practical generative paradigm for multimodal GUI agents.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-09T05:53:39Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Zhangxuan Gu</name>
+    </author>
+    <author>
+      <name>Haoxing Chen</name>
+    </author>
+    <author>
+      <name>Qi Qin</name>
+    </author>
+    <author>
+      <name>Yi Xin</name>
+    </author>
+    <author>
+      <name>Kai Gan</name>
+    </author>
+    <author>
+      <name>Lin Liu</name>
+    </author>
+    <author>
+      <name>Long Cui</name>
+    </author>
+    <author>
+      <name>Xiaomei Wang</name>
+    </author>
+    <author>
+      <name>Beitong Zhou</name>
+    </author>
+    <author>
+      <name>Yunzhu Zhang</name>
+    </author>
+    <author>
+      <name>Zhengwen Zeng</name>
+    </author>
+    <author>
+      <name>Changlong Gao</name>
+    </author>
+    <author>
+      <name>Weizhi Chen</name>
+    </author>
+    <author>
+      <name>Rongchao Zhang</name>
+    </author>
+    <author>
+      <name>Haoyuan Wu</name>
+    </author>
+    <author>
+      <name>Shuheng Shen</name>
+    </author>
+    <author>
+      <name>Changhua Meng</name>
+    </author>
+    <author>
+      <name>Weiqiang Wang</name>
+    </author>
+    <author>
+      <name>Jianguo Li</name>
+    </author>
+    <author>
+      <name>Zhenzhong Lan</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.34772v1</id>
+    <title>Before the Token Commits: Trajectory-Level Benchmarking of Visual Hallucinations in Diffusion VLMs</title>
+    <updated>2026-09-28T09:50:37Z</updated>
+    <link href="https://arxiv.org/abs/2609.34772v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.34772v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Multimodal diffusion language models generate responses by iteratively unmasking tokens, making each answer the endpoint of a multi-step trajectory rather than an immediate commitment. Hallucination benchmarks built for autoregressive models evaluate only the final output, and therefore cannot determine whether an unsupported claim in diffusion VLMs appears late or has already stabilized before any answer token is revealed. We introduce DynaHall, a trajectory-level benchmark of annotation-backed binary visual propositions covering object existence, counting, attributes, and relations, with controlled hard negatives graded by visual prior. DynaHall is paired with a commitment-aware protocol that records the intermediate answer tendency at every unmasking step alongside the committed output. Across five diffusion VLMs from three architecture families, visual hallucination is settled before commitment: an unsupported answer is already the preferred state while the answer position is still masked, and later unmasking steps rarely reverse it, so the failure is not introduced at the write step. This holds across decoding schedules, answer formats, and open-ended generation. DynaHall also exposes failures hidden by final-output metrics, including counting and relation collapse, prior-driven false positives, and attribute errors whose direction changes by type. Guided by this diagnosis, PGS (Pre-commitment Gradient Steering) edits still-masked answer states to reduce false positives, bringing the affirmation rate close to balance, and transfers to another architecture without degrading general ability. DynaHall and PGS suggest that hallucination should be measured and mitigated along the generation trajectory of diffusion VLMs, not only at the final answer.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-28T09:50:37Z</published>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Yadong Wang</name>
+    </author>
+    <author>
+      <name>Siping Yue</name>
+    </author>
+    <author>
+      <name>Yu Tian</name>
+    </author>
+    <author>
+      <name>Chuanxing Geng</name>
+    </author>
+    <author>
+      <name>Xiang Chen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.36357v1</id>
+    <title>HyperZip: Efficient Data Compression through Personalized Diffusion LLMs with Hypernetworks</title>
+    <updated>2026-09-28T22:44:55Z</updated>
+    <link href="https://arxiv.org/abs/2609.36357v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.36357v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Large language models (LLMs) have shown strong potential for lossless data compression, but existing approaches are constrained by the high computational cost and low throughput of autoregressive decoding. We propose HyperZip, an efficient and scalable LLM-based compression framework that leverages diffusion-based LLMs (dLLMs) with Multi-Token Prediction (MTP) to accelerate LLM-based data compression processes. We identify a trade-off in diffusion-based compression, where increasing decoding throughput degrades the compression rate. To mitigate this trade-off, HyperZip employs a hypernetwork to generate data-specific updates from a context representation, adapting the dLLM to the target data without costly fine-tuning, resulting in a low compression rate and high throughput. Extensive experiments show that HyperZip achieves a superior trade-off between compression rate and speed compared with state-of-the-art baselines.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-28T22:44:55Z</published>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Thai Nguyen</name>
+    </author>
+    <author>
+      <name>Khang Tran</name>
+    </author>
+    <author>
+      <name>NhatHai Phan</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.36783v2</id>
+    <title>A Heckler in the Hidden State: Correctness Signals in Diffusion Language Models</title>
+    <updated>2026-09-30T11:15:16Z</updated>
+    <link href="https://arxiv.org/abs/2609.36783v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.36783v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion language models generate code by repeatedly updating a partially masked sequence. We ask whether their internal activations encode code correctness and whether that information can improve generation. Across six diffusion models, linear probes distinguish passing from failing attempts, with the strongest reads generally appearing beyond the early layers. Controls using small semantic mutations support a connection to correctness rather than surface style alone. In comparisons with model confidence, probe point estimates offer no consistent advantage. Adding a probe-derived direction to the residual stream does not yield a dependable improvement in the tested steering settings, while the opposite direction degrades performance. We distinguish these observations from claims about statistical significance or a general inability to steer. Supplementary methods, archived results, and code document the tested interventions and the limits of their statistical calibration and reproducibility.</summary>
+    <category term="cs.SE" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-29T05:54:31Z</published>
+    <arxiv:primary_category term="cs.SE"/>
+    <author>
+      <name>Angad Miglani</name>
+    </author>
+    <author>
+      <name>Samrath Singh Chadha</name>
+    </author>
+    <author>
+      <name>Kevin Li</name>
+    </author>
+    <author>
+      <name>Manas Venkata Sai Ravulapalli</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.38364v1</id>
+    <title>Acceleration of Diffusion Language Model through Discrete Average Generator</title>
+    <updated>2026-09-29T18:27:23Z</updated>
+    <link href="https://arxiv.org/abs/2609.38364v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.38364v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Discrete diffusion models and flow matching have emerged as powerful frameworks for generative modeling over discrete state spaces, yet efficient few-step generation remains a fundamental challenge. In this work, we introduce the Discrete Average Generator, a principled extension of MeanFlow to Continuous-Time Markov Chains (CTMCs). Analogously to how MeanFlow defines an average velocity field over a time interval in continuous spaces, we define an average generator as the normalized increment of the transition kernel over a time interval. We show that this average generator satisfies a self-consistency identity, which provides the foundation for our training objective. We further develop training strategies that align with the standard training paradigm of diffusion language models while keeping the resulting objective tractable. When projected onto per-coordinate marginals, the self-consistency identity admits a closed-form expression, enabling efficient training and inference. In Potts model simulations, our objective reduces the total variation distance of the $K$-step sampler by up to 67%. On OpenWebText, our method achieves the lowest generative perplexity among the evaluated methods for 8 to 64 sampling steps while enabling a $16\times$ acceleration, and achieves comparable performance to existing methods on ImageNet.</summary>
+    <category term="stat.ML" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-29T18:27:23Z</published>
+    <arxiv:primary_category term="stat.ML"/>
+    <author>
+      <name>Yidong Ouyang</name>
+    </author>
+    <author>
+      <name>Zhengyan Wan</name>
+    </author>
+    <author>
+      <name>Themis Haris</name>
+    </author>
+    <author>
+      <name>Tian Tan</name>
+    </author>
+    <author>
+      <name>Liqian Peng</name>
+    </author>
+    <author>
+      <name>Henry Li</name>
+    </author>
+    <author>
+      <name>Ziqian Lin</name>
+    </author>
+    <author>
+      <name>Jianhang Chen</name>
+    </author>
+    <author>
+      <name>Maryam Karimzadehgan</name>
+    </author>
+    <author>
+      <name>Alec Go</name>
+    </author>
+    <author>
+      <name>George Michailidis</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.38536v1</id>
+    <title>Does This Action Still Explain the Task? Reverse Scoring for Diffusion Language Model Agents</title>
+    <updated>2026-09-29T20:54:04Z</updated>
+    <link href="https://arxiv.org/abs/2609.38536v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.38536v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion-based large language models (dLLMs) promise to break the sequential latency bottleneck of autoregressive agents through parallel decoding, but recent evaluations show this efficiency does not transfer to embodied agentic competence: dLLM-backed agents repeatedly fall into retry loops, re-issuing an action long after it has failed. We give a mechanistic account of this failure and a training-free remedy. We trace the retry loop to the adaptivity of masked decoding: the sampler commits the positions it is most confident about and defers the uncertain ones, and at a failure state the context already offers a confident fill for the deferred decision, i.e. the failed action itself, so the retry is committed without the failure feedback ever being confronted. We model the resulting distortion of the action distribution as a task-blind corruption: contextually salient actions (e.g., the action just taken) receive inflated probability by a factor that depends on the state and the action but not on the task. Under this model, we analyse an invariance proposition: the task-blind factor cancels exactly from the reverse conditional, i.e. the likelihood of the task given the state and a candidate action, which coincides with the task posterior of an idealized uncorrupted model. Masked dLLMs evaluate the reverse conditional natively, unlike autoregressive models, by masking the task tokens and denoising, at the cost of a few parallel passes per candidate. We instantiate the rule as Reflect Reverse and evaluate it on four multi-turn embodied benchmarks, where it improves task success and progression rates over forward-scoring baselines.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-29T20:54:04Z</published>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Jiacheng Qiu</name>
+    </author>
+    <author>
+      <name>Christopher E. Mower</name>
+    </author>
+    <author>
+      <name>Jan Peters</name>
+    </author>
+    <author>
+      <name>Haitham Bou-Ammar</name>
+    </author>
+    <author>
+      <name>Matthieu Zimmer</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.01275v1</id>
+    <title>Know When to Hold 'em: Correct-Token Retention in Uniform-State Diffusion Language Models</title>
+    <updated>2026-10-01T08:13:50Z</updated>
+    <link href="https://arxiv.org/abs/2610.01275v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.01275v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Uniform-state diffusion models (USDMs) can revise any token at any denoising step, which lets them correct their own mistakes, a key advantage over masked diffusion. Self-correction, however, requires both revising incorrect tokens and retaining correct ones, and we show that current USDMs lack the latter. Even under greedy-tail decoding, state-of-the-art USDMs (DUO, UDLM, and uniform-noise SEDD) keep revising 173--270 of 512 positions at every step, and these large, uncoordinated edits collapse sample diversity. A random-token corruption experiment traces this deficit to the models themselves: they reconstruct clean and corrupted tokens with nearly identical accuracy, even though clean tokens are easier targets. A decomposition of the validation NELBO shows that training barely rewards retention: incorrect predictions are heavily penalized at corrupted positions but almost free at clean ones. We propose Correct-Token Retention Regularization (CTR-Reg), a simple but effective auxiliary loss that trains the model to retain tokens left unperturbed by the forward process and requires no change to the sampler. CTR-Reg improves clean-token accuracy by 26.5 percentage points on average across six benchmarks, while leaving corrupted-token accuracy virtually unchanged, and its per-step revisions converge to only 3--11 positions. With just five greedy-tail steps, generative perplexity more than halves under CTR-Reg for all three models while diversity is preserved, and these gains hold across sampling budgets. Our results identify correct-token retention as a key missing ingredient for self-correcting diffusion language models, and demonstrate an effective fix.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-01T08:13:50Z</published>
+    <arxiv:comment>38 pages, 8 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Mojtaba Nafez</name>
+    </author>
+    <author>
+      <name>James Henderson</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.02193v1</id>
+    <title>Hierarchical Continuous Diffusion Language Models</title>
+    <updated>2026-10-01T17:59:39Z</updated>
+    <link href="https://arxiv.org/abs/2610.02193v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.02193v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Discrete diffusion language models offer a compelling alternative to autoregressive generation for tasks demanding bidirectional reasoning and global constraint satisfaction. Yet they share a structural bottleneck: when decoding in parallel, each token is sampled independently from its marginal, severing the statistical dependencies among the tokens decoded together. Continuous diffusion language models avoid this by denoising a shared continuous state, but their denoiser sees only that state, so nothing ties it to a valid token configuration until it is finally decoded. To address this, we propose Hierarchical Continuous Diffusion Language Models (HC-DLM), which couple discrete token generation with a continuous latent trajectory in a single, principled denoising process, whose training objective is derived from a variational bound on the token likelihood. In contrast to recent methods that attach continuous context to a self-contained discrete chain, HC-DLM makes the latent the only persistent generative state: tokens are read out from it at every step and feed back as a scaffold for the next latent update. On structured reasoning (Sudoku), mathematical planning (Countdown) and language modeling (LM1B), HC-DLM improves over discrete and continuous diffusion baselines at matched model size, in puzzle accuracy on Sudoku and Countdown and in generative perplexity on LM1B. Project page: https://hc-dlm.github.io/.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-01T17:59:39Z</published>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Hui Ren</name>
+    </author>
+    <author>
+      <name>Zihan Li</name>
+    </author>
+    <author>
+      <name>Chang Liu</name>
+    </author>
+    <author>
+      <name>Huidong Liu</name>
+    </author>
+    <author>
+      <name>Alexander Schwing</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.02657v2</id>
+    <title>Context-Tower Conversion Preserves Generation While Freezing Retains Knowledge: Low-Budget AR-to-Diffusion Conversion of MoE LLMs</title>
+    <updated>2026-10-05T00:36:32Z</updated>
+    <link href="https://arxiv.org/abs/2610.02657v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.02657v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Converting a pretrained autoregressive (AR) model to a diffusion language model (dLLM) enables parallel generation without pretraining a new model. Published conversion methods differ by roughly three orders of magnitude in training data and have not been compared under a common protocol. We compare two conversions of the same 30B Mixture-of-Experts (MoE) parent, holding the corpus, supervised-token budget, trainable parameter set and evaluation harness fixed, each under its own training recipe. The in-place model updates a subset of the parent's weights using denoising and representation-alignment losses; the frozen-tower model instead conditions through cross-attention on a frozen causal copy of the parent. With 1B training tokens, the frozen-tower model scores 71.60 on HumanEval pass@10 against 6.19 for the in-place model, an 11.6x improvement. At the same budget it also keeps 95% of the parent's GSM8K score and 99% of its MMLU-Pro score. A dense-parent experiment reproduces the HumanEval separation. Within the two-tower design at about 500M tokens, freezing the context tower retains substantially more MMLU-Pro performance than training it, while both give similar observed HumanEval scores. Our theoretical analysis establishes that both conversion classes contain an exact sampler for the AR parent under a hard attention mask and left-to-right commitment of one position per round. Under a shared loss, freezing removes the gradient contribution through the context states. Furthermore, evaluation protocol substantially affects a published 500B-token conversion's scores in both directions across tasks, while its AR parent's scores vary by less than three points, so comparing dLLMs needs a common protocol. These results show that, in the tested low-budget regime, the frozen-tower configuration retains substantially more of the parent's generation performance than in-place conversion.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-02T01:26:57Z</published>
+    <arxiv:comment>v2: author order updated</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Wentao Lu</name>
+    </author>
+    <author>
+      <name>Tianyu Zhu</name>
+    </author>
+    <author>
+      <name>Jesse Clark</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.15177v1</id>
+    <title>Only What You've Signed up For: Secure Workflows with Constrained Diffusion Agents</title>
+    <updated>2026-10-10T20:58:01Z</updated>
+    <link href="https://arxiv.org/abs/2610.15177v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.15177v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>As agentic AI systems take on increasingly complex and consequential tasks, securing them against prompt injection becomes critical. Existing defenses often rely on detecting or reasoning about injected malicious instructions and can therefore remain vulnerable to adaptive attacks that optimize the injection itself. Diffusion language models (dLLMs), an emerging framework for language generation, offer a new opportunity for security enforcement: by iteratively refining their sequence wide predictions, they enable broader-scope constraint enforcement throughout generation. This paper introduces Policy-Constrained Diffusion Agents (CoDA), a framework that enforces task dependent security policies directly within the denoising process of diffusion language models. At each denoising step, CoDA projects token distributions onto a policy-compliant set, maintaining constraint satisfaction throughout generation. We evaluate CoDA across state-of-the-art diffusion language model families under both static and adaptive prompt-injection attacks. Results demonstrate substantial reductions in attack success rate with competitive task utility and practical inference overhead.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-10T20:58:01Z</published>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Michael Cardei</name>
+    </author>
+    <author>
+      <name>Anjun Hu</name>
+    </author>
+    <author>
+      <name>Chenrui Ma</name>
+    </author>
+    <author>
+      <name>Francesco Pinto</name>
+    </author>
+    <author>
+      <name>Chawin Sitawarin</name>
+    </author>
+    <author>
+      <name>Chulin Xie</name>
+    </author>
+    <author>
+      <name>Ferdinando Fioretto</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.17636v1</id>
+    <title>The Tokens Strike Back: Safety-Aware Denoising with Directional Embedding-based Revision</title>
+    <updated>2026-10-13T03:04:22Z</updated>
+    <link href="https://arxiv.org/abs/2610.17636v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.17636v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The Safety-Aware Denoiser (SAD) is a recent, training-free, safety-guidance framework for text diffusion models. During inference, SAD steers text samples toward safe regions of the token probability space. In this paper, we propose $\mathit{SADDER}$ (Safety-Aware Denoising with Directional Embedding-based Revision), which improves the safety and quality trade-offs of SAD by exploiting a safety-guidance signal in the embedding (or activation) space for each token position, then updating the token positions using the SAD update rule multiplied by the guidance signal. This multiplication acts as a gating mechanism: tokens with a high unsafe signal are more likely to be modified during inference following the SAD update rule. However, such an update does not automatically preserve the conditional mean, i.e., the denoiser of a fixed target distribution. We therefore theoretically derive new position-wise target distributions for which the modified denoiser is exact. Furthermore, we derive conditions under which the position-wise target distributions match a global target distribution. We test our $\mathit{SADDER}$ method on popular Masked Diffusion Language Models (MDLMs) and Uniform-State Diffusion Models (USDMs) across unsafe continuation and jailbreak settings, and show that $\mathit{SADDER}$ achieves a better balance between safety, generation quality, and inference cost than existing methods.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-13T03:04:22Z</published>
+    <arxiv:comment>43 pages, 4 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Amman Yusuf</name>
+    </author>
+    <author>
+      <name>Jiwoo Shin</name>
+    </author>
+    <author>
+      <name>Ruizhi Deng</name>
+    </author>
+    <author>
+      <name>Heitor Rodrigues Guimarães</name>
+    </author>
+    <author>
+      <name>Nikita Dvornik</name>
+    </author>
+    <author>
+      <name>Mijung Park</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.21672v1</id>
+    <title>Diffusion Language Models as Open Quantum Systems</title>
+    <updated>2026-10-15T10:57:07Z</updated>
+    <link href="https://arxiv.org/abs/2610.21672v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.21672v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion language models generate text by reversing a classical diffusion process over token sequences. We show that their continuous-time forward and reverse dynamics can be embedded in the framework of open quantum systems, which describes quantum systems interacting with their environment. This connection provides a basis for extending diffusion sampling to superpositions of sentence states and for modifying the underlying generation dynamics. We construct a $τ$-leaping unraveling scheme that simulates stochastic trajectories of these states while updating multiple token positions at each step. This enables generation conditioned on superposed prompts or thoughts, which we call Superposition of Prompts (SoP) and Superposition of Thoughts (SoT). The same formulation yields Quantum-Inspired Remasking (QIR): perturbing the masked-diffusion dynamics produces a confidence-based rule for revising previously generated tokens. Experiments with pretrained diffusion language models show that superposition-based generation can retain information from conditioning components not selected at the final measurement, while QIR improves LLM-assessed text quality when applied at an appropriate stage of generation.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="quant-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-15T10:57:07Z</published>
+    <arxiv:comment>48 pages, 8 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Akinori Tanaka</name>
+    </author>
+    <author>
+      <name>Yukinao Akamatsu</name>
+    </author>
+    <author>
+      <name>Takuki Tomita</name>
+    </author>
+    <author>
+      <name>Yuji Hirono</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.23122v1</id>
+    <title>LED: Improving Masked Diffusion Language Models by Lookahead Editing</title>
+    <updated>2026-10-16T08:29:07Z</updated>
+    <link href="https://arxiv.org/abs/2610.23122v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.23122v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion large language models (dLLMs) have emerged as a promising alternative to autoregressive language models, enabling non-autoregressive text generation through parallel decoding. Existing dLLMs can be broadly categorized into two families: masked diffusion models (MDMs) and uniform diffusion models (UDMs) In this work, we theoretically show that MDMs are easier to optimize due to their mask-based transition schedule but have lower computational expressivity, whereas UDMs enable iterative state revision and greater expressivity but are substantially harder to train. This trade-off raises a natural question: can we obtain the expressivity of iterative revision without giving up the simple, easy-to-optimize transition schedule of MDMs? Motivated by this analysis, we propose Lookahead Editing (\ours{}), which augments masked diffusion decoding with a rewritable proposal state. At each decoding step, the model performs several lookahead updates to iteratively refine future predictions in this proposal state before committing tokens to the masked sequence. This design introduces a rewritable proposal that uses additional compute to improve expressivity while keeping the simple mask-based transition schedule of MDMs. We fine-tune Qwen2.5-7B and Qwen3-8B to obtain LED-\texttt{7B} and LED-\texttt{8B}, respectively. Across eight benchmarks, LED SFT yields average gains of $+11.4$ and $+7.7$ points over standard MDM SFT. Moreover, using SFT alone, LED-\texttt{8B} outperforms LLaDA2.1-16B Q-mode, which is trained with continued pre-training, supervised fine-tuning, and reinforcement learning.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-16T08:29:07Z</published>
+    <arxiv:comment>10 pages, 5 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Yuyan Zhou</name>
+    </author>
+    <author>
+      <name>Zeyuan Yang</name>
+    </author>
+    <author>
+      <name>Yuxuan Song</name>
+    </author>
+    <author>
+      <name>Zhicheng Cai</name>
+    </author>
+    <author>
+      <name>Hongli Yu</name>
+    </author>
+    <author>
+      <name>Weiying Ma</name>
+    </author>
+    <author>
+      <name>Hao Zhou</name>
+    </author>
+    <author>
+      <name>James Kwok</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.24717v1</id>
+    <title>DiffuPlan: Editable Planning State for Diffusion Language Model Agents</title>
+    <updated>2026-10-17T14:30:22Z</updated>
+    <link href="https://arxiv.org/abs/2610.24717v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.24717v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion language models (dLLMs) are emerging as an alternative to autoregressive (AR) language models, yet dLLM agents largely inherit an interaction protocol designed for AR generation: once intermediate state is written, later observations can only be incorporated by appending more text. This is a poor match to a defining capability of dLLMs -- reconstructing earlier text conditioned on context that appears both before and after it. We ask whether this capability can support a different agent-state paradigm in which intermediate planning state is directly revisable as evidence arrives. We introduce DiffuPlan, a diffusion search agent that maintains a single editable planning state and reconstructs only the affected steps when later evidence resolves an entity or changes the search route. To support variable-length revisions, we introduce Expansion-Partition Marginalization (EPM), which marginalizes over equivalent expansion paths. We further adapt diffusion trajectory RL to multi-turn search. Across four multi-hop QA benchmarks, DiffuPlan achieves 50.24 average F1, outperforming strong AR search agents. More importantly, under identical data and training, editable planning state improves the diffusion agent by 2.44 F1 versus only 0.47 for its AR source model. These results show that dLLMs need not imitate append-only AR agents: revising committed state is a distinct agentic advantage.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-17T14:30:22Z</published>
+    <arxiv:comment>19 pages, 5 figures. Code: https://github.com/Jaasssoooonnnnn/DiffuPlan</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Qisheng Zhou</name>
+    </author>
+    <author>
+      <name>Zhen Xiong</name>
+    </author>
+    <author>
+      <name>Qiaoyu Tan</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.25723v1</id>
+    <title>Learning to Couple: Context-Adaptive Joint Denoising for Diffusion Language Models</title>
+    <updated>2026-10-19T03:22:33Z</updated>
+    <link href="https://arxiv.org/abs/2610.25723v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.25723v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion language models accelerate generation by predicting multiple tokens in parallel, but factorized denoisers treat simultaneous predictions as conditionally independent. Decoding heuristics reduce the resulting errors by controlling which tokens are committed, but leave the underlying distribution factorized. Joint modeling addresses the source of the problem, yet existing methods attach separately learned layers to frozen denoisers, leaving the backbone unadapted to the joint objective and the coupling parameters fixed across contexts. We propose Codpula, a context-parameterized denoiser combining a Transformer with a tractable probabilistic inference layer. Given a partially masked input, the Transformer produces token potentials that shape per-position predictions and compact gates that modulate the layer's coupling parameters, yielding a context-dependent joint distribution while retaining exact conditional inference. We jointly optimize both components under a conditional denoising objective using a dual-flow multiplicative update that preserves valid probabilistic parameters. At inference, Codpula supports standard heuristics and uses conditional queries to adapt commitments to dependencies among proposed tokens without extra Transformer evaluations within a step. Codpula sets new state-of-the-art results across a broad suite of reasoning benchmarks while advancing the accuracy-latency Pareto frontier in mathematical reasoning and code generation.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-19T03:22:33Z</published>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Zilei Shao</name>
+    </author>
+    <author>
+      <name>Ian Li</name>
+    </author>
+    <author>
+      <name>Heng Zhao</name>
+    </author>
+    <author>
+      <name>Kewei Lian</name>
+    </author>
+    <author>
+      <name>Guy Van den Broeck</name>
+    </author>
+    <author>
+      <name>Zhe Zeng</name>
+    </author>
+    <author>
+      <name>Anji Liu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.27580v1</id>
+    <title>Factual Access States in Diffusion Language Models: From Mechanism to Knowledge Editing and Retrieval</title>
+    <updated>2026-10-20T03:45:45Z</updated>
+    <link href="https://arxiv.org/abs/2610.27580v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.27580v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Factual recall is a lookup: some representation inside the network serves as the key, and what that key is made of decides which queries can retrieve the fact, what an edit must cover, and what a retriever can read. We call it the factual access state. In autoregressive (AR) models the subject position enriches attributes largely independently of the relation, and relation-specific selection happens later, at the readout position. In masked diffusion language models (DLMs) we find the state is assembled differently, and much earlier: in the first attention layer the wording of the relation is routed into the position of whichever entity is visible and the early feed-forward layers look the fact up on this fused representation. The state therefore varies with the relation's surface form and with the query direction, so the queries about one fact occupy a region of state space rather than a point, and an operation on the fact succeeds only for queries that enter it. We treat the state as an interface to a DLM's factual knowledge, and put it to two uses. Writing to the state gives a knowledge editor: from one declarative statement, Multi-View Edit fits one shared value per direction across that region and installs it in the early-MLP block, preserving source-prompt reliability while substantially improving paraphrase and reverse question answering, where AR editors gain near zero. Reading it suggests a complementary use: the state at each entity position can serve as a relation-specific retrieval vector with no training, returning both pieces of evidence for two-entity queries on which pooled, prompted and lexical retrievers almost never return both.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.IR" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-20T03:45:45Z</published>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Yuchen Guo</name>
+    </author>
+    <author>
+      <name>Zhuoyuan Mao</name>
+    </author>
+    <author>
+      <name>Yiwen Guo</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.28905v1</id>
+    <title>Hidden Messages Between Diffusion Language Model Agents: Causal Evidence for Latent Communication</title>
+    <updated>2026-10-20T20:31:16Z</updated>
+    <link href="https://arxiv.org/abs/2610.28905v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.28905v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion language models form answers through a sequence of revisable continuous states, but multi-agent systems usually discard those states and make agents communicate only after decoding text. We ask whether one independent diffusion trajectory can pass a compact hidden message into another and, crucially, whether the receiver uses what that message means. In Hidden Messages, a sender compresses its denoising state into four signed dense vectors; the receiver consumes them while retaining its own context, canvas, and trajectory. Removing a message tests whether the channel matters; replacing it with a message from another example tests whether its content matters. Across controlled tasks, derangement removes a +63.6-point advantage on Tiny-A2D and a +100.0-point advantage on Dream-7B, while targeted substitutions steer the receiver toward the substituted fact. On QASC with the two supporting facts split across agents, matched communication reaches 80.8%, but a wrong-example message lowers accuracy to 46.8%, a content effect of +34.0 points. The surprising result is temporal: one late transfer reaches 87.8%, exceeding four recurrent exchanges by +7.0 points. These experiments provide causal evidence for continuous hidden communication between diffusion-LM agents and show that when information is transferred can matter more than how many times agents exchange it.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-20T20:31:16Z</published>
+    <arxiv:comment>Accepted at the DiffuLM Workshop at NeurIPS 2026</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Alan-Barsag Gazzaev</name>
+    </author>
+    <author>
+      <name>Alexey Gavrilov</name>
+    </author>
+    <author>
+      <name>Sergey Muravyov</name>
+    </author>
+    <author>
+      <name>Ilya Makarov</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.28909v1</id>
+    <title>DiffResearch: Accelerating Deep Research with Diffusion Language Models</title>
+    <updated>2026-10-20T20:40:20Z</updated>
+    <link href="https://arxiv.org/abs/2610.28909v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.28909v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Deep research systems iteratively plan, gather evidence, synthesize, and revise, making end-to-end latency a key bottleneck for interactive use. Almost all production systems are built on autoregressive (AR) language models and inherit left-to-right decoding in planning and long-form writing. We present DiffResearch, an open multi-agent deep research framework that places a diffusion language model (dLLM) at the core of every stage, and measure how a diffusion backbone changes latency and report quality. Holding the agentic scaffold, retrieval code, prompts, and evaluation fixed, we swap the backbone between an open diffusion model and a comparable AR model. Across 100 Deep Research Bench tasks, the diffusion backbone is roughly 6 times faster end-to-end, driven by order-of-magnitude reductions in planning and writing. We further introduce dFast, a decomposition mode that reads intermediate denoising states and extracts subqueries before generation finishes, providing a 1.99 times median speedup for decomposition in isolation with no loss of report quality. On the benchmark's RACE rubric, dFast obtains the best overall score among the three configurations. Finally, in a public system-level leaderboard snapshot, an instance built on a stronger diffusion model ranks above several commercial systems. We release DiffResearch under an Apache-2.0 license.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-20T20:40:20Z</published>
+    <arxiv:comment>Accepted to EMNLP 2026 Industry Track</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Alan-Barsag Gazzaev</name>
+    </author>
+    <author>
+      <name>Alexey Gavrilov</name>
+    </author>
+    <author>
+      <name>Mikhail Mozikov</name>
+    </author>
+    <author>
+      <name>Sergey Muravyov</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.34582v1</id>
+    <title>HobbyLM: A Sparse Mixture-of-Experts Model Family on a Hobby Budget</title>
+    <updated>2026-10-25T21:26:24Z</updated>
+    <link href="https://arxiv.org/abs/2610.34582v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.34582v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We describe HobbyLM, a family of small sparse Mixture-of-Experts (MoE) models trained from scratch with a few hundred to a few thousand dollars of rented GPU time. The core is a decoder-only transformer with fine-grained experts, sigmoid routing with auxiliary-loss-free load balancing, grouped-query attention with per-head QK-normalization, and aMuon/AdamW optimizer split. Each of these choices was selected with a single-variable ablation suite at 130M parameters. On this architecture we train a 500M-parameter model (169M active) on 40B FineWeb tokens and post-train it into a chat model, a masked-diffusion language model, a function-calling and computer-use agent, and a single "omni" checkpoint that reads text, images, video, sound and speech through frozen encoders and small projectors. We run these models on a laptop CPU with a from-scratch Rust inference engine. Two of the authors then adopted the architecture without architectural changes to build HobbyLM-1B (1.04B total, 305M active parameters), trained on a 100B-token curated mixture with a high-quality anneal. HobbyLM-1B reaches a 47.5 average on seven zero-shot benchmarks, and its builders also release an instruction-tuned model and an on-device macOS computer-use adapter. Finally, we describe HobbyLM-Image, a 333M-parameter flow-matching diffusion transformer that generates 1024x1024 images in a 32x-compressed latent space, together with a dependency-light CPU implementation of the full text-to-image pipeline. We report what worked, what did not, and where the small-scale ceilings lie. We also state for each component which author designed or built it.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-25T21:26:24Z</published>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Harish Santhanalakshmi Ganesan</name>
+    </author>
+    <author>
+      <name>Hariharan M. S.</name>
+    </author>
+    <author>
+      <name>Prabhurajhan R</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.35101v1</id>
+    <title>Spherical Brownian Diffusion for Language Modeling</title>
+    <updated>2026-10-26T09:40:42Z</updated>
+    <link href="https://arxiv.org/abs/2610.35101v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.35101v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Continuous diffusion language models involve two coupled design choices: how to corrupt continuous token representations and how to invert that corruption at generation time. Recent work has explored language generation on the unit sphere through geodesic and von Mises--Fisher (vMF) paths, raising the question of which forward process to use on this geometry and how much that choice matters relative to inference. We introduce Spherical Brownian Diffusion, using Brownian motion as the canonical isotropic diffusion on the sphere. Its heat semigroup provides a principled forward process, an additive dimension-free noise clock, and an exact ancestral bridge, while a clean-token posterior learned with cross-entropy supports multiple samplers. To separate corruption from inference, we derive high-dimensional approximation rates between Brownian and moment-matched vMF corruption and use this relationship for controlled substitutions. On Sudoku, Brownian and moment-matched vMF give nearly identical results across four samplers and five budgets under otherwise identical settings. In contrast, with the corruption process fixed, sampler choice produces a 25.0-point spread at a sampler budget of 180 calls. Using the ancestral bridge, we split this gain into a memory effect from re-noising the state, present on Sudoku and GSM8K, and a token-selection effect on GSM8K and largest at small budgets. Across reasoning tasks, categorical refinement improves performance, whereas unconditional text generation benefits from stochastic updates that preserve diversity.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-26T09:40:42Z</published>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Andrea Miele</name>
+    </author>
+    <author>
+      <name>Ilija Bogunovic</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.36466v1</id>
+    <title>Nemotron-Labs-Diffusion-Uni: Elastic Self-Refining Unified Diffusion LLM with Cross-Paradigm On-Policy Distillation</title>
+    <updated>2026-10-27T01:21:26Z</updated>
+    <link href="https://arxiv.org/abs/2610.36466v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.36466v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We propose Nemotron-Labs-Diffusion-Uni (NLD-Uni), a unified discrete diffusion large language model (DLLM) for visual understanding and generation tasks. Compared with prior unified diffusion models, NLD-Uni introduces two major innovations. First, we propose a unified cross-paradigm on-policy distillation (OPD) framework that successfully transfers the visual understanding ability of autoregressive VLMs and visual generation ability of continuous flow models, to a unified DLLM. Second, NLD-Uni incorporates a novel progressive self-refining diffusion process that gradually corrupts each token across multiple steps during training, as opposed to adopting the conventional masked diffusion formulation that directly corrupts a clean image token to an uninformative mask token. At inference, this design allows NLD-Uni to make intermediate commit to a token, enabling progressive self-refinement for better visual quality. Through extensive experiments, we show that NLD-Uni achieves state-of-the-art performance among unified DLLMs on diverse tasks including visual question-answering, multi-modal reasoning, object grounding, text-to-image generation, and image editing.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-27T01:21:26Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Shufan Li</name>
+    </author>
+    <author>
+      <name>Hanrong Ye</name>
+    </author>
+    <author>
+      <name>Greg Heinrich</name>
+    </author>
+    <author>
+      <name>Yonggan Fu</name>
+    </author>
+    <author>
+      <name>Haotian Zhang</name>
+    </author>
+    <author>
+      <name>Sifei Liu</name>
+    </author>
+    <author>
+      <name>Aditya Grover</name>
+    </author>
+    <author>
+      <name>Pavlo Molchanov</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.39372v1</id>
+    <title>Cord: Confidence-Anchored Order Residual Decoding for Masked Diffusion Language Models</title>
+    <updated>2026-10-29T05:03:29Z</updated>
+    <link href="https://arxiv.org/abs/2610.39372v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.39372v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The decoding order of masked diffusion language models (dLLMs) can substantially affect generation quality, yet common decoders typically apply the same reveal rule throughout generation. Confidence provides a strong default, but it measures how decisively a position can be predicted now, not how useful revealing that position will be for subsequent decoding. We propose Cord, a lightweight prompt-conditioned policy that retains confidence decoding as a stable reference and learns when and how to depart from it through geometric residuals over generation direction, proximity to revealed context, and two-sided infilling. The residuals adapt to both the prompt and the evolving partial response. Rather than sampling a new policy action at every decoding step, Cord samples a single low-dimensional coefficient matrix per rollout, which induces an entire state-dependent reveal trajectory. This yields a contextual-bandit formulation trained directly from sequence-level rewards, without step-level credit assignment or backbone updates. Across three dLLMs and five reasoning, code, and constraint-satisfaction benchmarks, Cord improves average task success from 32.0% under confidence decoding to 48.2%, and further improves over the best per-domain fixed residual. Behavioral audits show that the learned residuals induce substantial, task-dependent changes in reveal locality and two-sided infilling. Cord adds only $0.53$M trainable parameters, requires no additional backbone forward passes, and incurs only 5.39% inference latency overhead.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-29T05:03:29Z</published>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Chengwei Zhou</name>
+    </author>
+    <author>
+      <name>Zhaoyan Jia</name>
+    </author>
+    <author>
+      <name>Massoud Pedram</name>
+    </author>
+    <author>
+      <name>Gourav Datta</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.40847v1</id>
+    <title>The Generative Gap Between Speculative Drafter and Continuous Diffusion Language Model</title>
+    <updated>2026-10-29T18:30:59Z</updated>
+    <link href="https://arxiv.org/abs/2610.40847v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.40847v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Continuous diffusion language models (CDLMs) and speculative drafters offer efficient language generation but are typically evaluated differently: CDLMs generate independently through iterative refinement, whereas drafters propose text for target-model verification and correction. We compare their architectures without verification, using LangFlow for CDLMs and adapting DSpark's Markov and recurrent-head architectures for standalone generation. All models are trained from scratch for unconditional, single-block OpenWebText generation at lengths 16, 128, and 1024, without target features or verification, using common preprocessing, backbone dimensions, and training-update budgets. We evaluate generation perplexity (GenPPL) with an external language model and distributional similarity to reference text with MAUVE. With default denoising steps equal to sequence length, LangFlow outperforms both DSpark variants on both metrics at lengths 128 and 1024, while DSpark-RNN leads at 16. A conditional KL analysis characterizes dependencies excluded by the Markov head's previous-token conditioning. Recurrent memory removes this restriction and improves both metrics, but the longer-sequence gap persists. Teacher probability matching further lowers Markov GenPPL without observed MAUVE gains. Increasing LangFlow's denoising steps at fixed weights improves both metrics at lengths 16 and 128, changing the length-128 ordering relative to DSpark-RNN. These results establish LangFlow's longer-sequence advantage under the evaluated budgets and highlight iterative full-sequence refinement as a route to improving standalone generation beyond gains from recurrent head memory.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-29T18:30:59Z</published>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Yujian Chen</name>
+    </author>
+    <author>
+      <name>Hao Jiang</name>
+    </author>
+    <author>
+      <name>Guang Cheng</name>
+    </author>
+    <author>
+      <name>Weijian Luo</name>
+    </author>
+    <author>
+      <name>Tianyang Hu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2611.07783v1</id>
+    <title>PBPO: Prefix-Block Policy Optimization for Diffusion Language Models</title>
+    <updated>2026-11-05T10:20:41Z</updated>
+    <link href="https://arxiv.org/abs/2611.07783v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2611.07783v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion Large Language Models (dLLMs) commonly decode responses by proceeding autoregressively across blocks while iteratively denoising multiple tokens within each block. This structure makes block-level policy optimization a natural adaptation of autoregressive policy optimization. However, the exact likelihood of a completed block is intractable because it marginalizes over the intermediate states and reveal orders of the denoising process. To realize the block-level formulation, we construct a prefix-block state and use a single model evaluation to define a factorized one-step surrogate for the block likelihood. The resulting block surrogate ratio is a product of its token surrogate ratios, allowing variation at individual positions to propagate across the entire block before clipping. We therefore introduce Prefix-Block Policy Optimization (PBPO), which preserves block-level conditioning but applies surrogate importance weighting and clipping separately to each token. PBPO further diversifies repeated updates by resampling corrupted views of the prompt and revealed prefix, a design motivated by masked-dLLM pre-training. Under our analysis assumptions, block-product weighting amplifies the variance of gradient contributions relative to token-local weighting. Across two LLaDA-family initializations, six benchmarks, and three generation lengths, PBPO achieves competitive performance against existing dLLM RL methods.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-11-05T10:20:41Z</published>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Katherine Tieu</name>
+    </author>
+    <author>
+      <name>Dongqi Fu</name>
+    </author>
+    <author>
+      <name>Si Zhang</name>
+    </author>
+    <author>
+      <name>Hanqing Zeng</name>
+    </author>
+    <author>
+      <name>Tianxin Wei</name>
+    </author>
+    <author>
+      <name>Chenglin Wei</name>
+    </author>
+    <author>
+      <name>Yinglong Xia</name>
+    </author>
+    <author>
+      <name>Hong Li</name>
+    </author>
+    <author>
+      <name>Jingrui He</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2611.08362v1</id>
+    <title>SpecCTMC: Exact Speculative Simulation of Diffusion Language Model Continuous-Time Markov Chains</title>
+    <updated>2026-11-05T17:41:20Z</updated>
+    <link href="https://arxiv.org/abs/2611.08362v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2611.08362v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Masked diffusion language models offer parallel text generation, but independently sampling multiple tokens can disrupt their dependencies and change the output distribution. Exact continuous-time sampling avoids this approximation, yet typically requires one sequential model evaluation per token. We introduce SpecCTMC, a training-free speculative sampler that reduces this sequential bottleneck without a separate draft model. SpecCTMC proposes successive token updates using previously computed model predictions, evaluates their intermediate states in parallel, and applies an exact acceptance-and-correction procedure. We prove that SpecCTMC preserves the joint distribution of event times, generation order, and token values of the underlying continuous-time Markov chain. It therefore introduces neither time-discretization error nor additional factorization error from parallel decoding. Experiments on LLaDA-8B-Instruct and Dream-v0-Instruct-7B across five benchmarks demonstrate 1.73-4.38x fewer sequential model evaluations than direct continuous-time sampling, while preserving the reference sampling distribution. Our code is available at: https://github.com/kasakh/specctmc</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-11-05T17:41:20Z</published>
+    <arxiv:comment>28 pages, 5 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Siva Rajesh Kasa</name>
+    </author>
+    <author>
+      <name>Yasong Dai</name>
+    </author>
+    <author>
+      <name>Sumit Negi</name>
+    </author>
+    <author>
+      <name>Hongdong Li</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2611.14387v1</id>
+    <title>Blurring the Block Boundaries: Overlapping Block Denoising for Efficient Diffusion Language Models</title>
+    <updated>2026-11-10T17:40:24Z</updated>
+    <link href="https://arxiv.org/abs/2611.14387v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2611.14387v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion Language Models (DLMs) have emerged as effective alternatives to autoregressive models for latency-critical tasks, enabling faster token generation. Recent advances employ block diffusion with self-editing capabilities, where each block refines tokens iteratively before advancing to the next one. Yet each block is only as fast as its slowest token, and the next block cannot start before it. We suggest Blurring the Block Boundaries (B3), a novel method with which two blocks are refined in parallel within a shared forward pass. B3 calibrates itself on the fly, opening the next block only once the model is ready to start generating it. It is a training-free and hyperparameter-free acceleration method which seamlessly integrates within any self-editing block diffusion model. Evaluated on state-of-the-art DLMs across 10 diverse datasets spanning varied tasks and difficulty levels, B3 results in on par generation quality and 11.5-14.5% speedup compared to the base model, pushing the Pareto frontier for latency-quality trade-offs in DLM inference.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-11-10T17:40:24Z</published>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Amir Mann</name>
+    </author>
+    <author>
+      <name>Jonathan Fhima</name>
+    </author>
+    <author>
+      <name>Shaked Brody</name>
+    </author>
+    <author>
+      <name>Or Avitan</name>
+    </author>
+    <author>
+      <name>Asif Zamir</name>
+    </author>
+    <author>
+      <name>Shahar Tsiper</name>
+    </author>
+    <author>
+      <name>Niv Nayman</name>
+    </author>
+  </entry>
+</feed>

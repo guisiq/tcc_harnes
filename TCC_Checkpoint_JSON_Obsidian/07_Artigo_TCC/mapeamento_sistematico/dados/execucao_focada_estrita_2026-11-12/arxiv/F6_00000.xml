@@ -1,0 +1,652 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/8CyfIw0HuDMjqN2NnUJkd/AkTBI</id>
+  <title>arXiv Query: search_query=( (ti:"small model" OR abs:"small model" OR ti:"small language model" OR abs:"small language model" OR ti:SLM OR abs:SLM) AND (ti:memory OR abs:memory OR ti:state OR abs:state) AND (ti:typed OR abs:typed OR ti:schema OR abs:schema OR ti:structured OR abs:structured OR ti:JSON OR abs:JSON) AND (ti:update OR abs:update OR ti:tracking OR abs:tracking OR ti:write OR abs:write) ) AND submittedDate:"202507010000 TO 202611122359"&amp;id_list=&amp;start=0&amp;max_results=200</title>
+  <updated>2026-11-12T20:27:53Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=((ti:%22small+model%22+OR+(abs:%22small+model%22+OR+(ti:%22small+language+model%22+OR+(abs:%22small+language+model%22+OR+(ti:SLM+OR+abs:SLM)))))+AND+((ti:memory+OR+(abs:memory+OR+(ti:state+OR+abs:state)))+AND+((ti:typed+OR+(abs:typed+OR+(ti:schema+OR+(abs:schema+OR+(ti:structured+OR+(abs:structured+OR+(ti:JSON+OR+abs:JSON)))))))+AND+(ti:update+OR+(abs:update+OR+(ti:tracking+OR+(abs:tracking+OR+(ti:write+OR+abs:write))))))))+AND+submittedDate:%22202507010000+TO+202611122359%22&amp;start=0&amp;max_results=200&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>200</opensearch:itemsPerPage>
+  <opensearch:totalResults>26</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2508.19633v1</id>
+    <title>A Symbolic Adversarial Learning Framework for Evolving Fake News Generation and Detection</title>
+    <updated>2025-08-27T07:14:17Z</updated>
+    <link href="https://arxiv.org/abs/2508.19633v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2508.19633v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Rapid LLM advancements heighten fake news risks by enabling the automatic generation of increasingly sophisticated misinformation. Previous detection methods, including fine-tuned small models or LLM-based detectors, often struggle with its dynamically evolving nature. In this work, we propose a novel framework called the Symbolic Adversarial Learning Framework (SALF), which implements an adversarial training paradigm by an agent symbolic learning optimization process, rather than relying on numerical updates. SALF introduces a paradigm where the generation agent crafts deceptive narratives, and the detection agent uses structured debates to identify logical and factual flaws for detection, and they iteratively refine themselves through such adversarial interactions. Unlike traditional neural updates, we represent agents using agent symbolic learning, where learnable weights are defined by agent prompts, and simulate back-propagation and gradient descent by operating on natural language representations of weights, loss, and gradients. Experiments on two multilingual benchmark datasets demonstrate SALF's effectiveness, showing it generates sophisticated fake news that degrades state-of-the-art detection performance by up to 53.4% in Chinese and 34.2% in English on average. SALF also refines detectors, improving detection of refined content by up to 7.7%. We hope our work inspires further exploration into more robust, adaptable fake news detection systems.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-08-27T07:14:17Z</published>
+    <arxiv:comment>Accepted to EMNLP 2025 Main Conference</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Chong Tian</name>
+    </author>
+    <author>
+      <name>Qirong Ho</name>
+    </author>
+    <author>
+      <name>Xiuying Chen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2512.13684v2</id>
+    <title>Recurrent Video Masked Autoencoders</title>
+    <updated>2026-04-21T13:13:49Z</updated>
+    <link href="https://arxiv.org/abs/2512.13684v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2512.13684v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We present Recurrent Video Masked-Autoencoders (RVM): a novel approach to video representation learning that leverages recurrent computation to model the temporal structure of video data. RVM couples an asymmetric masking objective with a transformer-based recurrent neural network to aggregate information over time, training solely on a simple pixel reconstruction loss. This design yields a highly efficient "generalist" encoder: RVM achieves competitive performance with state-of-the-art video models (e.g. VideoMAE, V-JEPA) on video-level tasks like action classification, and point and object tracking, while matching or exceeding the performance of image models (e.g. DINOv2) on tasks that require strong geometric and dense spatial features. Notably, RVM achieves strong performance in the small-model regime without requiring knowledge distillation, exhibiting up to 30x greater parameter efficiency than competing video masked autoencoders. Finally, we demonstrate that RVM's recurrent nature allows for stable feature propagation over long temporal horizons with linear computational cost, overcoming some of the limitations of standard spatio-temporal attention-based video models. Ablation studies further highlight the factors driving the model's success, with qualitative results showing that RVM learns rich representations of scene semantics, structure, and motion.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-12-15T18:59:48Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Daniel Zoran</name>
+    </author>
+    <author>
+      <name>Nikhil Parthasarathy</name>
+    </author>
+    <author>
+      <name>Yi Yang</name>
+    </author>
+    <author>
+      <name>Drew A Hudson</name>
+    </author>
+    <author>
+      <name>Joao Carreira</name>
+    </author>
+    <author>
+      <name>Andrew Zisserman</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2601.08884v1</id>
+    <title>Bridging the Gap: Empowering Small Models in Reliable OpenACC-based Parallelization via GEPA-Optimized Prompting</title>
+    <updated>2026-01-12T23:54:08Z</updated>
+    <link href="https://arxiv.org/abs/2601.08884v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2601.08884v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>OpenACC lowers the barrier to GPU offloading, but writing high-performing pragma remains complex, requiring deep domain expertise in memory hierarchies, data movement, and parallelization strategies. Large Language Models (LLMs) present a promising potential solution for automated parallel code generation, but naive prompting often results in syntactically incorrect directives, uncompilable code, or performance that fails to exceed CPU baselines. We present a systematic prompt optimization approach to enhance OpenACC pragma generation without the prohibitive computational costs associated with model post-training. Leveraging the GEPA (GEnetic-PAreto) framework, we iteratively evolve prompts through a reflective feedback loop. This process utilizes crossover and mutation of instructions, guided by expert-curated gold examples and structured feedback based on clause- and clause parameter-level mismatches between the gold and predicted pragma. In our evaluation on the PolyBench suite, we observe an increase in compilation success rates for programs annotated with OpenACC pragma generated using the optimized prompts compared to those annotated using the simpler initial prompt, particularly for the "nano"-scale models. Specifically, with optimized prompts, the compilation success rate for GPT-4.1 Nano surged from 66.7% to 93.3%, and for GPT-5 Nano improved from 86.7% to 100%, matching or surpassing the capabilities of their significantly larger, more expensive versions. Beyond compilation, the optimized prompts resulted in a 21% increase in the number of programs that achieve functional GPU speedups over CPU baselines. These results demonstrate that prompt optimization effectively unlocks the potential of smaller, cheaper LLMs in writing stable and effective GPU-offloading directives, establishing a cost-effective pathway to automated directive-based parallelization in HPC workflows.</summary>
+    <category term="cs.SE" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.DC" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-01-12T23:54:08Z</published>
+    <arxiv:primary_category term="cs.SE"/>
+    <author>
+      <name>Samyak Jhaveri</name>
+    </author>
+    <author>
+      <name>Cristina V. Lopes</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2603.08082v1</id>
+    <title>Tiny Autoregressive Recursive Models</title>
+    <updated>2026-03-09T08:22:45Z</updated>
+    <link href="https://arxiv.org/abs/2603.08082v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2603.08082v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Tiny Recursive Models (TRMs) have recently demonstrated remarkable performance on ARC-AGI, showing that very small models can compete against large foundation models through a two-step refinement mechanism that updates an internal reasoning state $z$ and the predicted output $y$. Naturally, such refinement is of interest for any predictor; it is therefore natural to wonder whether the TRM mechanism could be effectively re-adopted in autoregressive models. However, TRMs cannot be simply compared to standard models because they lack causal predictive structures and contain persistent latent states that make it difficult to isolate specific performance gains. In this paper, we propose the Autoregressive TRM and evaluate it on small autoregressive tasks. To understand its efficacy, we propose a suite of models that gradually transform a standard Transformer to a Tiny Autoregressive Recursive Model in a controlled setting that fixes the block design, token stream, and next-token objective. Across compute-matched experiments on character-level algorithmic tasks, we surprisingly find that there are some two-level refinement baselines that show strong performance. Contrary to expectations, we find no reliable performance gains from the full Autoregressive TRM architecture. These results offer potential promise for two-step refinement mechanisms more broadly but caution against investing in the autoregressive TRM-specific model as a fruitful research direction.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-03-09T08:22:45Z</published>
+    <arxiv:primary_category term="cs.LG"/>
+    <arxiv:journal_ref>ICLR 2026 Workshop RSI Spotlight</arxiv:journal_ref>
+    <author>
+      <name>Paulius Rauba</name>
+    </author>
+    <author>
+      <name>Claudio Fanconi</name>
+    </author>
+    <author>
+      <name>Mihaela van der Schaar</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2603.12933v1</id>
+    <title>Efficient and Interpretable Multi-Agent LLM Routing via Ant Colony Optimization</title>
+    <updated>2026-03-13T12:26:05Z</updated>
+    <link href="https://arxiv.org/abs/2603.12933v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2603.12933v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Large Language Model (LLM)-driven Multi-Agent Systems (MAS) have demonstrated strong capability in complex reasoning and tool use, and heterogeneous agent pools further broaden the quality--cost trade-off space. Despite these advances, real-world deployment is often constrained by high inference cost, latency, and limited transparency, which hinders scalable and efficient routing. Existing routing strategies typically rely on expensive LLM-based selectors or static policies, and offer limited controllability for semantic-aware routing under dynamic loads and mixed intents, often resulting in unstable performance and inefficient resource utilization. To address these limitations, we propose AMRO-S, an efficient and interpretable routing framework for Multi-Agent Systems (MAS). AMRO-S models MAS routing as a semantic-conditioned path selection problem, enhancing routing performance through three key mechanisms: First, it leverages a supervised fine-tuned (SFT) small language model for intent inference, providing a low-overhead semantic interface for each query; second, it decomposes routing memory into task-specific pheromone specialists, reducing cross-task interference and optimizing path selection under mixed workloads; finally, it employs a quality-gated asynchronous update mechanism to decouple inference from learning, optimizing routing without increasing latency. Extensive experiments on five public benchmarks and high-concurrency stress tests demonstrate that AMRO-S consistently improves the quality--cost trade-off over strong routing baselines, while providing traceable routing evidence through structured pheromone patterns.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-03-13T12:26:05Z</published>
+    <arxiv:comment>11 pages, 3 figures, submitted to IEEE Transactions on Artificial Intelligence</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Xudong Wang</name>
+    </author>
+    <author>
+      <name>Chaoning Zhang</name>
+    </author>
+    <author>
+      <name>Jiaquan Zhang</name>
+    </author>
+    <author>
+      <name>Chenghao Li</name>
+    </author>
+    <author>
+      <name>Qigan Sun</name>
+    </author>
+    <author>
+      <name>Sung-Ho Bae</name>
+    </author>
+    <author>
+      <name>Peng Wang</name>
+    </author>
+    <author>
+      <name>Ning Xie</name>
+    </author>
+    <author>
+      <name>Jie Zou</name>
+    </author>
+    <author>
+      <name>Yang Yang</name>
+    </author>
+    <author>
+      <name>Hengtao Shen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.14314v1</id>
+    <title>DharmaOCR: Specialized Small Language Models for Structured OCR that outperform Open-Source and Commercial Baselines</title>
+    <updated>2026-04-15T18:17:11Z</updated>
+    <link href="https://arxiv.org/abs/2604.14314v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2604.14314v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>This manuscript introduces DharmaOCR Full and Lite, a pair of specialized small language models (SSLMs) for structured OCR that jointly optimize transcription quality, generation stability, and inference cost. It also presents DharmaOCR-Benchmark, a benchmark that covers printed, handwritten, and legal/administrative documents, and proposes a unified evaluation protocol that measures fidelity and structure while explicitly tracking text degeneration as a first-class benchmark metric (alongside unit cost). Beyond reporting degeneration rates, the manuscript empirically shows degeneration is not merely a quality failure, since it materially worsens production performance by increasing response time, reducing throughput, and inflating computational cost due to abnormally long generations. To the best of the author's knowledge, as a methodological contribution, this is the first application of Direct Preference Optimization (DPO) for OCR, explicitly using degenerate generations as rejected examples to penalize looping behavior. Combined with Supervised Fine-Tuning (SFT) for enforcing a strict JSON schema (header, margin, footer, and text), DPO consistently reduces degeneration rate across model families (up to 87.6% relative) while preserving or improving extraction quality. The resulting models, namely, DharmaOCR Full (7B) and DharmaOCR Lite (3B), set a new state-of-the-art on DharmaOCR-Benchmark, outperforming each open-source and commercial baseline model evaluated regarding extraction quality, reaching 0.925 and 0.911 scores with 0.40% and 0.20% degeneration rates. AWQ quantization reduced up to 22% per-page cost with negligible quality loss, enabling a strong quality-cost trade-off in comparison to proprietary OCR APIs and open-source alternatives.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-04-15T18:17:11Z</published>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Gabriel Pimenta de Freitas Cardoso</name>
+    </author>
+    <author>
+      <name>Caio Lucas da Silva Chacon</name>
+    </author>
+    <author>
+      <name>Jonas Felipe da Fonseca Oliveira</name>
+    </author>
+    <author>
+      <name>Paulo Henrique de Medeiros Araujo</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2604.24809v1</id>
+    <title>Nautile-370M: Spectral Memory Meets Attention in a Small Reasoning Model</title>
+    <updated>2026-04-27T08:07:54Z</updated>
+    <link href="https://arxiv.org/abs/2604.24809v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2604.24809v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We present Nautile-370M, a 371-million-parameter small language model designed for efficient reasoning under strict parameter and inference budgets. Nautile-370M uses a hybrid backbone in which two SeqCond Attention (SCA) layers, a linear-time spectral sequence operator inspired by SeqCondenser, alternate with one transformer layer. This design aims to retain the long-context efficiency and state-tracking benefits of structured sequential models while preserving the expressive token-to-token routing of attention. The model was trained on a single Cloud TPU v4-64 pod slice provided through the Google TPU Research Cloud (TRC) program; the subsequent reinforcement learning stage was carried out on a single NVIDIA DGX Spark. We prove that the SCA readout mechanism can exactly retrieve any individual token from the prefix summary and can reproduce any output of softmax attention as a special case, establishing that SCA is at least as expressive as full self-attention in the continuous limit. We also describe the training data pipeline and outline a reinforcement learning stage specialized for reasoning, verification, and response quality.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-04-27T08:07:54Z</published>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Maixent Chenebaux</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.03354v3</id>
+    <title>What Happens Inside Agent Memory? Circuit Analysis from Emergence to Diagnosis</title>
+    <updated>2026-09-27T07:45:09Z</updated>
+    <link href="https://arxiv.org/abs/2605.03354v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.03354v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Agent memory failures are silent: an LLM-based agent can produce a fluent response even when it fails to extract, retain, or retrieve the information needed across sessions. The write-manage-read loop describes the external pipeline of these systems but leaves open which internal computations implement each stage. We trace feature circuits across the Qwen-3 family (0.6B--14B), two memory frameworks (mem0, A-MEM), and a matched Gemma-3 replication, reporting two mechanistic findings plus one deliverable. First, under mem0, control is detectable before content. Routing circuitry is causally active at 0.6B, while content circuitry produces no detectable signal until 4B. Gemma-3 reproduces the same order at 1B and 4B. Small models therefore route memory decisions before they can reliably extract or ground the underlying facts. Second, the shared hub is recruited, not created. Write and Read converge on a late-layer hub that already exists in the base model as a context-grounding substrate, on which memory framing recruits a memory-specific functional direction. The hub and the early routing circuit carry over to A-MEM, indicating that these computations belong to the base model rather than to a particular interface. Building on this circuit structure, we develop an unsupervised stage-level diagnostic that localizes silent failures to the responsible operation at 76.2% accuracy. It outperforms a strong LLM trace judge by 3.1 points as well as a supervised hidden-state probe by 8.8 points. Together, these results establish circuit-level signatures as a practical handle for monitoring agent memory and guiding its structural design.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-05T04:17:22Z</published>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Xutao Mao</name>
+    </author>
+    <author>
+      <name>Jinman Zhao</name>
+    </author>
+    <author>
+      <name>Gerald Penn</name>
+    </author>
+    <author>
+      <name>Cong Wang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.08399v1</id>
+    <title>CoCoDA: Co-evolving Compositional DAG for Tool-Augmented Agents</title>
+    <updated>2026-05-08T19:05:15Z</updated>
+    <link href="https://arxiv.org/abs/2605.08399v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.08399v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Tool-augmented language models can extend small language models with external executable skills, but scaling the tool library creates a coupled challenge: the library must evolve with the planner as new reusable subroutines emerge, while retrieval from the growing library must remain within a fixed context budget. Existing tool-use and skill-library methods typically treat tools as flat or text-indexed memories, causing prompt cost to grow with library size and obscuring the typed, compositional structure of executable code. We propose CoCoDA, a framework that co-evolves the planner and tool library through a single code-native structure: a compositional code DAG. Nodes are primitive or composite tools, edges encode invocation dependencies, and each node stores a typed signature, description, pre/post-condition specification, and worked examples. At inference time, Typed DAG Retrieval prunes candidates by symbolic signature unification, ranks survivors by descriptions, filters them by behavioral specifications, and disambiguates with examples, keeping expensive context materialization on progressively smaller candidate sets. At training time, successful trajectories are folded into validated composite tools, while the planner is updated with a DAG-induced reward that credits composites by their primitive expansion size. We provide theoretical results showing retrieval cost reduction, sublinear retrieval time, compositional advantage under the shaped reward, monotone co-evolution under conservative updates, and DAG well-formedness. Across mathematical reasoning, tabular analysis, and code task benchmarks, CoCoDA enables an 8B student to match or exceed a 32B teacher on GSM8K and MATH and consistently improves over strong tool-use and library-learning baselines.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-08T19:05:15Z</published>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Ziyang Yu</name>
+    </author>
+    <author>
+      <name>Qiyue Li</name>
+    </author>
+    <author>
+      <name>Liang Zhao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2605.27976v1</id>
+    <title>VoiceGiraffe: A Benchmark for Extreme Long-Context Audio-Language Understanding</title>
+    <updated>2026-05-27T05:15:14Z</updated>
+    <link href="https://arxiv.org/abs/2605.27976v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2605.27976v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>While large audio language models (LALMs) have achieved remarkable progress in audio processing at the second- or minute-level scale, understanding hour-level audio remains a fundamental bottleneck. Existing benchmarks predominantly rely on short clips or artificially concatenated segments, failing to faithfully assess LALM capacity for long-range information comprehension in real-world scenarios such as podcasts and lengthy speeches. To address this gap, we introduce VoiceGiraffe, a novel benchmark designed to rigorously evaluate LALMs across diverse real-world scenarios, modalities, and languages under long-context settings. It comprises 1500 curated triplets structured into a dual-level taxonomy of single-hop perception and multi-hop reasoning. We evaluate a broad suite of open-source and proprietary LALMs against human performance. Results underscore three fundamental findings. First, VoiceGiraffe remains highly challenging and far from saturation. Second, we show that no single inference paradigm universally dominates. The E2E inference benefits models with native long-context audio understanding, cascaded caption aggregation stabilizes small models overwhelmed by hour-scale audio, and reasoning-enhanced cascading with external LLM helps weaker models but can bottleneck stronger proprietary systems. Third, we reveal long-range memory persistence as a key bottleneck. LALMs are better at answering questions that require connecting salient causal cues than those requiring sustained tracking of sparse events across long audio, whereas humans show the opposite pattern. These findings position VoiceGiraffe as a challenging and diagnostic testbed for long-form audio understanding, highlighting the need for LALMs with persistent memory and robust long-range aggregation.</summary>
+    <category term="cs.SD" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-27T05:15:14Z</published>
+    <arxiv:comment>Benchmark Project: https://github.com/LivingFutureLab/VoiceGiraffe</arxiv:comment>
+    <arxiv:primary_category term="cs.SD"/>
+    <author>
+      <name>Jashin Ye</name>
+    </author>
+    <author>
+      <name>Dongxiao Wang</name>
+    </author>
+    <author>
+      <name>Yixuan Ye</name>
+    </author>
+    <author>
+      <name>Sashuai Zhou</name>
+    </author>
+    <author>
+      <name>Weihuang Lin</name>
+    </author>
+    <author>
+      <name>Mingyang Han</name>
+    </author>
+    <author>
+      <name>Kunpeng Wang</name>
+    </author>
+    <author>
+      <name>Zeyu Yuan</name>
+    </author>
+    <author>
+      <name>Boyu Li</name>
+    </author>
+    <author>
+      <name>Haoxiang Shi</name>
+    </author>
+    <author>
+      <name>Jingchen Shu</name>
+    </author>
+    <author>
+      <name>Jun Song</name>
+    </author>
+    <author>
+      <name>Bo Zheng</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.00935v1</id>
+    <title>Relational Intervention During Functional Collapse in Large Language Models: A Lexical-Statistical Ablation and a Structure x Register Factorial</title>
+    <updated>2026-05-31T00:10:01Z</updated>
+    <link href="https://arxiv.org/abs/2606.00935v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.00935v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>We test whether a relational-style intervention delivered during functional collapse in a small language model produces post-collapse behavior distinguishable from technical feedback, from a lexically-matched scrambled control, and from each of the two pragmatic dimensions in isolation. Using Qwen3.5-4B with a deliberately broken bash tool, we run 300 episodes across six conditions in a matched-pairs design (50 tasks): no intervention (A), technical/impersonal (B), relational/first-person (C), scrambled relational (D), technical/first-person (E), and relational/impersonal (F). E and F form a 2x2 factorial with B and C that dissociates relational structure (acknowledgment, absolution, agency restoration, unconditional acceptance) from sender register (first-person vs. impersonal). We report two main findings. First, an attention-behavior dissociation: attention follows lexical surprise (D &gt; F &gt; C &gt; E &gt; B, all q_FDR &lt; 10^{-10}), with the scrambled message capturing the most attention; yet behaviorally A ~ B ~ D &lt; E ~ F &lt;&lt; C. Second, the factorial localizes the C effect: neither relational structure alone (F) nor first-person register alone (E) replicates C's behavioral signature; main effects of both dimensions are individually significant, and the structure x register interaction is significant on persistence (p = 0.046). A third dissociation emerges in emotion probes: F tracks C on 7 of 8 probes despite producing only baseline behavior, indicating that relational structure alone installs a probe-level state that only translates into behavior when paired with first-person register. The model's processing decomposes into three dissociable stages: attention (ordered by lexical surprise), probe-level state (ordered by structure), and behavior (ordered by the conjunction of both).</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.HC" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-05-31T00:10:01Z</published>
+    <arxiv:comment>12 pages, 5 figures. Preprint</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Franco Santana</name>
+    </author>
+    <author>
+      <name>Horacio Vico</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2606.12154v1</id>
+    <title>The Brain That Goes Quiet: Serving a Large Model's Knowledge at 131 Tokens per Second on an 8 GB Laptop by Removing the Large Model from the Runtime Path</title>
+    <updated>2026-06-10T14:41:54Z</updated>
+    <link href="https://arxiv.org/abs/2606.12154v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.12154v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>In earlier work I showed that a 35B-class Mixture-of-Experts model can be loaded and executed on a consumer laptop with 8 GB of GPU memory. That result solved a placement problem and immediately exposed a different one: even correctly placed, the large model needed roughly four seconds to answer, because it was still being invoked at every query. This paper documents what happened when I stopped invoking it. During an offline phase, the large model reads source documents and writes verified answer entries into a structured knowledge store; at runtime, only a lightweight router, a deterministic renderer, and a 1B-class model are active. On the same 8 GB laptop, end-to-end response time fell from approximately 4,465 ms to 518 ms, effective end-to-end throughput rose from 15.7 to 131 tokens per second, and the small model's streaming decode rate held at 226-237 tokens per second with a time-to-first-token of 29-62 ms. The bottleneck is structural: three different large models (Qwen, Gemma, and GLM class) all showed the same multi-second runtime cost, and all three produced usable knowledge stores offline. On a 563-entry store built from seventeen real documents, keyword routing collapsed to 1.5% top-1 accuracy while BM25-based routing reached 92.8% (99.4% top-3), and a confidence gate raised effective top-1 to 98.0% by escalating 12.3% of queries. Exact-match fidelity of the small model ranged from 9/9 to 0/9 across envelope formats carrying identical content. A 16-case verification gate blocked all ten corrupted entries while admitting all six supported ones.</summary>
+    <category term="cs.PF" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-10T14:41:54Z</published>
+    <arxiv:comment>17 pages, 5 figures</arxiv:comment>
+    <arxiv:primary_category term="cs.PF"/>
+    <author>
+      <name>Myeong Jun Jo</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.26132v1</id>
+    <title>SLM-Conditioned Hierarchical Relation Routing for Labeled Property Graph Learning</title>
+    <updated>2026-06-24T21:02:33Z</updated>
+    <link href="https://arxiv.org/abs/2608.26132v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.26132v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Labeled property graphs combine relational structure with heterogeneous textual and categorical properties attached to both nodes and relationships. Conventional graph neural networks typically represent these properties as static feature vectors, limiting their ability to determine which semantic evidence should influence message propagation for a particular prediction target. We propose SLM-Conditioned Hierarchical Relation Routing, an architecture that integrates a small language model directly into graph message selection. A topology GNN provides a stable structural representation and prediction anchor. For each target node, incident messages combine the neighbor's structural state, node-property encoding, relationship-property encoding, and relationship type. A parameter-efficient SLM processes structured graph soft tokens and produces a target-conditioned routing query. This query first selects relevant messages within each relationship type and subsequently routes information across relation-level summaries. The resulting representation provides a bounded residual update to the topology anchor, preserving structural evidence while allowing contextual semantic information to modify the prediction. The architecture supports interpretable analysis at both the neighbor and relationship-type levels and provides a general mechanism for integrating language-derived semantics into property-rich graph learning.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-24T21:02:33Z</published>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Michal Podstawski</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2607.14735v1</id>
+    <title>CoTu at EXACT 2026: Neuro-Symbolic Reasoning for Transparent Educational QA</title>
+    <updated>2026-07-16T09:01:02Z</updated>
+    <link href="https://arxiv.org/abs/2607.14735v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2607.14735v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Transparent educational question answering asks for answers that are not only correct but explainable, and doing so with small models rules out the reasoning power of the largest proprietary systems. The EXACT 2026 competition poses this problem concretely: open-weight language models of at most 8B parameters, self-hosted, with a natural-language explanation for every answer. It pairs two tasks: logical reasoning over university regulations, and multi-step physics problem solving. We describe the system that team \cotu{} developed to address both, a neuro-symbolic Program-of-Thought pipeline in which a 4B backbone writes a program rather than stating an answer directly: for regulation queries it emits a Z3 encoding whose entailment verdict grounds the deduction, and for physics it emits numerical Python, both wrapped in a shared self-correction loop and a unified explained-JSON output. Answer-type routing, distillation-based task fine-tuning, and a latency-aware serving stack -- SGLang with speculative decoding -- keep the system within the 60-second per-query limit. The system achieved a \textbf{perfect score} on the physics task in both automated selection rounds and obtained the \textbf{highest final-round technical score} of any team -- $13.44/15$, combining automated answer evaluation with expert-judged reasoning depth -- with the equally weighted presentation score included, \cotu{} placed 3rd overall. Grounding answers in a symbolic solver yields correct, verifiable deductions at the 4B scale, and the residual difficulty lies in premise selection rather than the deduction itself.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-07-16T09:01:02Z</published>
+    <arxiv:comment>The 2nd International XAI Challenge for Transparent Educational Question-Answering @ IEEE IJCNN 2026 Competition</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Quoc-Khang Tran</name>
+    </author>
+    <author>
+      <name>Minh-Thien Nguyen</name>
+    </author>
+    <author>
+      <name>Phu-An Thai</name>
+    </author>
+    <author>
+      <name>Xuan-Tung Bui</name>
+    </author>
+    <author>
+      <name>Truong-Thanh Ma</name>
+    </author>
+    <author>
+      <name>Nguyen-Khang Pham</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.01153v1</id>
+    <title>Morphology Aware Reversible Semantic Tokenization and Hierarchical Word Composition for Tamil Language Models</title>
+    <updated>2026-08-02T11:07:53Z</updated>
+    <link href="https://arxiv.org/abs/2608.01153v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.01153v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Statistical subword tokenizers can process arbitrary text, but their units need not align with lexical or grammatical structure. This is especially important for Tamil, where a written word may encode stem changes, case, number, tense, agreement, voice, clitics, and linked verbs. We present a Tamil morphology system extending the open-source ThamizhiMorph analyzer and generator, together with a byte-exact semantic tokenizer and a learned hierarchical word composer. Twelve finite-state transducers analyze words into lemmas and grammatical features, while character and byte fallbacks preserve exact reconstruction.
+  We compare a flat morphology tokenizer, a signal-preserving word composer, and tokenizers based on Sarvam-1, AI4Bharat IndicBERTv2, and BrahmicTokenizer-131K. All systems use the same 69,591 Tamil-English training pairs, 18.97-million-parameter encoder-decoder, 40,000 updates, target tokenizer, optimizer, positional method, and generation settings.
+  On a protected 3,539-row IN22 and FLORES+ evaluation, morphology-flat achieves the best pooled scores: 10.63 BLEU, 35.26 chrF++, and 0.6276 COMETKiwi. Relative to AI4Bharat, the strongest external-tokenizer baseline, these are improvements of 7.2%, 3.2%, and 2.6%. The word composer scores 10.30, 34.88, and 0.6241, improving on AI4Bharat by 3.8%, 2.1%, and 2.0%.
+  The composer reduces mean global source states from 71.48 to 29.08, a 59.3% reduction, and is estimated to require 9-21% fewer inference FLOPs depending on decoder caching. Its remaining quality gap is concentrated in longer FLORES+ sentences. These results show that explicit Tamil morphology improves translation under a fixed small-model budget, while hierarchical composition substantially reduces sequence length and estimated inference cost.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-02T11:07:53Z</published>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Anand Murugan</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2608.01708v2</id>
+    <title>PGMem: Tightly Coupled Persona-Memory Graph for Lifelong Personalized Agents</title>
+    <updated>2026-09-02T08:43:10Z</updated>
+    <link href="https://arxiv.org/abs/2608.01708v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2608.01708v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Long-term personalized dialogue agents must track user preferences as their personas evolve. Existing memory systems organize past events well, but store personas as flat profiles detached from the events that justify them. This loose coupling leads to the memory-persona validity gap and the persona-aware retrieval gap. We propose PGMem, a heterogeneous persona-memory graph that connects event and persona nodes through typed provenance and evidence edges, keeping each persona signal traceable to the events that support or revise it. At retrieval time, PGMem expands from query-relevant seeds and ranks signals by evidential validity. Across three benchmarks with small language model backbones, PGMem consistently outperforms summary-based, persona-aware, graph-structured, and agentic memory baselines, and improves performance as the context grows. The source code of PGMem is available at https://github.com/wonjunchoi23/pgmem/</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-08-03T05:14:59Z</published>
+    <arxiv:comment>EMNLP 2026 (main)</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Wonjun Choi</name>
+    </author>
+    <author>
+      <name>Yerim Kim</name>
+    </author>
+    <author>
+      <name>Yukyung Lee</name>
+    </author>
+    <author>
+      <name>Susik Yoon</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.01272v1</id>
+    <title>Making Prospective Memory SLM-Shaped: Typed Intention Stores for Small-Model Agents</title>
+    <updated>2026-09-01T14:04:27Z</updated>
+    <link href="https://arxiv.org/abs/2609.01272v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.01272v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Prospective memory means carrying out a deferred intention at the right future cue while other work continues. Benchmarks now isolate it as an agent skill, yet frontier LLMs still struggle: the best published PM-Bench scaffold reaches only 65.1% Set-F1. We argue that this loop is schema-constrained state tracking rather than open-ended reasoning, and that small models can execute it when the action space is typed. We propose the Prospective Intention Store (PIS) that puts lifecycle logic in code and scoped language work on the model. The scaffold is agentic and training-free: no selector fine-tuning and no trajectory distillation. On PM-Bench, DeepSeek-Chat with PIS reaches 82.9% Set-F1. On Gemma-E2B, Set-F1 is only 4.2% without a store and at most 6.6% under seven retrospective memories, while PIS reaches 66.2%. PIS further reaches 70.1% Set-F1, where retrospective memory methods stay at most 54.4%. PIS sets a new state of the art on this benchmark and enables small models to surpass the published large-model scaffold.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-01T14:04:27Z</published>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Jinqing Zhao</name>
+    </author>
+    <author>
+      <name>Chengcan Wu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.10144v3</id>
+    <title>Kernel-Managed Shared Memory for System-Wide Personalization</title>
+    <updated>2026-10-21T21:20:28Z</updated>
+    <link href="https://arxiv.org/abs/2609.10144v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.10144v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>AI systems become more useful when they can adapt to the people using them, but in multi-agent systems, useful context learned by one agent often remains unavailable to others. We present kernel-managed shared memory, a system-level abstraction in which specialized agents write structured, tagged memories while the agent-system kernel, not individual agents, governs retrieval, privacy enforcement, and prompt injection. We implement and evaluate this design on AIOS and compare it against three alternatives across three assistant models (GPT-4o, Llama-3.1:8B, Qwen-2.5:7B) and 1,800 total trials. Against an unmanaged external memory backend (Mem0) using identical underlying storage, kernel-managed retrieval and injection improve personalization scores by 2.4-4.0 points on a 5-point scale (e.g., 1.05 to 4.69 profile usage on GPT-4o), with every comparison significant at p &lt; 10^-18. Against standard retrieval-augmented injection, gains are similarly large and consistent across all three models. Against full, unfiltered context concatenation, a soft ceiling on available context rather than on response quality, kernel-managed injection statistically matches performance on two of three models and shows a small, model-specific deficit on the third, while using substantially shorter prompts: end-to-end latency is 15-61% lower across all three models, with corresponding reductions in per-call token usage and inference cost. These results indicate that centralizing memory management in the agent-system kernel, rather than leaving retrieval and privacy enforcement to individual agents, delivers most of the personalization benefit of unconstrained context at a fraction of its cost.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-09T13:20:47Z</published>
+    <arxiv:comment>Accepted to AgenticOS Workshop @ NeurIPS 2026. Camera-ready version</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Ryan Lum</name>
+    </author>
+    <author>
+      <name>Yongfeng Zhang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.28003v1</id>
+    <title>Learning from Failures: Heterogeneous Graph Memory for Small Language Model Tool-Using Agents</title>
+    <updated>2026-09-23T12:31:39Z</updated>
+    <link href="https://arxiv.org/abs/2609.28003v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.28003v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Small and medium-sized language models offer cost-effective executors for tool-using agents, making them attractive for local and large-scale deployment. However, in long-horizon and stateful environments, they often make structural errors such as missing required observations, performing premature writes, repeating failed calls, and violating action preconditions. These errors can lead to incorrect state updates, policy violations, and costly or irreversible consequences, making reliable tool execution a critical deployment challenge. Existing fine-tuning approaches require substantial data and computation, while flat memory may retrieve failed actions without preserving their causal context or safety conditions. In this paper, we propose FRESH, a Failure-aware Retrieval framework over Experience-Structured Heterogeneous graphs, which transforms historical successes and failures into structured external experience for tool-using agents. By explicitly modeling the dependencies among tasks, actions, errors, repairs, and execution conditions, FRESH helps frozen language models reuse reliable strategies, avoid recurring failures, and make safer decisions in stateful tool interactions. Experiments on $τ$-Bench and AppWorld with multiple open-source models show that FRESH consistently improves task success and tool-use reliability over no-memory agents and representative memory-based baselines.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-23T12:31:39Z</published>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Jiaxing Li</name>
+    </author>
+    <author>
+      <name>Lei Song</name>
+    </author>
+    <author>
+      <name>Rui Dong</name>
+    </author>
+    <author>
+      <name>Youyong Kong</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.36976v2</id>
+    <title>AMU:Admission and Memory Update for Personalized Conversations---Structured Memory with SLM Guided Control</title>
+    <updated>2026-10-13T07:19:55Z</updated>
+    <link href="https://arxiv.org/abs/2609.36976v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.36976v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Large language models (LLMs) have become the foundation of personalized assistants, but maintaining persistent user memory across long-term interactions remains challenging. Existing memory systems often focus on storage, retrieval, or consolidation, while memory writing remains less controlled: transient requests, duplicate statements, and outdated user states may enter memory and later be retrieved for personalization. In this paper, we present AMU: Admission and Memory Update for Personalized Conversations, an SLM-guided (Small language model guided) structured framework for writing-time memory control. AMU uses structured memory filtering to decide what should enter memory and SLM-guided storage management to determine whether an admitted record should be stored separately, discarded as a duplicate, or fused as an update. We evaluate AMU in a controlled memory writing and retrieval setting. Experimental results show that AMU maintains cleaner and more retrievable personalized memories.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-29T08:12:09Z</published>
+    <arxiv:comment>14 pages, 2 figures. Accepted to NORA 2026 (The 3rd Workshop on KNOwledge GRaphs &amp; Agentic Systems Interplay), co-located with AACL-IJCNLP 2026. Source code and implementation are available at: https://github.com/UnicusT11/AMU-memory</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Tao Hwang</name>
+    </author>
+    <author>
+      <name>Yishi Diao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.38764v1</id>
+    <title>Lasting Effects of Abstract Pretraining Beyond Perplexity</title>
+    <updated>2026-09-30T01:48:40Z</updated>
+    <link href="https://arxiv.org/abs/2609.38764v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.38764v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Language models are typically pretrained from random initialization. Recent work challenges this convention, showing that a brief warm-up on abstract, algorithmically generated data can provide a better starting point for subsequent learning of natural language. In this paper, we show that in small language models, such a warm-up improves specific capabilities that are not reflected in language-modeling perplexity. Our warm-up uses an abstract stack-manipulation task that requires compositional and state-tracking capabilities. Allocating as little as 1% of pretraining tokens to this data improves multi-hop question answering by up to 3.9 F1 points on MUSIQUE, with additional gains on HOTPOTQA and 2WIKIMULTIHOPQA despite comparable language-modeling perplexity. Controlled experiments show that the warm-up substantially accelerates the acquisition of deeper reasoning chains. We also explore what drives this transfer. First, the structure of the data matters: replacing the stack task with a queue fails to produce the same gains. Second, the gains are specific: performance improves on sequential reasoning chains, with no consistent benefit on tasks that combine or compare independent facts. Third, timing matters: mixing abstract data with natural language is far less effective than an initial dedicated phase, and exposure after pretraining completely removes the benefits. The early advantage persists through billions of subsequent language tokens. These results show that early abstract training can reliably shape the capabilities language models later acquire.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-30T01:48:40Z</published>
+    <arxiv:comment>Project page: https://zlshinnick.github.io/beyond-perplexity/</arxiv:comment>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Zachary Shinnick</name>
+    </author>
+    <author>
+      <name>Hemanth Saratchandran</name>
+    </author>
+    <author>
+      <name>Damien Teney</name>
+    </author>
+    <author>
+      <name>Anton van den Hengel</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.06269v2</id>
+    <title>Evolving in Thought Space: Training a Small Model at Test Time Unlocks Better Discoveries</title>
+    <updated>2026-10-12T22:19:47Z</updated>
+    <link href="https://arxiv.org/abs/2610.06269v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.06269v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Open-ended scientific discovery often requires repeatedly proposing and evaluating candidate solutions. LLM-based systems can support this process by generating and refining executable solutions from verifier feedback. Methods such as TTT-Discover use test-time training (TTT) to update the solution-generating LLM from verifier feedback, adapting its generation policy to improve subsequent proposals on the target problem. However, this becomes expensive when reliable execution requires a large model, since training must maintain gradients, optimizer states, and policy statistics while repeatedly generating long, structured outputs. It also complicates credit assignment: outcome-level verifier feedback must jointly evaluate the high-level strategy and its low-level implementation. In this work, we introduce Guidance-TTT, which separates these roles. A compact guidance model is trained at test time to propose high-level strategic changes, while a frozen execution model implements them as complete executable solutions. At each step, the system selects a promising previously discovered solution, proposes a change, executes and verifies it, and updates only the guidance model using an adaptive group-relative RL objective. This concentrates test-time learning on short strategic decisions while retaining the implementation capability of a substantially stronger model without adapting it. Without web access, Guidance-TTT produces strong solutions across four distinct domains: combinatorial optimization (Polyomino Packing), heuristic programming (AHC058), machine learning (Lasso), and GPU kernel optimization (TriMul). Across these tasks, it outperforms the best solutions reported in prior work while remaining competitive with state-of-the-art results on public online leaderboards. Code is available at https://github.com/Human-Agent-Society/reef/tree/guidance-ttt-support.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-05T13:04:05Z</published>
+    <arxiv:comment>35 pages, including references and appendice</arxiv:comment>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Chonghe Jiang</name>
+    </author>
+    <author>
+      <name>Ao Qu</name>
+    </author>
+    <author>
+      <name>Siyuan Liu</name>
+    </author>
+    <author>
+      <name>Ruoyun Ma</name>
+    </author>
+    <author>
+      <name>Zijian Zhou</name>
+    </author>
+    <author>
+      <name>Dingyi Zhuang</name>
+    </author>
+    <author>
+      <name>Bo Liu</name>
+    </author>
+    <author>
+      <name>Han Zheng</name>
+    </author>
+    <author>
+      <name>Hanfei Yu</name>
+    </author>
+    <author>
+      <name>Baichuan Mo</name>
+    </author>
+    <author>
+      <name>Jinhua Zhao</name>
+    </author>
+    <author>
+      <name>Paul Pu Liang</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.07553v1</id>
+    <title>Which and When to Admit: Gradient Admission for Data-Centric Small Language Model Finetuning</title>
+    <updated>2026-10-06T00:34:38Z</updated>
+    <link href="https://arxiv.org/abs/2610.07553v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.07553v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>LoRA fine-tuning adapts small language models (SLMs) to heterogeneous instruction data within a low-rank update subspace, making it vulnerable to three structural problems: conflicting gradients that cancel, static data selection that cannot track evolving learning dynamics, and subspace saturation that causes later updates to overwrite useful directions. We argue that effective adaptation therefore requires controlling which data-induced gradients enter the LoRA subspace and when. We propose GRADE (GRadient-Aligned Data-centric rEcipe), a data-centric framework combining two mechanisms: a state-aware selector that continually admits samples aligned with the evolving multi-task gradient field, and a self-calibrating step-level gate that rejects updates likely to cause destructive overwrite near saturation. Across three current-generation backbones and a heterogeneous seven-dataset instruction pool, GRADE outperforms strong data-selection and PEFT-stabilization baselines in accuracy and robustness. It is the only method to improve consistently over standard LoRA on every architecture, while producing more coherent gradient trajectories and less destructive overwrite. These results show that successful SLM adaptation depends not only on which data are selected, but also on which gradients are allowed to enter and persist in the constrained update subspace.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-06T00:34:38Z</published>
+    <arxiv:primary_category term="cs.LG"/>
+    <author>
+      <name>Hongyu Cao</name>
+    </author>
+    <author>
+      <name>Yanchi Liu</name>
+    </author>
+    <author>
+      <name>Kunpeng Liu</name>
+    </author>
+    <author>
+      <name>Xujiang Zhao</name>
+    </author>
+    <author>
+      <name>Wei Cheng</name>
+    </author>
+    <author>
+      <name>Zhengzhang Chen</name>
+    </author>
+    <author>
+      <name>Yanjie Fu</name>
+    </author>
+    <author>
+      <name>Haifeng Chen</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.13534v1</id>
+    <title>MAGMA-Bench: Evaluating Long-Horizon Embodied Agents under Dynamic Tasks and Execution Failures</title>
+    <updated>2026-10-09T12:54:11Z</updated>
+    <link href="https://arxiv.org/abs/2610.13534v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.13534v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Long-horizon embodied agents must maintain task-relevant information, coordinate heterogeneous robots, and adapt their decisions as execution unfolds. Existing benchmarks investigate dynamic task execution and embodied multi-agent coordination, but provide limited evaluation of their intersection. We introduce MAGMA-Bench, an architecture-agnostic benchmark for persistent task reasoning in dynamic multi-robot environments. MAGMA-Bench evaluates agents across increasing task horizons and controlled online perturbations, including execution failures, task interruptions, and mission updates, with scenarios requiring coordination across robots with heterogeneous capabilities. It uses a structured skill-level interface to separate task-level reasoning from perception and low-level control. We evaluate locally deployable open-weight planners, multi-agent state-tracking strategies, and frontier models. Even the strongest evaluated models fail on a substantial fraction of clean episodes, and their success rates decrease further under online perturbations. Supervised adaptation greatly improves a small model, but performance remains substantially lower on longer and multi-robot missions. We release the benchmark, 261,646 task-level training examples, and an architecture-agnostic expert-trace generation pipeline.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-09T12:54:11Z</published>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Loan Bernat</name>
+      <arxiv:affiliation>LAAS-GEPETTO</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Matthieu Grard</name>
+      <arxiv:affiliation>LAAS-RAP</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Ariane Herbulot</name>
+      <arxiv:affiliation>LAAS-RAP</arxiv:affiliation>
+    </author>
+    <author>
+      <name>Florent Lamiraux</name>
+      <arxiv:affiliation>LAAS-GEPETTO</arxiv:affiliation>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.35981v1</id>
+    <title>Small agents should know what their tools do</title>
+    <updated>2026-10-26T10:28:14Z</updated>
+    <link href="https://arxiv.org/abs/2610.35981v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.35981v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Small open language models can call tools, but they do not reason about what a call does: they delete without asking, repeat writes, re-read state they already hold, and issue one call per turn where a short program would do. We introduce EffectWorld, an executable world of effect-typed tools in which every tool declares its effect, whether it is idempotent, and which resources it reads and writes. These declarations let a replay verifier decide whether a trace is effect-safe without labels or judge models, let an executor run tool programs of several dependent calls in one turn, and let a compiler-style optimizer turn wasteful traces into verified training signal; together they make EffectWorld a benchmark of effect safety and call efficiency. Low-rank adapters trained on this data deliver large gains: on Qwen3-4B, they raise task success from 53% to 99% in distribution, from 52% to 81% on a held-out split with unseen task kinds and distractor tools, and from 74% to 83% on an unseen domain, with about a third of the output tokens. The gains carry over to other model families. On the Berkeley Function-Calling Leaderboard (BFCL), the adapter matches the base model's live accuracy and raises multi-turn accuracy from 21.9 to 26.6, and a recipe with near-miss declines lifts the BFCL average above the base model's while matching its irrelevance detection. Along the way we uncover and fix a pitfall that in-domain evaluation alone would miss: refusal templates in widely used public tool-use corpora teach a small model not to call tools, cutting BFCL non-live accuracy from 88.0 to 31.4, and filtering them restores 84.8. We also find that positive examples, not negative ones, carry the learning: suppression and preference objectives on the verified negatives add nothing over an SFT-only control, while targeted positives move exactly the behaviour they show.</summary>
+    <category term="cs.SE" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-26T10:28:14Z</published>
+    <arxiv:primary_category term="cs.SE"/>
+    <author>
+      <name>Alexander Kovalenko</name>
+    </author>
+    <author>
+      <name>Artem Redchych</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2611.03713v1</id>
+    <title>Unsatz: Evaluating Scientific Discovery Without a Given Ansatz</title>
+    <updated>2026-10-31T04:52:14Z</updated>
+    <link href="https://arxiv.org/abs/2611.03713v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2611.03713v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Before a scientist fits any parameter, they must decide what the model contains: which quantities exist, which are hidden, how they interact, and how they are measured. Physicists call such a trial form an ansatz. Benchmarks for automated equation discovery mostly supply it, by fixing the variables, a library of candidate terms, or a law to be modified. We introduce Unsatz, a benchmark in which an LLM agent must construct the ansatz itself. Each task is a simulated system, generated from a private seed as a program in a small modeling language: ordinary, delay, or partial differential equations, discrete maps, static and causal models, or stochastic processes, possibly with hidden states, distorted sensors, and uninformative measurement channels. The agent buys experiments within a budget, writes candidate programs in the same language, obtains their coefficients from the benchmark's fitter, and is scored only on how its final program predicts experiments it never saw: conditions outside the range it could explore, interventions, and longer runs. Across 80 systems in 20 domains, nine language models solve between 21% and 60%. On 44 of these systems, classical equation-discovery methods almost never succeed, although the same data usually suffice once the true equations are given with unknown coefficients; the difficulty lies in finding the structure, not in estimating it. Because mechanisms recur across systems, we also give agents the program they discovered for a related system; it helped only when the new system shared the mechanism and the first investigation had succeeded. Stronger agents make fewer unscientific errors; beyond these, agents find which variables a system has but not how they act, and prefer revisions that lower the training error to revisions that predict better.</summary>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-31T04:52:14Z</published>
+    <arxiv:primary_category term="cs.AI"/>
+    <author>
+      <name>Ethan Ji</name>
+    </author>
+    <author>
+      <name>Wei Wang</name>
+    </author>
+    <author>
+      <name>Yizhou Sun</name>
+    </author>
+  </entry>
+</feed>

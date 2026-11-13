@@ -4,8 +4,8 @@
 //        [--limite-creditos <n>] [--paralelo <n>] [--max-requisicoes <n>] [--estimar]
 // Política de custo (protocolo.json > triagem.llm):
 //   * apenas os modelos de menor preço por token (entrada + saída) listados pelo SDK;
-//   * teto rígido de créditos acumulado entre execuções (custo_llm.jsonl), nunca acima de 1000;
-//   * o mesmo teto restante é repassado ao servidor via SessionLimits.MaxAiCredits.
+//   * teto acumulado entre execuções na mesma pasta (custo_llm.jsonl), nunca acima de 1000;
+//   * cada bloco reserva um teto próprio e o repassa ao servidor via SessionLimits.MaxAiCredits.
 #:package GitHub.Copilot.SDK@1.0.31
 #:property Nullable=enable
 #:property PublishAot=false
@@ -20,6 +20,8 @@ using GitHub.Copilot;
 
 Console.OutputEncoding = Encoding.UTF8;
 const double TETO_ABSOLUTO = 1000;
+const double LIMITE_MINIMO_SESSAO = 30;
+const int MAX_TENTATIVAS = 3;
 
 var a = Args.Ler(args);
 var dados = Path.GetFullPath(a.Get("dados", "dados/execucao_2026-11-12"));
@@ -36,6 +38,8 @@ var custoMinimo = (double)llm["custo_minimo_por_requisicao"]!;
 var paralelo = Math.Clamp(int.Parse(a.Get("paralelo", "1")), 1, 4);
 var maxReq = int.Parse(a.Get("max-requisicoes", int.MaxValue.ToString()));
 var alvo = a.Get("alvo", "ambos");
+if (porRequisicao < 1 || limite <= 0 || maxReq < 1 || alvo is not ("principal" or "auditoria" or "ambos"))
+    throw new ArgumentException("Verifique --por-requisicao, --limite-creditos, --max-requisicoes e --alvo.");
 
 var alvos = new List<(string nome, string lotes, string decisoes)>();
 if (alvo is "principal" or "ambos") alvos.Add(("principal", Path.Combine(dados, "lotes"), Path.Combine(dados, "decisoes")));
@@ -94,10 +98,10 @@ double Estimar(Bloco b)
     var chars = roteiro.Length + b.Registros.Sum(r => r.ToJsonString().Length) + 600;
     return Math.Max(CustoTokens(chars / 3, b.Registros.Count * saidaPorRegistro, 0, 0) * reserva, custoMinimo);
 }
-var estimativa = blocos.Sum(Estimar);
-Console.WriteLine($"Modelo: {modelo.Id} (entrada {tp.InputPrice}, saída {tp.OutputPrice} por {lote:N0} tokens). Estimativa: {estimativa:F2} créditos.");
+var estimativa = blocos.Sum(b => MAX_TENTATIVAS * Estimar(b));
+Console.WriteLine($"Modelo: {modelo.Id} (entrada {tp.InputPrice}, saída {tp.OutputPrice} por {lote:N0} tokens). Estimativa conservadora com até {MAX_TENTATIVAS} tentativas: {estimativa:F2} créditos.");
 if (gasto + estimativa > limite) Console.WriteLine($"Aviso: a estimativa excede o teto restante ({limite - gasto:F2}); a execução parará ao atingi-lo.");
-if (a.Has("estimar")) return;
+if (a.Has("estimar")) return 0;
 
 var manifesto = new JsonObject
 {
@@ -108,6 +112,11 @@ var manifesto = new JsonObject
     ["registros_por_requisicao"] = porRequisicao,
     ["limite_creditos"] = limite,
 };
+foreach (var (_, _, decDir) in alvos)
+{
+    Directory.CreateDirectory(decDir);
+    File.WriteAllText(Path.Combine(decDir, "_execucao_llm.json"), manifesto.ToJsonString(new JsonSerializerOptions { WriteIndented = true }));
+}
 
 var trava = new object();
 double reservado = 0;
@@ -118,11 +127,16 @@ var saidaJson = new JsonSerializerOptions { Encoder = System.Text.Encodings.Web.
 
 async Task Processar(Bloco b)
 {
-    double est = Estimar(b);
+    double est = Math.Max(LIMITE_MINIMO_SESSAO, MAX_TENTATIVAS * Estimar(b));
     lock (trava)
     {
         if (parar || enviadas >= maxReq) return;
-        if (gasto + reservado + est > limite) { parar = true; Console.WriteLine($"Teto de {limite:0.##} créditos atingido (gasto {gasto:F2}); interrompendo."); return; }
+        if (gasto + reservado + est > limite)
+        {
+            parar = true;
+            Console.Error.WriteLine($"Saldo insuficiente para reservar {est:F2} créditos para uma sessão (gasto {gasto:F2}, reservado {reservado:F2}, teto {limite:0.##}); interrompendo.");
+            return;
+        }
         reservado += est; enviadas++;
     }
     long entrada = 0, saida = 0, cacheL = 0, cacheE = 0; double reportado = 0;
@@ -130,46 +144,55 @@ async Task Processar(Bloco b)
     var aceitas = new List<Decisao>();
     try
     {
-        for (int tentativa = 1; tentativa <= 3 && restantes.Count > 0 && !parar; tentativa++)
+        await using var sessao = await client.CreateSessionAsync(new SessionConfig
         {
-            double teto;
-            lock (trava) teto = Math.Max(0.01, limite - gasto - reservado + est);
-            await using var sessao = await client.CreateSessionAsync(new SessionConfig
+            Model = modelo.Id,
+            SystemMessage = new SystemMessageConfig { Mode = SystemMessageMode.Replace, Content = roteiro },
+            AvailableTools = [],
+            SkipCustomInstructions = true,
+            OnPermissionRequest = PermissionHandler.ApproveAll,
+            SessionLimits = new SessionLimitsConfig { MaxAiCredits = est },
+            OnEvent = ev =>
             {
-                Model = modelo.Id,
-                SystemMessage = new SystemMessageConfig { Mode = SystemMessageMode.Replace, Content = roteiro },
-                AvailableTools = [],
-                SkipCustomInstructions = true,
-                OnPermissionRequest = PermissionHandler.ApproveAll,
-                SessionLimits = new SessionLimitsConfig { MaxAiCredits = teto },
-                OnEvent = ev =>
+                if (ev is AssistantUsageEvent u)
                 {
-                    if (ev is AssistantUsageEvent u)
-                    {
-                        Interlocked.Add(ref entrada, u.Data.InputTokens ?? 0);
-                        Interlocked.Add(ref saida, u.Data.OutputTokens ?? 0);
-                        Interlocked.Add(ref cacheL, u.Data.CacheReadTokens ?? 0);
-                        Interlocked.Add(ref cacheE, u.Data.CacheWriteTokens ?? 0);
-                        lock (trava) reportado += u.Data.Cost ?? 0;
-                    }
-                    else if (ev is SessionLimitsExhaustedRequestedEvent)
-                    {
-                        lock (trava) parar = true;
-                        Console.WriteLine("Limite de créditos da sessão esgotado no servidor; interrompendo.");
-                    }
-                },
-            });
-            var prompt = "Classifique cada registro abaixo segundo o roteiro. Devolva um item por registro em `decisoes`.\n\n"
+                    Interlocked.Add(ref entrada, u.Data.InputTokens ?? 0);
+                    Interlocked.Add(ref saida, u.Data.OutputTokens ?? 0);
+                    Interlocked.Add(ref cacheL, u.Data.CacheReadTokens ?? 0);
+                    Interlocked.Add(ref cacheE, u.Data.CacheWriteTokens ?? 0);
+                    lock (trava) reportado += u.Data.Cost ?? 0;
+                }
+                else if (ev is SessionLimitsExhaustedRequestedEvent)
+                {
+                    lock (trava) parar = true;
+                    Console.Error.WriteLine("Limite de créditos da sessão esgotado no servidor; interrompendo.");
+                }
+            },
+        });
+        for (int tentativa = 1; tentativa <= MAX_TENTATIVAS && restantes.Count > 0 && !parar; tentativa++)
+        {
+            var prompt = "Classifique somente os registros abaixo segundo o roteiro. Devolva exatamente um item por chave em `decisoes`. "
+                + "Para EXCLUDE, `codes` deve conter pelo menos um código literal E2, E3, E4, E5, E6, E8 ou E9; "
+                + "para CONTEXT, use []; para CORE, use os códigos literais IC1 a IC4 aplicáveis. "
+                + "Use relevance 0 para CONTEXT ou EXCLUDE e uma justificativa não vazia em `note`.\n\n"
                 + string.Join("\n", restantes.Values.Select(r => r.ToJsonString()));
             try
             {
                 var resp = await sessao.SendAndWaitAsync<Resposta>(new MessageOptions { Prompt = prompt }, jsonOpts, TimeSpan.FromMinutes(3));
                 foreach (var d in resp?.Decisoes ?? [])
-                    if (d.Key is not null && restantes.ContainsKey(d.Key) && Valida(d)) { aceitas.Add(d); restantes.Remove(d.Key); }
+                {
+                    if (d.Key is not null && restantes.ContainsKey(d.Key) && Valida(d))
+                    {
+                        aceitas.Add(d);
+                        restantes.Remove(d.Key);
+                    }
+                    else
+                        Console.Error.WriteLine($"  [{b.Lote}] resposta inválida ou chave desconhecida: {JsonSerializer.Serialize(d, saidaJson)}");
+                }
             }
-            catch (Exception ex) when (ex is not OperationCanceledException || !parar)
+            catch (JsonException ex)
             {
-                Console.WriteLine($"  [{b.Lote}] tentativa {tentativa} falhou: {ex.GetType().Name}: {ex.Message.Split('\n')[0]}");
+                Console.Error.WriteLine($"  [{b.Lote}] JSON inválido na tentativa {tentativa}: {ex.Message.Split('\n')[0]}");
             }
         }
     }
@@ -203,7 +226,7 @@ static bool Valida(Decisao d)
         "CONTEXT" => d.Relevance == 0,
         "EXCLUDE" => d.Relevance == 0 && codes.Count > 0 && codes.All(c => c.Length == 2 && c[0] == 'E' && char.IsDigit(c[1])),
         _ => false,
-    } && (d.Note?.Length ?? 0) <= 200;
+    } && !string.IsNullOrWhiteSpace(d.Note) && d.Note.Length <= 200;
 }
 
 using (var sem = new SemaphoreSlim(paralelo))
@@ -213,10 +236,11 @@ using (var sem = new SemaphoreSlim(paralelo))
         try { await Processar(b); } finally { sem.Release(); }
     }));
 
-foreach (var (_, _, decDir) in alvos.Where(x => Directory.Exists(x.decisoes)))
-    File.WriteAllText(Path.Combine(decDir, "_execucao_llm.json"), manifesto.ToJsonString(new JsonSerializerOptions { WriteIndented = true }));
-Console.WriteLine($"Concluído: {decididos} decididos, {falhas} sem decisão válida, {gasto:F2}/{limite:0.##} créditos.");
+int aindaPendentes = pendentes - decididos;
+Console.WriteLine($"Concluído: {decididos} decididos, {aindaPendentes} pendentes ({falhas} em blocos iniciados), {gasto:F2}/{limite:0.##} créditos.");
 await client.StopAsync();
+if (aindaPendentes > 0) return 2;
+return 0;
 
 record Bloco(string Alvo, string Lote, string DirDecisoes, List<JsonObject> Registros);
 

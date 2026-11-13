@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/zWHNnguDAKg+VIvZYhiqMp72e7g</id>
+  <title>arXiv Query: search_query=( (ti:"diffusion language model" OR abs:"diffusion language model" OR ti:"block diffusion" OR abs:"block diffusion" OR ti:dLLM OR abs:dLLM) AND (ti:"agent memory" OR abs:"agent memory" OR ti:"memory summarization" OR abs:"memory summarization" OR ti:"planning state" OR abs:"planning state" OR ti:"editable state" OR abs:"editable state" OR ti:"structured memory" OR abs:"structured memory" OR ti:"memory update" OR abs:"memory update" OR ti:"memory writing" OR abs:"memory writing") ) AND submittedDate:"202507010000 TO 202611122359"&amp;id_list=&amp;start=0&amp;max_results=200</title>
+  <updated>2026-11-12T20:05:54Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=((ti:%22diffusion+language+model%22+OR+(abs:%22diffusion+language+model%22+OR+(ti:%22block+diffusion%22+OR+(abs:%22block+diffusion%22+OR+(ti:dLLM+OR+abs:dLLM)))))+AND+(ti:%22agent+memory%22+OR+(abs:%22agent+memory%22+OR+(ti:%22memory+summarization%22+OR+(abs:%22memory+summarization%22+OR+(ti:%22planning+state%22+OR+(abs:%22planning+state%22+OR+(ti:%22editable+state%22+OR+(abs:%22editable+state%22+OR+(ti:%22structured+memory%22+OR+(abs:%22structured+memory%22+OR+(ti:%22memory+update%22+OR+(abs:%22memory+update%22+OR+(ti:%22memory+writing%22+OR+abs:%22memory+writing%22))))))))))))))+AND+submittedDate:%22202507010000+TO+202611122359%22&amp;start=0&amp;max_results=200&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>200</opensearch:itemsPerPage>
+  <opensearch:totalResults>2</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2601.12979v3</id>
+    <title>The Bitter Lesson of Diffusion Language Models for Agentic Workflows: A Comprehensive Reality Check</title>
+    <updated>2026-04-24T07:46:42Z</updated>
+    <link href="https://arxiv.org/abs/2601.12979v3" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2601.12979v3" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The pursuit of real-time agentic interaction has driven interest in Diffusion-based Large Language Models (dLLMs) as alternatives to auto-regressive backbones, promising to break the sequential latency bottleneck. However, does such efficiency gains translate into effective agentic behavior? In this work, we present a comprehensive evaluation of dLLMs (e.g., LLaDA, Dream) across two distinct agentic paradigms: Embodied Agents (requiring long-horizon planning) and Tool-Calling Agents (requiring precise formatting). Contrary to the efficiency hype, our results on Agentboard and BFCL reveal a "bitter lesson": current dLLMs fail to serve as reliable agentic backbones, frequently leading to systematically failure. (1) In Embodied settings, dLLMs suffer repeated attempts, failing to branch under temporal feedback. (2) In Tool-Calling settings, dLLMs fail to maintain symbolic precision (e.g. strict JSON schemas) under diffusion noise. To assess the potential of dLLMs in agentic workflows, we introduce DiffuAgent, a multi-agent evaluation framework that integrates dLLMs as plug-and-play cognitive cores. Our analysis shows that dLLMs are effective in non-causal roles (e.g., memory summarization and tool selection) but require the incorporation of causal, precise, and logically grounded reasoning mechanisms into the denoising process to be viable for agentic tasks.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-01-19T11:45:39Z</published>
+    <arxiv:comment>ACL 2026 - Main Conference</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Qingyu Lu</name>
+    </author>
+    <author>
+      <name>Liang Ding</name>
+    </author>
+    <author>
+      <name>Kanjian Zhang</name>
+    </author>
+    <author>
+      <name>Jinxia Zhang</name>
+    </author>
+    <author>
+      <name>Dacheng Tao</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.24717v1</id>
+    <title>DiffuPlan: Editable Planning State for Diffusion Language Model Agents</title>
+    <updated>2026-10-17T14:30:22Z</updated>
+    <link href="https://arxiv.org/abs/2610.24717v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.24717v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Diffusion language models (dLLMs) are emerging as an alternative to autoregressive (AR) language models, yet dLLM agents largely inherit an interaction protocol designed for AR generation: once intermediate state is written, later observations can only be incorporated by appending more text. This is a poor match to a defining capability of dLLMs -- reconstructing earlier text conditioned on context that appears both before and after it. We ask whether this capability can support a different agent-state paradigm in which intermediate planning state is directly revisable as evidence arrives. We introduce DiffuPlan, a diffusion search agent that maintains a single editable planning state and reconstructs only the affected steps when later evidence resolves an entity or changes the search route. To support variable-length revisions, we introduce Expansion-Partition Marginalization (EPM), which marginalizes over equivalent expansion paths. We further adapt diffusion trajectory RL to multi-turn search. Across four multi-hop QA benchmarks, DiffuPlan achieves 50.24 average F1, outperforming strong AR search agents. More importantly, under identical data and training, editable planning state improves the diffusion agent by 2.44 F1 versus only 0.47 for its AR source model. These results show that dLLMs need not imitate append-only AR agents: revising committed state is a distinct agentic advantage.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-17T14:30:22Z</published>
+    <arxiv:comment>19 pages, 5 figures. Code: https://github.com/Jaasssoooonnnnn/DiffuPlan</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Qisheng Zhou</name>
+    </author>
+    <author>
+      <name>Zhen Xiong</name>
+    </author>
+    <author>
+      <name>Qiaoyu Tan</name>
+    </author>
+  </entry>
+</feed>
