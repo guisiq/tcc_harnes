@@ -95,9 +95,24 @@ As alterações abaixo explicitam escolhas que antes estavam implícitas. Elas p
 3. **Atributos repetidos no SUMIE:** no mesmo parágrafo de `ENTITY0`, o atributo `Gameplay` aparece duas vezes, com valores diferentes. O esquema plano `{"chave": "valor"}` não comporta duas entradas com a mesma chave. É preciso definir, na Fase 1, uma regra de agregação (por exemplo, concatenar os valores) e citá-la na Seção 3.3. **O método não foi alterado; o ponto fica apenas sinalizado.**
 4. **Numeração dos quadros:** o novo quadro é o Quadro 5. Se uma futura Seção 4.3 de mapeamento incluir outro quadro antes do cronograma, a numeração terá de ser revista.
 
-## 8. Arquivos alterados
+## 8. Realocação: a arquitetura passa a ser a Seção 3.6 de Materiais e métodos
 
-- [artigo_tcc_unitins.md](./artigo_tcc_unitins.md): Seções 3.2, 3.4 c, 3.5 e 4.2 (com o novo Quadro 5).
+A antiga Seção 4.2, "Arquitetura proposta", passou a ser a **Seção 3.6, "Arquitetura do *harness*"**, logo após a 3.5. As demais seções deste documento usam a numeração anterior, em que 4.2 é a Arquitetura proposta e o Quadro 5 é o das etapas do *harness*.
+
+| Alteração | Justificativa |
+|---|---|
+| Arquitetura movida do capítulo 4 para a 3.6. | A arquitetura descreve o instrumento de medição: o fluxo planejado que garante que só o escritor varie. É método, não resultado. As diretrizes da Unitins pedem que Materiais e métodos traga o necessário para a "reprodução do estudo". Na aula de 26/09/2026 (01:01:39 e 01:26:19), o professor afirmou que, no TCC I, o capítulo principal é Materiais e métodos e que o capítulo de resultados ainda "não existe". |
+| Colocada logo após a 3.5 (*harness*). | A 3.5 lista as nove etapas e a 3.6 as ilustra com a Figura 1, o Quadro 3 e a Figura 2. O texto vai do enunciado à representação sem salto de capítulo. |
+| Retirada a ressalva "fluxo planejado, e não resultados experimentais". | Dentro do capítulo de métodos, a ressalva é desnecessária. Ela só existia porque a seção estava no capítulo de resultados. |
+| Seções seguintes renumeradas: Métricas → 3.7, Procedimento → 3.8, Rastreabilidade → 3.9, Limitações → 3.10. Remissões internas atualizadas, inclusive dentro da 3.6. | Mantém as referências cruzadas corretas. |
+| Quadros renumerados pela ordem de aparição: etapas do *harness* → Quadro 3, métricas → Quadro 4, rastreabilidade → Quadro 5. | Os quadros devem ser numerados na ordem em que aparecem no texto (manual da Unitins). |
+| Capítulo 4 renumerado: 4.1 Resultados e contribuições esperadas e 4.2 Cronograma. A frase de abertura e a da introdução do capítulo 3 foram ajustadas. | A frase-tópico deve anunciar as subseções que realmente existem (Zucolotto, módulo 8). |
+
+**Ponto em aberto para o orientador:** na mesma aula, o professor sugeriu que, no TCC I, os resultados esperados fiquem como seção de Materiais e métodos, sem um capítulo "Resultados". Essa mudança não foi feita e depende do modelo da Unitins e do orientador.
+
+## 9. Arquivos alterados
+
+- [artigo_tcc_unitins.md](./artigo_tcc_unitins.md): Seções 3.2, 3.4 c, 3.5 e 4.2 (com o novo Quadro 5). Depois, a arquitetura foi movida para a Seção 3.6, e as seções e quadros foram renumerados (ver Seção 8).
 - [diagramas_pesquisa/gerar_figuras_harness.py](./diagramas_pesquisa/gerar_figuras_harness.py): novo gerador das figuras.
 - [diagramas_pesquisa/fig1_harness_visao_geral.svg](./diagramas_pesquisa/fig1_harness_visao_geral.svg) e `.png`: nova Figura 1.
 - [diagramas_pesquisa/fig2_harness_escrita.svg](./diagramas_pesquisa/fig2_harness_escrita.svg) e `.png`: nova Figura 2.

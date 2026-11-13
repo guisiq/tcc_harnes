@@ -12,7 +12,7 @@ status: draft
 
 ## Diagramas da proposta
 
-A Figura 1 do artigo (Seção 4.2) mostra a visão geral: uma transição do SUMIE percorre as etapas (i)–(iv) de execução e (v)–(ix) de avaliação. As decisões estruturais aparecem explicitamente, e o juiz é acionado apenas quando há divergência. As métricas são ligadas aos objetivos a, b e c e à análise estatística da Seção 3.7. A referência ($M_t^*$, anotações e rótulos) segue por um caminho separado e nunca é enviada ao escritor. O estado gerado também não realimenta o turno seguinte.
+A Figura 1 do artigo (Seção 3.6) mostra a visão geral: uma transição do SUMIE percorre as etapas (i)–(iv) de execução e (v)–(ix) de avaliação. As decisões estruturais aparecem explicitamente, e o juiz é acionado apenas quando há divergência. As métricas são ligadas aos objetivos a, b e c e à análise estatística da Seção 3.8. A referência ($M_t^*$, anotações e rótulos) segue por um caminho separado e nunca é enviada ao escritor. O estado gerado também não realimenta o turno seguinte.
 
 ![Figura 1: visão geral do harness experimental](../07_Artigo_TCC/diagramas_pesquisa/fig1_harness_visao_geral.png)
 
