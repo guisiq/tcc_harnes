@@ -168,7 +168,7 @@ Para orientar o teste empírico, formula-se a hipótese nula ($H_0$) de que não
 
 ## 3.2 Método de memória, esquema e *prompt*
 
-Em cada transição do experimento, aplica-se a formulação do GU-JSON (Equação 1): o escritor recebe o esquema, o *checkpoint* de referência do turno anterior ($M_{t-1}$) e o parágrafo correspondente à nova observação ($O_t$), devendo produzir exclusivamente o objeto JSON atualizado ($M_t$).
+Em cada transição do experimento, aplica-se a formulação do GU-JSON (Equação 1) com $M_{t-1} = M_{t-1}^*$: o escritor recebe o esquema ($S$), o estado de referência do turno anterior ($M_{t-1}^*$, definido na Seção 3.3) e o parágrafo correspondente à nova observação ($O_t$), devendo produzir exclusivamente o objeto JSON atualizado ($M_t$). Assim, a saída de um turno não é reutilizada como entrada do turno seguinte.
 
 Adota-se o esquema mínimo `{"state": {"chave": "valor"}}`, no qual os atributos da entidade descrita no SUMIE são representados como chaves textuais dentro do objeto `state` e seus respectivos conteúdos como valores em texto. O *prompt-base* (Apêndice A) é redigido em inglês — idioma nativo do conjunto de dados — e estabelece seis instruções operacionais: preservar informações anteriores que permanecem válidas; incorporar informações explicitamente introduzidas pela nova observação; substituir valores prévios apenas quando a observação estabelecer sua invalidade, mantendo perspectivas divergentes válidas; não inventar fatos sem suporte; respeitar estritamente o esquema; e retornar unicamente o objeto JSON completo. O orçamento máximo de saída é fixado em 1.200 *tokens* por transição, em consonância com o regime de memória limitada analisado por @hwangEnhancingIncrementalSummarization2024.
 
@@ -190,7 +190,7 @@ Os três modelos escritores foram selecionados para representar paradigmas gerat
 
 a) **Qwen3-0.6B** [@yangQwen3TechnicalReport2025]: representante do paradigma autoregressivo *decoder-only*, distribuído sob licença Apache-2.0, utilizado como linha de base autoregressiva;^[Disponível em: https://huggingface.co/Qwen/Qwen3-0.6B.]
 b) **T5Gemma B-B PrefixLM-IT** [@zhangEncoderDecoderGemmaImproving2025]: representante do paradigma *encoder-decoder* ajustado por instruções, com codificador bidirecional e decodificador autoregressivo na faixa de 0,6 bilhão de parâmetros;^[Disponível em: https://huggingface.co/google/t5gemma-b-b-prefixlm-it.]
-c) **Qwen3-0.6B Diffusion BD3LM** [@arriolaBlockDiffusionInterpolating2025]: representante do paradigma de difusão discreta em blocos (*block diffusion*), que combina geração sequencial de blocos com refinamento paralelo de *tokens* mascarados.
+c) **Qwen3-0.6B Diffusion BD3LM** [@arriolaBlockDiffusionInterpolating2025]: representante do paradigma de difusão discreta em blocos (*block diffusion*), que combina geração sequencial de blocos com refinamento paralelo de *tokens* mascarados; o identificador público do *checkpoint* adotado será confirmado na Fase 0 e registrado no manifesto do experimento.
 
 Como os três modelos possuem diferenças de pré-treinamento, tokenização e ajuste por instruções além da arquitetura de geração, a análise empírica compara o desempenho efetivo desses representantes compactos na tarefa de escrita de memória, sem extrapolar causalidade exclusiva para o paradigma gerativo em abstrato. Os identificadores exatos de revisão (*commit hashes*) dos pesos e a configuração numérica de inferência são fixados no arquivo de manifesto do experimento.
 
@@ -201,6 +201,8 @@ Os experimentos de inferência serão executados localmente em um computador por
 Para avaliar semanticamente os casos que não forem resolvidos pela correspondência textual, prevê-se utilizar o modelo de pesos abertos Gemma 3 1B Instruct (`google/gemma-3-1b-it`), independente dos três escritores avaliados, convertido para GGUF com quantização `Q4_K_M` e executado localmente, sob a licença Gemma e seus termos de uso.^[Modelo e termos de acesso: https://huggingface.co/google/gemma-3-1b-it.] A configuração será aceita no piloto somente se o pico de memória residente do processo do juiz não exceder 4 GiB; também serão registrados versão, *hash* dos pesos, ambiente de execução, tamanho de contexto e latência. Como o juiz só será invocado para divergências, não se estabelece limite de tempo por chamada.
 
 Para garantir que apenas o modelo escritor varie entre as execuções [@AgentHarnessEngineering2026], o fluxo de processamento é encapsulado em um *harness* experimental modular composto por nove etapas sequenciais por transição: (i) leitura da transição padronizada $(M_{t-1}^*,\ O_t,\ M_t^*)$; (ii) montagem do *prompt* a partir do modelo de instrução fixo; (iii) invocação do adaptador do escritor sob o limite de 1.200 *tokens*; (iv) gravação imediata da saída textual bruta em disco; (v) verificação de validade sintática por um analisador sintático de JSON padrão; (vi) validação estrutural contra o esquema definido; (vii) correspondência direta dos pares atributo-valor após normalização textual; (viii) envio ao juiz local somente das divergências não resolvidas nessa etapa, com as anotações do SUMIE e o contexto da transição; e (ix) persistência das saídas brutas, decisões do juiz, métricas e proveniência em registros no formato JSON Lines. O identificador do escritor não será incluído no pedido de julgamento. Nenhuma etapa de reparo ou alteração é aplicada à saída original do escritor.
+
+Cada adaptador encapsula apenas o que é específico de um modelo: aplica o *template* de conversa e os *tokens* especiais de início e fim de sequência previstos pelo respectivo tokenizador, sem alterar o conteúdo do *prompt-base*. Para que o orçamento de 1.200 *tokens* seja consumido somente pelo objeto JSON, o modo de raciocínio explícito (*thinking*) do Qwen3-0.6B é desativado. A decodificação é determinística, isto é, sem amostragem aleatória e com semente fixa; no BD3LM, o tamanho de bloco, o número de passos de remoção de ruído e o critério de desmascaramento também são fixados no manifesto. A arquitetura resultante é apresentada na Seção 4.2.
 
 ## 3.6 Métricas de avaliação
 
@@ -298,13 +300,41 @@ A execução completa da Fase 2 sobre o *benchmark* SUMIE produzirá quatro conj
 
 ## 4.2 Arquitetura proposta
 
-O *harness* receberá, para cada transição, o estado anterior de referência e a nova observação, montará o *prompt* fixo e encaminhará a mesma entrada ao escritor selecionado. Cada escritor deverá gerar o *checkpoint* JSON completo, limitado a 1.200 *tokens*. A saída bruta será registrada antes da validação sintática e estrutural; divergências de conteúdo serão comparadas com o estado esperado e as anotações do SUMIE, sem expor essa referência ao escritor. A previsão não será realimentada como entrada do turno seguinte: cada transição usará o estado anterior de referência, conforme o delineamento do experimento.
+A arquitetura do *harness* foi concebida para que, entre as execuções, apenas o modelo escritor varie, mantendo constantes os demais fatores do Quadro 2. Ela é apresentada em dois níveis, ambos correspondentes ao fluxo planejado, e não a resultados experimentais: a Figura 1 mostra o percurso completo de uma transição do SUMIE pelas nove etapas descritas na Seção 3.5; o Quadro 5 associa cada etapa à tecnologia empregada e ao artefato que ela entrega à avaliação; e a Figura 2 detalha a etapa de escrita do *checkpoint*, única em que os escritores diferem.
 
-**Figura 1 – Arquitetura experimental da escrita de memória GU-JSON.**
+**Figura 1 – Visão geral do *harness* experimental para uma transição do SUMIE**
 
-![Arquitetura experimental: entrada da transição, *prompt* fixo, escritor, *checkpoint* gerado e avaliação](diagramas_pesquisa/01_arquitetura.png)
+![Uma transição do SUMIE percorre a execução, da preparação à gravação da saída bruta, e a avaliação, das validações estruturais aos registros JSON Lines que alimentam as métricas dos objetivos a, b e c](diagramas_pesquisa/fig1_harness_visao_geral.png)
 
-Fonte: elaborado pelo autor (2026), a partir do protocolo descrito neste trabalho. A figura representa o fluxo planejado, não um resultado experimental.
+Fonte: elaborado pelo autor (2026), a partir do protocolo descrito na Seção 3.
+
+Na execução, etapas (i) a (iv) da Figura 1, o *harness* lê do SUMIE a tupla $(M_{t-1}^*,\ O_t,\ M_t^*)$ e os rótulos de operação definidos na Seção 3.3. Somente o esquema, $M_{t-1}^*$ e $O_t$ entram no *prompt*; o estado esperado $M_t^*$, as anotações e os rótulos seguem por um caminho separado, usado apenas na avaliação, o que impede que a resposta esperada chegue ao escritor. A saída textual de cada escritor é gravada em disco antes de qualquer validação, preservando o artefato original sem reparo. Como cada transição parte do estado de referência, e não da saída gerada no turno anterior, os erros de uma transição não se propagam para a seguinte, conforme a delimitação da Seção 3.9.
+
+Na avaliação, etapas (v) a (ix), duas decisões estruturais precedem a análise semântica. Uma saída que falhe na leitura como JSON ou na validação do esquema é registrada como falha estrutural e recebe pontuação zero na visão global da Seção 3.6. As saídas válidas passam pela correspondência direta dos pares normalizados, que produz os resultados estritos; somente quando restam divergências o juiz local é chamado, recebendo $M_{t-1}^*$, $O_t$, $M_t^*$, as anotações pertinentes e o estado gerado $M_t$, sem a identidade do escritor. Os registros JSON Lines reúnem saídas, decisões e proveniência e originam os três grupos de métricas do Quadro 3, um para cada objetivo específico, analisados conforme a Seção 3.7. O mesmo fluxo é usado nas Fases 0, 1 e 2; muda apenas o conjunto de transições processadas.
+
+**Quadro 5 – Etapas do *harness*, tecnologias e artefatos produzidos**
+
+| Etapa | Componente e tecnologia | Controle | Saída usada na avaliação |
+|---|---|---|---|
+| (i) Preparar transição | Script de preparação sobre o SUMIE; rotulador `PRESERVE`/`ADD`/`UPDATE` (Seção 3.3) | Fixo; regras congeladas após a Fase 1 | Tupla $(M_{t-1}^*,\ O_t,\ M_t^*)$, anotações e rótulos |
+| (ii) Montar *prompt* | *Prompt-base* do Apêndice A: texto e esquema $S$ fixos; $M_{t-1}^*$ e $O_t$ inseridos a cada transição | Fixo | *Prompt* preenchido, entrada do escritor, registrado na proveniência |
+| (iii) Gerar *checkpoint* | Adaptador do escritor: Qwen3-0.6B, T5Gemma B-B ou Qwen3-0.6B BD3LM (Seções 3.4 e 3.5) | **Variável**: um escritor por execução; limite de 1.200 *tokens* fixo | Texto produzido $M_t$ |
+| (iv) Gravar saída bruta | Arquivo em disco, sem reparo | Fixo | Saída original do escritor |
+| (v) Validar sintaxe | Analisador JSON padrão (`json.loads`) | Fixo | *JSON Validity* |
+| (vi) Validar esquema | Validador do esquema `{"state": {"chave": "valor"}}` | Fixo | *Schema Validity* |
+| (vii) Correspondência direta | Comparação de pares caminho-valor normalizados | Fixo; normalização definida na Fase 1 | Resultados estritos e divergências |
+| (viii) Julgamento semântico | Gemma 3 1B Instruct em GGUF `Q4_K_M`, executado localmente | Fixo; congelado antes da Fase 2; acionado só para divergências | Decisões híbridas e casos incertos |
+| (ix) Registrar | Registros JSON Lines | Fixo | Métricas por transição, turno e operação |
+
+Fonte: elaborado pelo autor (2026).
+
+A Figura 2 amplia as etapas (ii) e (iii). A entrada do escritor é o próprio *prompt-base* do Apêndice A já preenchido, que materializa a tripla $(S,\ M_{t-1}^*,\ O_t)$ da Equação 1. O texto de instrução e o esquema $S$ são fixos para todas as transições e escritores; o estado anterior de referência e a observação vêm do SUMIE e ocupam, em cada transição, os campos `CURRENT STATE` e `NEW OBSERVATION`. O escritor completa o campo `UPDATED STATE` com o objeto JSON completo. O exemplo foi extraído do conjunto público do SUMIE [@hwangSUMIESyntheticBenchmark2025]: `ENTITY0` é o nome mascarado de uma entidade sintética da categoria de jogos eletrônicos, e P9 é o identificador da frase reproduzida, pertencente ao primeiro parágrafo dessa entidade. Por se tratar do primeiro parágrafo, o estado anterior é vazio. O JSON à direita corresponde ao par atributo-valor anotado pelo SUMIE para essa frase (`Replayability: Multiple endings`), e não à saída de um modelo; no experimento, a observação é o parágrafo integral, e o estado esperado reúne todos os pares anotados até o turno. A separação entre esquema, memória e informação nova segue a forma de apresentação da Figura 2 de @hwangEnhancingIncrementalSummarization2024, mas a figura representa o GU-JSON deste protocolo, sem as etapas de raciocínio por chave do CoK-JSON discutidas na Seção 2.3.
+
+**Figura 2 – Etapa de escrita do *checkpoint* (etapas ii e iii)**
+
+![O prompt-base preenchido com o texto fixo, o esquema S, o estado anterior de referência e a observação constitui a entrada de um dos três escritores, que gera o checkpoint JSON completo](diagramas_pesquisa/fig2_harness_escrita.png)
+
+Fonte: elaborado pelo autor (2026), com exemplo extraído do SUMIE [@hwangSUMIESyntheticBenchmark2025].
 
 ## 4.3 Cronograma
 
@@ -364,7 +394,7 @@ Os resultados a serem obtidos estarão circunscritos aos três representantes av
 
 # Apêndice A – Prompt-base do escritor de memória
 
-O prompt-base é mantido em inglês, idioma dos conjuntos de dados e dos modelos avaliados, e é idêntico para os três escritores. Os marcadores entre chaves duplas são substituídos pelo *harness* a cada transição.
+O prompt-base é mantido em inglês, idioma dos conjuntos de dados e dos modelos avaliados, e é idêntico para os três escritores. Os marcadores entre chaves duplas são substituídos pelo *harness*: `{{SCHEMA}}` recebe sempre o mesmo esquema $S$, enquanto `{{CURRENT_STATE}}` e `{{OBSERVATION}}` recebem, a cada transição, $M_{t-1}^*$ e $O_t$.
 
 ```text
 You are the memory-state updater of an autonomous agent.

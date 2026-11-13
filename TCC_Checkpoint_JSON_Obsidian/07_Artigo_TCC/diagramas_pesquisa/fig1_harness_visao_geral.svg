@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1900" height="1620" viewBox="0 0 1900 1620" role="img" aria-labelledby="title desc">
+  <title id="title">Figura 1: visão geral do harness experimental para uma transição do SUMIE</title>
+  <desc id="desc">Execução nas etapas i a iv: o SUMIE fornece a transição; apenas o estado anterior de referência e a observação seguem para o prompt fixo e para o escritor, única variável do experimento; a saída bruta é gravada sem reparo. Avaliação nas etapas v a ix: validação do JSON e do esquema, correspondência direta com a referência, juiz semântico local apenas para divergências e registro em JSON Lines, que alimenta as métricas de estrutura, estado e operação e a análise estatística.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L12 6 L0 12 Z" fill="#263544"/></marker>
+  </defs>
+  <rect width="1900" height="1620" fill="#ffffff"/>
+  <text x="30" y="52" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" text-anchor="start" fill="#4b5b68" xml:space="preserve">Execução — etapas (i) a (iv)</text>
+  <path d="M30 111 A100.0 16 0 0 1 230 111 V259 A100.0 16 0 0 1 30 259 Z" fill="#edf3f8" stroke="#33495a" stroke-width="2"/>
+  <path d="M30 111 A100.0 16 0 0 0 230 111" fill="none" stroke="#33495a" stroke-width="2"/>
+  <text x="130" y="182" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" text-anchor="middle" fill="#172533" xml:space="preserve">SUMIE</text>
+  <text x="130" y="214" font-family="Arial, Helvetica, sans-serif" font-size="20" text-anchor="middle" fill="#172533" xml:space="preserve">conjunto público</text>
+  <rect x="270" y="80" width="290" height="210" rx="8" fill="#f3f4f6" stroke="#33495a" stroke-width="2"/>
+  <text x="290" y="118" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="start" fill="#172533" xml:space="preserve">(i) Preparar transição</text>
+  <text x="290" y="158" font-family="Arial, Helvetica, sans-serif" font-size="22" text-anchor="start" fill="#172533" xml:space="preserve"><tspan>(</tspan><tspan font-style="italic">M</tspan><tspan font-size="15" dy="-8.4">*</tspan><tspan font-size="15" font-style="italic" dy="13.9" dx="-4.2">t−1</tspan><tspan dy="-5.5">, </tspan><tspan font-style="italic">O</tspan><tspan font-size="15" font-style="italic" dy="5.5">t</tspan><tspan dy="-5.5">, </tspan><tspan font-style="italic">M</tspan><tspan font-size="15" dy="-8.4">*</tspan><tspan font-size="15" font-style="italic" dy="13.9" dx="-4.2">t</tspan><tspan dy="-5.5">)</tspan></text>
+  <text x="290" y="194" font-family="Arial, Helvetica, sans-serif" font-size="20" text-anchor="start" fill="#172533" xml:space="preserve">rótulos PRESERVE,</text>
+  <text x="290" y="222" font-family="Arial, Helvetica, sans-serif" font-size="20" text-anchor="start" fill="#172533" xml:space="preserve">ADD e UPDATE</text>
+  <rect x="600" y="80" width="280" height="210" rx="8" fill="#f3f4f6" stroke="#33495a" stroke-width="2"/>
+  <text x="620" y="118" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="start" fill="#172533" xml:space="preserve">(ii) Montar prompt</text>
+  <text x="620" y="158" font-family="Arial, Helvetica, sans-serif" font-size="22" text-anchor="start" fill="#172533" xml:space="preserve">prompt-base fixo</text>
+  <text x="620" y="192" font-family="Arial, Helvetica, sans-serif" font-size="22" text-anchor="start" fill="#172533" xml:space="preserve">(Apêndice A)</text>
+  <text x="620" y="236" font-family="Arial, Helvetica, sans-serif" font-size="22" text-anchor="start" fill="#172533" xml:space="preserve"><tspan font-style="italic">S</tspan><tspan> + </tspan><tspan font-style="italic">M</tspan><tspan font-size="15" dy="-8.4">*</tspan><tspan font-size="15" font-style="italic" dy="13.9" dx="-4.2">t−1</tspan><tspan dy="-5.5"> + </tspan><tspan font-style="italic">O</tspan><tspan font-size="15" font-style="italic" dy="5.5">t</tspan><tspan dy="-5.5"> </tspan></text>
+  <rect x="920" y="80" width="320" height="210" rx="8" fill="#fff4e5" stroke="#b45309" stroke-width="3"/>
+  <text x="940" y="118" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="start" fill="#172533" xml:space="preserve"><tspan>(iii) Escritor </tspan><tspan font-style="italic">G</tspan></text>
+  <text x="940" y="150" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="start" fill="#b45309" xml:space="preserve">única variável · ≤ 1.200 tokens</text>
+  <text x="940" y="190" font-family="Arial, Helvetica, sans-serif" font-size="22" text-anchor="start" fill="#172533" xml:space="preserve">Qwen3-0.6B</text>
+  <text x="940" y="224" font-family="Arial, Helvetica, sans-serif" font-size="22" text-anchor="start" fill="#172533" xml:space="preserve">T5Gemma B-B</text>
+  <text x="940" y="258" font-family="Arial, Helvetica, sans-serif" font-size="22" text-anchor="start" fill="#172533" xml:space="preserve">Qwen3-0.6B BD3LM</text>
+  <rect x="1300" y="80" width="340" height="210" rx="8" fill="#edf5ef" stroke="#33495a" stroke-width="2"/>
+  <text x="1320" y="118" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="start" fill="#172533" xml:space="preserve">(iv) Gravar saída bruta</text>
+  <text x="1320" y="158" font-family="Arial, Helvetica, sans-serif" font-size="22" text-anchor="start" fill="#172533" xml:space="preserve"><tspan>texto produzido (</tspan><tspan font-style="italic">M</tspan><tspan font-size="15" font-style="italic" dy="5.5">t</tspan><tspan dy="-5.5">)</tspan></text>
+  <text x="1320" y="192" font-family="Arial, Helvetica, sans-serif" font-size="22" text-anchor="start" fill="#172533" xml:space="preserve">em disco, sem reparo</text>
+  <path d="M230 185 L268 185" fill="none" stroke="#263544" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M560 185 L598 185" fill="none" stroke="#263544" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M880 185 L918 185" fill="none" stroke="#263544" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M1240 185 L1298 185" fill="none" stroke="#263544" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="1490" y="334" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" text-anchor="start" fill="#4b5b68" xml:space="preserve">Avaliação — etapas (v) a (ix)</text>
+  <path d="M1470 290 L1470 353" fill="none" stroke="#263544" stroke-width="3" marker-end="url(#arrow)"/>
+  <polygon points="1470,355 1640,430 1470,505 1300,430" fill="#f3f4f6" stroke="#33495a" stroke-width="2"/>
+  <text x="1470" y="425" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="middle" fill="#172533" xml:space="preserve">(v) JSON válido?</text>
+  <text x="1470" y="455" font-family="Consolas, 'Courier New', monospace" font-size="19" text-anchor="middle" fill="#172533" xml:space="preserve">json.loads</text>
+  <path d="M1470 505 L1470 548" fill="none" stroke="#263544" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="1482" y="534" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="start" fill="#172533" xml:space="preserve">sim</text>
+  <polygon points="1470,550 1640,625 1470,700 1300,625" fill="#f3f4f6" stroke="#33495a" stroke-width="2"/>
+  <text x="1470" y="620" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="middle" fill="#172533" xml:space="preserve">(vi) Esquema</text>
+  <text x="1470" y="648" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="middle" fill="#172533" xml:space="preserve">válido?</text>
+  <path d="M1470 700 L1470 748" fill="none" stroke="#263544" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="1482" y="730" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="start" fill="#172533" xml:space="preserve">sim</text>
+  <rect x="1300" y="750" width="340" height="130" rx="8" fill="#f3f4f6" stroke="#33495a" stroke-width="2"/>
+  <text x="1320" y="786" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="start" fill="#172533" xml:space="preserve">(vii) Correspondência direta</text>
+  <text x="1320" y="822" font-family="Arial, Helvetica, sans-serif" font-size="22" text-anchor="start" fill="#172533" xml:space="preserve">pares normalizados</text>
+  <text x="1320" y="856" font-family="Arial, Helvetica, sans-serif" font-size="22" text-anchor="start" fill="#172533" xml:space="preserve">→ métricas estritas</text>
+  <path d="M1470 880 L1470 918" fill="none" stroke="#263544" stroke-width="3" marker-end="url(#arrow)"/>
+  <polygon points="1470,920 1640,990 1470,1060 1300,990" fill="#f3f4f6" stroke="#33495a" stroke-width="2"/>
+  <text x="1470" y="998" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="middle" fill="#172533" xml:space="preserve">Há divergência?</text>
+  <path d="M1640 430 L1790 430 L1790 1190 L1734 1190" fill="none" stroke="#263544" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M1640 625 L1790 625" fill="none" stroke="#263544" stroke-width="3"/>
+  <text x="1655" y="418" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="start" fill="#172533" xml:space="preserve">não</text>
+  <text x="1655" y="613" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="start" fill="#172533" xml:space="preserve">não</text>
+  <text x="1775" y="1092" font-family="Arial, Helvetica, sans-serif" font-size="18" text-anchor="end" fill="#172533" xml:space="preserve">falha estrutural:</text>
+  <text x="1775" y="1114" font-family="Arial, Helvetica, sans-serif" font-size="18" text-anchor="end" fill="#172533" xml:space="preserve">zero na visão global</text>
+  <rect x="900" y="715" width="360" height="385" rx="12" fill="#eef4fa" stroke="#33495a" stroke-width="2" stroke-dasharray="10 7"/>
+  <text x="915" y="745" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" text-anchor="start" fill="#4b5b68" xml:space="preserve">Somente avaliação</text>
+  <text x="915" y="770" font-family="Arial, Helvetica, sans-serif" font-size="18" text-anchor="start" fill="#4b5b68" xml:space="preserve">(não enviada ao escritor)</text>
+  <rect x="930" y="785" width="300" height="120" rx="8" fill="#edf3f8" stroke="#33495a" stroke-width="2"/>
+  <text x="948" y="818" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="start" fill="#172533" xml:space="preserve">Referência</text>
+  <text x="948" y="852" font-family="Arial, Helvetica, sans-serif" font-size="20" text-anchor="start" fill="#172533" xml:space="preserve"><tspan font-style="italic">M</tspan><tspan font-size="14" dy="-7.6">*</tspan><tspan font-size="14" font-style="italic" dy="12.6" dx="-3.9">t</tspan><tspan dy="-5.0"> e anotações SUMIE</tspan></text>
+  <text x="948" y="884" font-family="Arial, Helvetica, sans-serif" font-size="20" text-anchor="start" fill="#172533" xml:space="preserve">rótulos de operação</text>
+  <path d="M1230 815 L1298 815" fill="none" stroke="#263544" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="930" y="935" width="300" height="150" rx="8" fill="#ffffff" stroke="#33495a" stroke-width="2" stroke-dasharray="10 7"/>
+  <text x="948" y="968" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="start" fill="#172533" xml:space="preserve">(viii) Juiz semântico</text>
+  <text x="948" y="1000" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="start" fill="#172533" xml:space="preserve">Gemma 3 1B · Q4_K_M</text>
+  <text x="948" y="1030" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="start" fill="#172533" xml:space="preserve"><tspan>recebe </tspan><tspan font-style="italic">M</tspan><tspan font-size="13" dy="-7.2">*</tspan><tspan font-size="13" font-style="italic" dy="12.0" dx="-3.6">t−1</tspan><tspan dy="-4.7">, </tspan><tspan font-style="italic">O</tspan><tspan font-size="13" font-style="italic" dy="4.8">t</tspan><tspan dy="-4.8">, </tspan><tspan font-style="italic">M</tspan><tspan font-size="13" dy="-7.2">*</tspan><tspan font-size="13" font-style="italic" dy="12.0" dx="-3.6">t</tspan><tspan dy="-4.7">, </tspan><tspan font-style="italic">M</tspan><tspan font-size="13" font-style="italic" dy="4.8">t</tspan><tspan dy="-4.8"> </tspan></text>
+  <text x="948" y="1060" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="start" fill="#172533" xml:space="preserve">sem a identidade do escritor</text>
+  <path d="M1080 905 L1080 933" fill="none" stroke="#263544" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M1300 990 L1232 990" fill="none" stroke="#263544" stroke-width="3" stroke-dasharray="10 7" marker-end="url(#arrow)"/>
+  <text x="1268" y="1020" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="start" fill="#172533" xml:space="preserve">sim</text>
+  <path d="M1080 1085 L1080 1190 L1208 1190" fill="none" stroke="#263544" stroke-width="3" stroke-dasharray="10 7" marker-end="url(#arrow)"/>
+  <text x="1482" y="1098" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="start" fill="#172533" xml:space="preserve">não</text>
+  <path d="M1470 1060 L1470 1128" fill="none" stroke="#263544" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M520 290 L520 845 L928 845" fill="none" stroke="#263544" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="540" y="832" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="start" fill="#4b5b68" xml:space="preserve"><tspan>envia </tspan><tspan font-style="italic">M</tspan><tspan font-size="13" dy="-7.2">*</tspan><tspan font-size="13" font-style="italic" dy="12.0" dx="-3.6">t</tspan><tspan dy="-4.7">, anotações e rótulos</tspan></text>
+  <path d="M1210 1146 A260.0 16 0 0 1 1730 1146 V1239 A260.0 16 0 0 1 1210 1239 Z" fill="#edf5ef" stroke="#33495a" stroke-width="2"/>
+  <path d="M1210 1146 A260.0 16 0 0 0 1730 1146" fill="none" stroke="#33495a" stroke-width="2"/>
+  <text x="1470" y="1196" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="middle" fill="#172533" xml:space="preserve">(ix) Registros JSON Lines</text>
+  <text x="1470" y="1228" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="middle" fill="#172533" xml:space="preserve">saídas, decisões do juiz, métricas e proveniência</text>
+  <path d="M1470 1255 L1470 1290" fill="none" stroke="#263544" stroke-width="3"/>
+  <path d="M320 1290 L1580 1290" fill="none" stroke="#263544" stroke-width="3"/>
+  <path d="M320 1290 L320 1318" fill="none" stroke="#263544" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M950 1290 L950 1318" fill="none" stroke="#263544" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M1580 1290 L1580 1318" fill="none" stroke="#263544" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="30" y="1320" width="580" height="110" rx="8" fill="#ffffff" stroke="#33495a" stroke-width="2"/>
+  <text x="50" y="1360" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="start" fill="#172533" xml:space="preserve">Estrutural · objetivo a</text>
+  <text x="50" y="1396" font-family="Arial, Helvetica, sans-serif" font-size="21" text-anchor="start" fill="#172533" xml:space="preserve">validade do JSON e do esquema</text>
+  <path d="M320 1430 L320 1478" fill="none" stroke="#263544" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="660" y="1320" width="580" height="110" rx="8" fill="#ffffff" stroke="#33495a" stroke-width="2"/>
+  <text x="680" y="1360" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="start" fill="#172533" xml:space="preserve">Estado · objetivo b</text>
+  <text x="680" y="1396" font-family="Arial, Helvetica, sans-serif" font-size="21" text-anchor="start" fill="#172533" xml:space="preserve">precisão, revocação, F1, alucinação</text>
+  <path d="M950 1430 L950 1478" fill="none" stroke="#263544" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="1290" y="1320" width="580" height="110" rx="8" fill="#ffffff" stroke="#33495a" stroke-width="2"/>
+  <text x="1310" y="1360" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="start" fill="#172533" xml:space="preserve">Operação · objetivo c</text>
+  <text x="1310" y="1396" font-family="Arial, Helvetica, sans-serif" font-size="21" text-anchor="start" fill="#172533" xml:space="preserve">preservação, adição e atualização</text>
+  <path d="M1580 1430 L1580 1478" fill="none" stroke="#263544" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="30" y="1480" width="1840" height="110" rx="8" fill="#f3f4f6" stroke="#33495a" stroke-width="2"/>
+  <text x="50" y="1520" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="start" fill="#172533" xml:space="preserve">Análise estatística (Seção 3.7)</text>
+  <text x="50" y="1556" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="start" fill="#172533" xml:space="preserve">IC de 95% por bootstrap · Friedman e Wilcoxon com Holm-Bonferroni · curvas por turno · visões condicional e global · resultados estritos e híbridos</text>
+  <text x="30" y="360" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="start" fill="#172533" xml:space="preserve">Legenda</text>
+  <path d="M30 401 A25.0 16 0 0 1 80 401 V405 A25.0 16 0 0 1 30 405 Z" fill="#edf3f8" stroke="#33495a" stroke-width="2"/>
+  <path d="M30 401 A25.0 16 0 0 0 80 401" fill="none" stroke="#33495a" stroke-width="2"/>
+  <text x="95" y="411" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="start" fill="#172533" xml:space="preserve">conjunto de dados ou registros</text>
+  <rect x="30" y="433" width="50" height="36" rx="5" fill="#edf3f8" stroke="#33495a" stroke-width="2"/>
+  <text x="95" y="459" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="start" fill="#172533" xml:space="preserve">entrada ou referência</text>
+  <rect x="30" y="481" width="50" height="36" rx="5" fill="#f3f4f6" stroke="#33495a" stroke-width="2"/>
+  <text x="95" y="507" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="start" fill="#172533" xml:space="preserve">processamento</text>
+  <rect x="30" y="529" width="50" height="36" rx="5" fill="#edf5ef" stroke="#33495a" stroke-width="2"/>
+  <text x="95" y="555" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="start" fill="#172533" xml:space="preserve">artefato gravado</text>
+  <rect x="30" y="577" width="50" height="36" rx="5" fill="#fff4e5" stroke="#b45309" stroke-width="3"/>
+  <text x="95" y="603" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="start" fill="#172533" xml:space="preserve">variável do experimento</text>
+  <polygon points="55,625 80,643 55,661 30,643" fill="#f3f4f6" stroke="#33495a" stroke-width="2"/>
+  <text x="95" y="651" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="start" fill="#172533" xml:space="preserve">decisão</text>
+  <rect x="30" y="673" width="50" height="36" rx="5" fill="#ffffff" stroke="#33495a" stroke-width="2" stroke-dasharray="10 7"/>
+  <text x="95" y="699" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="start" fill="#172533" xml:space="preserve">caminho condicional (juiz)</text>
+</svg>

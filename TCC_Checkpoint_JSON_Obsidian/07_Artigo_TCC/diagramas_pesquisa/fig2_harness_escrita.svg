@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1900" height="780" viewBox="0 0 1900 780" role="img" aria-labelledby="title desc">
+  <title id="title">Figura 2: etapa de escrita do checkpoint (etapas ii e iii)</title>
+  <desc id="desc">A entrada do escritor é o prompt-base do Apêndice A já preenchido, isto é, a tripla (S, M*_{t-1}, O_t). O texto de instrução e o esquema S são fixos para todas as transições; o estado anterior de referência e a observação vêm do SUMIE a cada transição. Um dos três escritores gera o checkpoint completo M_t, conforme a Equação 1. O exemplo usa a frase P9 do primeiro parágrafo da entidade ENTITY0 do SUMIE; o JSON mostrado é o par anotado Replayability: Multiple endings, não uma saída de modelo.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L12 6 L0 12 Z" fill="#263544"/></marker>
+  </defs>
+  <rect width="1900" height="780" fill="#ffffff"/>
+  <rect x="30" y="100" width="300" height="180" rx="8" fill="#edf3f8" stroke="#33495a" stroke-width="2"/>
+  <text x="50" y="136" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="start" fill="#172533" xml:space="preserve">Fixo</text>
+  <text x="50" y="166" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="start" fill="#172533" xml:space="preserve">igual em todas as</text>
+  <text x="50" y="190" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="start" fill="#172533" xml:space="preserve">transições e escritores</text>
+  <text x="50" y="226" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="start" fill="#172533" xml:space="preserve">instruções e regras 1–6</text>
+  <text x="50" y="254" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="start" fill="#172533" xml:space="preserve"><tspan>esquema </tspan><tspan font-style="italic">S</tspan><tspan> (Seção 3.2)</tspan></text>
+  <path d="M30 316 A150.0 16 0 0 1 330 316 V554 A150.0 16 0 0 1 30 554 Z" fill="#edf3f8" stroke="#33495a" stroke-width="2"/>
+  <path d="M30 316 A150.0 16 0 0 0 330 316" fill="none" stroke="#33495a" stroke-width="2"/>
+  <text x="50" y="354" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="start" fill="#172533" xml:space="preserve">SUMIE</text>
+  <text x="50" y="382" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="start" fill="#172533" xml:space="preserve">conjunto de dados</text>
+  <text x="50" y="430" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="start" fill="#172533" xml:space="preserve"><tspan>estado anterior </tspan><tspan font-style="italic">M</tspan><tspan font-size="13" dy="-7.2">*</tspan><tspan font-size="13" font-style="italic" dy="12.0" dx="-3.6">t−1</tspan><tspan dy="-4.7"> </tspan></text>
+  <text x="50" y="526" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="start" fill="#172533" xml:space="preserve"><tspan>observação </tspan><tspan font-style="italic">O</tspan><tspan font-size="13" font-style="italic" dy="4.8">t</tspan><tspan dy="-4.8"> </tspan></text>
+  <text x="390" y="62" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="start" fill="#172533" xml:space="preserve">(ii) Entrada do escritor: prompt-base preenchido (Apêndice A)</text>
+  <rect x="390" y="80" width="680" height="660" rx="8" fill="#f3f4f6" stroke="#33495a" stroke-width="2.5"/>
+  <rect x="410" y="100" width="640" height="60" rx="6" fill="#ffffff" stroke="#33495a" stroke-width="2"/>
+  <text x="428" y="132" font-family="Consolas, 'Courier New', monospace" font-size="19" font-weight="700" text-anchor="start" fill="#172533" xml:space="preserve">You are the memory-state updater…</text>
+  <text x="1032" y="132" font-family="Arial, Helvetica, sans-serif" font-size="18" text-anchor="end" fill="#4b5b68" xml:space="preserve">regras 1–6</text>
+  <rect x="410" y="180" width="640" height="100" rx="6" fill="#ffffff" stroke="#33495a" stroke-width="2"/>
+  <text x="428" y="212" font-family="Consolas, 'Courier New', monospace" font-size="19" font-weight="700" text-anchor="start" fill="#172533" xml:space="preserve">SCHEMA:</text>
+  <text x="535" y="212" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="start" fill="#4b5b68" xml:space="preserve"><tspan font-style="italic">S</tspan></text>
+  <text x="428" y="264" font-family="Consolas, 'Courier New', monospace" font-size="19" text-anchor="start" fill="#172533" xml:space="preserve">{"state": {"chave": "valor"}}</text>
+  <rect x="410" y="300" width="640" height="100" rx="6" fill="#ffffff" stroke="#33495a" stroke-width="2"/>
+  <text x="428" y="332" font-family="Consolas, 'Courier New', monospace" font-size="19" font-weight="700" text-anchor="start" fill="#172533" xml:space="preserve">CURRENT STATE:</text>
+  <text x="612" y="332" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="start" fill="#4b5b68" xml:space="preserve"><tspan font-style="italic">M</tspan><tspan font-size="13" dy="-7.2">*</tspan><tspan font-size="13" font-style="italic" dy="12.0" dx="-3.6">t−1</tspan><tspan dy="-4.7"> </tspan></text>
+  <text x="428" y="384" font-family="Consolas, 'Courier New', monospace" font-size="19" text-anchor="start" fill="#172533" xml:space="preserve">{"state": {}}</text>
+  <text x="1032" y="384" font-family="Arial, Helvetica, sans-serif" font-size="17" text-anchor="end" fill="#4b5b68" xml:space="preserve">primeiro parágrafo: vazio</text>
+  <rect x="410" y="420" width="640" height="200" rx="6" fill="#ffffff" stroke="#33495a" stroke-width="2"/>
+  <text x="428" y="452" font-family="Consolas, 'Courier New', monospace" font-size="19" font-weight="700" text-anchor="start" fill="#172533" xml:space="preserve">NEW OBSERVATION:</text>
+  <text x="634" y="452" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="start" fill="#4b5b68" xml:space="preserve"><tspan font-style="italic">O</tspan><tspan font-size="13" font-style="italic" dy="4.8">t</tspan><tspan dy="-4.8"> </tspan></text>
+  <text x="1032" y="452" font-family="Arial, Helvetica, sans-serif" font-size="17" text-anchor="end" fill="#4b5b68" xml:space="preserve">SUMIE · ENTITY0 · frase P9</text>
+  <text x="428" y="500" font-family="Arial, Helvetica, sans-serif" font-size="19" font-style="italic" text-anchor="start" fill="#172533" xml:space="preserve">“The game's replayability is further enhanced by its</text>
+  <text x="428" y="532" font-family="Arial, Helvetica, sans-serif" font-size="19" font-style="italic" text-anchor="start" fill="#172533" xml:space="preserve">multiple endings, encouraging players to revisit</text>
+  <text x="428" y="564" font-family="Arial, Helvetica, sans-serif" font-size="19" font-style="italic" text-anchor="start" fill="#172533" xml:space="preserve">ENTITY0 and explore different narrative paths.”</text>
+  <rect x="410" y="640" width="640" height="80" rx="6" fill="#ffffff" stroke="#33495a" stroke-width="2"/>
+  <text x="428" y="672" font-family="Consolas, 'Courier New', monospace" font-size="19" font-weight="700" text-anchor="start" fill="#172533" xml:space="preserve">UPDATED STATE:</text>
+  <text x="428" y="702" font-family="Arial, Helvetica, sans-serif" font-size="18" text-anchor="start" fill="#b45309" xml:space="preserve"><tspan>o escritor gera </tspan><tspan font-style="italic">M</tspan><tspan font-size="12" font-style="italic" dy="4.5">t</tspan><tspan dy="-4.5"> a partir deste ponto</tspan></text>
+  <path d="M330 130 L408 130" fill="none" stroke="#263544" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M330 230 L408 230" fill="none" stroke="#263544" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M330 410 L408 410" fill="none" stroke="#263544" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M330 520 L408 520" fill="none" stroke="#263544" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="1395.0" y="175" font-family="Arial, Helvetica, sans-serif" font-size="24" text-anchor="middle" fill="#172533" xml:space="preserve"><tspan font-style="italic">M</tspan><tspan font-size="16" font-style="italic" dy="6.0">t</tspan><tspan dy="-6.0"> = </tspan><tspan font-style="italic">G</tspan><tspan>(</tspan><tspan font-style="italic">S</tspan><tspan>, </tspan><tspan font-style="italic">M</tspan><tspan font-size="16" dy="-9.1">*</tspan><tspan font-size="16" font-style="italic" dy="15.1" dx="-4.5">t−1</tspan><tspan dy="-6.0">, </tspan><tspan font-style="italic">O</tspan><tspan font-size="16" font-style="italic" dy="6.0">t</tspan><tspan dy="-6.0">)</tspan></text>
+  <text x="1395.0" y="203" font-family="Arial, Helvetica, sans-serif" font-size="17" text-anchor="middle" fill="#4b5b68" xml:space="preserve">Equação 1, com o estado de referência</text>
+  <rect x="1230" y="225" width="330" height="360" rx="8" fill="#fff4e5" stroke="#b45309" stroke-width="3"/>
+  <text x="1250" y="263" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="start" fill="#172533" xml:space="preserve"><tspan>(iii) Escritor </tspan><tspan font-style="italic">G</tspan></text>
+  <text x="1250" y="295" font-family="Arial, Helvetica, sans-serif" font-size="18" text-anchor="start" fill="#b45309" xml:space="preserve">um por execução · ≤ 1.200 tokens</text>
+  <text x="1250" y="343" font-family="Arial, Helvetica, sans-serif" font-size="22" text-anchor="start" fill="#172533" xml:space="preserve">Qwen3-0.6B</text>
+  <text x="1270" y="373" font-family="Arial, Helvetica, sans-serif" font-size="19" font-style="italic" text-anchor="start" fill="#172533" xml:space="preserve">autoregressivo decoder-only</text>
+  <text x="1250" y="423" font-family="Arial, Helvetica, sans-serif" font-size="22" text-anchor="start" fill="#172533" xml:space="preserve">T5Gemma B-B</text>
+  <text x="1270" y="453" font-family="Arial, Helvetica, sans-serif" font-size="19" font-style="italic" text-anchor="start" fill="#172533" xml:space="preserve">encoder-decoder</text>
+  <text x="1250" y="503" font-family="Arial, Helvetica, sans-serif" font-size="22" text-anchor="start" fill="#172533" xml:space="preserve">Qwen3-0.6B BD3LM</text>
+  <text x="1270" y="533" font-family="Arial, Helvetica, sans-serif" font-size="19" font-style="italic" text-anchor="start" fill="#172533" xml:space="preserve">difusão em blocos</text>
+  <path d="M1070 405 L1228 405" fill="none" stroke="#263544" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="1150.0" y="390" font-family="Arial, Helvetica, sans-serif" font-size="18" text-anchor="middle" fill="#172533" xml:space="preserve"><tspan>(</tspan><tspan font-style="italic">S</tspan><tspan>, </tspan><tspan font-style="italic">M</tspan><tspan font-size="12" dy="-6.8">*</tspan><tspan font-size="12" font-style="italic" dy="11.3" dx="-3.4">t−1</tspan><tspan dy="-4.5">, </tspan><tspan font-style="italic">O</tspan><tspan font-size="12" font-style="italic" dy="4.5">t</tspan><tspan dy="-4.5">)</tspan></text>
+  <rect x="1610" y="240" width="270" height="330" rx="8" fill="#edf5ef" stroke="#33495a" stroke-width="2"/>
+  <text x="1628" y="277" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="start" fill="#172533" xml:space="preserve"><tspan font-style="italic">M</tspan><tspan font-size="15" font-style="italic" dy="5.5">t</tspan><tspan dy="-5.5">: saída bruta</tspan></text>
+  <text x="1628" y="321" font-family="Consolas, 'Courier New', monospace" font-size="19" text-anchor="start" fill="#172533" xml:space="preserve">{"state": {</text>
+  <text x="1628" y="351" font-family="Consolas, 'Courier New', monospace" font-size="19" text-anchor="start" fill="#172533" xml:space="preserve"> "Replayability":</text>
+  <text x="1628" y="381" font-family="Consolas, 'Courier New', monospace" font-size="19" text-anchor="start" fill="#172533" xml:space="preserve"> "Multiple endings"</text>
+  <text x="1628" y="411" font-family="Consolas, 'Courier New', monospace" font-size="19" text-anchor="start" fill="#172533" xml:space="preserve">}}</text>
+  <text x="1628" y="457" font-family="Arial, Helvetica, sans-serif" font-size="18" text-anchor="start" fill="#172533" xml:space="preserve">forma esperada para</text>
+  <text x="1628" y="481" font-family="Arial, Helvetica, sans-serif" font-size="18" text-anchor="start" fill="#172533" xml:space="preserve">o excerto: par anotado</text>
+  <text x="1628" y="505" font-family="Arial, Helvetica, sans-serif" font-size="18" text-anchor="start" fill="#172533" xml:space="preserve">no SUMIE, não saída</text>
+  <text x="1628" y="529" font-family="Arial, Helvetica, sans-serif" font-size="18" text-anchor="start" fill="#172533" xml:space="preserve">de modelo</text>
+  <path d="M1560 405 L1608 405" fill="none" stroke="#263544" stroke-width="3" marker-end="url(#arrow)"/>
+</svg>
