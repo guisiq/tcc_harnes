@@ -1,0 +1,124 @@
+{"key": "howmemorymanagementimpactsllmagentsanempiricalstudyofexperiencefollowingbehavior", "decision": "CORE", "codes": ["IC1"], "relevance": 2, "note": "Estudo empírico de adição/exclusão de memória e propagação de erros"}
+{"key": "rdiversemitigatingdiversityillusioninselfplayllmtraining", "decision": "EXCLUDE", "codes": ["E9"], "relevance": 0, "note": "Treinamento self-play; banco de memória auxiliar, não memória de agente"}
+{"key": "beliefshiftbenchmarkingtemporalbeliefconsistencyandopiniondriftinllmagents", "decision": "CORE", "codes": ["IC1"], "relevance": 2, "note": "Benchmark de revisão de crenças e contradições em sessões múltiplas"}
+{"key": "evorecselfevolvingagenticrecommendersystems", "decision": "EXCLUDE", "codes": ["E6"], "relevance": 0, "note": "Aplicação em recomendação; memória apenas ferramenta"}
+{"key": "aioperatingsystemssystemarchitectureevaluatingtheneedforgovernancecentricinfrastructurepersistentmemoryandenterpriseaicoordinationthroughaivorixos", "decision": "EXCLUDE", "codes": ["E3"], "relevance": 0, "note": "Proposta conceitual de arquitetura empresarial, sem avaliação empírica"}
+{"key": "judgestealerextractingllmjudgingcapabilitiesacrossevaluationprotocols", "decision": "EXCLUDE", "codes": ["E5"], "relevance": 0, "note": "Ataque de extração de modelo"}
+{"key": "slmsforstructuredclinicaldataextractioninischemicstrokealocallyexecutedmodularpipeline", "decision": "CORE", "codes": ["IC4"], "relevance": 1, "note": "SLMs para extração estruturada clínica; sem resumo, título indica geração estruturada"}
+{"key": "epistemicvalidationinaiknowledgesystemsasystem2frameworkforlongtermmemory", "decision": "CORE", "codes": ["IC1", "IC2"], "relevance": 3, "note": "Validação epistêmica na escrita da memória, inclui validador local 3B"}
+{"key": "spatialmetaphorsforllmmemoryacriticalanalysisofthemempalacearchitecture", "decision": "CONTEXT", "codes": [], "relevance": 0, "note": "Análise de sistema de memória focada em recuperação/armazenamento verbatim"}
+{"key": "structuredvibecodingthepastdoframeworkforengineeringaiapplicationprompts", "decision": "EXCLUDE", "codes": ["E9"], "relevance": 0, "note": "Metodologia de engenharia de prompts"}
+{"key": "kanervatokenbudgetedvalidityawarememoryforcodingagentswithoutanllmintheloop", "decision": "CORE", "codes": ["IC1"], "relevance": 2, "note": "Memória com validade, expiração e consolidação para agentes de código"}
+{"key": "corememriemannianretrievalandfisherguideddistillationforlongtermmemoryindialogueagents", "decision": "CONTEXT", "codes": [], "relevance": 0, "note": "Recuperação e compressão de memória dialógica em edge"}
+{"key": "memorydecoupledlayerwisefinetuningforefficientondevicellmadaptation", "decision": "EXCLUDE", "codes": ["E2"], "relevance": 0, "note": "Gerenciamento de memória de hardware no fine-tuning"}
+{"key": "ahybridmemoryframeworkformitigatingcontextualamnesiainconversationalai", "decision": "CONTEXT", "codes": [], "relevance": 0, "note": "Memória híbrida RAG com cofre curado pelo usuário"}
+{"key": "researchofcrowdbehaviorsimulationmethodsbasedonrelationshipsandemotionalevolution", "decision": "EXCLUDE", "codes": ["E6"], "relevance": 0, "note": "Simulação de multidões; estado emocional, não memória textual"}
+{"key": "cognicoreacognitivememoryarchitectureforpersistentllmagents", "decision": "CORE", "codes": ["IC1"], "relevance": 1, "note": "Camada de gestão e manutenção autônoma de memória; pouca avaliação"}
+{"key": "esmemevalbenchmarkingconversationalagentsonpersonalizedlongtermemotionalsupport", "decision": "CORE", "codes": ["IC1"], "relevance": 2, "note": "Benchmark com detecção de conflitos e estados de usuário em evolução"}
+{"key": "raieregionawareincrementalpreferenceeditingwithloraforllmbasedrecommendation", "decision": "EXCLUDE", "codes": ["E9"], "relevance": 0, "note": "Edição paramétrica LoRA em recomendação, não memória textual"}
+{"key": "uicubeenterprisegradecomputeruseagentbenchmarkingbeyondtaskaccuracytooperationalreliability", "decision": "EXCLUDE", "codes": ["E4"], "relevance": 0, "note": "Benchmark de agentes de uso de computador/GUI"}
+{"key": "tooladaptivellmreranker", "decision": "EXCLUDE", "codes": ["E9"], "relevance": 0, "note": "Reranker com ferramentas, fora do tema"}
+{"key": "towardsscalablestoragearchitecturesforgpuclustersrunninglargelanguagemodels", "decision": "EXCLUDE", "codes": ["E2"], "relevance": 0, "note": "Armazenamento e I/O para GPUs"}
+{"key": "topologyawaredeepreinforcementlearningfordynamicmulticastroutinginsoftwaredefinednetworks", "decision": "EXCLUDE", "codes": ["E9"], "relevance": 0, "note": "Roteamento multicast com RL"}
+{"key": "psrlefficienttrainingforagenticaiviatrainingtimeprefixsharing", "decision": "EXCLUDE", "codes": ["E2"], "relevance": 0, "note": "Treinamento RL e gerenciador de KV cache"}
+{"key": "memorygoverneddecisionsystemsaunifyingparadigmforneuromorphicinspiredgovernanceacrossheterogeneousexecutionsurfaces", "decision": "EXCLUDE", "codes": ["E8"], "relevance": 0, "note": "Sem resumo; título não decisivo"}
+{"key": "utilmembenchmarkingevidenceutilizationinlongtermconversationalmemory", "decision": "CONTEXT", "codes": [], "relevance": 0, "note": "Benchmark de utilização de memória, sem medir atualização"}
+{"key": "memoryefficientspeculativedecodingforlargelanguagemodelinferenceoncommoditygpus", "decision": "EXCLUDE", "codes": ["E2"], "relevance": 0, "note": "Eficiência de memória GPU em decodificação especulativa"}
+{"key": "memoryechoinsingleagentlongtermmemorylifecycleevaluationandprovenanceguidedmitigation", "decision": "CORE", "codes": ["IC1"], "relevance": 3, "note": "Avalia write-back, persistência pós-correção e mitigação por proveniência"}
+{"key": "reminisceacognitivescienceinspiredmemoryarchitectureforaiagents", "decision": "CORE", "codes": ["IC1"], "relevance": 2, "note": "Memória semântica consolidada com detecção de contradições"}
+{"key": "thegeometricsubstrateofcomputationmappingtheholographicresidualstreamcpumemorydynamicsandhexagonalstatetopologiesinlargelanguagemodels", "decision": "EXCLUDE", "codes": ["E9"], "relevance": 0, "note": "Texto especulativo sobre geometria computacional"}
+{"key": "recursiveaiwithcodette", "decision": "EXCLUDE", "codes": ["E9"], "relevance": 0, "note": "Arquitetura recursiva multi-perspectiva, não memória"}
+{"key": "recursiveaidrifta2025predictiontimelineexternalvalidationauditandtechnicalnote", "decision": "EXCLUDE", "codes": ["E3"], "relevance": 0, "note": "Nota técnica de auditoria de previsões"}
+{"key": "didyouforgetwhatiaskedprospectivememoryfailuresinlargelanguagemodels", "decision": "EXCLUDE", "codes": ["E9"], "relevance": 0, "note": "Conformidade a instruções de formatação, não memória persistente"}
+{"key": "emergencetrajectorieswhatarrivesfirstwhatarriveslastandwhythesequenceisthethreat", "decision": "EXCLUDE", "codes": ["E3"], "relevance": 0, "note": "Ensaio de posição sobre segurança de IA"}
+{"key": "macememoryagentcoevolutionwithadaptivememorygraphsformultiagentsystems", "decision": "CORE", "codes": ["IC1", "IC3"], "relevance": 1, "note": "Grafo de memória adaptado por feedback; memória procedural"}
+{"key": "contentawarefoveatedcameraformultitargettracking", "decision": "EXCLUDE", "codes": ["E4"], "relevance": 0, "note": "Câmera foveada, visão computacional"}
+{"key": "ariaautonomousretrievalandintegrationarchitectureforcontinualknowledgeupdatinginlargelanguagemodels", "decision": "CORE", "codes": ["IC1", "IC3"], "relevance": 2, "note": "Atualização contínua de grafo temporal e vetor de conhecimento"}
+{"key": "closedlooptransformersautoregressivemodelingasiterativelatentequilibrium", "decision": "EXCLUDE", "codes": ["E9"], "relevance": 0, "note": "Arquitetura de transformer com equilíbrio latente"}
+{"key": "dialogicintelligencearchitecturetechnicalformalizationenglishversion", "decision": "CORE", "codes": ["IC1", "IC3"], "relevance": 2, "note": "Estado estruturado e memória tabular com atualizações autônomas"}
+{"key": "outputlevelevaluationlimitsinprofileconditionedllmresponsesacaseofindistinguishableexplanatoryframingundermemorysettings", "decision": "CONTEXT", "codes": [], "relevance": 0, "note": "Observação de efeitos de memória persistente nas respostas"}
+{"key": "tracetsattributiongroundedandtraceablesensorlanguagereasoningforhumanactivityunderstanding", "decision": "EXCLUDE", "codes": ["E4"], "relevance": 0, "note": "Raciocínio sobre sensores vestíveis"}
+{"key": "divineragenticrcawithhumangovernedadaptationforlargescaleinfrastructure", "decision": "EXCLUDE", "codes": ["E6"], "relevance": 0, "note": "Aplicação RCA industrial; memória como ferramenta"}
+{"key": "mnemaamemorynativeepisodicsemanticarchitectureforpersistentllmagents", "decision": "CORE", "codes": ["IC1", "IC3"], "relevance": 2, "note": "Memória episódica e grafo semântico tipado com consolidação"}
+{"key": "dolphinbenchmappingtheparetofrontierofagentmemory", "decision": "CONTEXT", "codes": [], "relevance": 0, "note": "Benchmark de memória por tarefas, sem medir atualização"}
+{"key": "economyofdependenceinmemoryaugmentedlargelanguagemodels", "decision": "EXCLUDE", "codes": ["E8"], "relevance": 0, "note": "Sem resumo; título não decisivo"}
+{"key": "deletenamesfiveoperationserasuresemanticsforderivedagentmemoryandwhyastateleveldefinitioncannotbetheauditableone", "decision": "EXCLUDE", "codes": ["E3"], "relevance": 0, "note": "Artigo conceitual sobre semântica de exclusão"}
+{"key": "implementingpersistentmemoryforllmscrossarchitecturedeploymentofbtmaskgermrandapm", "decision": "CORE", "codes": ["IC1"], "relevance": 1, "note": "Implementação de reconsolidação de memória persistente"}
+{"key": "theunseenculling", "decision": "EXCLUDE", "codes": ["E3"], "relevance": 0, "note": "Ensaio/memorial e proposta de governança"}
+{"key": "missingstructuralresponserecoveryunderdifferentdamagescenariosviaamultimodaldiffusionmodelfusinginspectiontextandmonitoringdata", "decision": "EXCLUDE", "codes": ["E9"], "relevance": 0, "note": "Modelo de difusão para engenharia estrutural"}
+{"key": "memorygroundedsocialdynamicsinrepeatedllmagentsimulationspreliminarybehavioralevaluationwithqlabandcrisisinfrastructurelabevidenceboundaries", "decision": "CONTEXT", "codes": [], "relevance": 0, "note": "Simulação social com memória persistente, foco comportamental"}
+{"key": "kwaikeyevltechnicalreport", "decision": "EXCLUDE", "codes": ["E4"], "relevance": 0, "note": "Modelo multimodal de vídeo"}
+{"key": "coraltowardsautonomousmultiagentevolutionforopenendeddiscovery", "decision": "CONTEXT", "codes": [], "relevance": 0, "note": "Memória compartilhada persistente usada em evolução multiagente"}
+{"key": "kgsumautomaticclassificationandprofilingofknowledgegraphs", "decision": "EXCLUDE", "codes": ["E9"], "relevance": 0, "note": "Classificação de grafos de conhecimento"}
+{"key": "agiblueprint", "decision": "EXCLUDE", "codes": ["E3"], "relevance": 0, "note": "Blueprint arquitetural sem avaliação"}
+{"key": "anadaptivestructuredmemorysystemforlargelanguagemodels", "decision": "CORE", "codes": ["IC3"], "relevance": 1, "note": "Sem resumo; título indica memória estruturada adaptativa"}
+{"key": "interfazethefutureofaiisbuiltontaskspecificsmallmodels", "decision": "EXCLUDE", "codes": ["E9"], "relevance": 0, "note": "Sistema de modelos pequenos para contexto, não memória"}
+{"key": "longitudinalreportgenerationwithllmbasedagentsarchitectureconsistencymechanismsandempiricalevidence", "decision": "EXCLUDE", "codes": ["E3"], "relevance": 0, "note": "Revisão abrangente"}
+{"key": "forgettingsurgerydatafreerepairofadapterinduceddriftincompactmodels", "decision": "EXCLUDE", "codes": ["E9"], "relevance": 0, "note": "Reparo paramétrico de adapters; sem resumo"}
+{"key": "seekskillextractionwithevolvingknowledgeagainstfrontierscienceagents", "decision": "EXCLUDE", "codes": ["E5"], "relevance": 0, "note": "Ataque de extração de skills"}
+{"key": "memoraaharmonicmemoryrepresentationbalancingabstractionandspecificity", "decision": "CORE", "codes": ["IC1"], "relevance": 2, "note": "Consolida atualizações relacionadas em entradas unificadas de memória"}
+{"key": "mivlamemoryintegrityverificationlayerfordetectingandmitigatingpoisoningattacksinagenticaisystems", "decision": "EXCLUDE", "codes": ["E5"], "relevance": 0, "note": "Detecção de envenenamento de memória"}
+{"key": "personalitiesatplayprobingalignmentinaiteammates", "decision": "EXCLUDE", "codes": ["E9"], "relevance": 0, "note": "Alinhamento de personalidade de LLMs"}
+{"key": "continuitywithoutmemorysymbolicpersonacodingandinteractiontopologychangeinastatelesslanguagemodel", "decision": "EXCLUDE", "codes": ["E9"], "relevance": 0, "note": "Continuidade sem memória em modelo stateless"}
+{"key": "fromaitechnicaldebttoagentictechnicaldebtasystematicmappingofrootcausesandmanifestationsinagenticaisystems", "decision": "EXCLUDE", "codes": ["E3"], "relevance": 0, "note": "Mapeamento sistemático secundário"}
+{"key": "enablingpersonalizedlongterminteractionsinllmbasedagentsthroughpersistentmemoryanduserprofiles", "decision": "CORE", "codes": ["IC1", "IC3"], "relevance": 2, "note": "Perfis de usuário evolutivos e memória persistente"}
+{"key": "persistentrecurrentmemorybetweentransformerlayersimproveslanguagemodelgeneralization", "decision": "EXCLUDE", "codes": ["E9"], "relevance": 0, "note": "Estado recorrente interno ao transformer, não textual"}
+{"key": "diagnosingretrievalbiasundermultipleincontextknowledgeupdatesinlargelanguagemodels", "decision": "CORE", "codes": ["IC1"], "relevance": 2, "note": "Avalia estado mais recente após múltiplas atualizações em contexto"}
+{"key": "cosmoconsensusdrivenshiftmodulationforsourcefreedomainadaptation", "decision": "EXCLUDE", "codes": ["E4"], "relevance": 0, "note": "Adaptação de domínio com modelos visão-linguagem"}
+{"key": "fromtrajectoriestoprefixesreusingteachertrajectoriesviareplayedprefixesandonlinecontinuation", "decision": "EXCLUDE", "codes": ["E9"], "relevance": 0, "note": "RL para agentes pequenos, sem memória"}
+{"key": "identitydissolutiontheabsenceofapersistentidentitysubstrateasastructuralmechanismforcontextdependentidentityinstabilityinmemoryaugmentedlargelanguagemodelagents", "decision": "EXCLUDE", "codes": ["E3"], "relevance": 0, "note": "Working paper conceitual"}
+{"key": "reflexattentioninstratifiedagentarchitecturesashorthorizondeviationflagfornonpersistentanomalydetection", "decision": "EXCLUDE", "codes": ["E3"], "relevance": 0, "note": "Especificação arquitetural conceitual"}
+{"key": "notalltokensaremeanttobeforgotten", "decision": "EXCLUDE", "codes": ["E5"], "relevance": 0, "note": "Unlearning"}
+{"key": "continualgradientlowrankprojectionfinetuningforllms", "decision": "EXCLUDE", "codes": ["E9"], "relevance": 0, "note": "Aprendizado contínuo paramétrico"}
+{"key": "compactmemoryllmagentsviaonlinemaxmemberclusteringandatomawarepacking", "decision": "CORE", "codes": ["IC1"], "relevance": 2, "note": "Regra de escrita por fusão em memória compacta"}
+{"key": "contextdbauniedcontextlayerforaiagentsreplacingthepatchworkwithamemoryoperatingsystem", "decision": "EXCLUDE", "codes": ["E8"], "relevance": 0, "note": "Sem resumo; título não decisivo"}
+{"key": "miratowardsageneralaiscientist", "decision": "EXCLUDE", "codes": ["E6"], "relevance": 0, "note": "Cientista IA para ciências físicas"}
+{"key": "aiagentsandautonomoussystemsarchitectureapplicationsandenterpriseevaluation", "decision": "EXCLUDE", "codes": ["E3"], "relevance": 0, "note": "Revisão sistemática e comparação de frameworks"}
+{"key": "mnemonrawrecordsfastjudgmentsslowthoughts", "decision": "CORE", "codes": ["IC1", "IC3"], "relevance": 3, "note": "Julga registros obsoletos e consolida em históricos de valores"}
+{"key": "cat", "decision": "EXCLUDE", "codes": ["E6"], "relevance": 0, "note": "Tradução com SLMs em ambiente didático"}
+{"key": "actionragevidencerefininggraphdiffusionforlongtermmemoryinllmagents", "decision": "CORE", "codes": ["IC3"], "relevance": 1, "note": "Memória em grafo com resolução de entidades na indexação"}
+{"key": "kunserveparametercentricmemorymanagementforefficientmemoryoverloadinghandlinginllmserving", "decision": "EXCLUDE", "codes": ["E2"], "relevance": 0, "note": "Gerenciamento de KV cache em serving"}
+{"key": "dynamicsleepschedulesforaiagents", "decision": "EXCLUDE", "codes": ["E3"], "relevance": 0, "note": "Artigo conceitual"}
+{"key": "whyyouraigeniuscantfindtheneedle", "decision": "EXCLUDE", "codes": ["E3"], "relevance": 0, "note": "Episódio de podcast"}
+{"key": "memoryandagenticrag", "decision": "EXCLUDE", "codes": ["E8"], "relevance": 0, "note": "Sem resumo; título não decisivo"}
+{"key": "polymemdbapolyglotdatabasesystemforaimemorymanagement", "decision": "CORE", "codes": ["IC1"], "relevance": 2, "note": "Resolve conflitos factuais com decaimento temporal e proveniência"}
+{"key": "statetunetransformingllmassistededaflowtuningintoastatefulclosedloopprocess", "decision": "CORE", "codes": ["IC3"], "relevance": 1, "note": "Memória tipada de otimização atualizada a cada avaliação"}
+{"key": "multilayermemoryarchitectureformultiagentintelligentdecisionmakinginuncertaintyenvironment", "decision": "EXCLUDE", "codes": ["E8"], "relevance": 0, "note": "Sem resumo; título não decisivo"}
+{"key": "ssebioastructuredselfevolvingagentwithagenticretrievalpolicyformultihopbiomedicalreasoning", "decision": "CORE", "codes": ["IC1"], "relevance": 1, "note": "Estado estruturado e edição fina de templates de memória"}
+{"key": "memcanvasastructuredmemorycanvasforevolvingintentalignmentinllmdialogues", "decision": "CORE", "codes": ["IC3"], "relevance": 1, "note": "Estruturas de memória editáveis para intenção evolutiva"}
+{"key": "memoryt1reinforcementlearningfortemporalreasoninginmultisessionagents", "decision": "CONTEXT", "codes": [], "relevance": 0, "note": "Seleção temporal de memória para recuperação"}
+{"key": "forgetdataonlyoptimizationforunlearning", "decision": "EXCLUDE", "codes": ["E5"], "relevance": 0, "note": "Unlearning; sem resumo"}
+{"key": "medthinkenhancingdiagnosticaccuracyinsmallmodelsviateacherguidedreasoningcorrection", "decision": "EXCLUDE", "codes": ["E6"], "relevance": 0, "note": "Destilação para diagnóstico médico"}
+{"key": "attentionderiveddependencycutforindependentkvcachereuseinagentmemory", "decision": "EXCLUDE", "codes": ["E2"], "relevance": 0, "note": "Reuso de KV cache"}
+{"key": "prereviewofmemorycontrolsignalsemergebeforeactioninlonghorizonagents", "decision": "EXCLUDE", "codes": ["E3"], "relevance": 0, "note": "Revisão por pares (PREreview)"}
+{"key": "smalllanguagemodelsforondeviceiotintelligenceasurveyonarchitecturesoptimizationanddeployment", "decision": "EXCLUDE", "codes": ["E3"], "relevance": 0, "note": "Survey"}
+{"key": "designandtransformationpathwaysoflibrarysystemsdrivenbygenerativeagents", "decision": "EXCLUDE", "codes": ["E3"], "relevance": 0, "note": "Proposta conceitual para bibliotecas"}
+{"key": "costandaccuracyoflongtermmemoryindistributedmultiagentsystemsbasedonlargelanguagemodels", "decision": "CONTEXT", "codes": [], "relevance": 0, "note": "Comparação de custo/acurácia de frameworks de memória"}
+{"key": "make0brainportableuserownedmemorysharedsafelyacrossaiassistants", "decision": "CORE", "codes": ["IC1", "IC3"], "relevance": 2, "note": "Grafo de memória com escrita multiagente, versões e exclusões"}
+{"key": "cranimemcranialinspiredgatedandboundedmemoryforagenticsystems", "decision": "CORE", "codes": ["IC1", "IC3"], "relevance": 2, "note": "Consolidação e poda em grafo de conhecimento"}
+{"key": "lifeledgergptrilareflectiveintelligenceloopsystemforpersistenthumanmemoryautonomousdoctrineformationandbackendintegratedbehavioraloptimization", "decision": "CONTEXT", "codes": [], "relevance": 0, "note": "Sistema de memória persistente descrito sem avaliação clara"}
+{"key": "multiagentllmsystemsmemorymanagementcoordinationfailuresandsemanticconflictresolution", "decision": "EXCLUDE", "codes": ["E3"], "relevance": 0, "note": "Artigo de revisão"}
+{"key": "groundingagentmemoryenvironmentprobingcurationforenterpriseagents", "decision": "CORE", "codes": ["IC1"], "relevance": 2, "note": "Curadoria de memória que verifica e atualiza conhecimento obsoleto"}
+{"key": "designandimplementationofanindustrialsoftwarecloudplatformintegratingknowledgegraphsandlargelanguagemodels", "decision": "EXCLUDE", "codes": ["E6"], "relevance": 0, "note": "Plataforma industrial com KG e LLM"}
+{"key": "exploringllmagentdesignsandinteractionmodalitiesforscientificvisualization", "decision": "EXCLUDE", "codes": ["E6"], "relevance": 0, "note": "Agentes para visualização científica"}
+{"key": "agentevolutioncapabilitymechanismcoevolution", "decision": "EXCLUDE", "codes": ["E3"], "relevance": 0, "note": "Framework conceitual de evolução de agentes"}
+{"key": "memweaveanadaptiveframeworkforlongtermagentknowledgemanagementviaunifiedgraphandvectormemory", "decision": "CONTEXT", "codes": [], "relevance": 0, "note": "Roteador de recuperação sobre memória vetorial e grafo"}
+{"key": "shorttermtolongtermmemorytransferforknowledgegraphsunderpartialobservability", "decision": "EXCLUDE", "codes": ["E9"], "relevance": 0, "note": "RL simbólico sem LLM"}
+{"key": "buildingmemoryforaicharactersthatactuallyevolve", "decision": "EXCLUDE", "codes": ["E3"], "relevance": 0, "note": "Episódio de podcast"}
+{"key": "whenshouldagentscheckexternalstatebudgetingobservationsforstoredintentions", "decision": "CONTEXT", "codes": [], "relevance": 0, "note": "Orçamento de observações para intenções armazenadas"}
+{"key": "reconcilingmemoryandevidenceacomparativereviewoflatentexperienceretrievalandpriorcontextarbitrationinllmagents", "decision": "EXCLUDE", "codes": ["E3"], "relevance": 0, "note": "Revisão comparativa"}
+{"key": "acognitivelongtermmemoryarchitectureforinteractiveconversationalagents", "decision": "CORE", "codes": ["IC1"], "relevance": 2, "note": "Arquitetura com retenção, consolidação e evitação de contradições"}
+{"key": "msamemorysparseattentionforefficientendtoendmemorymodelscalingto100mtokens", "decision": "EXCLUDE", "codes": ["E2"], "relevance": 0, "note": "Atenção esparsa e escalabilidade de contexto"}
+{"key": "agentcltowardrigorousevaluationofcontinuallearninginlanguageagents", "decision": "CONTEXT", "codes": [], "relevance": 0, "note": "Benchmark de aprendizado contínuo por experiência"}
+{"key": "nlmneurallongmemoryhybridlongtermmemoryforaiagents", "decision": "CONTEXT", "codes": [], "relevance": 0, "note": "Pontuação híbrida para recuperação de memória"}
+{"key": "witnessweightedinteroceptivetimelinenetworkforexperientialsubjectivesynthesishistoryconditionedinterpretationinlanguagemodelagentswithorthogonalprojectionmemoryforauditableandreversiblebeliefrevision", "decision": "EXCLUDE", "codes": ["E3"], "relevance": 0, "note": "Proposta de pesquisa sem resultados"}
+{"key": "selfpropagatingmisalignmentinllmagentsandwhyauditingordisablingmemoryisnotenough", "decision": "EXCLUDE", "codes": ["E5"], "relevance": 0, "note": "Segurança: propagação de desalinhamento via memória"}
+{"key": "continuityandemergenceinllmbaseddigitalentitiesobservedbehavioraloutcomesofpersistentmemoryandautonomousoperation", "decision": "CONTEXT", "codes": [], "relevance": 0, "note": "Observação comportamental de entidades com memória persistente"}
+{"key": "rememberingbeyondthecontextwindowthecapacityconsistencyandcontrolgapsinlongtermmemoryforllmagents", "decision": "EXCLUDE", "codes": ["E3"], "relevance": 0, "note": "Survey"}
+{"key": "elasticvectordatabasesandbillionscalediskbackedannindexingoncloudobjectstorage", "decision": "EXCLUDE", "codes": ["E9"], "relevance": 0, "note": "Infraestrutura de banco vetorial"}
+{"key": "graphmindllmsasdynamicknowledgebuildersforsequentialdecisionmaking", "decision": "CORE", "codes": ["IC3"], "relevance": 2, "note": "Grafo de conhecimento construído incrementalmente como memória"}
+{"key": "hemoharnessselfevolutionformultiobjectivecombinatorialoptimization", "decision": "EXCLUDE", "codes": ["E6"], "relevance": 0, "note": "Otimização combinatória com harness evolutivo"}
+{"key": "livewireamultiturntelemetryinstrumentforaialignmentbyokedition", "decision": "EXCLUDE", "codes": ["E9"], "relevance": 0, "note": "Telemetria multimodelo sem memória persistente"}
+{"key": "statecontaminationinmemoryaugmentedllmagents", "decision": "EXCLUDE", "codes": ["E5"], "relevance": 0, "note": "Foco em segurança/toxicidade via memória"}
+{"key": "ep42aissecretdecodingthe5updates", "decision": "EXCLUDE", "codes": ["E9"], "relevance": 0, "note": "Podcast sobre atualizações de modelos"}
+{"key": "measuringandimprovingbehavioralconsistencyinlargelanguagemodelsthroughfactheuristicemotionstateenforcement", "decision": "CORE", "codes": ["IC3"], "relevance": 1, "note": "Estado estruturado fato-heurística-emoção atualizado por transição"}

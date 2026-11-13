@@ -1,0 +1,470 @@
+TY  - CONF
+TI  - PRISM: Efficient Long-Range Reasoning With Short-Context LLMs
+AU  - Jayalath, Dulhan
+AU  - Wendt, James Bradley
+AU  - Monath, Nicholas
+AU  - Tata, Sandeep
+AU  - Gunel, Beliz
+PY  - 2025
+T2  - Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing
+DO  - 10.18653/v1/2025.emnlp-main.517
+UR  - https://aclanthology.org/2025.emnlp-main.517/
+ER  - 
+
+TY  - MANSCPT
+TI  - Intrinsic Memory Agents: Heterogeneous Multi-Agent LLM Systems through Structured Contextual Memory
+AU  - Yuen, Sizhe
+AU  - Gomez Medina, Francisco
+AU  - Su, Ting
+AU  - Du, Yali
+AU  - Sobey, Adam J.
+PY  - 2025
+M3  - Preprint
+DO  - 10.48550/arXiv.2508.08997
+UR  - https://arxiv.org/abs/2508.08997
+ER  - 
+
+TY  - CONF
+TI  - Evaluating Memory in LLM Agents via Incremental Multi-Turn Interactions
+AU  - Hu, Yuanzhe
+AU  - Wang, Yu
+AU  - McAuley, Julian
+PY  - 2026
+T2  - International Conference on Learning Representations 2026
+UR  - https://proceedings.iclr.cc/paper_files/paper/2026/hash/fd1eff9dd295df50a41f2521942fa31d-Abstract-Conference.html
+ER  - 
+
+TY  - CONF
+TI  - The Bitter Lesson of Diffusion Language Models for Agentic Workflows: A Comprehensive Reality Check
+AU  - Qingyu Lu
+AU  - Liang Ding
+AU  - Kanjian Zhang
+AU  - Jinxia Zhang
+AU  - Dacheng Tao
+PY  - 2026
+T2  - Proceedings of the conference - Association for Computational Linguistics. Meeting
+DO  - 10.18653/v1/2026.acl-long.2036
+UR  - https://doi.org/10.18653/v1/2026.acl-long.2036
+ER  - 
+
+TY  - CONF
+TI  - AMU: Admission and Memory Update for Personalized Conversations — Structured Memory with SLM Guided Control
+AU  - Tao Hwang
+AU  - Yishi Diao
+PY  - 2026
+T2  - Proceedings of the 3rd Workshop on KNOwledge GRaphs Agentic Systems Interplay
+DO  - 10.18653/2026.nora-1.1
+UR  - https://doi.org/10.18653/2026.nora-1.1
+ER  - 
+
+TY  - CONF
+TI  - Lightweight LLM Agent Memory with Small Language Models
+AU  - Jiaquan Zhang
+AU  - Chaoning Zhang
+AU  - Shuxu Chen
+AU  - Zhenzhen Huang
+AU  - Pengcheng Zheng
+AU  - Zhicheng Wang
+AU  - Ping Guo
+AU  - Fan Mo
+AU  - Sung-Ho Bae
+AU  - Jie Zou
+AU  - Jiwei Wei
+AU  - Yang Yang
+PY  - 2026
+T2  - Proceedings of the conference - Association for Computational Linguistics. Meeting
+DO  - 10.18653/v1/2026.acl-long.588
+UR  - https://doi.org/10.18653/v1/2026.acl-long.588
+ER  - 
+
+TY  - CONF
+TI  - Entity Blackboard: Structured Agent Memory for Long Document Summarization
+AU  - Ruyi Liu
+AU  - Guanyun Zou
+AU  - Hongliang Dai
+AU  - Piji Li
+PY  - 2026
+T2  - Findings of the Association for Computational Linguistics: EMNLP (Findings of EMNLP)
+DO  - 10.18653/2026.findings-emnlp.384
+UR  - https://doi.org/10.18653/2026.findings-emnlp.384
+ER  - 
+
+TY  - CONF
+TI  - From Monolithic Prompts to Scaffolded Execution for Memory Agents with Small Language Models
+AU  - Seunghan Yang
+AU  - Jihwan Bang
+AU  - Sungha Choi
+AU  - Juntae Lee
+PY  - 2026
+T2  - Findings of the Association for Computational Linguistics: EMNLP (Findings of EMNLP)
+DO  - 10.18653/2026.findings-emnlp.968
+UR  - https://doi.org/10.18653/2026.findings-emnlp.968
+ER  - 
+
+TY  - CONF
+TI  - Capture Is Easy, Forgetting Is Hard: Benchmarking Prospective Memory in Conversational Agents
+AU  - Bilgin, Deniz
+AU  - Schewior, Jonas
+AU  - Wendemuth, Andreas
+PY  - 2026
+DO  - 10.18653/2026.realm-1.43
+UR  - https://doi.org/10.18653/2026.realm-1.43
+ER  - 
+
+TY  - CONF
+TI  - AgenticLOCI: A Multi-Agent Memory Framework for Conversational AI with Longitudinal Personalization
+AU  - Schewior, Jonas
+AU  - Bilgin, Deniz
+AU  - Haefner, Gonzalo
+AU  - Wendemuth, Andreas
+PY  - 2026
+DO  - 10.18653/2026.realm-1.42
+UR  - https://doi.org/10.18653/2026.realm-1.42
+ER  - 
+
+TY  - MANSCPT
+TI  - Supersede: Diagnosing and Training the Memory-Update Gap in LLM Agents
+AU  - Patel, Vedant
+PY  - 2026
+M3  - Preprint
+T2  - arXiv (Cornell University)
+DO  - 10.48550/arxiv.2606.27472
+UR  - https://arxiv.org/abs/2606.27472
+ER  - 
+
+TY  - MANSCPT
+TI  - MemTxn: A Transaction Boundary for Source-Supported Updates and Complete-State Recovery in Agent Memory
+AU  - Cui, Hanshuai
+AU  - Tang, Zhiqing
+AU  - Yao, Zhi
+AU  - Meng, Fanshuai
+AU  - Ma, Qianli
+AU  - Jia, Weijia
+PY  - 2026
+M3  - Preprint
+T2  - arXiv (Cornell University)
+DO  - 10.48550/arxiv.2607.27834
+UR  - https://arxiv.org/abs/2607.27834
+ER  - 
+
+TY  - MANSCPT
+TI  - MemTX: Transactional Belief Commit for Stateful Agent Memory
+AU  - Li, Xiaoyang
+AU  - Wang, Yiqi
+AU  - Lu, Haohui
+AU  - Chen, Zhi
+AU  - Li, Mo
+AU  - Song, Pingan
+AU  - Zheng, Mingkai
+AU  - Cai, Taotao
+PY  - 2026
+M3  - Preprint
+T2  - arXiv (Cornell University)
+DO  - 10.48550/arxiv.2607.23929
+UR  - https://arxiv.org/abs/2607.23929
+ER  - 
+
+TY  - MANSCPT
+TI  - Self-Healing JSON Generation in Small Language Models: A Systematic Evaluation of Syntax Repair, Schema Coercion, and Validator Feedback
+AU  - Abdelrahman, Ahmad
+PY  - 2026
+M3  - Preprint
+DO  - 10.21203/rs.3.rs-11641294/v1
+UR  - https://doi.org/10.21203/rs.3.rs-11641294/v1
+ER  - 
+
+TY  - CONF
+TI  - Agents of Diffusion: Enhancing Diffusion Language Models with Multi-Agent Reinforcement Learning for Structured Data Generation
+AU  - Aja Khanal
+AU  - Kaushik T. Ranade
+AU  - Rishabh Agrawal
+AU  - Kalyan S. Basu
+AU  - Apurva Narayan
+PY  - 2026
+T2  - Proceedings of the 25th International Conference on Autonomous Agents and Multiagent Systems
+DO  - 10.65109/ggjl7344
+UR  - https://doi.org/10.65109/ggjl7344
+ER  - 
+
+TY  - CONF
+TI  - CLAG: Adaptive Memory Organization via Agent-Driven Clustering for Small Language Model Agents
+AU  - Taeyun Roh
+AU  - WonJune Jang
+AU  - Junha Jung
+AU  - Jaewoo Kang
+PY  - 2026
+T2  - Findings of the Association for Computational Linguistics: ACL (Findings of ACL)
+DO  - 10.18653/v1/2026.findings-acl.824
+UR  - https://doi.org/10.18653/v1/2026.findings-acl.824
+ER  - 
+
+TY  - MANSCPT
+TI  - Panini: Continual Learning in Token Space via Structured Memory
+AU  - Rajesh, Shreyas
+AU  - Holur, Pavan
+AU  - Turali, Mehmet Yigit
+AU  - Duan, Chenda
+AU  - Roychowdhury, Vwani
+PY  - 2026
+M3  - Preprint
+T2  - arXiv (Cornell University)
+DO  - 10.48550/arxiv.2602.15156
+UR  - https://arxiv.org/abs/2602.15156
+ER  - 
+
+TY  - CONF
+TI  - From Recall to Forgetting: Benchmarking Long-Term Memory for Personalized Agents
+AU  - Uddin, Md Nayem
+AU  - Shubham, Kumar
+AU  - Blanco, Eduardo
+AU  - Baral, Chitta
+AU  - Wang, Gengyu
+PY  - 2026
+T2  - Findings of the Association for Computational Linguistics: ACL 2026
+DO  - 10.18653/v1/2026.findings-acl.1337
+UR  - https://aclanthology.org/2026.findings-acl.1337/
+ER  - 
+
+TY  - CONF
+TI  - Benchmarking Agent Memory in Interdependent Multi-Session Agentic Tasks
+AU  - He, Zexue
+AU  - Wang, Yu
+AU  - Zhi, Churan
+AU  - Hu, Yuanzhe
+AU  - Chen, Tzu-Ping
+AU  - Yin, Lang
+AU  - Chen, Ze
+AU  - Wu, Tong Arthur
+AU  - Ouyang, Siru
+AU  - Wang, Zihan
+AU  - Pei, Jiaxin
+AU  - McAuley, Julian
+AU  - Choi, Yejin
+AU  - Pentland, Alex
+PY  - 2026
+T2  - Proceedings of the 43rd International Conference on Machine Learning
+UR  - https://proceedings.mlr.press/v306/he26am.html
+ER  - 
+
+TY  - MANSCPT
+TI  - MIRIX: Multi-Agent Memory System for LLM-Based Agents
+AU  - Wang, Yu
+AU  - Chen, Xi
+PY  - 2025
+M3  - Preprint
+T2  - arXiv (Cornell University)
+DO  - 10.48550/arxiv.2507.07957
+UR  - https://arxiv.org/abs/2507.07957
+ER  - 
+
+TY  - MANSCPT
+TI  - Hindsight is 20/20: Building Agent Memory that Retains, Recalls, and Reflects
+AU  - Latimer, Chris
+AU  - Boschi, Nicoló
+AU  - Neeser, Andrew
+AU  - Bartholomew, Chris
+AU  - Srivastava, Gaurav
+AU  - Wang, Xuan
+AU  - Ramakrishnan, Naren
+PY  - 2025
+M3  - Preprint
+T2  - arXiv (Cornell University)
+DO  - 10.48550/arxiv.2512.12818
+UR  - https://arxiv.org/abs/2512.12818
+ER  - 
+
+TY  - MANSCPT
+TI  - Belief Memory: Agent Memory Under Partial Observability
+AU  - Liao, Junfeng
+AU  - Wang, Qizhou
+AU  - Zhu, Jianing
+AU  - Du, Bo
+AU  - Yan, Rui
+AU  - Chen, Xiuying
+PY  - 2026
+M3  - Preprint
+T2  - arXiv (Cornell University)
+DO  - 10.48550/arxiv.2605.05583
+UR  - https://arxiv.org/abs/2605.05583
+ER  - 
+
+TY  - CONF
+TI  - Preference-Aware Memory Update for Long-Term LLM Agents
+AU  - Haoran Sun
+AU  - Zekun Zhang
+AU  - Shaoning Zeng
+PY  - 2026
+T2  - Findings of the Association for Computational Linguistics: ACL (Findings of ACL)
+DO  - 10.18653/v1/2026.findings-acl.38
+UR  - https://doi.org/10.18653/v1/2026.findings-acl.38
+ER  - 
+
+TY  - CONF
+TI  - StructMem: Structured Memory for Long-Horizon Behavior in LLMs
+AU  - Buqiang Xu
+AU  - Yijun Chen
+AU  - Jizhan Fang
+AU  - Ruobin Zhong
+AU  - Yunzhi Yao
+AU  - Yuqi Zhu
+AU  - Lun Du
+AU  - Shumin Deng
+PY  - 2026
+T2  - Proceedings of the conference - Association for Computational Linguistics. Meeting
+DO  - 10.18653/v1/2026.acl-short.12
+UR  - https://doi.org/10.18653/v1/2026.acl-short.12
+ER  - 
+
+TY  - MANSCPT
+TI  - COSMIR: Chain Orchestrated Structured Memory for Iterative Reasoning over Long Context
+AU  - Gupta, Naman
+AU  - Gowaikar, Shreeyash
+AU  - Iyer, Arun
+AU  - Shiragur, Kirankumar
+AU  - Bairi, Ramakrishna B
+AU  - Maurya, Rishikesh
+AU  - Maiti, Ritabrata
+AU  - Damle, Sankarshan
+AU  - Gupta, Shachee Mishra
+PY  - 2025
+M3  - Preprint
+T2  - arXiv (Cornell University)
+DO  - 10.48550/arxiv.2510.04568
+UR  - https://arxiv.org/abs/2510.04568
+ER  - 
+
+TY  - MANSCPT
+TI  - Shared Worlds, Private Minds: Structured Memory for Long-Form Writing as World Creation
+AU  - Tian, Qiuyu
+AU  - Gu, Xiaowen
+AU  - Su, Hang
+AU  - Chao, Jianghan
+AU  - Yin, Haojie
+AU  - Guo, Fan
+AU  - Zhang, Xin
+AU  - Shen, Jinjing
+AU  - Luo, Ewing
+AU  - Kong, Youyong
+AU  - Xia, Yingce
+AU  - Liu, Zequn
+PY  - 2026
+M3  - Preprint
+T2  - arXiv (Cornell University)
+DO  - 10.48550/arxiv.2609.32401
+UR  - https://arxiv.org/abs/2609.32401
+ER  - 
+
+TY  - MANSCPT
+TI  - MemWeaver: Weaving Hybrid Memories for Traceable Long-Horizon Agentic Reasoning
+AU  - Ye, Juexiang
+AU  - Li, Xue
+AU  - Yang, Xinyu
+AU  - Huang, Chengkai
+AU  - Nie, Lanshun
+AU  - Yao, Lina
+AU  - Zhan, Dechen
+PY  - 2026
+M3  - Preprint
+T2  - arXiv (Cornell University)
+DO  - 10.48550/arxiv.2601.18204
+UR  - https://arxiv.org/abs/2601.18204
+ER  - 
+
+TY  - MANSCPT
+TI  - Evo-Memory: Benchmarking LLM Agent Test-time Learning with Self-Evolving Memory
+AU  - Wei, Tianxin
+AU  - Sachdeva, Noveen
+AU  - Coleman, Benjamin
+AU  - He, Zhankui
+AU  - Bei, Yuanchen
+AU  - Ning, Xuying
+AU  - Ai, Mengting
+AU  - Li, Yunzhe
+AU  - He, Jingrui
+AU  - Chi, Ed H.
+AU  - Wang, Chi
+AU  - Chen, Shuo
+AU  - Pereira, Fernando
+AU  - Kang, Wang-Cheng
+AU  - Cheng, Derek Zhiyuan
+PY  - 2025
+M3  - Preprint
+T2  - arXiv (Cornell University)
+DO  - 10.48550/arxiv.2511.20857
+UR  - https://arxiv.org/abs/2511.20857
+ER  - 
+
+TY  - MANSCPT
+TI  - EvoMemBench: Benchmarking Agent Memory from a Self-Evolving Perspective
+AU  - Wang, Yuyao
+AU  - Zhang, Zhongjian
+AU  - Chi, Mo
+AU  - Yu, Kaichi
+AU  - Li, Yuhan
+AU  - Peng, Miao
+AU  - Tong, Bing
+AU  - Zhang, Chen
+AU  - Zhou, Yan
+AU  - Li, Jia
+PY  - 2026
+M3  - Preprint
+T2  - arXiv (Cornell University)
+DO  - 10.48550/arxiv.2605.18421
+UR  - https://arxiv.org/abs/2605.18421
+ER  - 
+
+TY  - CONF
+TI  - Enhancing Incremental Summarization with Structured Representations
+AU  - Hwang, EunJeong
+AU  - Zhou, Yichao
+AU  - Wendt, James Bradley
+AU  - Gunel, Beliz
+AU  - Vo, Nguyen
+AU  - Xie, Jing
+AU  - Tata, Sandeep
+PY  - 2024
+T2  - Findings of the Association for Computational Linguistics: EMNLP 2024
+DO  - 10.18653/v1/2024.findings-emnlp.220
+UR  - https://aclanthology.org/2024.findings-emnlp.220/
+ER  - 
+
+TY  - CONF
+TI  - SUMIE: A Synthetic Benchmark for Incremental Entity Summarization
+AU  - Hwang, Eunjeong
+AU  - Zhou, Yichao
+AU  - Gunel, Beliz
+AU  - Wendt, James Bradley
+AU  - Tata, Sandeep
+PY  - 2025
+T2  - Proceedings of the 31st International Conference on Computational Linguistics
+UR  - https://aclanthology.org/2025.coling-main.721/
+ER  - 
+
+TY  - MANSCPT
+TI  - On the Structural Memory of LLM Agents
+AU  - Zeng, Ruihong
+AU  - Fang, Jinyuan
+AU  - Liu, Siwei
+AU  - Meng, Zaiqiao
+PY  - 2024
+M3  - Preprint
+DO  - 10.48550/arXiv.2412.15266
+UR  - https://arxiv.org/abs/2412.15266
+ER  - 
+
+TY  - MANSCPT
+TI  - JSONSchemaBench: A Rigorous Benchmark of Structured Outputs for Language Models
+AU  - Geng, Saibo
+AU  - Cooper, Hudson
+AU  - Moskal, Michał
+AU  - Jenkins, Samuel
+AU  - Berman, Julian
+AU  - Ranchin, Nathan
+AU  - West, Robert
+AU  - Horvitz, Eric
+AU  - Nori, Harsha
+PY  - 2025
+M3  - Preprint
+DO  - 10.48550/arXiv.2501.10868
+UR  - https://arxiv.org/abs/2501.10868
+ER  - 

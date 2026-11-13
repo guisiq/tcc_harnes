@@ -1,0 +1,765 @@
+TY  - GEN
+TI  - Unveiling the Potential of Diffusion Large Language Model in Controllable Generation
+AU  - Zhen Xiong
+AU  - Yu-Jun Cai
+AU  - Zhe-Cheng Li
+AU  - Yi-Wei Wang
+PY  - 2025
+DA  - 2025/07/06
+DO  - 10.48550/arXiv.2507.04504
+UR  - https://doi.org/10.48550/arXiv.2507.04504
+AB  - Controllable generation is a fundamental task in NLP with many applications, providing a basis for function calling to agentic communication. However, even state-of-the-art autoregressive Large Language Models (LLMs) today exhibit unreliability when required to generate structured output. Inspired by the current new diffusion-based large language models (dLLM), we realize that the architectural difference, especially the global information-sharing mechanism for language modeling, may be the key to unlock next-level controllable generation. To explore the possibility, we propose Self-adaptive Schema Scaffolding ($S^3$), a novel framework that enables dLLM to stably generate reliable structured outputs (e.g., JSON) by utilizing its innate reverse reasoning capability and global context awareness. $S^3$ initiates a schematic template directly in the output context as a starting state for dLLM, offering a more robust and general method than intricate prompt optimization. Experiments demonstrate that our method substantially unlocks the dLLM's potential in controllable generation in terms of structure adherence, content fidelity, and faithfulness. These results establish new perspectives and practical pathways for deploying language models in controllable generation tasks.
+KW  - mapeamento_2025_2026
+KW  - IC4
+N1  - Triagem por título/resumo: dLLM gera JSON confiável via andaime de esquema.
+ER  - 
+
+TY  - GEN
+TI  - MemLoRA: Distilling Expert Adapters for On-Device Memory Systems
+AU  - Massimo Bini
+AU  - Ondrej Bohdal
+AU  - Umberto Michieli
+AU  - Zeynep Akata
+AU  - Mete Ozay
+AU  - T. Ceritli
+PY  - 2025
+DA  - 2025/12/04
+DO  - 10.48550/arxiv.2512.04763
+UR  - https://doi.org/10.48550/arxiv.2512.04763
+AB  - Memory-augmented Large Language Models (LLMs) have demonstrated remarkable consistency during prolonged dialogues by storing relevant memories and incorporating them as context. Such memory-based personalization is also key in on-device settings that allow users to keep their conversations and data private. However, memory-augmented systems typically rely on LLMs that are too costly for local on-device deployment. Even though Small Language Models (SLMs) are more suitable for on-device inference than LLMs, they cannot achieve sufficient performance. Additionally, these LLM-based systems lack native visual capabilities, limiting their applicability in multimodal contexts. In this paper, we introduce (i) MemLoRA, a novel memory system that enables local deployment by equipping SLMs with specialized memory adapters, and (ii) its vision extension MemLoRA-V, which integrates small Vision-Language Models (SVLMs) to memory systems, enabling native visual understanding. Following knowledge distillation principles, each adapter is trained separately for specific memory operations$\unicode{x2013}$knowledge extraction, memory update, and memory-augmented generation. Equipped with memory adapters, small models enable accurate on-device memory operations without cloud dependency. On text-only operations, MemLoRA outperforms 10$\times$ larger baseline models (e.g., Gemma2-27B) and achieves performance comparable to 60$\times$ larger models (e.g., GPT-OSS-120B) on the LoCoMo benchmark. To evaluate visual understanding operations instead, we extend LoCoMo with challenging Visual Question Answering tasks that require direct visual reasoning. On this, our VLM-integrated MemLoRA-V shows massive improvements over caption-based approaches (81.3 vs. 23.7 accuracy) while keeping strong performance in text-based tasks, demonstrating the efficacy of our method in multimodal contexts.
+KW  - mapeamento_2025_2026
+KW  - IC1;IC2
+N1  - Triagem por título/resumo: Adaptadores para SLMs executarem operações de memória (extração, atualização) on-device.
+ER  - 
+
+TY  - CPAPER
+TI  - PGMem: Tightly Coupled Persona–Memory Graph for Lifelong Personalized Agents
+AU  - Wonjun Choi
+AU  - Yerim Kim
+AU  - Yukyung Lee
+AU  - Susik Yoon
+PY  - 2026
+DA  - 2026/01/01
+DO  - 10.18653/2026.emnlp-main.1891
+UR  - https://doi.org/10.18653/2026.emnlp-main.1891
+AB  - Long-term personalized dialogue agents must track user preferences as their personas evolve. Existing memory systems organize past events well, but store personas as flat profiles detached from the events that justify them. This loose coupling leads to the memory-persona validity gap and the persona-aware retrieval gap. We propose PGMem, a heterogeneous persona-memory graph that connects event and persona nodes through typed provenance and evidence edges, keeping each persona signal traceable to the events that support or revise it. At retrieval time, PGMem expands from query-relevant seeds and ranks signals by evidential validity. Across three benchmarks with small language model backbones, PGMem consistently outperforms summary-based, persona-aware, graph-structured, and agentic memory baselines, and improves performance as the context grows. The source code of PGMem is available at https://github.com/wonjunchoi23/pgmem/
+KW  - mapeamento_2025_2026
+KW  - IC1;IC2;IC3
+N1  - Triagem por título/resumo: Grafo persona-memória que revisa personas evolutivas, com backbones SLM.
+ER  - 
+
+TY  - CPAPER
+TI  - GRAM: Empowering Agent with Actively Managed Graph-Structured Memory via Reinforcement Learning
+PY  - 2026
+DA  - 2026/01/01
+DO  - 10.18653/2026.findings-emnlp.1183
+UR  - https://doi.org/10.18653/2026.findings-emnlp.1183
+AB  - Large Language Model (LLM) agents face a fundamental bottleneck called context flooding in multi-turn information retrieval: as evidence accumulates across interaction turns, their context windows become increasingly cluttered with redundant, distracting, and potentially conflicting facts.Existing research either compresses interaction history into rolling summaries, sacrificing relational precision, or relies on retrieval-augmented pipelines that lack mechanisms for resolving knowledge conflicts and maintaining a globally consistent belief state.In this work, we introduce GRAM, a reinforcement learning framework designed to train an agent to actively manage and utilize a dynamic graph-structured memory.Rather than passively accumulating retrieved text, the agent learns to incrementally construct and manage a coherent knowledge graph that serves as its persistent memory, consolidating evidence and preserving relational structure across interactions.Furthermore, we employ Group Relative Policy Optimization to train small language models (under 4B) to master these complex memory-governance behaviors.Experimental results across multiple mainstream questionanswering benchmarks demonstrate the superiority of the GRAM framework over existing agentic memory baselines and conventional RAG systems.
+KW  - mapeamento_2025_2026
+KW  - IC1;IC2;IC3
+N1  - Triagem por título/resumo: SLMs <4B treinados por RL para gerir memória em grafo com consolidação. Autores não disponíveis nas bases; completar via DOI no Zotero.
+ER  - 
+
+TY  - CPAPER
+TI  - MemBuilder: Reinforcing LLMs for Long-Term Memory Construction via Attributed Dense Rewards
+AU  - Zhiyu Shen
+AU  - Ziming Wu
+AU  - Fuming Lai
+AU  - Shaobing Lian
+AU  - Yang-Hui Rao
+PY  - 2026
+DA  - 2026/01/01
+DO  - 10.18653/v1/2026.acl-long.1284
+UR  - https://doi.org/10.18653/v1/2026.acl-long.1284
+AB  - Maintaining consistency in long-term dialogues remains a fundamental challenge for LLMs, as standard retrieval mechanisms often fail to capture the temporal evolution of historical states. While memory-augmented frameworks offer a structured alternative, current systems rely on static prompting of closed-source models or suffer from ineffective training paradigms with sparse rewards. We introduce MemBuilder, a reinforcement learning framework that trains models to orchestrate multi-dimensional memory construction with attributed dense rewards. MemBuilder addresses two key challenges: (1) Sparse Trajectory-Level Rewards: we employ synthetic session-level question generation to provide dense intermediate rewards across extended trajectories; and (2) Multi-Dimensional Memory Attribution: we introduce contribution-aware gradient weighting that scales policy updates based on each component's downstream impact. Experimental results show that MemBuilder enables a 4B-parameter model to outperform state-of-the-art closed-source baselines, exhibiting strong generalization across long-term dialogue benchmarks.
+KW  - mapeamento_2025_2026
+KW  - IC1;IC2
+N1  - Triagem por título/resumo: RL treina modelo de 4B para construir memória de longo prazo.
+ER  - 
+
+TY  - GEN
+TI  - Is Generative AI Hiding in Your Phone? Fine-tuning SLMs to Generate JSON-Adherent Output
+PY  - 2026
+DA  - 2026/01/01
+UR  - https://openalex.org/W7208795050
+AB  - How long will it be before our modern society is wrapped in generative AI without our discernible knowledge? What happens when the line between real and synthetic is practically non-existent? This study explores how a Qwen3-0.6B model, designed for mobile and edge deployment, can be fine-tuned to generate JSON-schematic data for workout and fitness. It shows that even smaller models are well-enough to design parsable output, ready to be used by an application - thus hiding its AI trademarks. In the future, studies on even smaller models may be appropriate, as well as discussions regarding its ethics.
+KW  - mapeamento_2025_2026
+KW  - IC4
+N1  - Triagem por título/resumo: Fine-tuning de Qwen3-0.6B para saída JSON conforme esquema. Autores não disponíveis nas bases; completar via DOI no Zotero.
+ER  - 
+
+TY  - CPAPER
+TI  - Dgrammar: Efficient Constrained Decoding for DLMs
+PY  - 2026
+DA  - 2026/01/01
+DO  - 10.18653/2026.aacl-long.225
+UR  - https://doi.org/10.18653/2026.aacl-long.225
+AB  - Diffusion language models (DLMs) can decode several tokens in one step.However, IG-CD and LAVE verify candidate tokens sequentially within each denoising step, introducing repeated sampling and grammar checks.A parser identifies the first invalid token while preserving the accepted prefix.We propose Dgrammar, a training-free decoder that repairs this frontier token using the current denoising scores.The method combines local repair with a grammargated batch schedule, asynchronous mask construction, and bounded grammar-guided completion.On JSONSchemaBench medium with LLaDA-8B, Dgrammar improves schema validity by 8.6 percentage points over LAVE, reduces mean latency by 5.8×, and eliminates timeouts.Validity and latency gains also hold on the other JSB splits and on Dream-7B.Experiments with a SMILES grammar demonstrate that the decoder also supports constraints beyond JSON-Schema.
+KW  - mapeamento_2025_2026
+KW  - IC4
+N1  - Triagem por título/resumo: Decodificação restrita para modelos de difusão em JSON Schema. Autores não disponíveis nas bases; completar via DOI no Zotero.
+ER  - 
+
+TY  - CPAPER
+TI  - DiffResearch: Accelerating Deep Research with Diffusion Language Models
+AU  - A. Gazzaev
+AU  - Alexey Gavrilov
+AU  - Mikhail Mozikov
+AU  - S. Muravyov
+PY  - 2026
+DA  - 2026/01/01
+DO  - 10.18653/2026.emnlp-industry.262
+UR  - https://doi.org/10.18653/2026.emnlp-industry.262
+AB  - Deep research systems iteratively plan, gather evidence, synthesize, and revise, making end-to-end latency a key bottleneck for interactive use. Almost all production systems are built on autoregressive (AR) language models and inherit left-to-right decoding in planning and long-form writing. We present DiffResearch, an open multi-agent deep research framework that places a diffusion language model (dLLM) at the core of every stage, and measure how a diffusion backbone changes latency and report quality. Holding the agentic scaffold, retrieval code, prompts, and evaluation fixed, we swap the backbone between an open diffusion model and a comparable AR model. Across 100 Deep Research Bench tasks, the diffusion backbone is roughly 6 times faster end-to-end, driven by order-of-magnitude reductions in planning and writing. We further introduce dFast, a decomposition mode that reads intermediate denoising states and extracts subqueries before generation finishes, providing a 1.99 times median speedup for decomposition in isolation with no loss of report quality. On the benchmark's RACE rubric, dFast obtains the best overall score among the three configurations. Finally, in a public system-level leaderboard snapshot, an instance built on a stronger diffusion model ranks above several commercial systems. We release DiffResearch under an Apache-2.0 license.
+KW  - mapeamento_2025_2026
+KW  - IC4
+N1  - Triagem por título/resumo: Compara backbone de difusão e autoregressivo em framework agêntico de pesquisa.
+ER  - 
+
+TY  - GEN
+TI  - InfMem: Learning System-2 Memory Control for Long-Context Agent
+AU  - Xin-Yu Wang
+AU  - Ming-Ze Li
+AU  - Peng Lu
+AU  - Xiao-Wen Chang
+AU  - Li-Feng Shang
+AU  - Jinping Li
+AU  - Fei Mi
+AU  - Prasanna Parthasarathi
+AU  - Yu-Fei Cui
+PY  - 2026
+DA  - 2026/02/02
+DO  - 10.48550/arxiv.2602.02704
+UR  - https://doi.org/10.48550/arxiv.2602.02704
+AB  - Reasoning over ultra-long documents requires synthesizing sparse evidence scattered across distant segments under strict memory constraints. While streaming agents enable scalable processing, their passive memory update strategy often fails to preserve low-salience bridging evidence required for multi-hop reasoning. We propose InfMem, a control-centric agent that instantiates System-2-style control via a PreThink-Retrieve-Write protocol. InfMem actively monitors evidence sufficiency, performs targeted in-document retrieval, and applies evidence-aware joint compression to update a bounded memory. To ensure reliable control, we introduce a practical SFT-to-RL training recipe that aligns retrieval, writing, and stopping decisions with end-task correctness. On ultra-long QA benchmarks ranging from 32k to 1M tokens, InfMem consistently outperforms MemAgent across backbones. Specifically, InfMem improves average absolute accuracy by 10.17, 11.84, and 8.23 points on Qwen3-1.7B, Qwen3-4B, and Qwen2.5-7B, respectively, while reducing inference time by 3.9x on average and by up to 5.1x through adaptive early stopping. Code is available at https://github.com/UCMP13753/InfMem.
+KW  - mapeamento_2025_2026
+KW  - IC1;IC2
+N1  - Triagem por título/resumo: Agente escreve/atualiza memória limitada; avaliado com Qwen3-1.7B e 4B.
+ER  - 
+
+TY  - GEN
+TI  - DLLM Agent: See Farther, Run Faster
+AU  - Huiling Zhen
+AU  - Wei-Zhe Lin
+AU  - Ren-Xi Liu
+AU  - Kai Han
+AU  - Yi-Ming Li
+AU  - Yu-Chuan Tian
+AU  - Han-Ting Chen
+AU  - Xiao-Guang Li
+AU  - Xiao-Song Li
+AU  - Chen Chen
+AU  - Xian-Zhi Yu
+AU  - Ming-Hu Yuan
+AU  - Youliang Yan
+AU  - Peifeng Qin
+AU  - Jun Wang
+AU  - Y. Wang
+AU  - Dacheng Tao
+AU  - Yun-He Wang
+PY  - 2026
+DA  - 2026/02/07
+DO  - 10.48550/arxiv.2602.07451
+UR  - https://doi.org/10.48550/arxiv.2602.07451
+AB  - Diffusion large language models (DLLMs) have emerged as an alternative to autoregressive (AR) decoding with appealing efficiency and modeling properties, yet their implications for agentic multi-step decision making remain underexplored. We ask a concrete question: when the generation paradigm is changed but the agent framework and supervision are held fixed, do diffusion backbones induce systematically different planning and tool-use behaviors, and do these differences translate into end-to-end efficiency gains? We study this in a controlled setting by instantiating DLLM and AR backbones within the same agent workflow (DeepDiver) and performing matched agent-oriented fine-tuning on the same trajectory data, yielding diffusion-backed DLLM Agents and directly comparable AR agents. Across benchmarks and case studies, we find that, at comparable accuracy, DLLM Agents are on average over 30% faster end to end than AR agents, with some cases exceeding 8x speedup. Conditioned on correct task completion, DLLM Agents also require fewer interaction rounds and tool invocations, consistent with higher planner hit rates that converge earlier to a correct action path with less backtracking. We further identify two practical considerations for deploying diffusion backbones in tool-using agents. First, naive DLLM policies are more prone to structured tool-call failures, necessitating stronger tool-call-specific training to emit valid schemas and arguments. Second, for multi-turn inputs interleaving context and action spans, diffusion-style span corruption requires aligned attention masking to avoid spurious context-action information flow; without such alignment, performance degrades. Finally, we analyze attention dynamics across workflow stages and observe paradigm-specific coordination patterns, suggesting stronger global planning signals in diffusion-backed agents.
+KW  - mapeamento_2025_2026
+KW  - IC4
+N1  - Triagem por título/resumo: Compara difusão × autorregressivo em agentes com uso de ferramentas.
+ER  - 
+
+TY  - GEN
+TI  - Continuous Diffusion Models Can Obey Formal Syntax
+AU  - Jinwoo Kim
+AU  - Taylor Berg-Kirkpatrick
+AU  - Loris D'Antoni
+PY  - 2026
+DA  - 2026/02/12
+DO  - 10.48550/arxiv.2602.12468
+UR  - https://doi.org/10.48550/arxiv.2602.12468
+AB  - Diffusion language models offer a promising alternative to autoregressive models due to their global, non-causal generation process, but their continuous latent dynamics make discrete constraints -- e.g., the output should be a JSON file that matches a given schema -- difficult to impose. We introduce a training-free guidance method for steering continuous diffusion language models to satisfy formal syntactic constraints expressed using regular expressions. Our approach constructs an analytic score estimating the probability that a latent state decodes to a valid string accepted by a given regular expression, and uses its gradient to guide sampling, without training auxiliary classifiers. The denoising process targets the base model conditioned on syntactic validity. We implement our method in Diffinity on top of the PLAID diffusion model and evaluate it on 180 regular-expression constraints over JSON and natural-language benchmarks. Diffinity achieves 68-96\% constraint satisfaction while incurring only a small perplexity cost relative to unconstrained sampling, outperforming autoregressive constrained decoding in both constraint satisfaction and output quality. Diffinity is open-sourced at github.com/large-loris-models/Diffinity.
+KW  - mapeamento_2025_2026
+KW  - IC4
+N1  - Triagem por título/resumo: Difusão contínua obedecendo sintaxe JSON/regex
+ER  - 
+
+TY  - GEN
+TI  - ScrapeGraphAI-100k: Dataset for Schema-Constrained LLM Generation
+AU  - William Brach
+AU  - F. Zuppichini
+AU  - Marco Vinciguerra
+AU  - Lorenzo Padoan
+PY  - 2026
+DA  - 2026/02/16
+UR  - https://www.semanticscholar.org/paper/171648754cf73825e1074b7838acd943ea5a5991
+AB  - Producing output that conforms to a specified JSON schema underlies tool use, structured extraction, and knowledge base construction in modern large language models. Despite this centrality, public datasets for the task remain small, synthetic, or text-only, and rarely pair real page content with the prompts and schemas used in practice. We introduce ScrapeGraphAI-100k, 93,695 schema-constrained extraction events collected via opt-in ScrapeGraphAI telemetry in Q2--Q3 2025, deduplicated and balanced by schema from 9M raw events. The corpus spans 18 000+ unique schemas across 15 named languages plus a long-tail Other category, with English and Traditional Chinese covering 88% of detected content, each instance pairs Markdown-converted page content with a prompt, schema, LLM response, and per-example jsonschema-rs structural conformance labels (semantic correctness is out of scope, and raw HTML is deferred beyond v1.0). We characterize structural diversity across the corpus and identify sharp failure thresholds as schema complexity grows. As a case study, a 1.7B student fine-tuned on this data closely tracks the output distribution of its GPT-5-nano teacher, though it still trails a 30B-A3B reference (3.3B active parameters) on schema compliance. We offer this distillation result as preliminary evidence that grounding schema-constrained generation in real practitioner workloads at scale enables training and benchmarking that prior synthetic or text-only corpora could not support.
+KW  - mapeamento_2025_2026
+KW  - IC4
+N1  - Triagem por título/resumo: Dataset de geração restrita a esquema JSON; estudante 1,7B ajustado.
+ER  - 
+
+TY  - GEN
+TI  - Localized Diffusion Repair for Reliable Tool-Using LLM Agents
+AU  - Xinfang Wang
+AU  - Fang-Zheng Wei
+AU  - Si-Qi Yang
+AU  - Yi-Li Li
+AU  - Jin Wu
+AU  - Jia Chen
+PY  - 2026
+DA  - 2026/03/01
+DO  - 10.1109/ASENS69964.2026.11605180
+UR  - https://doi.org/10.1109/ASENS69964.2026.11605180
+AB  - Tool-using LLM agents interact with external systems by generating structured API calls, yet these calls are often brittle: small local errors (malformed serialization, missing fields, type mismatches, or invalid values) can block execution even when the intent is correct. We propose a diffusion-based local repair framework that improves tool-call reliability without full regeneration. A frozen backbone agent produces an initial call; deterministic schema validation and executability checks then identify invalid fields and construct an edit mask that freezes the tool name, keys, and validated arguments while exposing only erroneous value spans. A diffusion language model performs span-restricted denoising to repair the masked regions with minimal unintended edits. We evaluate on a single-turn tool-invocation benchmark simulated from ATIS, SNIPS, and SLURP (intent-to-API and slot-to-argument mapping) under four perturbations: JSON corruption, missing fields, type mismatches, and mixed errors. Results show consistent gains in argument accuracy and call correctness over autoregressive regeneration baselines, with fewer modifications.
+KW  - mapeamento_2025_2026
+KW  - IC4
+N1  - Triagem por título/resumo: Modelo de difusão repara chamadas de ferramenta JSON; compara com autoregressivo.
+ER  - 
+
+TY  - GEN
+TI  - Epistemic Validation in AI Knowledge Systems: A System-2 Framework for Long-Term Memory
+PY  - 2026
+DA  - 2026/03/31
+DO  - 10.5281/zenodo.19357817
+UR  - https://doi.org/10.5281/zenodo.19357817
+AB  - Systems with large language models (LLMs) and persistent memory face a largely unaddressed problem: Knowledge Corruption — the gradual degradation of stored knowledge through epistemically invalid write operations. Unlike hallucination, which originates within the model, Knowledge Corruption occurs when correctly retrieved information is epistemically compromised at the system level. We present a taxonomy of five Knowledge Corruption patterns observed in a production LLM knowledge system and propose the Validation Gates Framework — a pipeline of 6+1 epistemic validation layers that operate at write time. We implement six gates in BrainDB, an SQLite-based knowledge system with approximately 5,000 entries, including a Cross-Model Validation prototype. Evaluation across 41 independent runs with 5 validator models from 4 providers (Anthropic, OpenAI, Google, and a local 3B-parameter model) shows an overall detection rate of 92% (σ = 0%) — 100% for Source Confusion, Confidence Decay, Stale Override, and Temporal Consistency — with 0% false positives across 8 clean control scenarios for 4 of 5 models.
+KW  - mapeamento_2025_2026
+KW  - IC1;IC2
+N1  - Triagem por título/resumo: Validação epistêmica na escrita da memória, inclui validador local 3B Autores não disponíveis nas bases; completar via DOI no Zotero.
+ER  - 
+
+TY  - GEN
+TI  - MemReader: From Passive to Active Extraction for Long-Term Agent Memory
+AU  - Jing Kang
+AU  - Chun-Yu Li
+AU  - Ding Chen
+AU  - Bo Tang
+AU  - Fei-Yu Xiong
+AU  - Zhi-Yu Li
+PY  - 2026
+DA  - 2026/04/09
+DO  - 10.48550/arxiv.2604.07877
+UR  - https://doi.org/10.48550/arxiv.2604.07877
+AB  - Long-term memory is fundamental for personalized and autonomous agents, yet populating it remains a bottleneck. Existing systems treat memory extraction as a one-shot, passive transcription from context to structured entries, which struggles with noisy dialogue, missing references, and cross-turn dependencies, leading to memory pollution, low-value writes, and inconsistency. In this paper, we introduce the MemReader family for active long-term memory extraction in agent systems: MemReader-0.6B, a compact and cost-efficient passive extractor distilled for accurate and schema-consistent structured outputs, and MemReader-4B, an active extractor optimized with Group Relative Policy Optimization (GRPO) to make memory writing decisions. Under a ReAct-style paradigm, MemReader-4B explicitly evaluates information value, reference ambiguity, and completeness before acting, and can selectively write memories, defer incomplete inputs, retrieve historical context, or discard irrelevant chatter. Experiments on LOCOMO, LongMemEval, and HaluMem show that MemReader consistently outperforms existing extraction-based baselines. In particular, MemReader-4B achieves state-of-the-art performance on tasks involving knowledge updating, temporal reasoning, and hallucination reduction. These results suggest that effective agent memory requires not merely extracting more information, but performing reasoning-driven and selective memory extraction to build low-noise and dynamically evolving long-term memory. Furthermore, MemReader has been integrated into MemOS and is being deployed in real-world applications. To support future research and adoption, we release the models and provide public API access.
+KW  - mapeamento_2025_2026
+KW  - IC1;IC2;IC3
+N1  - Triagem por título/resumo: SLMs 0.6B/4B extraem e decidem escrita de memória estruturada.
+ER  - 
+
+TY  - GEN
+TI  - TSUBASA: Improving Long-Horizon Personalization via Evolving Memory and Self-Learning with Context Distillation
+AU  - Xinliang Frederick Zhang
+AU  - Lu Wang
+PY  - 2026
+DA  - 2026/04/09
+DO  - 10.48550/arxiv.2604.07894
+UR  - https://doi.org/10.48550/arxiv.2604.07894
+AB  - Personalized large language models (PLLMs) have garnered significant attention for their ability to align outputs with individual's needs and preferences. However, they still struggle with long-horizon tasks, such as tracking a user's extensive history of conversations or activities. Existing memory mechanisms often fail to capture evolving behaviors, and RAG paradigms are trapped by a quality-efficiency tradeoff. Meanwhile, parametric adaptation is bottlenecked by train-inference gap due to the scarcity of labeled data. To enhance the long-horizon capabilities of PLLMs, we introduce TSUBASA, a two-pronged approach designed to improve memory writing via dynamic memory evolution, and memory reading via self-learning with a context distillation objective to internalize user experiences. Extensive evaluations on long-horizon benchmarks using the Qwen-3 model family (4B to 32B) validate the effectiveness of TSUBASA, surpassing competitive memory-augmented systems that rely primarily on memory writing, such as Mem0 and Memory-R1. Our analyses further confirms that TSUBASA breaks the quality-efficiency barrier to achieve Pareto improvements, delivering robust, high-fidelity personalization with a reduced token budget.
+KW  - mapeamento_2025_2026
+KW  - IC1;IC2
+N1  - Triagem por título/resumo: Escrita de memória com evolução dinâmica; Qwen3 a partir de 4B avaliado.
+ER  - 
+
+TY  - GEN
+TI  - Small Language Models as Persistent Memory Controllers for Lightweight LLM Agents
+PY  - 2026
+DA  - 2026/05/15
+UR  - https://openalex.org/W7220767060
+AB  - The rapid advancement of large language models has led to the proliferation of autonomous agents capable of executing complex tasks. However, providing these agents with persistent, long-term memory remains a significant computational and architectural challenge. Traditional approaches rely on expanding the context window of the primary large language model or utilizing naive vector database retrieval systems. Both methods suffer from inefficiencies, either incurring prohibitive computational costs or failing to contextualize retrieved information accurately. This paper proposes a novel architectural paradigm wherein a small language model is deployed specifically as a dedicated memory controller. Operating asynchronously from the primary reasoning agent, the small language model manages the encoding, consolidation, summarization, and targeted retrieval of episodic and semantic memories. By offloading memory management to a lightweight, highly optimized auxiliary model, the proposed system drastically reduces the inference overhead on the primary agent while simultaneously enhancing the coherence and relevance of the retrieved context. Comprehensive evaluations demonstrate that this dual-model architecture reduces operational latency, minimizes token consumption, and significantly improves the retention of long-term task coherence. The findings indicate a crucial paradigm shift in agent design, moving from monolithic single-model systems toward specialized, multi-model cognitive architectures tailored for deployment in resource-constrained environments
+KW  - mapeamento_2025_2026
+KW  - IC1;IC2
+N1  - Triagem por título/resumo: SLM dedicado gerencia codificação, consolidação e sumarização da memória. Autores não disponíveis nas bases; completar via DOI no Zotero.
+ER  - 
+
+TY  - GEN
+TI  - DimMem: Dimensional Structuring for Efficient Long-Term Agent Memory
+AU  - Wen-Tao Qiu
+AU  - Hao Hu
+AU  - Fan-Yi Wang
+AU  - Jinwei Kong
+AU  - Yu Zhang
+PY  - 2026
+DA  - 2026/05/15
+DO  - 10.48550/arxiv.2605.15759
+UR  - https://doi.org/10.48550/arxiv.2605.15759
+AB  - Large language model (LLM) agents require long-term memory to leverage information from past interactions. However, existing memory systems often face a fidelity--efficiency trade-off: raw dialogue histories are expensive, while flat facts or summaries may discard the structure needed for precise recall. We propose \textbf{DimMem}, a lightweight dimensional memory framework that represents each memory as an atomic, typed, and self-contained unit with explicit fields such as time, location, reason, purpose, and keywords. This representation exposes the structure needed for dimension-aware retrieval, memory update, and selective assistant-context recall without storing full histories in the model context. Across LoCoMo-10 and LongMemEval-S, DimMem achieves \textbf{81.43\%} and \textbf{78.20\%} overall accuracy, respectively, outperforming existing lightweight memory systems while reducing LoCoMo per-query token cost by \textbf{24\%}. We further show that dimensional memory extraction is learnable by compact models: after fine-tuning on the DimMem schema, a Qwen3-4B extractor surpasses LightMem with GPT-4.1-mini on both benchmarks and reaches performance comparable to, or better than, much larger extractors in key settings. These results suggest that explicit dimensional structuring is an effective and efficient foundation for long-term memory in LLM agents. Code is available at https://github.com/ChowRunFa/DimMem.
+KW  - mapeamento_2025_2026
+KW  - IC1;IC2;IC3
+N1  - Triagem por título/resumo: Unidades de memória tipadas com atualização; extrator Qwen3-4B ajustado.
+ER  - 
+
+TY  - GEN
+TI  - The Constraint Tax: Measuring Validity-Correctness Tradeoffs in Structured Outputs for Small Language Models
+AU  - Jaideep Ray
+PY  - 2026
+DA  - 2026/05/20
+DO  - 10.48550/arxiv.2605.26128
+UR  - https://doi.org/10.48550/arxiv.2605.26128
+AB  - Production LLM systems increasingly require machine-readable outputs: JSON objects, typed traces, regex-constrained fields, and tool-call schemas. This paper targets on-device and low-cost small language model (SLM) deployments, where sub-3B models are attractive for privacy, latency, and commodity hardware but have limited capacity to satisfy schemas while solving tasks. The usual engineering assumption is that hard output constraints improve reliability without changing the underlying answer. We show that this assumption is unsafe for small models. We introduce \emph{constraint tax}, a measurement protocol for isolating the answer and executable-accuracy loss caused by structured-output constraints at fixed model, fixed task distribution, and fixed problem instances. Across 15,000 commodity-GPU generations with Qwen2.5-0.5B, Qwen2.5-1.5B, and SmolLM2-1.7B, hard answer-only schema decoding raises schema validity from 61.5\% to 100.0\%, but lowers answer accuracy from 19.7\% to 11.0\% and increases wrong-valid-schema outputs from 49.5\% to 88.9\%. The strongest industry analogue is a deterministic calendar tool-call task: Qwen2.5-1.5B achieves 91.5\% executable accuracy with prompt-only JSON but only 48.0\% under the same hard tool-call schema, while both modes are 100.0\% schema-valid. The error is semantic, not structural. We also show that the 3B boundary still pays a direct-schema tax and that delayed packaging supports a constructive design pattern: reason free, constrain late. The practical conclusion is direct: production systems should report schema validity, answer accuracy, executable accuracy, and wrong-valid-schema rate separately.
+KW  - mapeamento_2025_2026
+KW  - IC4
+N1  - Triagem por título/resumo: Mede validade vs correção em saídas estruturadas de SLMs sub-3B.
+ER  - 
+
+TY  - GEN
+TI  - From Facts to Insights: A Persona-Driven Dual Memory Framework and Dataset for Role-Playing Agents
+AU  - Rongsheng Zhang
+AU  - Ruofan Hu
+AU  - Weijie Chen
+AU  - Jiji Tang
+AU  - Jun-Nan Ren
+AU  - Wanying Wu
+AU  - Xu-Meng Chen
+AU  - Tang-Jie Lv
+AU  - Tao Jin
+AU  - Zhou Zhao
+PY  - 2026
+DA  - 2026/05/25
+DO  - 10.48550/arXiv.2605.25693
+UR  - https://doi.org/10.48550/arXiv.2605.25693
+AB  - While role-playing agents excel in short-term interactions, long-term conversations overwhelm context windows, motivating external memory frameworks. Current systems typically rely on persona-agnostic summarization, which records facts without persona-specific interpretation, yielding generic responses that compromise persona fidelity. To bridge this gap, we introduce RoleMemo, a dataset featuring four reasoning tasks where the factual fragments must be interpreted through the persona to reach the correct answer. Evaluation on RoleMemo exposes critical limitations of persona-agnostic frameworks. We thus propose DualMem, which decouples memory into two streams: factual cognition and persona-conditioned insight. Trained through Supervised Fine-Tuning (SFT) and Reinforcement Learning (RL), our framework with a 4B-parameter model outperforms zero-shot persona-agnostic frameworks powered by DeepSeek-V3.2 for sustained persona fidelity. Our resources are available at https://github.com/role2026/rolememo.
+KW  - mapeamento_2025_2026
+KW  - IC2
+N1  - Triagem por título/resumo: Modelo de 4B treinado para gerir memória dual de fatos e insights
+ER  - 
+
+TY  - GEN
+TI  - Are Diffusion Language Models Good Database Analysts?
+AU  - Peixian Ma
+AU  - Xia-Lie Zhuang
+AU  - Jian Tan
+AU  - Changlun Li
+AU  - Rui-Rui Chen
+AU  - Cheng-Wei Qin
+PY  - 2026
+DA  - 2026/05/27
+DO  - 10.48550/arxiv.2605.27791
+UR  - https://doi.org/10.48550/arxiv.2605.27791
+AB  - Diffusion Language Models (DLMs) enable iterative global refinement, but their effectiveness in Natural Language to SQL (NL2SQL) remains unclear because heterogeneous architectures and evaluation setups hinder fair comparison with autoregressive (AR) models. Their iterative denoising process permits sequence-wide revision, offering a different way to handle the long-range structural dependencies in SQL. We present a systematic study of DLM-based NL2SQL under a unified framework that standardizes generation and execution across DLM architectures. We further introduce SQL-D1, an agentic inference framework combining database-aware retrieval, multi-trajectory denoising, execution-guided verification, and selection based on execution denotations. Across diverse benchmark settings, strong DLMs are competitive with some open-source AR models and offer flexible trade-offs between efficiency and accuracy, although they still trail the strongest AR systems on difficult queries. Test-time scaling yields substantial gains, whereas standard supervised fine-tuning yields unstable outcomes across the evaluated DLMs. Stronger model variants exhibit fewer schema-grounding errors, but failures involving complex clauses and query nesting persist. These results clarify the capabilities and limitations of DLMs for database analysis and provide a standardized foundation for future work. Our code is available at https://anonymous.4open.science/r/SQL-D1-82DF.
+KW  - mapeamento_2025_2026
+KW  - IC4
+N1  - Triagem por título/resumo: Compara difusão × autoregressivo em NL2SQL estruturado.
+ER  - 
+
+TY  - GEN
+TI  - EPIC: Efficient and Parallel Inference under CFG Constraints for Diffusion Language Models
+AU  - Hyundong Jin
+AU  - Yo-Sub Han
+PY  - 2026
+DA  - 2026/05/30
+DO  - 10.48550/arxiv.2606.00722
+UR  - https://doi.org/10.48550/arxiv.2606.00722
+AB  - Controlling language model outputs is essential for ensuring structural validity, reliability, and downstream usability, and diffusion language models are no exception. Recent advances in diffusion language model decoding have extended output control beyond regular constraints to context-free grammar (CFG) constraints. However, the prior CFG-constrained decoder can be up to four times slower than unconstrained decoding, forcing a trade-off between the correctness benefits of CFG constraints and the decoding efficiency of diffusion models. A key source of this overhead is sequential validity checking, which limits parallel token commitment and adds repeated validation costs. We propose EPIC, a CFG-constrained decoding framework designed to improve this efficiency-correctness trade-off. In order to reduce decoding overhead without sacrificing syntactic correctness, EPIC combines lexing memoization, relaxed compatible subset selection for parallel commit, and validation using Earley-style parsing instead of deterministic automata. This design enables multiple compatible tokens to be committed together while avoiding repeated lexing and expensive validation. Experiments on three benchmarks using four models show that EPIC improves the efficiency-correctness trade-off, bringing runtime close to unconstrained levels while maintaining comparable syntactic and functional correctness. Relative to the prior CFG-constrained decoder, EPIC achieves a best-case inference-time reduction of 67.2%. Our implementation is available at https://github.com/hyundong98/EPIC-Decoding .
+KW  - mapeamento_2025_2026
+KW  - IC4
+N1  - Triagem por título/resumo: Decodificação restrita por gramática em modelos de difusão
+ER  - 
+
+TY  - GEN
+TI  - EdgeWisePersona: A Dataset for On-Device User Profiling from Natural Language Interactions
+PY  - 2026
+DA  - 2026/06/01
+DO  - 10.1145/3774935.3806788
+UR  - https://doi.org/10.1145/3774935.3806788
+AB  - This paper introduces EdgeWisePersona, a novel dataset and evaluation benchmark for assessing and improving small, edge-deployable language models for user profiling from multi-session smart home interactions. The dataset features structured user profiles defined by contextual routines, paired with natural language dialogues. The primary task is profile reconstruction: inferring user routines and preferences solely from interaction history. To assess how well current models can perform this task under realistic conditions, we benchmarked several state-of-the-art compact language models and compared their performance against large foundation models. Our results show that while small models demonstrate some capability in reconstructing profiles, they still fall significantly short of large models in accurately capturing user behavior. This performance gap poses a major challenge - particularly because on-device processing offers critical advantages, such as preserving user privacy, minimizing latency, and enabling personalized experiences without reliance on the cloud. By providing a realistic, structured testbed for developing and evaluating behavioral modeling under these constraints, our dataset represents a key step toward enabling intelligent, privacy-respecting AI systems that learn and adapt directly on user-owned devices.
+KW  - mapeamento_2025_2026
+KW  - IC2;IC3
+N1  - Triagem por título/resumo: SLMs reconstroem perfis estruturados a partir de interações multissessão Autores não disponíveis nas bases; completar via DOI no Zotero.
+ER  - 
+
+TY  - GEN
+TI  - Dynamic Infilling Anchors for Format-Constrained Generation in Diffusion Large Language Models
+AU  - Bo Han
+AU  - Yi-Wei Wang
+AU  - Yizi Song
+AU  - Yu-Jun Cai
+AU  - Chi Zhang
+PY  - 2026
+DA  - 2026/06/03
+DO  - 10.48448/xmcc-9759
+UR  - https://doi.org/10.48448/xmcc-9759
+AB  - Diffusion large language models (dLLMs) offer bidirectional attention and parallel generation, enabling them to exploit global context and naturally support format-constrained tasks like parseable JSON or reasoning templates. While straightforward fixed anchors can enforce such constraints, they often impose rigid spans, leading to truncated reasoning or redundant content. To overcome this, we propose Dynamic Infilling Anchors (DIA), a training-free method that dynamically estimates end-anchor positions to adjust generation length before iterative infilling. This flexible mechanism ensures structural correctness and semantic coherence, avoiding the inefficiencies of fixed-span methods. Experiments on reasoning benchmarks demonstrate that DIA substantially improves format compliance and answer accuracy, achieving significant zero-shot gains on GSM8K and MATH. These results establish DIA as a robust pathway toward reliable, structure-aware generation.
+KW  - mapeamento_2025_2026
+KW  - IC4
+N1  - Triagem por título/resumo: Geração com restrição de formato JSON em dLLMs
+ER  - 
+
+TY  - GEN
+TI  - G-Long: Graph-Enhanced Memory Management for Efficient Long-Term Dialogue Agents
+AU  - Min-Jun Choi
+AU  - Yoonjin Jang
+AU  - Sangwon Youn
+AU  - Youngjoong Ko
+PY  - 2026
+DA  - 2026/06/11
+DO  - 10.48550/arxiv.2606.13115
+UR  - https://doi.org/10.48550/arxiv.2606.13115
+AB  - While Large Language Models (LLMs) have advanced open-domain dialogue systems, maintaining long-term consistency remains a challenge due to inherent limitations in long-context reasoning and the inefficiency of processing extensive raw text. Existing approaches typically rely on either unstructured memory storage, which is prone to information loss, or computationally expensive LLMs that incur high latency. To address these limitations, we propose G-Long, a graph-enhanced framework that utilizes a fine-tuned small Language Model (sLM) for structured triplet extraction and associative retrieval, significantly reducing operational costs. Furthermore, we introduce the novel attention-aware importance scoring mechanism that leverages the intrinsic cross-attention signals of a T5 summarizer to identify salient memories. Extensive experiments across diverse benchmarks demonstrate that G-Long achieves state-of-the-art performance in both response generation and memory retrieval, yielding performance gains of up to 9.8% in response quality on MSC and 40.8% in retrieval recall on LME, while significantly minimizing computational overhead.
+KW  - mapeamento_2025_2026
+KW  - IC2;IC3
+N1  - Triagem por título/resumo: sLM ajustado extrai triplas para memória em grafo de diálogo longo
+ER  - 
+
+TY  - GEN
+TI  - Small Language Models and Spec-Driven Development for High-Accuracy Agentic AI Systems
+AU  - Guruprasath Sankaran
+PY  - 2026
+DA  - 2026/06/29
+DO  - 10.67231/qqk79s36
+UR  - https://doi.org/10.67231/qqk79s36
+AB  - Agentic Artificial Intelligence (AI) systems are often designed with large language models (LLMs) that are assumed to achieve better performance on all tasks as they grow larger. This paper contradicts this belief by showing that small language models (SLMs), when combined with specification-driven development, are more accurate, consistent, and cost-effective than agent design in standard operations. We present a hybrid architecture in which a lightweight dispatcher takes in structured tasks, which are routed to specialist LoRA fine-tuned SLMs. The output generated is fed to a deterministic specification validator for verification. An LLM serves as a fallback for tasks that are out-of-distribution or too complex. This framework was evaluated on four representative agentic tasks: date extraction, JSON formatting, arithmetic reasoning, and schema-constrained tool calling. According to experimental results, the SLM-first consistently outperforms the LLM-only baseline significantly, showing accuracy improvement of 7.8% to 13.2%. Moreover, it achieves 7 times lower inference latency and almost an order of magnitude lower operational cost. Additionally, the proposed approach reports an output consistency of 99.8% as compared to the LLM baseline, which merely achieves 92%. This makes it suitable for production environments that demand predictable and reliable behavior. The findings suggest that specialized SLMs with explicit specifications and selective LLM fallback are a practical, scalable, and low-energy foundation for next-gen high-accuracy agentic AI systems.
+KW  - mapeamento_2025_2026
+KW  - IC4
+N1  - Triagem por título/resumo: SLMs ajustados para JSON e chamadas de ferramenta com esquema, avaliados.
+ER  - 
+
+TY  - GEN
+TI  - GenSIE Benchmark v1.0: Schema-Guided Information Extraction with Small Language Models in Spanish
+PY  - 2026
+DA  - 2026/07/10
+DO  - 10.5281/zenodo.21299326
+UR  - https://doi.org/10.5281/zenodo.21299326
+AB  - A Spanish-language benchmark for schema-guided information extraction with small language models (3B–14B parameters). Given a passage, a natural-language instruction, and a target JSON Schema, a system must emit a JSON object that validates against the schema and faithfully reflects the text — including returning null for fields the text does not support (a null-as-ground-truth contract that penalises parametric hallucination). The release contains 334 self-contained instances across three splits: a 40-instance starter kit, a 149-instance development set, and a 145-instance held-out gold test set, spanning nine domains and complexity-tagged schemas. Each instance carries its own text, instruction, target schema, gold answer, and metadata. Per-leaf grounding annotations (evidence spans and rationale) are included for all 149 development instances and 69 of the test instances. Every gold output validates against its target schema. The benchmark accompanies the GenSIE @ IberLEF 2026 shared-task overview paper. Documentation (format specification, schema catalogue, source provenance) is bundled; code (task harness, reference baseline, evaluator, schema definitions) is at gia-uh/gensie-internal.
+KW  - mapeamento_2025_2026
+KW  - IC4
+N1  - Triagem por título/resumo: Benchmark de extração JSON guiada por esquema com SLMs e fidelidade. Autores não disponíveis nas bases; completar via DOI no Zotero.
+ER  - 
+
+TY  - GEN
+TI  - CMI-Mem: Toward Generalizable Long-Term Memory Management via CMI-Augmented Reinforcement Learning
+AU  - Yubo Wang
+AU  - Qiu-Yu Zhao
+AU  - Zeng-Hui Sun
+AU  - Shi-Chao Dong
+AU  - Jin-Song Lan
+AU  - Xiao-Yong Zhu
+AU  - Hao-Yang Li
+AU  - Bo Zheng
+AU  - Lei Chen
+PY  - 2026
+DA  - 2026/07/15
+DO  - 10.48550/arxiv.2607.20553
+UR  - https://doi.org/10.48550/arxiv.2607.20553
+AB  - Memory Manager models are pivotal in agent systems. Existing reinforcement-learning methods commonly use LLM-judged synthetic question-answer (QA) pairs: this provides useful downstream task grounding, but values memory through a sampled query distribution and a fixed reader. We propose CMI-Mem, a lightweight RL memory manager with a hybrid reward. Its extrinsic QA term measures end-task correctness, while its intrinsic Conditional Mutual Information (CMI) term evaluates the information contributed by new conversational inputs relative to the current memory state without conditioning on a sampled QA query. The two signals are complementary: QA anchors task utility, whereas CMI provides per-operation supervision for relevant, non-redundant memory construction. Experiments demonstrate improved transfer across memory-use scenarios, together with more efficient training and inference from the per-operation CMI signal. Our codes are available at: https://github.com/Wyb0627/CMIMem , and the CMI-Mem-4B model checkpoint is available at: https://www.modelscope.cn/models/wyb0627/CMIMem-4B
+KW  - mapeamento_2025_2026
+KW  - IC1;IC2
+N1  - Triagem por título/resumo: Gestor de memória 4B treinado por RL com recompensa por operação.
+ER  - 
+
+TY  - GEN
+TI  - truthllm: Expression-and-Revision Layer over a Fixed Language Model — Reference Implementation, Benchmark, and Results (v1.0)
+PY  - 2026
+DA  - 2026/07/21
+DO  - 10.5281/zenodo.21462985
+UR  - https://doi.org/10.5281/zenodo.21462985
+AB  - Reference implementation and measured evaluation accompanying the paper 'Truth for Believable AI: Expressed Doubt, Provenance, and Belief Revision as an Engineerable Stance'. Includes the truthllm layer (three epistemic states, per-claim confidence and typed provenance, a frozen provenance-gating table, a persistent belief store with defined revision triggers, a correction-acceptance rule with false-correction resistance, and auditable acknowledgments), the versioned multi-session contradiction-and-correction benchmark with SHA-256 manifests and a language-agnostic scorer, cached pinned-model outputs (Qwen2.5-0.5B-Instruct at a recorded revision), seed-reproducible one-command evaluation scripts, all results files behind every number in the paper, and the test suite. Honesty notes: all outcomes are machine-scored against generator-injected ground truth on one 60-fact world and one 0.5B model; several pre-specified margins fail and are reported as failures; no believability, trust, or human-perception effect is measured.
+KW  - mapeamento_2025_2026
+KW  - IC1;IC2;IC3
+N1  - Triagem por título/resumo: Armazém de crenças com revisão e benchmark de correção; Qwen 0.5B Autores não disponíveis nas bases; completar via DOI no Zotero.
+ER  - 
+
+TY  - GEN
+TI  - Structure Is Cheap, Grounding Is Not: Three measurement faults and a negative result in tool calling at 103M-135M parameters
+PY  - 2026
+DA  - 2026/07/31
+DO  - 10.5281/zenodo.21725247
+UR  - https://doi.org/10.5281/zenodo.21725247
+AB  - A tool calling model must both emit schema-valid calls and bind arguments to contextual facts. These abilities are evaluated at the 103M parameter scale. Quick SLM is a 103M parameter LLaMA-style model, pretrained on 10B tokens and fine-tuned on 14.7M tokens of synthetic tool calling data. The fine-tuning corpus isolates state grounding by separating server-injected state and session memory, using counterfactual pairs to detect when a model pattern-matches rather than reads the state. The fine-tuned checkpoint emits well-formed calls for 99.9% of inputs (vs. 2.4% for the base model) and selects the correct tool 77.8% of the time, acquiring call structure entirely during fine-tuning. However, it fails at state grounding, grounding both branches of only 4 of 44 counterfactual pairs (exact match). A control experiment with SmolLM2-135M similarly achieved 0 grounded pairs, suggesting this failure stems from the corpus design or sub-135M scale rather than the pretraining run. Detailed error analysis shows grounding failures are largely not state blindness, but divide between tool selection errors and arithmetic failures on read values. Methodological contributions are additionally highlighted: documenting three measurement faults that corrupted initial results, their corresponding cross-checks, and exposing a 0.74-point self-preference bias caused by using the same Gemma model for both corpus generation and evaluation.
+KW  - mapeamento_2025_2026
+KW  - IC4
+N1  - Triagem por título/resumo: Chamadas de ferramenta por modelos de 103-135M com aterramento em estado. Autores não disponíveis nas bases; completar via DOI no Zotero.
+ER  - 
+
+TY  - GEN
+TI  - Memory That Doesn't Expire: Agentic Long-Term Memory for Conversational Agents on a Single Consumer GPU
+PY  - 2026
+DA  - 2026/08/16
+DO  - 10.5281/zenodo.21964737
+UR  - https://doi.org/10.5281/zenodo.21964737
+AB  - Conversational agents forget: once a dialogue outgrows the context window, a model must either be reminded through retrieval or have its history truncated. Recent memory systems address this with extraction and retrieval, but they assume a large, often API-hosted model as the memory manager, an assumption that rules out private, local deployment. We ask whether a small local model, on a single consumer GPU, can manage long-term memory well, and how the answer depends on model size. We evaluate four memory strategies (no memory, full-history stuffing, raw-turn retrieval, and an agentic protocol that extracts typed, dated, deduplicated facts) on LoCoMo (1,986 questions over 10 long multi-session conversations), scored by an independent LLM judge. Full-context stuffing wins aggregate accuracy when the answer still lies inside the window, but its advantage is an artifact of conversation length: split by whether a question's evidence survives truncation, stuffing collapses by 76% beyond the window while agentic memory stays flat, outperforming stuffing 2.0x on the 39% of questions that already exceed it. Agentic memory further gives the best temporal reasoning of any strategy (via absolute-date grounding at write time) using ~67x less context. Varying the extractor from 3B to 14B, we find quality scales with size and that temporal grounding is the first capability to break under compression, setting a minimum viable memory-manager size of ~7-14B, comfortably within a 12 GB GPU. A hand-verified audit of 200 stored memories finds 199 faithful to their source turn, with no fabrications. We release the system, the benchmark harness, and the raw judged outputs behind every reported number. Code: https://github.com/MasHasNoLife/yuna-aiPaper source: https://github.com/MasHasNoLife/memory-that-doesnt-expireRaw run outputs: https://doi.org/10.5281/zenodo.21702651
+KW  - mapeamento_2025_2026
+KW  - IC1;IC2;IC3
+N1  - Triagem por título/resumo: Modelo local pequeno gerencia fatos tipados, datados e deduplicados Autores não disponíveis nas bases; completar via DOI no Zotero.
+ER  - 
+
+TY  - GEN
+TI  - Dual-Layer Agentic Memory with Fast Write Routing and Slow Consolidation
+AU  - Wen-Zhi Li
+AU  - Dong Nie
+AU  - Rui-Yi Lan
+AU  - Tongtong Lyu
+AU  - Pei-Yao Wang
+AU  - Ling-Zi Hong
+AU  - Wei-Hang Pan
+AU  - Bin-Bin Lin
+AU  - Bo-Yuan Pan
+AU  - Yao Hu
+PY  - 2026
+DA  - 2026/08/23
+DO  - 10.48550/arxiv.2608.22215
+UR  - https://doi.org/10.48550/arxiv.2608.22215
+AB  - Large language model (LLM) agents operate in dynamic environments where knowledge continuously evolves. Existing memory systems typically treat external memory as a monotonically growing repository, inevitably leading to retrieval degradation and increasing computational costs over time. We argue that the core challenge is not retrieval alone, but managing the knowledge lifecycle: deciding what to externalize, update, or ultimately internalize. Inspired by Complementary Learning Systems (CLS) theory in neuroscience, we propose Dual-Layer Agentic Memory, a framework that shifts memory management to the write phase through cost-aware epistemic routing and periodic parametric consolidation. Incoming information is categorized as non-write, write-new, or write-update, and routed through a small-to-large model cascade that minimizes routing overhead while filtering redundant memories. A subsequent write-back phase selectively consolidates high-value external memories into model parameters via supervised fine-tuning. Experiments demonstrate the dual efficiency of our approach: a 1.7B/8B cascade prunes up to 68% of redundant external memory while escalating fewer than 50% of inputs, yet retains over 98% of the downstream QA Exact Match (EM) achieved by an exhaustive retention baseline. We further show that periodic consolidation successfully internalizes external knowledge, allowing the router to adaptively suppress redundant writes as the model's epistemic boundaries evolve. Overall, our framework presents a unified paradigm for agent memory: selective externalization followed by selective internalization. Code and dataset will be released upon acceptance.
+KW  - mapeamento_2025_2026
+KW  - IC1;IC2
+N1  - Triagem por título/resumo: Roteamento de escrita novo/atualização com cascata 1.7B/8B.
+ER  - 
+
+TY  - GEN
+TI  - Making Prospective Memory SLM-Shaped: Typed Intention Stores for Small-Model Agents
+AU  - Jin-Qing Zhao
+AU  - Cheng-Can Wu
+PY  - 2026
+DA  - 2026/09/01
+DO  - 10.48550/arxiv.2609.01272
+UR  - https://doi.org/10.48550/arxiv.2609.01272
+AB  - Prospective memory means carrying out a deferred intention at the right future cue while other work continues. Benchmarks now isolate it as an agent skill, yet frontier LLMs still struggle: the best published PM-Bench scaffold reaches only 65.1% Set-F1. We argue that this loop is schema-constrained state tracking rather than open-ended reasoning, and that small models can execute it when the action space is typed. We propose the Prospective Intention Store (PIS) that puts lifecycle logic in code and scoped language work on the model. The scaffold is agentic and training-free: no selector fine-tuning and no trajectory distillation. On PM-Bench, DeepSeek-Chat with PIS reaches 82.9% Set-F1. On Gemma-E2B, Set-F1 is only 4.2% without a store and at most 6.6% under seven retrospective memories, while PIS reaches 66.2%. PIS further reaches 70.1% Set-F1, where retrospective memory methods stay at most 54.4%. PIS sets a new state of the art on this benchmark and enables small models to surpass the published large-model scaffold.
+KW  - mapeamento_2025_2026
+KW  - IC1;IC2;IC3
+N1  - Triagem por título/resumo: Armazém tipado de intenções com ciclo de vida para agentes SLM (Gemma-E2B).
+ER  - 
+
+TY  - GEN
+TI  - StructureBench: A Unified Benchmark Suite for Multi-Scenario Structured Generation Tasks with On-Device Models
+AU  - Xiao-Kun Xiong
+AU  - Zheng-Jie Xu
+AU  - Jun-Yi Chen
+AU  - Shi-Hao Bai
+AU  - Rui-Hao Gong
+AU  - Xiang-Long Liu
+PY  - 2026
+DA  - 2026/09/01
+DO  - 10.24963/ijcai.2026/267
+UR  - https://doi.org/10.24963/ijcai.2026/267
+AB  - Structured output generation is increasingly critical for real-world AI systems, particularly in on-device settings where small language models (0.5B–8B parameters) must produce machine-executable outputs under strict latency and privacy constraints. Although constrained decoding provides formal guarantees of structural validity without retraining, its effectiveness across different tasks, models, and constraint formalisms remains insufficiently understood. We introduce StructureBench, a comprehensive benchmark for structured generation on edge devices, covering JSON and tool-call generation, code synthesis, mathematics, science, and domain-specific languages, and evaluating over 11 on-device language and vision–language models spanning 0.5B–8B parameters. StructureBench systematically compares prompt-based generation with three widely used constrained decoding frameworks—Outlines, XGrammar, and Guidance—and adopts decoupled metrics to separately assess structural validity and semantic correctness. Our experiments show that constrained decoding consistently enforces syntactic validity, but does not reliably improve semantic accuracy and may even degrade performance for smaller models or complex grammars. These findings reveal clear task- and model-dependent boundaries for effective constrained decoding and highlight the need for scenario-aware adaptation in on-device structured generation. We release StructureBench at https://github.com/Str-Ben/StructureBench.
+KW  - mapeamento_2025_2026
+KW  - IC4
+N1  - Triagem por título/resumo: Benchmark de geração estruturada e decodificação restrita em modelos on-device.
+ER  - 
+
+TY  - GEN
+TI  - Resumen de GenSIE en IberLEF 2026: extracción de información guiada por esquemas con modelos de lenguaje pequeños en español
+PY  - 2026
+DA  - 2026/09/01
+UR  - https://openalex.org/W7222860814
+AB  - GenSIE is the IberLEF 2026 shared task on schema-guided information extraction from Spanish text with small language models. A CPU-only system receives a (text, instruction, JSON schema) triple and must emit a schema-conformant object faithful to the text, returning null for fields the text does not support. We contribute a 271-instance Spanish development benchmark over eight domains, a 145-instance held-out gold test set that adds a ninth, a semi-automatic agentic curation pipeline with three human gates, and an evaluator pairing micro-F1 over flattened schemas with a multi-model gap-closed metric. Eleven teams submitted thirty-five pipelines, scored on 125 instances against no-think baselines (Gemma 4 E4B F1=0.7780, Qwen3-14B F1=0.7542). DRILLER leads, closing 27.7% of the baseline-to-perfect gap, though a paired bootstrap cannot separate the top three. Retrieval and schema enrichment pay off; extra inference passes do not.
+KW  - mapeamento_2025_2026
+KW  - IC4
+N1  - Triagem por título/resumo: Tarefa compartilhada de extração guiada por esquema JSON com SLMs. Autores não disponíveis nas bases; completar via DOI no Zotero.
+ER  - 
+
+TY  - GEN
+TI  - Beyond Fluent Generation: A CPU Reliability Benchmark for MCP-Style Tool Calling in Sub-2B Small Language Models for Edge Deployment
+AU  - Abrar Shahriar Qurat-Ul-Ain Mastoi
+PY  - 2026
+DA  - 2026/09/07
+DO  - 10.48550/arxiv.2609.07370
+UR  - https://doi.org/10.48550/arxiv.2609.07370
+AB  - Resource constrained single-board computers including Raspberry Pi, NVIDIA Jetson Nano, Arduino UNO Q, Orange Pi, and LattePanda motivate on-device small language model (SLM) agents that reduce cloud dependence, improve data locality, and tolerate intermittent connectivity. Model Context Protocol (MCP)-style tool invocation demands more than fluent generation: an agent must emit machine-readable JSON, select the correct tool, supply all required arguments, and avoid unintended actions. We establish a platform-agnostic CPU baseline by evaluating five open-weight models below two billion parameters Phi-1.5, Pythia-1.4B, TinyLlama-1.1B-Chat, Qwen2.5-0.5B, and Qwen2.5-1.5B on 100 prompts spanning weather retrieval, web search, calculation, email composition, and task creation, under greedy decoding and nucleus sampling. A recovery parser strips Markdown fences, extracts brace-delimited substrings, and scores parseability, tool-name correctness, argument completeness, and value agreement. Under this criterion, Qwen2.5-1.5B achieves 75% (greedy) and 79% (sampling); Qwen2.5-0.5B achieves 72% (greedy) but drops to 32% under sampling. Phi-1.5 scores 0%; Pythia and TinyLlama reach at most 7%. A strict post-hoc audit finds only 5 of 1,000 raw responses directly parseable as JSON, exposing near-total dependence on output recovery. A CPU resource probe shows Qwen2.5-1.5B requires 7,960 MiB and 30.782 s mean latency; Qwen2.5-0.5B uses 3,637 MiB and 10.627 s, revealing a reliability-resource trade-off for edge deployment. These results do not cover the named boards directly or a full MCP implementation. Safe deployment requires schema validation, constrained generation, least-privilege execution, and human escalation for consequential actions.
+KW  - mapeamento_2025_2026
+KW  - IC4
+N1  - Triagem por título/resumo: Benchmark de chamadas de ferramenta JSON em SLMs abaixo de 2B.
+ER  - 
+
+TY  - GEN
+TI  - From Fixed Keys to Readable Schemas: Small Language Models for Vehicle Agent Function Calls
+AU  - Hamed Jafarzadeh Asl
+AU  - Yuan-Hao Yu
+AU  - Vahid Partovi Nia
+PY  - 2026
+DA  - 2026/09/08
+DO  - 10.48550/arxiv.2609.09476
+UR  - https://doi.org/10.48550/arxiv.2609.09476
+AB  - In-vehicle assistants must translate natural-language requests into accurate vehicle function calls under strict memory and latency constraints, making small language models (SLMs) attractive for on-device deployment. For such models, a key design choice is how the available function surface is presented. Two approaches are to represent each function with a dedicated Functional Token (FT) or provide function schemas directly in the prompt. FTs enable compact inference but are restricted to functions learned during training, whereas Schema-in-Prompt (SIP) can generalize to unseen functions at the cost of longer prompts and higher inference overhead. We introduce a benchmark of 9,822 single-turn examples spanning 79 vehicle functions derived from Android Automotive, including held-out functions and requests requiring refusal. We compare both approaches under matched fine-tuning across four SLMs from 270M to 1.7B parameters. On functions seen during training, scaling provides limited benefit: the 270M model can match the 1.7B model, and the highest Seen accuracy in our main grid occurs at 0.6B. On held-out functions, FT achieves zero accuracy by construction, whereas SIP generalizes and improves substantially with scale. On out-of-scope requests, FT can invoke an unavailable function it was trained to emit, while SIP more reliably refuses based on the functions offered. This flexibility comes with a higher inference cost, chiefly the latency of processing the schema prompt. Our theoretical analysis formalizes why only SIP can predict functions withheld as training targets and why longer schema contexts increase inference cost. Overall, function-surface representation, rather than model scale alone, determines the capabilities and failure modes of SLM-based vehicle function calling.
+KW  - mapeamento_2025_2026
+KW  - IC4
+N1  - Triagem por título/resumo: SLMs 270M-1.7B geram chamadas de função com esquemas.
+ER  - 
+
+TY  - GEN
+TI  - Comparació de models de llenguatge de difusió i auto-regressius
+PY  - 2026
+DA  - 2026/09/10
+UR  - https://openalex.org/W7212349642
+AB  - [EN] Recent studies show that diffusion language models are a promising alternative to the dominant autoregressive paradigm. This work presents a systematic empirical comparison of the two paradigms. We use conventional datasets and metrics to carry out this comparison and further evaluate the strongest models on contemporary benchmarks such as IFEval and code-infilling tasks. We report fine-tuning experiments on a diffusion model with low-rank adaptation and constrained decoding, characterising where the autoregressive–diffusion gap is largest and how far these interventions narrow it. At the consumer-hardware tier this work targets (a single GPU under 4-bit quantisation), the autoregressive baseline stays ahead throughout: targeted post-training narrows the instruction-following gap without closing it, and the diffusion model does not overtake it even on code infilling, the task most favourable to its bidirectional design.
+KW  - mapeamento_2025_2026
+KW  - IC4
+N1  - Triagem por título/resumo: Compara difusão e autoregressivo com decodificação restrita e IFEval. Autores não disponíveis nas bases; completar via DOI no Zotero.
+ER  - 
+
+TY  - GEN
+TI  - PSD: Pseudo Self-Distillation of Memory Representation Capabilities for LLM Agents
+AU  - Pirzada Suhail
+AU  - Meng-Lin Xia
+AU  - Xu-Chao Zhang
+AU  - M. Das
+AU  - Chetan Bansal
+AU  - S. Rajmohan
+PY  - 2026
+DA  - 2026/09/20
+DO  - 10.48550/arxiv.2609.23449
+UR  - https://doi.org/10.48550/arxiv.2609.23449
+AB  - Memory systems are becoming a core component of LLM agents, but constructing and maintaining memory remains expensive because it relies on repeated calls to large proprietary language models. This cost creates a major barrier to deploying memory-enhanced agents at scale. In this paper, we present Pseudo Self-Distillation (PSD), a framework that enables small language models (SLMs) to construct hierarchical memory representations by distilling behavior from a strong black-box oracle through a multi-stage training pipeline. Standard distillation methods require access to teacher logits or hidden states, which closed models do not expose. Unlike conventional self-distillation settings, where supervision is derived from a model's own predictions, sampled rollouts, or aggregated outputs, PSD enables a single-model distillation setup while channeling external oracle knowledge through the prompt. PSD uses a single small model in two roles: a teacher that sees a privileged prompt containing the oracle's answer as reference context, and a student that sees only the task prompt. The student learns to reproduce the teacher's output distribution, absorbing oracle-guided behavior into its own weights without accessing the oracle's internals. On LoCoMo, PSD-trained Qwen3-0.6B, 1.7B, and 4B match or exceed GPT-4.1-mini on downstream retrieval at a fraction of the deployment cost, with off-policy PSD achieving the strongest results across most conditions. We further show that this memory-construction capability transfers out-of-distribution to LongMemEval, despite the students being trained exclusively on LoCoMo with no exposure to LongMemEval data.
+KW  - mapeamento_2025_2026
+KW  - IC2
+N1  - Triagem por título/resumo: SLM destilado para construir representações de memória hierárquica.
+ER  - 
+
+TY  - GEN
+TI  - Constrained Decoding Eliminates Structural Failures in Small LLMs but Reveals a Scale-Dependent Semantic Gap
+AU  - Akash Chavan
+PY  - 2026
+DA  - 2026/09/20
+DO  - 10.48550/arXiv.2609.23742
+UR  - https://doi.org/10.48550/arXiv.2609.23742
+AB  - Small open-source large language models (LLMs) in the 0.6B-4B parameter range are increasingly deployed for structured output generation (JSON, function calling, data extraction), yet little is known about how constrained decoding (CD) interacts with model scale in this regime. We benchmark five models from three families across 14 structured-output tasks under three decoding conditions (native, Outlines, XGrammar). We introduce a two-axis evaluation that separates structural correctness (schema validity) from semantic correctness (content accuracy). We find that CD eliminates all structural failures across all models (schema validity: 78.6-92.9% to 100%), but content accuracy reveals a persistent semantic gap that is scale-dependent: type coercion failures are fully CD-rescuable, while instruction-semantic failures (e.g., multi-step function calling) remain CD-resistant. Schema conformance is necessary but not sufficient for semantic correctness; CD's reach ends exactly where schema conformance ends.
+KW  - mapeamento_2025_2026
+KW  - IC4
+N1  - Triagem por título/resumo: Benchmark de saída estruturada em SLMs 0,6-4B com decodificação restrita.
+ER  - 
+
+TY  - GEN
+TI  - Truth for Believable AI: Expressed Doubt, Provenance, and Belief Revision as an Engineerable Stance
+AU  - Sebastian Cochinescu
+PY  - 2026
+DA  - 2026/09/22
+DO  - 10.48550/arxiv.2609.26035
+UR  - https://doi.org/10.48550/arxiv.2609.26035
+AB  - Conversational agents often express answers in a uniformly confident register. We test whether expressed uncertainty, provenance-aware assertion, and explicit belief revision can be implemented as a behavior layer over a fixed language model; we do not test believability or trust. The layer combines three epistemic states, per-claim confidence and typed provenance, a provenance-gated expression rule, and a persistent revision store with auditable acknowledgments and partial resistance to false corrections. We evaluate it on a constructed, mechanically scored multi-session benchmark using a synthetic model and Qwen2.5-0.5B-Instruct. The synthetic instrument passes all five checks. On the real model, acknowledgment soundness, a by-construction guarantee, holds in 100% of cases, and true corrections are accepted more often than false ones (0.44 vs. 0.15 on held beliefs; 0.875 vs. 0.420 including rule-accepted corrections of unheld facts), but the pre-specified expression-fidelity, contradiction-separation, and provenance margins fail. A disclosed post hoc analysis shows that expression gated on mean answer-token probability ranks correctness below chance end to end (AUC 0.41, conversation-clustered), whereas gating on sampling consistency discriminates (AUC 0.66). A consistency-gated configuration selected from this finding and evaluated under a separately committed protocol meets the conversation-level manipulation and capability-equivalence criteria and replicates on a redrawn conversation set. The manipulation result is selection-dependent, and both criteria remain unresolved when uncertainty is clustered over the 60 facts. The supported conclusions are limited to the by-construction audit guarantee, store-dependent partial correction discrimination, and a benchmark- and model-specific failure of token-probability gating; scaling the fact base is required before human evaluation.
+KW  - mapeamento_2025_2026
+KW  - IC1;IC2
+N1  - Triagem por título/resumo: Store persistente de revisão de crenças multi-sessão avaliado com Qwen2.5-0.5B.
+ER  - 
+
+TY  - GEN
+TI  - A Model That Does Not Forget. A Logbook That Corrects and a Sleep That Consolidates, on a Frozen Language Model
+PY  - 2026
+DA  - 2026/09/29
+DO  - 10.21203/rs.3.rs-11185020/v1
+UR  - https://doi.org/10.21203/rs.3.rs-11185020/v1
+AB  - Abstract An assistant used every day needs to remember what the user told it, even when those facts change over time, and it needs to say "I don't know" about what it was never told. We study two memory channels on a frozen language model, Qwen3-0.6B. The logbook stores each fact with its version outside the weights and is read by a learned reader. The sleep periodically consolidates recent facts into a LoRA adapter with 10 million parameters, using a recipe that replays the facts already consolidated, replays two invented skills together with their abstention boundaries, practices "I don't know" and anchors to the model each sleep starts from. Over eight chained sleeps of 100 facts each, with three seeds, what was learned in the first week holds at an accuracy between 0.88 and 0.97 after seven more sleeps (mean 0.94), and no package falls more than 0.09 below the value it was learned at. An ablation isolates the ingredient. Without fact replay, everything else equal, accuracy on the first week goes from 0.97 to 0.01 in a single sleep. We compare with MEMIT and AlphaEdit, two published knowledge editing methods that write each new fact directly into the model weights, without training it. Editing the same facts week after week, by the eighth week they keep 0.01 and 0.10 of what was learned in the first, and both damage skills the editing never touched. Against a RAG trained with the same budget the logbook ties in accuracy, and the difference is cost, 16 tokens per query against 505, or against 4,514 with a history of 200 old entries. The limit we measure is spurious composition. Given a known entity and a relation never taught for that entity, by the eighth week the model answers a value in 51 to 61% of cases instead of abstaining, and "I don't know" for invented entities drops from 0.97 to 0.64. Evening out how many facts each entity receives, the most obvious intervention, changed nothing (40 answers out of 200 in both conditions). Finally, in a single sleep over real-world facts taken from CounterFact and zsRE, two public benchmarks used as the standard reference to evaluate knowledge editing, the recipe learns the 100 new facts of each completely without worsening perplexity on unseen text.
+KW  - mapeamento_2025_2026
+KW  - IC1;IC2
+N1  - Triagem por título/resumo: Logbook versionado e consolidação em Qwen3-0.6B; mede retenção de fatos que mudam. Autores não disponíveis nas bases; completar via DOI no Zotero.
+ER  - 
+
+TY  - GEN
+TI  - Plan-and-Patch: Diffusion Language Models for Agentic Planning
+AU  - Syamantak Kumar
+AU  - Jiang Guo
+AU  - Hassan Hamad
+AU  - Hideo Kobayashi
+AU  - Yi Xiang
+AU  - Ye-Zhou Yang
+AU  - Yan-Jun Qi
+AU  - Daniele Bonadiman
+AU  - Jia-Rong Jiang
+PY  - 2026
+DA  - 2026/10/07
+DO  - 10.48550/arxiv.2610.10786
+UR  - https://doi.org/10.48550/arxiv.2610.10786
+AB  - Planning is increasingly important for long-horizon agents, where successful execution requires coordinating subgoals, tool use, and intermediate outcomes over many steps. Yet assumptions made during planning may be invalidated by the environment, tools may return unexpected results, or actions may fail. Effective agents must therefore not only generate plans, but also revise them. Such revisions often affect only part of a plan, leaving the preceding and subsequent structure intact. Rather than regenerate the entire plan and risk unnecessary changes, repair can regenerate the affected region conditioned on the preserved prefix and suffix. We introduce Plan-and-Patch, a plan-and-act framework in which a diffusion language model (dLLM) generates a structured, program-like plan through parallel unmasking and repairs it by filling in selected regions while keeping the surrounding steps fixed. We compare DreamReasoner-8B and Qwen3-8B as diffusion and autoregressive (AR) planners. On Natural Plan without task-specific training, diffusion (53.7%) achieves nearly twice the plan repair success rate of AR (27.0%). After task-specific training on agentic benchmarks, ALFWorld and TextCraft, the planners achieve similar observed success in plan generation, while diffusion reduces mean plan-generation latency by 39-46% relative to AR. Our results show that Plan-and-Patch provides a framework for faster plan generation and effective plan repair in long-horizon agents.
+KW  - mapeamento_2025_2026
+KW  - IC4
+N1  - Triagem por título/resumo: DreamReasoner-8B (difusão) × Qwen3-8B (AR) na geração e reparo localizado de planos estruturados.
+ER  - 
+
+TY  - GEN
+TI  - Hy-Memory-30B-A3B: Attributed Reinforcement Learning for Long-Term Memory Writing
+AU  - Tian-Xiang Fei
+AU  - Jia-Zheng Kang
+AU  - Mao Zheng
+AU  - Xing-Yang He
+AU  - Xiang-Yu Yu
+PY  - 2026
+DA  - 2026/10/15
+DO  - 10.48550/arxiv.2610.22196
+UR  - https://doi.org/10.48550/arxiv.2610.22196
+AB  - External-memory systems extend language-model applications beyond a context window, but their quality depends critically on the model executing the write path: deciding what to retain, how precisely to represent it, and how new evidence should update persistent state. Existing frameworks typically place a general-purpose large language model behind framework-specific prompts. This raises serving cost, and a writer specialized for one protocol does not transfer directly to another; a unified model that can operate across established memory frameworks remains largely unexplored. We present Hy-Memory-30B-A3B, a compact long-term-memory writer trained across Mem0, MemOS, and Hy-Memory. Memory On-Policy Distillation teaches framework-specific write protocols on student-generated states; Memory RL then optimizes downstream answerability using dense per-chunk probes, attributed cross-chunk rewards, over-storage controls, and chunk-level GRPO. Carrying policy-written banks across windows keeps training aligned with deployment. On fixed 20% benchmark subsamples, Hy-Memory-30B-A3B ranks first on all four evaluated harnesses, including held-out EverMemOS, with a 55.49% macro average versus 54.62% for Claude Opus 5.
+KW  - mapeamento_2025_2026
+KW  - IC1;IC2
+N1  - Triagem por título/resumo: Escritor de memória MoE com 30B parâmetros totais e ~3B ativos, treinado por destilação e RL; não é SLM em parâmetros totais.
+ER  - 
+
+TY  - GEN
+TI  - DiffuPlan: Editable Planning State for Diffusion Language Model Agents
+AU  - Qi-Sheng Zhou
+AU  - Zhen Xiong
+AU  - Qiao-Yu Tan
+PY  - 2026
+DA  - 2026/10/17
+DO  - 10.48550/arxiv.2610.24717
+UR  - https://doi.org/10.48550/arxiv.2610.24717
+AB  - Diffusion language models (dLLMs) are emerging as an alternative to autoregressive (AR) language models, yet dLLM agents largely inherit an interaction protocol designed for AR generation: once intermediate state is written, later observations can only be incorporated by appending more text. This is a poor match to a defining capability of dLLMs -- reconstructing earlier text conditioned on context that appears both before and after it. We ask whether this capability can support a different agent-state paradigm in which intermediate planning state is directly revisable as evidence arrives. We introduce DiffuPlan, a diffusion search agent that maintains a single editable planning state and reconstructs only the affected steps when later evidence resolves an entity or changes the search route. To support variable-length revisions, we introduce Expansion-Partition Marginalization (EPM), which marginalizes over equivalent expansion paths. We further adapt diffusion trajectory RL to multi-turn search. Across four multi-hop QA benchmarks, DiffuPlan achieves 50.24 average F1, outperforming strong AR search agents. More importantly, under identical data and training, editable planning state improves the diffusion agent by 2.44 F1 versus only 0.47 for its AR source model. These results show that dLLMs need not imitate append-only AR agents: revising committed state is a distinct agentic advantage.
+KW  - mapeamento_2025_2026
+KW  - IC1;IC4
+N1  - Triagem por título/resumo: dLLM mantém estado de planejamento editável e reconstrói só passos afetados; compara com o modelo AR de origem sob mesmos dados.
+ER  - 
+
+TY  - GEN
+TI  - Memory, Know Your PLACE: Governing Lifecycle State and Query-Time Eligibility in Persistent-Memory Agents
+PY  - 2026
+DA  - 2026/10/18
+DO  - 10.48550/arxiv.2610.25179
+UR  - https://doi.org/10.48550/arxiv.2610.25179
+AB  - Persistent memory turns prior interactions into durable agent state, but existing systems provide limited control over whether that state remains valid and whether it should influence a later query. We argue that reliable memory requires governance over both state formation and query-time influence. We introduce PLACE, a factorized governance layer that adds write-side state certification and read-side authorization to a memory backend. A factorial evaluation on Mem0 with Qwen2.5-3B and Qwen2.5-7B isolates the contribution of each mechanism. Results show that write-side governance substantially improves lifecycle state correctness, while read-side governance eliminates measured causal leakage from ineligible memory in the state-correct setting. Their combination achieves the strongest joint performance while preserving query-relevant support. These findings show that reliable persistent memory requires explicit control over both maintained state and query-time information influence.
+KW  - mapeamento_2025_2026
+KW  - IC1;IC2
+N1  - Triagem por título/resumo: Governança de escrita certifica estado de memória; Qwen2.5-3B avaliado. Autores não disponíveis nas bases; completar via DOI no Zotero.
+ER  - 
+
+TY  - GEN
+TI  - Learning from the User Without Learning Their Mistakes: A Preregistered Study of On-Device Personalisation for a Small Language Model
+PY  - 2026
+DA  - 2026/10/19
+DO  - 10.5281/zenodo.23485017
+UR  - https://doi.org/10.5281/zenodo.23485017
+AB  - Small language models that run entirely on a user's computer can adapt to that user without sending text elsewhere, but a model that learns from what its user writes also learns the user's typos and grammar mistakes. We study this with Sela-2, a decoder-only transformer with 352M parameters per token, trained from scratch on one rented GPU for about USD 23, that runs in int8 on a CPU inside an offline desktop assistant. The assistant learns in three layers: a note of the user's facts in the system prompt, the conversation thread, and a k-nearest-neighbour language memory over the user's messages. An error-aware admission filter guards the memory: the model itself judges, on the whole message, whether a word looks like a mistake, and a sentence with a clear mistake is not learned at all. Every version was preregistered and measured once on 40 users it had never seen; we report all six registered measurements, including a failed first version, a flawed decision rule and a counting error. The fact note raised the use of a user's facts from 0 % to 20–53 % of the replies that called for them; from the second version on, at most two replies per run repeated an injected mistake. The memory's gain on held-out messages fell from 3.39 % on development users to 1.45, 0.78 and 0.09 % on three fresh synthetic groups. A 60-setting grid did not recover it; the gain tracked how many word pairs of a held-out sentence the user had already written (Spearman rho = 0.42, 95 % CI [0.24, 0.57]), a property we had set ourselves when writing the synthetic sentences. On real WildChat-1M users, the memory reduced bits per byte by 1.59 % (95 % CI [0.50, 2.91]) in the deciding test and by 3.07 % in a second group. A relevance filter with cue words frozen before blind-written probes existed cut unrequested mentions of personal facts from 24.7 % to 0.0 % of probe replies without reducing fact use. Preregistration, result files, data and the paper's LaTeX source (a script recomputes every number in the paper): https://github.com/erithy25/engramm AI assistance: the code, the measurement workflows and most of the documentation were written by an AI coding agent (Claude, by Anthropic) under the author's direction. The author set the goals, the constraints and the budget and is responsible for the claims (see the section "Ethics, privacy and AI assistance").
+KW  - mapeamento_2025_2026
+KW  - IC1;IC2
+N1  - Triagem por título/resumo: SLM 352M com filtro de admissão e nota de fatos do usuário Autores não disponíveis nas bases; completar via DOI no Zotero.
+ER  - 
+
+TY  - GEN
+TI  - DConstrain: Compiling Context-Parameterized Transitions for Diffusion Language Model Constrained Decoding
+AU  - Shi-Dong Cao
+AU  - Jing Ma
+AU  - Wen-Hao Chai
+AU  - Yu-Chen Tian
+AU  - Lun Du
+AU  - Da Zheng
+PY  - 2026
+DA  - 2026/10/22
+DO  - 10.48550/arxiv.2610.30920
+UR  - https://doi.org/10.48550/arxiv.2610.30920
+AB  - Diffusion language models (DLMs) decode multiple tokens in parallel, so individually valid tokens can be incompatible together under a schema. Exact joint inference over a grammar graph enforces compatibility, but it requires token-labeled successors across many hypothetical parser configurations. Encoding stacks and field histories in compiled states can cause exponential growth, which forces prior exact decoders to fix property orders and exclude valid outputs. We present DConstrain, which compiles schemas into context-parameterized transition programs. Cold compilation specializes token consumption to local grammar states while retaining context-dependent stack operations, environment guards, and caller-dependent deferred parsing symbolically. Tracking field histories as runtime values supports arbitrary property order without enumerating field subsets offline. At runtime, warm compilation binds reached configurations to these programs to construct exact successors, overlapping with the model forward pass because graph construction requires no model scores. Furthermore, token-effect grouping merges tokens with identical compiled effects before runtime contexts are bound, so groups are reused across stacks and environments even when concrete successors differ. Objective-specific score aggregation and token restoration provably preserve both the Viterbi optimum and the token-labeled path distribution of ungrouped inference. Across three benchmarks and two DLM families, DConstrain compiles 100% of BFCL schemas under arbitrary property orders, whereas an optimized finite-state baseline compiles only 71.30-85.81%. Under arbitrary property order, it reduces BFCL end-to-end decoding latency by 6.65-46.26 times with 100% schema validity and raises DiffusionGemma's BFCL accuracy from 37.27% under fixed order to 81.56%.
+KW  - mapeamento_2025_2026
+KW  - IC4
+N1  - Triagem por título/resumo: Decodificação restrita por esquema para modelos de difusão.
+ER  - 
+
+TY  - GEN
+TI  - Trail: Accurate Local Smart Home Control Using Decision Models
+AU  - Maleeha Masood
+AU  - Deepak Vasisht
+AU  - Indranil Gupta
+PY  - 2026
+DA  - 2026/10/31
+DO  - 10.48550/arxiv.2611.00610
+UR  - https://doi.org/10.48550/arxiv.2611.00610
+AB  - Natural-language driven smart home control remains challenging: cloud-hosted Large Language Models (LLMs) raise privacy concerns, while local Small Language Models (SLMs) can generate invalid actions or misinterpret requests. We introduce Trail (Typed Registry-Anchored Inference for Language commands in Smart Homes), a fully local framework that replaces open-ended command generation with hierarchical typed decisions. Trail exploits the natural structure of a home's action space, selecting a room, device, and operation from candidates derived from the runtime device registry. This ensures valid actions while enabling confidence-based abstention when requests cannot be reliably resolved. We also design a structured memory module that uses typed decisions to support user preferences, device references, and multi-turn interactions. To evaluate Trail, we extend HomeBench and generate three datasets: Trek-Base, which tests natural-language variation; Trek-Robust, which evaluates robustness to changes in the home and its description; and Trek-Memory, which assesses conversational memory across multi-turn interactions. Trail achieves 85.3% accuracy on Trek-Robust versus 69.8% for a finetuned Qwen3.5-4B baseline, while remaining competitive on Trek-Base requests. With memory, Trail resolves 75.6% of the requests that depend on earlier turns, compared with 42.5% for the finetuned baseline given conversation history.
+KW  - mapeamento_2025_2026
+KW  - IC3;IC4
+N1  - Triagem por título/resumo: SLM local com decisões tipadas e memória estruturada multi-turno avaliada.
+ER  - 
+
+TY  - GEN
+TI  - Closing the Epistemic Loop Across the Five Layers of Agent Memory: Cryptographic Provenance, Paraconsistent Bilattices, and Z3-Quarantined Procedural Induction
+PY  - 2026
+DA  - 2026/11/03
+DO  - 10.5281/zenodo.23901682
+UR  - https://doi.org/10.5281/zenodo.23901682
+AB  - Contemporary agent architectures decompose persistent state into five layers (Working, Episodic, Semantic, Procedural, and Meta-Memory), yet connect them via unconstrained asynchronous extraction and reflection jobs that launder unverified model narration into grounded facts and reusable skills. We present the unified five-layer epistemic architecture of Project Lucca (v1.47.0, Work Order 39) and evaluate every inter-layer promotion boundary on local consumer silicon. At the Layer 2 -> Layer 3 boundary, six HKDF HMAC-SHA256 domain signers and SQLite triggers cut multi-session self-poisoning from 10/10 (Naive RAG) to 0/10 (p = 0.00195) across four Gemma-4 parameter scales (26B-A4B, 12B, E4B, E2B). Within Layer 3, a zero-VRAM 22M OpenVINO MiniLM-L6 cross-encoder isolates semantic contradictions in 12.23 ms mean CPU latency (0.975/0.975 contradiction P/R, 0/100 timeouts) into Belnap's four-valued paraconsistent state B (BOTH) paired with OpenNARS Beta(w+, w-) evidence weights and append-only supersede() lineage, while hybrid RRF + Allen temporal retrieval lifts LongMemEval (N=30, 12B) accuracy from 23.3% to 70.0% (p = 0.0001, 8.1 ms mean retrieval). At the Layer 4 & Layer 5 boundary, a live 52-turn waking + 16-turn held-out rule-induction baseline (IN-D) demonstrates 4/4 structured tool rules verified by Z3 SMT and 50-turn historical shadow replay, achieving 8/8 (100.0%) held-out recall at 0.14 ms reflex latency and 0/8 (0.0%) distractor misfires under a single-strike circuit breaker, while documenting a 0/2 admission boundary on free-form S-expression macro anti-unification.
+KW  - mapeamento_2025_2026
+KW  - IC1;IC2;IC3
+N1  - Triagem por título/resumo: Promoção verificada, contradições e supersede em memória; inclui modelos pequenos. Autores não disponíveis nas bases; completar via DOI no Zotero.
+ER  - 
+
