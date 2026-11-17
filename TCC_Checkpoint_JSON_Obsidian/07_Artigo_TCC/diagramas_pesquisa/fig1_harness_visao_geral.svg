@@ -102,7 +102,7 @@
   <text x="1310" y="1396" font-family="Arial, Helvetica, sans-serif" font-size="21" text-anchor="start" fill="#172533" xml:space="preserve">preservação, adição e atualização</text>
   <path d="M1580 1430 L1580 1478" fill="none" stroke="#263544" stroke-width="3" marker-end="url(#arrow)"/>
   <rect x="30" y="1480" width="1840" height="110" rx="8" fill="#f3f4f6" stroke="#33495a" stroke-width="2"/>
-  <text x="50" y="1520" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="start" fill="#172533" xml:space="preserve">Análise estatística (Seção 3.7)</text>
+  <text x="50" y="1520" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="start" fill="#172533" xml:space="preserve">Análise estatística (Seção 3.9)</text>
   <text x="50" y="1556" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="start" fill="#172533" xml:space="preserve">IC de 95% por bootstrap · Friedman e Wilcoxon com Holm-Bonferroni · curvas por turno · visões condicional e global · resultados estritos e híbridos</text>
   <text x="30" y="360" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="start" fill="#172533" xml:space="preserve">Legenda</text>
   <path d="M30 401 A25.0 16 0 0 1 80 401 V405 A25.0 16 0 0 1 30 405 Z" fill="#edf3f8" stroke="#33495a" stroke-width="2"/>

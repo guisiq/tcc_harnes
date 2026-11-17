@@ -11,6 +11,7 @@ import urllib.request
 from pathlib import Path
 
 import docx
+from docx.enum.style import WD_STYLE_TYPE
 from docx.enum.table import WD_TABLE_ALIGNMENT
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml import OxmlElement, parse_xml
@@ -25,23 +26,23 @@ DEFAULT_HEADER = ROOT / "anexos" / "Recursos" / "Cabeçalho oficial 2025.docx"
 DEFAULT_CONFIG = HERE / "artigo_unitins_config.json"
 DEFAULT_CSL_NAME = "associacao-brasileira-de-normas-tecnicas.csl"
 INTRODUCTION = re.compile(r"^#\s+1\s+Introdução\s*$", re.IGNORECASE | re.MULTILINE)
-CAPTION = re.compile(r"^(?:Quadro|Tabela)\s+\d+\s+[–—-]\s+")
+CAPTION = re.compile(r"^(?:Figura|Quadro|Tabela)\s+\d+\s+[–—-]\s+")
 HEADING = re.compile(r"^Heading ([1-9])$")
 BLACK = RGBColor(0, 0, 0)
 FONT = "Arial"
 MONTHS = {
-    "jan": "Janeiro",
-    "fev": "Fevereiro",
-    "mar": "Março",
-    "abr": "Abril",
-    "mai": "Maio",
-    "jun": "Junho",
-    "jul": "Julho",
-    "ago": "Agosto",
-    "set": "Setembro",
-    "out": "Outubro",
-    "nov": "Novembro",
-    "dez": "Dezembro",
+    "jan": "jan.",
+    "fev": "fev.",
+    "mar": "mar.",
+    "abr": "abr.",
+    "mai": "mai.",
+    "jun": "jun.",
+    "jul": "jul.",
+    "ago": "ago.",
+    "set": "set.",
+    "out": "out.",
+    "nov": "nov.",
+    "dez": "dez.",
 }
 
 
@@ -350,6 +351,11 @@ def format_schedule(table, periods):
     if previous is None or previous.tag != qn("w:p"):
         raise ValueError("O cronograma deve vir depois de um parágrafo introdutório.")
     introduction = docx.text.paragraph.Paragraph(previous, table._parent)
+    if CAPTION.match(introduction.text.strip()):
+        previous = previous.getprevious()
+        if previous is None or previous.tag != qn("w:p"):
+            raise ValueError("O cronograma deve ter um parágrafo introdutório antes da legenda.")
+        introduction = docx.text.paragraph.Paragraph(previous, table._parent)
     introduction.paragraph_format.page_break_before = True
     introduction.paragraph_format.keep_with_next = True
     table.autofit = False
@@ -388,18 +394,26 @@ def format_schedule(table, periods):
 
 def format_tables(document):
     schedules = 0
+    section = document.sections[0]
+    available_width = section.page_width - section.left_margin - section.right_margin
     for table in document.tables:
         table.alignment = WD_TABLE_ALIGNMENT.CENTER
         properties = table._tbl.tblPr
+        previous = table._tbl.getprevious()
+        caption = (
+            docx.text.paragraph.Paragraph(previous, table._parent).text.strip()
+            if previous is not None and previous.tag == qn("w:p") else ""
+        )
+        side_border = "nil" if caption.startswith("Tabela ") else "single"
         old_borders = properties.find(qn("w:tblBorders"))
         if old_borders is not None:
             properties.remove(old_borders)
         properties.append(parse_xml(
             f'<w:tblBorders {nsdecls("w")}>'
             '<w:top w:val="single" w:sz="4" w:space="0" w:color="000000"/>'
-            '<w:left w:val="single" w:sz="4" w:space="0" w:color="000000"/>'
+            f'<w:left w:val="{side_border}" w:sz="4" w:space="0" w:color="000000"/>'
             '<w:bottom w:val="single" w:sz="4" w:space="0" w:color="000000"/>'
-            '<w:right w:val="single" w:sz="4" w:space="0" w:color="000000"/>'
+            f'<w:right w:val="{side_border}" w:sz="4" w:space="0" w:color="000000"/>'
             '<w:insideH w:val="single" w:sz="4" w:space="0" w:color="000000"/>'
             '<w:insideV w:val="single" w:sz="4" w:space="0" w:color="000000"/>'
             '</w:tblBorders>'
@@ -408,10 +422,34 @@ def format_tables(document):
         if periods is not None:
             schedules += 1
             format_schedule(table, periods)
+        table.autofit = False
+        original_widths = [column.width for column in table.columns]
+        if any(width is None or width <= 0 for width in original_widths):
+            raise ValueError("A tabela contém uma largura de coluna inválida.")
+        total_width = sum(original_widths)
+        widths = [round(available_width * width / total_width) for width in original_widths]
+        for column, width in zip(table.columns, widths):
+            column.width = width
+        for row in table.rows:
+            seen = set()
+            for index, cell in enumerate(row.cells):
+                if cell._tc in seen:
+                    continue
+                seen.add(cell._tc)
+                cell.width = sum(widths[index:index + cell._tc.grid_span])
+        table_width = properties.find(qn("w:tblW"))
+        if table_width is None:
+            table_width = OxmlElement("w:tblW")
+            properties.append(table_width)
+        table_width.set(qn("w:type"), "dxa")
+        table_width.set(qn("w:w"), str(round(available_width / 635)))
         for row_index, row in enumerate(table.rows):
             row_properties = row._tr.get_or_add_trPr()
             if row_properties.find(qn("w:cantSplit")) is None:
                 row_properties.append(OxmlElement("w:cantSplit"))
+            is_header = row_index == 0 or (periods is not None and row_index == 1)
+            if is_header and row_properties.find(qn("w:tblHeader")) is None:
+                row_properties.append(OxmlElement("w:tblHeader"))
             for column_index, cell in enumerate(row.cells):
                 text = cell.text.strip()
                 if row_index == 0 or (periods is not None and row_index == 1):
@@ -433,7 +471,7 @@ def format_tables(document):
                     for run in paragraph.runs:
                         format_run(
                             run,
-                            size=7.5 if periods else 10,
+                            size=10,
                             bold=(row_index == 0 or (
                                 periods is not None and (row_index == 1 or column_index == 0)
                             )),
@@ -467,6 +505,22 @@ def format_document(document, front, config):
         section.right_margin = Cm(2)
         section.header_distance = Cm(1)
         section.footer_distance = Cm(1.25)
+    normal = document.styles["Normal"]
+    normal.font.name = FONT
+    normal.font.size = Pt(12)
+    normal.font.color.rgb = BLACK
+    if "Footnote Text" not in document.styles:
+        document.styles.add_style("Footnote Text", WD_STYLE_TYPE.PARAGRAPH, builtin=True)
+    footnotes = document.styles["Footnote Text"]
+    footnotes.base_style = normal
+    footnotes.font.name = FONT
+    footnotes.font.size = Pt(10)
+    footnotes.font.color.rgb = BLACK
+    footnotes.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.LEFT
+    footnotes.paragraph_format.first_line_indent = Cm(0)
+    footnotes.paragraph_format.line_spacing = 1.0
+    footnotes.paragraph_format.space_before = Pt(0)
+    footnotes.paragraph_format.space_after = Pt(0)
     first = document.paragraphs[0]
     first.paragraph_format.page_break_before = True
 
@@ -547,6 +601,8 @@ def format_document(document, front, config):
     insert("RESUMO", bold=True, before=6, after=24, page_break=True)
     resumo = insert(align=WD_ALIGN_PARAGRAPH.JUSTIFY, after=18, spacing=1.0)
     add_inlines(resumo, sections["Resumo"])
+    for run in resumo.runs:
+        format_run(run, size=11)
     insert_labeled("Palavras-chave:", sections["Palavras-chave"])
 
     insert("ABSTRACT", bold=True, before=6, after=18, page_break=True)
@@ -554,11 +610,18 @@ def format_document(document, front, config):
     add_inlines(english_title, sections["Title"])
     abstract = insert(align=WD_ALIGN_PARAGRAPH.JUSTIFY, after=18, spacing=1.0)
     add_inlines(abstract, sections["Abstract"])
+    for run in abstract.runs:
+        format_run(run, size=11)
     insert_labeled("Keywords:", sections["Keywords"])
 
-    if captions:
-        insert("LISTA DE QUADROS E TABELAS", bold=True, before=6, after=24, page_break=True)
-        for caption in captions:
+    for title, entries in (
+        ("LISTA DE ILUSTRAÇÕES", [caption for caption in captions if caption.startswith("Figura ")]),
+        ("LISTA DE QUADROS E TABELAS", [caption for caption in captions if not caption.startswith("Figura ")]),
+    ):
+        if not entries:
+            continue
+        insert(title, bold=True, before=6, after=24, page_break=True)
+        for caption in entries:
             insert_list_entry(caption, after=6, spacing=1.5)
 
     if siglas:
@@ -593,6 +656,8 @@ def format_document(document, front, config):
             elif re.match(r"^\d+\s+considerações", text, re.IGNORECASE):
                 paragraph.paragraph_format.page_break_before = True
             paragraph.alignment = WD_ALIGN_PARAGRAPH.LEFT
+            if level == 1 and not re.match(r"^\d+\s", text):
+                paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
             paragraph.paragraph_format.first_line_indent = Cm(0)
             paragraph.paragraph_format.left_indent = Cm(0)
             paragraph.paragraph_format.line_spacing = 1.5
@@ -636,7 +701,7 @@ def format_document(document, front, config):
             paragraph.paragraph_format.line_spacing = 1.0
             paragraph.paragraph_format.space_before = Pt(12)
             paragraph.paragraph_format.space_after = Pt(4)
-            paragraph.paragraph_format.keep_with_next = text.startswith("Quadro ")
+            paragraph.paragraph_format.keep_with_next = True
             for run in paragraph.runs:
                 format_run(run, size=10, bold=True)
             continue
@@ -660,7 +725,7 @@ def format_document(document, front, config):
             for run in paragraph.runs:
                 format_run(run)
             continue
-        if re.match(r"^([a-d]\)|\d+\.)", text) or "List" in style_name or "Compact" in style_name:
+        if re.match(r"^([a-z]\)|\d+\.)", text) or "List" in style_name or "Compact" in style_name:
             paragraph.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
             paragraph.paragraph_format.first_line_indent = Cm(0)
             paragraph.paragraph_format.left_indent = Cm(1.25)
@@ -732,6 +797,7 @@ def generate(args):
         [
             str(args.pandoc),
             str(body_path),
+            "--from=markdown-implicit_figures",
             f"--reference-doc={args.cabecalho}",
             f"--csl={args.csl}",
             f"--bibliography={item_path}",

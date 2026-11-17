@@ -1,4 +1,4 @@
-"""Gera as Figuras 1 e 2 da Seção 4.2 (SVG editável + PNG).
+"""Gera as Figuras 1 e 2 da Seção 3.7 (SVG editável + PNG).
 
 Uso: python gerar_figuras_harness.py
 O PNG é renderizado com Chrome/Edge headless, se encontrado.
@@ -250,7 +250,7 @@ def figura_visao_geral() -> Svg:
         s.text(x + 20, 1396, line, 21)
         s.arrow([(x + 290, 1430), (x + 290, 1478)])
     s.rect(30, 1480, 1840, 110, GRAY)
-    s.text(50, 1520, "Análise estatística (Seção 3.7)", 22, bold=True)
+    s.text(50, 1520, "Análise estatística (Seção 3.9)", 22, bold=True)
     s.text(50, 1556, "IC de 95% por bootstrap · Friedman e Wilcoxon com Holm-Bonferroni · curvas por turno · "
                      "visões condicional e global · resultados estritos e híbridos", 19)
 
@@ -300,7 +300,7 @@ def figura_escrita() -> Svg:
     s.text(50, 166, "igual em todas as", 19)
     s.text(50, 190, "transições e escritores", 19)
     s.text(50, 226, "instruções e regras 1–6", 19)
-    s.text(50, 254, ["esquema ", S_, " (Seção 3.2)"], 19)
+    s.text(50, 254, ["esquema ", S_, " (Seção 3.3)"], 19)
 
     s.cylinder(30, 300, 300, 270, BLUE)
     s.text(50, 354, "SUMIE", 22, bold=True)

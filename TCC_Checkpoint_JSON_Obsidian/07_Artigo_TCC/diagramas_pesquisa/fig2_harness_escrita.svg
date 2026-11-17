@@ -10,7 +10,7 @@
   <text x="50" y="166" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="start" fill="#172533" xml:space="preserve">igual em todas as</text>
   <text x="50" y="190" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="start" fill="#172533" xml:space="preserve">transições e escritores</text>
   <text x="50" y="226" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="start" fill="#172533" xml:space="preserve">instruções e regras 1–6</text>
-  <text x="50" y="254" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="start" fill="#172533" xml:space="preserve"><tspan>esquema </tspan><tspan font-style="italic">S</tspan><tspan> (Seção 3.2)</tspan></text>
+  <text x="50" y="254" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="start" fill="#172533" xml:space="preserve"><tspan>esquema </tspan><tspan font-style="italic">S</tspan><tspan> (Seção 3.3)</tspan></text>
   <path d="M30 316 A150.0 16 0 0 1 330 316 V554 A150.0 16 0 0 1 30 554 Z" fill="#edf3f8" stroke="#33495a" stroke-width="2"/>
   <path d="M30 316 A150.0 16 0 0 0 330 316" fill="none" stroke="#33495a" stroke-width="2"/>
   <text x="50" y="354" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="start" fill="#172533" xml:space="preserve">SUMIE</text>

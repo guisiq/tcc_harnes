@@ -10,10 +10,13 @@ from pathlib import Path
 from zipfile import ZipFile
 
 from docx import Document
+from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml.ns import qn
+from docx.opc.constants import RELATIONSHIP_TYPE as RT
+from docx.shared import Cm, Twips
 from lxml import etree
 
-from gerar_artigo_unitins import MONTHS, front_matter, inline_text, pandoc_ast, schedule_header
+from gerar_artigo_unitins import CAPTION, MONTHS, front_matter, inline_text, pandoc_ast, schedule_header
 
 
 NS = {
@@ -192,6 +195,148 @@ def verify_references(paragraphs, keys):
         )
 
 
+def verify_formatting(document):
+    for section in document.sections:
+        for attribute, centimeters in (
+            ("page_width", 21), ("page_height", 29.7),
+            ("top_margin", 3), ("left_margin", 3),
+            ("bottom_margin", 2), ("right_margin", 2),
+        ):
+            actual = getattr(section, attribute)
+            if actual is None or abs(actual - Cm(centimeters)) > Cm(0.01):
+                raise ValueError(f"Formatação Unitins: {attribute} deve medir {centimeters} cm.")
+
+    def inherited(style, group, attribute):
+        while style is not None:
+            value = getattr(getattr(style, group), attribute)
+            if value is not None:
+                return value
+            style = style.base_style
+        return None
+
+    def has_font_size(paragraph, points):
+        for run in paragraph.runs:
+            size = run.font.size
+            if size is None:
+                size = inherited(run.style, "font", "size")
+            if size is None:
+                size = inherited(paragraph.style, "font", "size")
+            if size is None or size.pt != points:
+                return False
+        return True
+
+    styles = {style.style_id: style for style in document.styles}
+    for relation in document.part.rels.values():
+        if relation.reltype != RT.FOOTNOTES:
+            continue
+        notes = etree.fromstring(relation.target_part.blob)
+        for identifier in set(notes.xpath("//w:pStyle/@w:val", namespaces=NS)):
+            style = styles.get(identifier)
+            font = inherited(style, "font", "name")
+            size = inherited(style, "font", "size")
+            spacing = inherited(style, "paragraph_format", "line_spacing")
+            alignment = inherited(style, "paragraph_format", "alignment")
+            if alignment is None:
+                # O Word omite o alinhamento quando coincide com o padrão do documento.
+                defaults = document.styles.element.xpath(
+                    "w:docDefaults/w:pPrDefault/w:pPr/w:jc/@w:val"
+                )
+                alignment = WD_ALIGN_PARAGRAPH.from_xml(defaults[0] if defaults else "left")
+            if (
+                font != "Arial"
+                or size is None or size.pt != 10
+                or spacing != 1.0
+                or alignment != WD_ALIGN_PARAGRAPH.LEFT
+            ):
+                raise ValueError(
+                    "Formatação Unitins: notas devem usar Arial 10, espaço simples e "
+                    f"alinhamento à esquerda. Estilo {identifier}: fonte={font}, "
+                    f"tamanho={size.pt if size is not None else None}, "
+                    f"entrelinha={spacing}, alinhamento={alignment}."
+                )
+
+    summary_remaining = 0
+    in_body = False
+    in_references = False
+    for paragraph in document.paragraphs:
+        text = paragraph.text.strip()
+        if summary_remaining:
+            summary_remaining -= 1
+            if summary_remaining == 0:
+                if paragraph.paragraph_format.line_spacing != 1.0 or not has_font_size(paragraph, 11):
+                    raise ValueError("Formatação Unitins: resumo e abstract devem usar fonte 11 e espaço simples.")
+        if text in {"RESUMO", "ABSTRACT"}:
+            summary_remaining = 1 if text == "RESUMO" else 2
+            continue
+        if text.casefold() == "1 introdução":
+            in_body = True
+        if not in_body:
+            continue
+        if paragraph.style.name == "Heading 1":
+            in_references = text.casefold() == "referências"
+        if CAPTION.match(text) or text.startswith("Fonte:"):
+            if (
+                paragraph.paragraph_format.alignment != WD_ALIGN_PARAGRAPH.CENTER
+                or paragraph.paragraph_format.line_spacing != 1.0
+                or not has_font_size(paragraph, 10)
+            ):
+                raise ValueError(f"Formatação Unitins: legenda/fonte fora do padrão: {text[:80]}")
+            if text.startswith(("Quadro ", "Tabela ")):
+                following = paragraph._p.getnext()
+                if following is None or following.tag != qn("w:tbl"):
+                    raise ValueError("Formatação Unitins: título de quadro ou tabela deve ficar acima do elemento.")
+            continue
+        if paragraph.style.name == "Heading 1" and not re.match(r"^\d+\s", text):
+            if paragraph.paragraph_format.alignment != WD_ALIGN_PARAGRAPH.CENTER:
+                raise ValueError(f"Formatação Unitins: título sem número deve ser centralizado: {text}")
+        if (
+            text and not in_references
+            and paragraph.style.name in {"Normal", "Body Text", "First Paragraph"}
+            and paragraph._p.find(qn("m:oMathPara")) is None
+        ):
+            expected_indent = Cm(0) if (
+                text.startswith("em que ") or re.match(r"^([a-z]\)|\d+\.)", text)
+            ) else Cm(1.25)
+            indent = paragraph.paragraph_format.first_line_indent
+            if indent is None:
+                indent = inherited(paragraph.style, "paragraph_format", "first_line_indent")
+            if indent is None:
+                defaults = document.styles.element.xpath(
+                    "w:docDefaults/w:pPrDefault/w:pPr/w:ind"
+                )
+                properties = defaults[0].attrib if defaults else {}
+                indent = Twips(
+                    -int(properties[qn("w:hanging")]) if qn("w:hanging") in properties
+                    else int(properties.get(qn("w:firstLine"), "0"))
+                )
+            if (
+                paragraph.paragraph_format.alignment != WD_ALIGN_PARAGRAPH.JUSTIFY
+                or paragraph.paragraph_format.line_spacing != 1.5
+                or indent is None or abs(indent - expected_indent) > Cm(0.01)
+                or not has_font_size(paragraph, 12)
+            ):
+                raise ValueError(f"Formatação Unitins: corpo fora do padrão: {text[:80]}")
+
+    width = document.sections[0].page_width - document.sections[0].left_margin - document.sections[0].right_margin
+    for table in document.tables:
+        if abs(sum(column.width for column in table.columns) - width) > Cm(0.02):
+            raise ValueError("Formatação Unitins: tabela não ocupa a largura útil da página.")
+        header = table.rows[0]._tr.trPr
+        if header is None or header.find(qn("w:tblHeader")) is None:
+            raise ValueError("Formatação Unitins: cabeçalho da tabela não se repete nas páginas seguintes.")
+        previous = table._tbl.getprevious()
+        caption = "".join(previous.xpath(".//w:t/text()")) if previous is not None else ""
+        if caption.startswith("Tabela "):
+            borders = table._tbl.tblPr.find(qn("w:tblBorders"))
+            for side in ("left", "right"):
+                border = borders.find(qn(f"w:{side}")) if borders is not None else None
+                if border is None or border.get(qn("w:val")) not in {"nil", "none"}:
+                    raise ValueError("Formatação Unitins: tabelas não devem ter fechamento lateral.")
+    for image in document.inline_shapes:
+        if image.width > width + Cm(0.01):
+            raise ValueError("Formatação Unitins: imagem ultrapassa a largura útil da página.")
+
+
 def verify(source, body, final, pandoc):
     ast = pandoc_ast(pandoc, source)
     front = front_matter(ast)
@@ -209,6 +354,7 @@ def verify(source, body, final, pandoc):
             raise ValueError(f"O parágrafo {index} do corpo mudou durante a formatação.")
     verify_front(output, front)
     verify_references(new_paragraphs, keys)
+    verify_formatting(output)
     selected = verify_tables(base, output)
 
     with ZipFile(body) as base_archive, ZipFile(final) as final_archive:

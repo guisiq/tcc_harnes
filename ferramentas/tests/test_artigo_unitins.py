@@ -7,6 +7,10 @@ import unittest
 from pathlib import Path
 
 from docx import Document
+from docx.opc.constants import CONTENT_TYPE as CT, RELATIONSHIP_TYPE as RT
+from docx.opc.packuri import PackURI
+from docx.opc.part import Part
+from docx.shared import Cm, Pt
 
 
 TOOLS = Path(__file__).resolve().parents[1]
@@ -71,6 +75,7 @@ def citation(key, *, prefix=None, suffix=None):
 def document_with_schedule():
     document = Document()
     document.add_paragraph("O cronograma segue.")
+    document.add_paragraph("Tabela 1 – Cronograma de atividades")
     table = document.add_table(rows=2, cols=5)
     for cell, label in zip(table.rows[0].cells, ["Ativ.", "Set Q1", "Set Q2", "Out Q3", "Out Q4"]):
         cell.text = label
@@ -151,8 +156,12 @@ class ScheduleTests(unittest.TestCase):
         formatted = document_with_schedule()
         generator.format_tables(formatted)
         table = formatted.tables[0]
-        self.assertEqual(table.rows[0].cells[1].text, "Setembro")
-        self.assertEqual(table.rows[0].cells[3].text, "Outubro")
+        self.assertEqual(table.rows[0].cells[1].text, "set.")
+        self.assertEqual(table.rows[0].cells[3].text, "out.")
+        self.assertTrue(formatted.paragraphs[0].paragraph_format.page_break_before)
+        borders = table._tbl.tblPr.find(generator.qn("w:tblBorders"))
+        for side in ("left", "right"):
+            self.assertEqual(borders.find(generator.qn(f"w:{side}")).get(generator.qn("w:val")), "nil")
         self.assertEqual([cell.text for cell in table.rows[1].cells[1:]], ["Q1", "Q2", "Q3", "Q4"])
         self.assertEqual(validator.verify_tables(original, formatted), 2)
 
@@ -169,6 +178,129 @@ class ScheduleTests(unittest.TestCase):
         document.tables[0].rows[0].cells[2].text = "Out Q2"
         with self.assertRaisesRegex(ValueError, "mesmo mês"):
             generator.format_tables(document)
+
+
+class FormattingTests(unittest.TestCase):
+    def formatted_document(self):
+        document = Document()
+        document.add_heading("1 Introdução", level=1)
+        document.add_paragraph("Texto do artigo.")
+        document.add_paragraph("e) Etapa da revisão.")
+        document.add_paragraph("em que o estado representa a memória.")
+        document.add_paragraph("Figura 1 – Fluxo da pesquisa")
+        document.add_heading("Referências", level=1)
+        document.add_paragraph("Uma referência.")
+        document.add_heading("Apêndice A – Material complementar", level=1)
+        notes = Part(
+            PackURI("/word/footnotes.xml"), CT.WML_FOOTNOTES,
+            b'<w:footnotes xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">'
+            b'<w:footnote w:id="1"><w:p><w:pPr><w:pStyle w:val="FootnoteText"/>'
+            b'</w:pPr><w:r><w:t>Nota.</w:t></w:r></w:p></w:footnote></w:footnotes>',
+            document.part.package,
+        )
+        document.part.relate_to(notes, RT.FOOTNOTES)
+        config = json.loads((TOOLS / "artigo_unitins_config.json").read_text(encoding="utf-8"))
+        generator.format_document(document, generator.front_matter(article_ast()), config)
+        return document
+
+    def test_detects_margins_and_body_spacing_regressions(self):
+        for regression in ("margem", "entrelinha"):
+            with self.subTest(regression=regression):
+                document = self.formatted_document()
+                validator.verify_formatting(document)
+                if regression == "margem":
+                    document.sections[0].left_margin = Cm(2)
+                else:
+                    next(p for p in document.paragraphs if p.text == "Texto do artigo.").paragraph_format.line_spacing = 1.0
+                with self.assertRaisesRegex(ValueError, "Formatação Unitins"):
+                    validator.verify_formatting(document)
+
+    def test_detects_figure_caption_and_footnote_regressions(self):
+        for regression in ("legenda", "nota"):
+            with self.subTest(regression=regression):
+                document = self.formatted_document()
+                if regression == "legenda":
+                    paragraph = next(p for p in document.paragraphs if p.text == "Figura 1 – Fluxo da pesquisa")
+                    paragraph.runs[0].font.size = Pt(12)
+                else:
+                    document.styles["Footnote Text"].font.size = Pt(12)
+                with self.assertRaisesRegex(ValueError, "Formatação Unitins"):
+                    validator.verify_formatting(document)
+
+    def test_detects_abstract_and_table_header_regressions(self):
+        document = self.formatted_document()
+        paragraph = next(p for p in document.paragraphs if p.text == "Abstract text.")
+        paragraph.runs[0].font.size = Pt(12)
+        with self.assertRaisesRegex(ValueError, "resumo e abstract"):
+            validator.verify_formatting(document)
+        document = self.formatted_document()
+        table = document.add_table(rows=2, cols=2)
+        generator.format_tables(document)
+        validator.verify_formatting(document)
+        properties = table.rows[0]._tr.trPr
+        properties.remove(properties.find(generator.qn("w:tblHeader")))
+        with self.assertRaisesRegex(ValueError, "cabeçalho da tabela"):
+            validator.verify_formatting(document)
+
+    def test_accepts_word_normalizing_the_footnote_style_name(self):
+        document = self.formatted_document()
+        style = document.styles["Footnote Text"]
+        style.name = "Texto de nota de rodapé"
+        style.element.set(generator.qn("w:styleId"), "Textodenotaderodape")
+        notes = document.part.part_related_by(RT.FOOTNOTES)
+        notes._blob = notes.blob.replace(b'"FootnoteText"', b'"Textodenotaderodape"')
+        validator.verify_formatting(document)
+
+    def test_resolves_inherited_footnote_font_and_document_alignment(self):
+        document = self.formatted_document()
+        style = document.styles["Footnote Text"]
+        style.font.name = None
+        style.paragraph_format.alignment = None
+        validator.verify_formatting(document)
+        defaults = document.styles.element.xpath("w:docDefaults/w:pPrDefault/w:pPr")[0]
+        alignment = generator.OxmlElement("w:jc")
+        alignment.set(generator.qn("w:val"), "both")
+        defaults.append(alignment)
+        with self.assertRaisesRegex(ValueError, "notas devem"):
+            validator.verify_formatting(document)
+
+    def test_resolves_body_font_size_inherited_after_word_save(self):
+        document = self.formatted_document()
+        paragraph = next(p for p in document.paragraphs if p.text == "Texto do artigo.")
+        for run in paragraph.runs:
+            run.font.size = None
+        validator.verify_formatting(document)
+        paragraph.style.font.size = Pt(11)
+        with self.assertRaisesRegex(ValueError, "corpo fora do padrão"):
+            validator.verify_formatting(document)
+
+    def test_resolves_omitted_zero_indent_after_word_save(self):
+        document = self.formatted_document()
+        paragraph = next(p for p in document.paragraphs if p.text.startswith("em que "))
+        paragraph.paragraph_format.first_line_indent = None
+        validator.verify_formatting(document)
+        paragraph.style.paragraph_format.first_line_indent = Cm(1.25)
+        with self.assertRaisesRegex(ValueError, "corpo fora do padrão"):
+            validator.verify_formatting(document)
+
+    def test_detects_misplaced_table_caption_and_closed_sides(self):
+        document = self.formatted_document()
+        caption = document.add_paragraph("Tabela 1 – Dados do experimento")
+        table = document.add_table(rows=2, cols=3)
+        generator.format_tables(document)
+        for run in caption.runs:
+            run.font.size = Pt(10)
+        caption.alignment = generator.WD_ALIGN_PARAGRAPH.CENTER
+        caption.paragraph_format.line_spacing = 1.0
+        validator.verify_formatting(document)
+        table._tbl.addnext(caption._p)
+        with self.assertRaisesRegex(ValueError, "acima do elemento"):
+            validator.verify_formatting(document)
+        table._tbl.addprevious(caption._p)
+        border = table._tbl.tblPr.find(generator.qn("w:tblBorders")).find(generator.qn("w:left"))
+        border.set(generator.qn("w:val"), "single")
+        with self.assertRaisesRegex(ValueError, "fechamento lateral"):
+            validator.verify_formatting(document)
 
 
 @unittest.skipUnless(shutil.which("pwsh"), "PowerShell 7 não encontrado")

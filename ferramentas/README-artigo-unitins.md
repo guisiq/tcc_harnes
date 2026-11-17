@@ -76,9 +76,18 @@ chave ou identificação Zotero, a geração termina com erro.
   Eles prevalecem sobre os campos correspondentes exportados do Zotero;
   revise ou remova os ajustes se corrigir os dados diretamente na biblioteca.
 - A lista de quadros/tabelas e o sumário são derivados das legendas e dos
-  títulos do corpo. O cronograma reconhece cabeçalho `Ativ.` e pares como
+  títulos do corpo. Legendas `Figura N – ...` geram também uma lista de
+  ilustrações. Mantenha a legenda acima da imagem; o texto alternativo da
+  imagem é preservado para acessibilidade, sem virar outra legenda visível.
+  O cronograma reconhece cabeçalho `Ativ.` e pares como
   `Ago Q1`, `Ago Q2`; as células `X` são representadas em azul. Se ele não
   couber em uma página, o script avisa em vez de salvar um resultado parcial.
+  Seus meses são abreviados para caberem nas colunas sem reduzir a fonte 10.
+  Coloque o título antes da grade e a fonte depois dela. Tabelas ficam sem
+  fechamento lateral; quadros mantêm a moldura.
+- Use a sintaxe Pandoc: `[@chave]` para citação entre parênteses,
+  `[@chave1; @chave2]` para um grupo e `@chave` para citação narrativa.
+  Sem `@`, as chaves são texto comum e não viram campos Zotero.
 - As citações são campos do Zotero; a lista de referências é formatada na
   geração pelo Pandoc/citeproc. Em citações narrativas, o nome do autor é
   texto separado do campo que contém o ano. Após alterar autores ou
@@ -96,7 +105,21 @@ deve-se verificar a política com o responsável.
 
 A geração confere o texto preliminar, os parágrafos do corpo, os campos de
 citação, a quantidade de referências, tabelas, seleções do cronograma,
-fórmulas, notas de rodapé, imagens e paginação do sumário e da lista. Para
+fórmulas, notas de rodapé, imagens e paginação do sumário e das listas.
+O validador também verifica A4, margens superior/esquerda de 3 cm e
+inferior/direita de 2 cm, corpo 12 com entrelinha 1,5 e recuo de 1,25 cm,
+resumo/abstract em 11 com espaço simples, notas em Arial 10, legendas e
+fontes em 10, títulos não numerados centralizados, largura de tabelas e
+imagens, títulos de quadros/tabelas acima do elemento, ausência de fechamento
+lateral em tabelas e repetição dos cabeçalhos.
+As notas usam o estilo nativo de rodapé. Na conferência do DOCX regravado,
+os estilos são identificados pelas referências reais das notas, não pelo
+nome traduzido pelo Word. Fonte, tamanho e recuo herdados e os padrões do
+documento são considerados para evitar falsos erros após a gravação.
+Essa verificação de formatação não certifica o conteúdo, o limite de palavras
+dos resumos ou documentos institucionais exigidos para o depósito definitivo
+(ficha catalográfica e folha de aprovação).
+Para
 executar os testes locais dos scripts:
 
 ```powershell

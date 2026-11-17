@@ -110,11 +110,139 @@ A antiga Seção 4.2, "Arquitetura proposta", passou a ser a **Seção 3.6, "Arq
 
 **Ponto em aberto para o orientador:** na mesma aula, o professor sugeriu que, no TCC I, os resultados esperados fiquem como seção de Materiais e métodos, sem um capítulo "Resultados". Essa mudança não foi feita e depende do modelo da Unitins e do orientador.
 
-## 9. Arquivos alterados
+## 9. Revisão sistemática na metodologia (nova Seção 3.1) e Quadro 1 ampliado
 
-- [artigo_tcc_unitins.md](./artigo_tcc_unitins.md): Seções 3.2, 3.4 c, 3.5 e 4.2 (com o novo Quadro 5). Depois, a arquitetura foi movida para a Seção 3.6, e as seções e quadros foram renumerados (ver Seção 8).
+Foi criada a **Seção 3.1, "Revisão sistemática da literatura"**. As seções seguintes do capítulo 3 avançaram um número: Arquitetura → 3.7, Métricas → 3.8, Procedimento → 3.9, Rastreabilidade → 3.10, Limitações → 3.11. Os quadros também avançaram: Variáveis → 3, Etapas do *harness* → 4, Métricas → 5, Rastreabilidade → 6. As Seções 1 a 8 deste documento mantêm a numeração da época em que foram escritas.
+
+| Alteração | Justificativa |
+|---|---|
+| Passo a passo da revisão como Seção 3.1, em sete etapas (protocolo, fonte e consultas, controles, deduplicação, triagem, elegibilidade, extração e síntese). | O Quadro 1 e a lacuna da introdução dependiam de uma busca que não estava descrita no artigo. Material e métodos deve permitir reproduzir o estudo (diretrizes Unitins), e isso inclui reproduzir como os trabalhos relacionados foram selecionados. As etapas seguem Petersen et al. (2015), já citado no protocolo do mapeamento. |
+| A seção ficou como a primeira do capítulo 3. | A revisão é anterior ao desenho experimental e o justifica: primeiro se delimita o que existe e depois se define o experimento. |
+| Novo **Quadro 2 – Consultas da revisão sistemática no arXiv**, com faceta e número de registros. | As seis consultas e o total após a deduplicação são o núcleo reproduzível da busca. Em prosa, as expressões booleanas ficariam ilegíveis. Por isso o quadro mostra a faceta, e as expressões completas ficam no repositório (`protocolo_focado_estrito.json`). |
+| Limitações da revisão declaradas no fim da 3.1: uma única fonte de *preprints*, consultas estreitas, dois controles não recuperados, triagem assistida por modelo sem avaliador humano e texto integral verificado em parte. | Apresentar a revisão como abrangente seria uma afirmação sem respaldo. Os números saem de `mapeamento_focado_trabalhos_relacionados_2025_2026.md` e de `decisoes/_execucao_llm.json`, que registra o modelo `claude-haiku-5.5`. |
+| **Quadro 1** dividido em "Estudos de base" e "Estudos selecionados na revisão sistemática", com os dez estudos selecionados. O *Bitter Lesson* passou ao segundo grupo, e os dois comparadores estão marcados. | Distingue o que veio do levantamento bibliográfico do que veio do procedimento sistemático. As colunas são as mesmas da extração (etapa g), o que liga o quadro ao método. |
+| Parágrafo de síntese da 2.7 reescrito. | A revisão contradiz duas afirmações antigas. "Os *benchmarks* de memória avaliam respostas finais" não vale para o AlpsBench, que avalia a memória atualizada. E escritores compactos já existem (MemReader, DimMem, AMU). A lacuna foi reformulada como uma combinação que ainda não foi encontrada: GU-JSON, SUMIE, três paradigmas compactos e avaliação por operação. A ressalva de escopo foi mantida. |
+| Introdução: uma frase sobre escritores compactos já existentes, e "na literatura consultada" trocado por "na revisão sistemática realizada (Seção 3.1)". | Mantém a introdução coerente com o novo Quadro 1 e dá base verificável à afirmação da lacuna. |
+| Parágrafo de organização da introdução corrigido. | O texto ainda dizia que a seção 4 continha a arquitetura, o que não vale desde a realocação da Seção 8. |
+| Cronograma, atividade 2: incluída a revisão sistemática. | A atividade passou a ser descrita no método e precisa aparecer no planejamento. |
+
+**Pendências que o autor precisa resolver:**
+
+1. **Chaves do Zotero:** apenas `luBitterLessonDiffusion2026` e `petersenGuidelinesConductingSystematic2015` existem na biblioteca. As outras nove chaves foram previstas pelo padrão do Better BibTeX (sobrenome do primeiro autor, três palavras do título e ano) e **precisam ser conferidas** depois de importar [mapeamento_focado_selecionados_2025_2026.ris](./mapeamento_focado_selecionados_2025_2026.ris). As chaves previstas são:
+   - `biniMemLoRADistillingExpert2025`
+   - `xiaoAlpsBenchLLMPersonalization2026`
+   - `kangMemReaderPassiveActive2026`
+   - `qiuDimMemDimensionalStructuring2026`
+   - `wangCMIMemGeneralizableLongTerm2026`
+   - `choiPGMemTightlyCoupled2026`
+   - `zhaoMakingProspectiveMemory2026`
+   - `hwangAMUAdmissionMemory2026`
+   - `zhouDiffuPlanEditablePlanning2026`
+
+   O Zotero tem três registros duplicados do Petersen (2015); convém mesclá-los.
+2. **Conferência no texto integral:** o relatório do mapeamento recomenda confirmar método, modelos e resultados de cada estudo antes da versão final.
+3. **Supersede** não tem chave nem citação no artigo, apenas o nome, porque não foi recuperado e não está no Zotero.
+4. **Avaliador humano:** se houver tempo no TCC II, uma dupla verificação humana de uma amostra das decisões reduziria a principal limitação da revisão.
+
+## 10. Seção 2.7 mantida e citação dos artefatos da revisão
+
+### 10.1 Por que a 2.7 não foi retirada
+
+A 2.7 foi mantida no Referencial Teórico. O que está na 3.1 é o **procedimento** da busca; o que está na 2.7 é o **produto** dela (o Quadro 1 e a análise da lacuna). São funções diferentes, então não há redundância.
+
+| Fonte | O que diz | Consequência |
+|---|---|---|
+| Aula de 19/09 ([P1 00:09:22](../../AULAS/2026-2/transcricoes/2026-09-19_parte-01.md#s0091) a [00:11:15](../../AULAS/2026-2/transcricoes/2026-09-19_parte-01.md#s0113)) | "Da revisão da literatura, a gente produz duas coisas [...] no capítulo de revisão, vocês vão ter pelo menos duas subseções": o estado da arte e "uma tabela de trabalhos relacionados", cuja "última linha [...] é o seu trabalho". | A tabela pertence ao capítulo de revisão. Retirar a 2.7 contraria a orientação da disciplina. |
+| Aula de 19/09 ([P1 00:36:05](../../AULAS/2026-2/transcricoes/2026-09-19_parte-01.md#s0386)) | No enquadramento metodológico, a revisão deve registrar consulta, seleção, exclusões e critérios de comparação. | O passo a passo fica em Métodos (3.1), como já está. |
+| Aula de 05/09 ([P2 00:34:02](../../AULAS/2026-2/transcricoes/2026-09-05_parte-02.md#s0370)) | "Foi feita essa consulta, como resultado foram tantos artigos, o critério de seleção foi [...] isso vai virar uma ou duas páginas no trabalho." | Confirma que a documentação da busca é um texto próprio, separado da análise. |
+| Checklist da disciplina, [C17 e C21](../../AULAS/2026-2/checklist_tcc.md#c17) | C17 pede registrar protocolo e resultados da busca; C21 pede "construir análise e tabela de trabalhos relacionados". | São dois itens distintos, um de método e outro de revisão. |
+| Wazlawick, *Preparação do trabalho de pesquisa* ([slide 11](../../artigos/05-metodologia-e-escrita-cientifica/Wazlawick_UFU_Preparacao_Trabalho_Pesquisa/Wazlawick_UFU_Preparacao_Trabalho_Pesquisa.md)) | "O capítulo de revisão bibliográfica vai apresentar os conceitos necessários [...] e os trabalhos relacionados ao objetivo." | Mesma divisão. |
+| Gerhardt e Silveira (2009, seção 4.1.3, [texto](../../artigos/05-metodologia-e-escrita-cientifica/Gerhardt_Silveira_2009_Metodos_de_Pesquisa_UFRGS/Gerhardt_Silveira_2009_Metodos_de_Pesquisa_UFRGS.md)) | A revisão (estado da arte) deve "explicar no que seu trabalho vai se diferenciar dos trabalhos já produzidos". | É a função do parágrafo de síntese da 2.7. |
+| Prodanov e Freitas (2013, p. 78, [texto](../../artigos/05-metodologia-e-escrita-cientifica/Prodanov_Freitas_2013_Metodologia_do_Trabalho_Cientifico/Prodanov_Freitas_2013_Metodologia_do_Trabalho_Cientifico.md)) | A revisão responde "quem já escreveu [...] quais as lacunas existentes na literatura" e situa o trabalho, "afunilando" a discussão. | A 2.7 fecha o funil do capítulo 2 com a lacuna, que a introdução retoma. |
+
+**O que mudou:** a referência cruzada passou a existir nos dois sentidos. A 2.7 já remetia à Seção 3.1. Agora a abertura do capítulo 2 diz que os trabalhos mais próximos foram "selecionados pelo procedimento descrito na Seção 3.1", e o passo g) da 3.1 aponta o "Quadro 1 (Seção 2.7)". A remissão a uma seção posterior é aceitável porque o leitor é avisado de onde está o método.
+
+### 10.2 Como citar os *scripts* e artefatos
+
+Foram separados três casos, porque cada um tem uma forma correta diferente.
+
+| Caso | Forma adotada | Justificativa |
+|---|---|---|
+| **Ferramentas de terceiros** (API do arXiv, GitHub Copilot SDK) | Nome e **versão** no texto (SDK 1.0.31, modelo `claude-haiku-5.5`) e nota de rodapé "Disponível em: URL." | É o mesmo padrão já usado no artigo para o SUMIE e para os modelos (notas na 3.4 e na 3.5). Na aula de 19/09 ([P2 00:23:11](../../AULAS/2026-2/transcricoes/2026-09-19_parte-02.md#s0269)), a versão do *software* aparece como informação relevante quando o resultado depende dela; aqui, a triagem depende do modelo e do SDK. A versão foi lida de `decisoes/_execucao_llm.json`. |
+| **Artefatos produzidos pelo autor** (protocolo, *scripts*, respostas brutas, decisões) | Descrição do método no texto (3.1), **lista dos artefatos no Apêndice B** (Quadro 7) e uma nota de rodapé com o URL de um **repositório próprio da revisão**, fixado na **versão** `v1.0.0` (ver 10.3). | Prodanov e Freitas (2013, seção 6.1.14): o apêndice é o "material, elaborado pelo próprio autor, [...] que se destina apenas a complementar as ideias" do trabalho. A aula de 12/09 ([P1 00:27:00](../../AULAS/2026-2/transcricoes/2026-09-12_parte-01.md#s0286); [relatório](../../AULAS/2026-2/relatorios/2026-09-12.md)) recomenda "manter o método no texto, os experimentos em código versionado". A mesma aula ([P1 00:55:01](../../AULAS/2026-2/transcricoes/2026-09-12_parte-01.md#s0567)) indica apontar "para uma *tag* específica do GitHub", para saber qual versão foi usada. A etiqueta `v1.0.0` fixa o *commit* publicado e não muda se o ramo `main` receber novos *commits*. Os *scripts* não entram nas Referências porque não são obra publicada de outro autor: são material do próprio trabalho. |
+| **Versão definitiva** (recomendada, a fazer pelo autor) | Depositar o pacote no **Zenodo** a partir da *release* `v1.0.0` e substituir a nota de rodapé por uma **referência** com DOI: autor, título, versão, ano, Zenodo, DOI. | A aula de 12/09 ([P1 00:53:04](../../AULAS/2026-2/transcricoes/2026-09-12_parte-01.md#s0534) a [01:04:26](../../AULAS/2026-2/transcricoes/2026-09-12_parte-01.md#s0674)) apresenta o Zenodo como repositório que registra data, autoria e versões com DOI, e o DOI de cada versão continua válido quando o pacote é atualizado. Só com um DOI o artefato vira uma obra referenciável; um link do GitHub pode mudar. |
+
+**Verificação feita:** o comando do Apêndice B, `dotnet run scripts/busca_focada.cs -- offline`, foi executado em um **clone limpo** do repositório publicado. Ele conferiu os *hashes* do protocolo e das seis respostas, regenerou 158 candidatos, 13 CORE e 10 selecionados, e não alterou nenhum arquivo versionado (`git status` vazio). O CSV e o RIS são idênticos, *byte* a *byte*, aos gerados na pasta original do TCC. Ou seja, a síntese é reproduzível a partir dos artefatos citados.
+
+**Pendências do autor:**
+
+1. **Zenodo (opcional, recomendado).** Ativar o repositório em zenodo.org (GitHub → *Enable*) e publicar uma nova *release*; o Zenodo só arquiva *releases* criadas depois da ativação. Em seguida, trocar a nota de rodapé da 3.1 por uma referência com DOI.
+2. **"Acesso em:".** Prodanov e Freitas (2013, seção sobre documentos em meio eletrônico) indicam "Disponível em: <URL>. Acesso em: data." para documentos *on-line*. As notas de rodapé já existentes no artigo não trazem "Acesso em", e as novas seguiram o mesmo padrão. Convém acrescentar a data de acesso em **todas** de uma vez, conforme o modelo da Unitins.
+
+### 10.3 Repositório próprio para os artefatos da revisão
+
+**Decisão:** em vez de citar o repositório de trabalho do TCC, os artefatos foram publicados em um repositório limpo, [guisiq/tcc_revisao_sistematica_sumarizacao_recorrente](https://github.com/guisiq/tcc_revisao_sistematica_sumarizacao_recorrente), com a etiqueta e a *release* `v1.0.0` e a licença MIT.
+
+| Motivo | Justificativa |
+|---|---|
+| O leitor deve encontrar só o que o texto cita | O repositório do TCC mistura rascunhos, notas, aulas, materiais de terceiros e o mapeamento amplo descartado. Prodanov e Freitas (2013, seção 6.1.14) definem o apêndice como material que "se destina apenas a complementar as ideias" do trabalho; o pacote citado deve ter o mesmo recorte. A aula de 12/09 ([P1 00:27:00](../../AULAS/2026-2/transcricoes/2026-09-12_parte-01.md#s0286)) separa o método, no texto, dos experimentos em código versionado. |
+| Versão fixa e citável | A etiqueta `v1.0.0` substitui a antiga `revisao-sistematica-v1`, que nunca foi enviada e foi apagada. A *release* é o ponto de entrada do Zenodo para o DOI (aula de 12/09, [P1 00:53:04](../../AULAS/2026-2/transcricoes/2026-09-12_parte-01.md#s0534)). |
+| Licença explícita | O repositório do TCC não tem licença, o que impede o reuso legal. O novo repositório usa a MIT, conforme escolha do autor. |
+| Transparência | Além da execução final, foram incluídos o piloto e o ensaio, com seus protocolos, porque o artigo e o README somam o custo das duas execuções (49 créditos) e mencionam o refinamento das consultas. O mapeamento amplo (v2) ficou de fora porque não alimenta o Quadro 1. |
+
+**Diferenças em relação à origem**, registradas no README do novo repositório:
+
+- `busca_focada.cs` grava em `resultados/`, e não mais na pasta pai. A citação de Prodanov e Freitas no relatório ficou em texto, porque o link apontava para um arquivo local que não pode ser redistribuído.
+- `triagem.cs` lê `protocolo/triagem_llm.json`, uma cópia literal da seção `triagem` do `protocolo.json` amplo, que era o arquivo lido na execução original. Assim, o `protocolo.json` não precisou ser publicado.
+- O `.gitattributes` desativa a conversão de fim de linha (`* -text`). Sem isso, um clone no Windows trocaria LF por CRLF, e a verificação SHA-256 dos *snapshots* falharia.
+
+Dados, protocolos, decisões e a revisão final não foram alterados.
+
+## 11. Arquivos alterados
+
+- [artigo_tcc_unitins.md](./artigo_tcc_unitins.md): Seções 3.2, 3.4 c, 3.5 e 4.2 (com o novo Quadro 5). Depois, a arquitetura foi movida para a Seção 3.6, e as seções e quadros foram renumerados (ver Seção 8). Por fim, foram incluídos a Seção 3.1 e o Quadro 2, ampliado o Quadro 1 e ajustados a introdução, a 2.7 e o cronograma (ver Seção 9). Depois, foram incluídos as referências cruzadas entre o capítulo 2 e a Seção 3.1, as versões e notas das ferramentas, a nota com o repositório e o Apêndice B (Quadro 7) (ver Seção 10). Por último, a nota e o Apêndice B passaram a apontar para o repositório próprio da revisão (ver 10.3).
 - [diagramas_pesquisa/gerar_figuras_harness.py](./diagramas_pesquisa/gerar_figuras_harness.py): novo gerador das figuras.
 - [diagramas_pesquisa/fig1_harness_visao_geral.svg](./diagramas_pesquisa/fig1_harness_visao_geral.svg) e `.png`: nova Figura 1.
 - [diagramas_pesquisa/fig2_harness_escrita.svg](./diagramas_pesquisa/fig2_harness_escrita.svg) e `.png`: nova Figura 2.
 - Removidos: `a1_geracao_memoria.{svg,png}` e `a2_fluxo_experimental.{svg,png}`, substituídos pelas novas figuras.
 - [../04_Implementacao/01_arquitetura_harness.md](../04_Implementacao/01_arquitetura_harness.md): links e descrições atualizados.
+
+## 12. Correção e validação do DOCX institucional
+
+### 12.1 Base normativa e uso dos exemplos
+
+A exportação direta anterior não executava o fluxo institucional completo. A nova versão foi produzida pelo [script PowerShell existente](../../ferramentas/gerar-artigo-unitins.ps1), com o [preparador Python](../../ferramentas/gerar_artigo_unitins.py), o [cabeçalho oficial de 2025](../../anexos/Recursos/Cabeçalho%20oficial%202025.docx), o filtro Zotero e a paginação efetiva pelo Word.
+
+As regras gerais foram conferidas nas [Diretrizes gerais de TCC](../../anexos/Recursos/diretrizes_gerais_tcc.pdf), especialmente nas seções 5.1–5.4 e 5.8, e no [Manual de Sistemas de Informação](../../anexos/Recursos/manual_sistemas_tcc_2024.pdf), seções 7.1.1, 7.1.6, 7.2 e Anexo II. Embora o nome desse último arquivo contenha “2024”, sua identificação institucional é **2025**. No PDF, a formatação está na página 14, o resumo na 16 e a estrutura de arquivamento do artigo na 25.
+
+Os [TCC 596](../../artigos/05-metodologia-e-escrita-cientifica/TCC_Unitins_SI_596.pdf) e [TCC 1335](../../artigos/05-metodologia-e-escrita-cientifica/TCC_Unitins_SI_1335.pdf) foram usados como exemplos de aplicação, não como substitutos das normas: o primeiro se identifica como artigo de graduação; o segundo, como monografia. Capa, folha de rosto e listas foram preservadas porque o Anexo II distingue a apresentação para arquivamento institucional daquela exigida por um veículo de publicação. Não se presumiu que todo artigo deva ter a estrutura de uma monografia.
+
+| Aspecto | Decisão e fundamento |
+|---|---|
+| Página e texto | A4; margens superior/esquerda de 3 cm e inferior/direita de 2 cm; Arial 12, justificado, entrelinha 1,5 e primeira linha de 1,25 cm, conforme as regras gerais consultadas. |
+| Resumos e notas | Resumo e abstract em 11, parágrafo único e espaço simples; notas em Arial 10, simples e alinhadas à esquerda. O manual admite 10 ou 11 para o resumo; escolheu-se 11. |
+| Títulos e legendas | Títulos sem indicativo numérico centralizados; legendas e fontes em 10 e espaço simples. As duas figuras receberam legendas reconhecidas pelo gerador e lista de ilustrações própria. |
+| Tabelas e quadros | A seção 5.8 das Diretrizes exige título acima da tabela, sem fechamento lateral, e admite moldura nos quadros. O título do cronograma foi movido para cima da grade; os quadros mantiveram suas molduras. As larguras foram ajustadas à área útil de 16 cm e os cabeçalhos repetidos nas continuações. |
+| Cronograma | A fonte foi ampliada de 7,5 para 10. Meses abreviados evitam que nomes como “setembro” se partam entre linhas. Quinzenas, atividades e 37 seleções foram preservadas; a grade cabe em uma página. |
+| Figuras | O texto alternativo deixou de virar uma segunda legenda visível. Foram corrigidas duas remissões decorrentes da reorganização anterior: análise estatística na Figura 1 → Seção 3.9; esquema na Figura 2 → Seção 3.3. Fluxos, modelos e dados ilustrados não foram alterados. |
+| Citações | As chaves passaram a usar a sintaxe Pandoc com `@`, inclusive seis ocorrências residuais de duas chaves. Os nove itens ausentes foram importados no Zotero com autorização do autor; as duas chaves residuais já existiam na biblioteca. A geração final contém 77 campos de citação e 34 referências. |
+| Paginação | O Word estabilizou as 38 entradas do sumário e das listas. A capa não entra na contagem; as páginas preliminares seguintes são contadas sem número visível e o corpo recebe numeração superior direita. |
+
+O estilo das notas foi declarado como nativo do Word. A validação passou a resolver os identificadores realmente usados nas notas e a formatação herdada: o Word pode traduzir identificadores e omitir propriedades que coincidam com os padrões do documento. Isso foi comprovado em uma gravação efetiva, não apenas em um DOCX preparado pelo Python.
+
+### 12.2 Resultado verificado
+
+Entrega: [artigo_tcc_unitins_formatado_20261113.docx](./artigo_tcc_unitins_formatado_20261113.docx), distinta da exportação simples anterior.
+
+- **19 testes de regressão aprovados**, incluindo normalização de estilos pelo Word, herança de fonte/recuo, legendas, margens, tabelas e preservação do cronograma.
+- Geração, gravação e reabertura pelo Word concluídas: **51 páginas** e **38 entradas paginadas conferidas**.
+- Comparação automática com a fonte e o corpo preparado: **202 parágrafos**, **77 grupos de citação**, **34 referências**, **8 tabelas**, **37 seleções**, **91 expressões matemáticas** e **7 notas** preservados.
+- Imagens do cabeçalho e das figuras preservadas durante a formatação, verificadas por hash em relação ao corpo preparado.
+- Conversão de controle do DOCX final e inspeção de uma renderização PDF: capa, resumos, sumário/listas, quadros com continuação, duas figuras, cronograma e referências. No cronograma, os dez meses aparecem sem quebra interna e o título está acima da grade.
+- Nenhum corte temporal da revisão sistemática, alteração do protocolo ou mudança dos resultados da seleção foi aplicado nesta etapa.
+
+### 12.3 Pendências que a exportação não deve esconder
+
+1. **Resumo em português:** contém **259 palavras**, enquanto o manual estabelece de 150 a 250. O abstract contém **202**. A redação foi preservada para a validação da versão atual; é necessária uma redução de pelo menos nove palavras no resumo antes da versão definitiva.
+2. **Depósito definitivo:** ficha catalográfica e documento de aprovação dependem dos procedimentos institucionais e da defesa; não foram inventados nem simulados.
+3. **Alcance da conferência:** os controles atestam os requisitos de formatação implementados e a preservação do conteúdo. Não substituem a revisão científica, a conferência dos metadados bibliográficos pelo autor ou a homologação do orientador/biblioteca.

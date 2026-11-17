@@ -111,7 +111,7 @@ function Get-PageReferences {
             continue
         }
         if ([int]$paragraph.OutlineLevel -le 9 -or
-            $text -match '^(Quadro|Tabela)\s+\d+\s+[–—-]\s+') {
+            $text -match '^(Figura|Quadro|Tabela)\s+\d+\s+[–—-]\s+') {
             if ($targets.ContainsKey($text)) {
                 throw "Título ou legenda duplicado no corpo: $text"
             }
