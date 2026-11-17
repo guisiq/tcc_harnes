@@ -24,19 +24,19 @@ campo vivo do Zotero (ADDIN ZOTERO_ITEM) e a lista de Referências será gerada 
 com o estilo CSL "Associação Brasileira de Normas Técnicas (Português - Brasil)".
 -->
 
-**Resumo:** Modelos de linguagem que operam em múltiplas etapas dependem de um estado persistente para registrar as informações recebidas incrementalmente. Representar esse estado como um *checkpoint* (registro persistente de estado) em JSON (*JavaScript Object Notation*), atualizado pelo método *Generate-Update* em JSON (GU-JSON), explicita atributos e valores sob memória limitada, mas exige que o modelo escritor reescreva toda a estrutura a cada turno, expondo o estado a falhas sintáticas, omissão de fatos válidos, alterações indevidas ou alucinações. Embora modelos de linguagem compactos sejam candidatos naturais a executar essa operação localmente com menor custo, a literatura validou o GU-JSON apenas em modelos de grande porte e ainda não comparou como diferentes paradigmas gerativos compactos se comportam nessa tarefa. Este trabalho compara três representantes compactos — Qwen3-0.6B (autoregressivo *decoder-only*), T5Gemma B-B (*encoder-decoder*) e Qwen3-0.6B BD3LM (difusão em blocos) — atuando exclusivamente como escritores de memória no método GU-JSON. O experimento controlado utiliza as sequências de sumarização incremental de entidades do conjunto de referência (*benchmark*) SUMIE (*A Synthetic Benchmark for Incremental Entity Summarization*), mantendo constantes o esquema JSON, o *prompt* (instrução fornecida ao modelo) *zero-shot* (sem exemplos de demonstração) e o orçamento de saída de 1.200 *tokens* (unidades textuais processadas pelo modelo), e variando apenas o modelo escritor. A qualidade de cada transição será avaliada pela validade sintática do JSON e conformidade com o esquema; pela precisão, revocação, F1 do estado e taxa de alucinação ao longo dos turnos; e pelas acurácias de preservação, adição e atualização por tipo de operação, com intervalos de confiança estimados por reamostragem não paramétrica (*bootstrap*) e comparações pareadas.
+**Resumo:** Modelos de linguagem que operam em múltiplas etapas dependem de um estado persistente para registrar as informações recebidas incrementalmente. Representar esse estado como um *checkpoint* (registro persistente de estado) em JSON (*JavaScript Object Notation*), atualizado pelo método *Generate-Update* em JSON (GU-JSON), explicita atributos e valores sob memória limitada, mas exige que o modelo escritor reescreva toda a estrutura a cada turno, expondo o estado a falhas sintáticas, omissão de fatos válidos, alterações indevidas ou alucinações. Embora modelos de linguagem compactos sejam candidatos naturais a executar essa operação localmente com menor custo, a literatura validou o GU-JSON apenas em modelos de grande porte e ainda não comparou como diferentes paradigmas gerativos compactos se comportam nessa tarefa. Este trabalho compara três representantes compactos — Qwen3-0.6B (autoregressivo *decoder-only*), T5Gemma B-B (*encoder-decoder*) e Qwen3-0.6B BD3LM (difusão em blocos) — atuando exclusivamente como escritores de memória no método GU-JSON. O experimento controlado utiliza as sequências de sumarização incremental de entidades do conjunto de referência (*benchmark*) SUMIE (*A Synthetic Benchmark for Incremental Entity Summarization*), mantendo constantes o esquema JSON, o *prompt* (instrução fornecida ao modelo) *zero-shot* (sem exemplos de demonstração) e o orçamento de saída de 1.200 *tokens* (unidades textuais processadas pelo modelo) na comparação dos modelos escritores. A qualidade de cada transição será avaliada pela validade sintática do JSON e conformidade com o esquema; pela precisão, revocação, F1 do estado e taxa de alucinação ao longo dos turnos; e pelas acurácias de preservação, adição e atualização por tipo de operação, com intervalos de confiança estimados por reamostragem não paramétrica (*bootstrap*) e comparações pareadas.
 
 **Palavras-chave:** Memória de agentes. *Checkpoint* JSON. Modelos de linguagem compactos. Sumarização incremental.
 
 **Title:** *Compact language models as memory writers: evaluating incremental updates of JSON checkpoints for agents*
 
-**Abstract:** Language-model-based agents operating across multiple steps rely on a persistent state to record information received incrementally. Representing this state as a JSON checkpoint updated through the Generate-Update in JSON (GU-JSON) method makes attributes and values explicit under limited memory, but requires the writer model to regenerate the entire structure at every turn, exposing the state to syntactic failures, omission of valid facts, unintended modifications or hallucinations. Although compact language models are natural candidates to perform this operation locally at lower cost, prior work has validated GU-JSON only with large models and has not yet compared how compact models from distinct generative paradigms behave in this role. This study compares three compact representatives — Qwen3-0.6B (autoregressive decoder-only), T5Gemma B-B (encoder-decoder) and Qwen3-0.6B BD3LM (block diffusion) — acting exclusively as memory writers under the GU-JSON method. The controlled experiment uses the incremental entity summarization sequences from the SUMIE benchmark, holding the JSON schema, zero-shot prompt and 1,200-token output budget constant while varying only the writer model. Transition quality will be evaluated through JSON syntactic validity and schema compliance; state precision, recall, F1 and hallucination rate across turns; and preservation, addition and update accuracies stratified by operation type, using bootstrap confidence intervals and paired comparisons.
+**Abstract:** Language-model-based agents operating across multiple steps rely on a persistent state to record information received incrementally. Representing this state as a JSON checkpoint updated through the Generate-Update in JSON (GU-JSON) method makes attributes and values explicit under limited memory, but requires the writer model to regenerate the entire structure at every turn, exposing the state to syntactic failures, omission of valid facts, unintended modifications or hallucinations. Although compact language models are natural candidates to perform this operation locally at lower cost, prior work has validated GU-JSON only with large models and has not yet compared how compact models from distinct generative paradigms behave in this role. This study compares three compact representatives — Qwen3-0.6B (autoregressive decoder-only), T5Gemma B-B (encoder-decoder) and Qwen3-0.6B BD3LM (block diffusion) — acting exclusively as memory writers under the GU-JSON method. The controlled experiment uses the incremental entity summarization sequences from the SUMIE benchmark, holding the JSON schema, zero-shot prompt and 1,200-token output budget constant while comparing the writer models. Transition quality will be evaluated through JSON syntactic validity and schema compliance; state precision, recall, F1 and hallucination rate across turns; and preservation, addition and update accuracies stratified by operation type, using bootstrap confidence intervals and paired comparisons.
 
 **Keywords:** Agent memory. JSON checkpoint. Small language models. Incremental summarization.
 
 # 1 Introdução
 
-Agentes baseados em modelos de linguagem vêm sendo empregados em tarefas de múltiplas etapas, nas quais novas observações chegam de forma sequencial e as decisões subsequentes dependem das informações registradas em turnos anteriores. Para viabilizar esse funcionamento, um *harness* de agente reúne mecanismos de software que organizam a interação do modelo com o ambiente, incluindo o fornecimento de contexto, o uso de ferramentas e o controle das ações [@AgentHarnessEngineering2026]. Entre esses mecanismos está o gerenciamento de memória, que envolve a geração, a atualização e a recuperação de informações relevantes [@zengStructuralMemoryLLM2024].
+Agentes baseados em modelos de linguagem vêm sendo empregados em tarefas de múltiplas etapas, nas quais novas observações chegam de forma sequencial e as decisões subsequentes dependem das informações registradas em turnos anteriores. Neste trabalho, um *harness* de agente designa a camada de software que organiza a interação do modelo com o ambiente, incluindo o fornecimento de contexto, o uso de ferramentas e o controle das ações. A arquitetura CoALA descreve agentes por componentes de memória, espaço de ações e processo de decisão [@sumersCognitiveArchitecturesLanguage2024]. O gerenciamento de memória envolve a geração, a atualização e a recuperação de informações relevantes [@zengStructuralMemoryLLM2024].
 
 Nesses fluxos, a manutenção de um estado persistente e consistente condiciona diretamente a confiabilidade operacional do sistema [@muhoberacStateMemoryAll2025]. Por essa razão, *benchmarks* recentes passaram a avaliar a memória de agentes sob interações incrementais e de longo alcance, examinando a capacidade de reter fatos relevantes, integrar novas evidências e lidar com atualizações ao longo de múltiplos turnos [@huEvaluatingMemoryLLM2025; @wuLongMemEvalBenchmarkingChat2024; @maharanaEvaluatingVeryLongTerm2024].
 
@@ -64,9 +64,9 @@ A compreensão da escrita de memória exige situá-la na arquitetura mais ampla 
 
 ## 2.1 *Harness* de agentes e gerenciamento de memória
 
-Um *harness* de agentes corresponde à camada de software que envolve o modelo de linguagem e organiza seu funcionamento em tarefas de múltiplas etapas. Ele seleciona o contexto, disponibiliza ferramentas, coordena a execução de ações e pode verificar os resultados obtidos. Por isso, o comportamento observado depende tanto do modelo quanto dos mecanismos que o cercam [@AgentHarnessEngineering2026].
+Neste trabalho, um *harness* de agentes é definido operacionalmente como a camada de software que envolve o modelo de linguagem e organiza seu funcionamento em tarefas de múltiplas etapas. Ele seleciona o contexto, disponibiliza ferramentas e coordena a execução de ações. Essa delimitação dialoga com a arquitetura CoALA, que descreve agentes em termos de componentes de memória, espaço de ações e processo de decisão [@sumersCognitiveArchitecturesLanguage2024].
 
-O gerenciamento de memória integra essa camada ao organizar informações que podem ser úteis em interações posteriores. A geração ou atualização de memória produz e mantém os registros, enquanto a recuperação seleciona os conteúdos relevantes para compor o contexto de chamadas posteriores ao modelo [@zengStructuralMemoryLLM2024; AgentHarnessEngineering2026]. A representação adotada e a fidelidade da escrita, portanto, condicionam as informações disponíveis para recuperação.
+O gerenciamento de memória integra essa camada ao organizar informações que podem ser úteis em interações posteriores. A geração ou atualização de memória produz e mantém os registros, enquanto a recuperação seleciona os conteúdos relevantes para compor o contexto de chamadas posteriores ao modelo [@sumersCognitiveArchitecturesLanguage2024; @zengStructuralMemoryLLM2024]. A representação adotada e a fidelidade da escrita, portanto, condicionam as informações disponíveis para recuperação.
 
 Neste trabalho, investiga-se apenas a escrita incremental da memória, sem avaliar os métodos de recuperação nem o desempenho de um agente completo. O *harness* experimental descrito na seção 3.6 tem finalidade distinta: padronizar as entradas, a execução dos escritores e a avaliação das saídas.
 
@@ -177,7 +177,7 @@ g) **Extração e síntese:** de cada estudo selecionado foram extraídos a repr
 
 Fonte: elaborado pelo autor (2026).
 
-Os artefatos da revisão — protocolo, roteiro de triagem, *scripts* em C# (.NET 10), expressões completas das consultas, respostas brutas da API com seus *hashes* SHA-256, decisões da triagem e da elegibilidade e registro de custo — estão relacionados no Apêndice B e publicados em um repositório público próprio, separado do código do trabalho, na versão `v1.0.0`.^[Disponível em: https://github.com/guisiq/tcc_revisao_sistematica_sumarizacao_recorrente/tree/v1.0.0.] Com isso, a tabela de síntese pode ser regenerada sem novo acesso à rede nem novas chamadas ao modelo. A revisão tem limitações: a busca cobriu uma única fonte, composta de *preprints*; as consultas são estreitas, o que favorece a precisão em detrimento da sensibilidade, como indicam os dois controles não recuperados; a triagem e a elegibilidade foram assistidas por modelo de linguagem, sem avaliador humano independente; e a verificação do texto integral foi parcial. Por isso, o Quadro 1 indica estudos próximos no escopo examinado, mas não comprova a inexistência de trabalhos semelhantes fora dele.
+Os parâmetros metodológicos e as expressões completas das consultas estão no Apêndice B. O protocolo, o roteiro de triagem, os *scripts* em C# (.NET 10), as respostas brutas da API com seus *hashes* SHA-256, as decisões da triagem e da elegibilidade e o registro de custo estão publicados em um repositório público próprio, separado do código do trabalho, na versão `v1.0.0`.^[Disponível em: https://github.com/guisiq/tcc_revisao_sistematica_sumarizacao_recorrente/tree/v1.0.0.] Com isso, a tabela de síntese pode ser regenerada sem novo acesso à rede nem novas chamadas ao modelo. A revisão tem limitações: a busca cobriu uma única fonte, composta de *preprints*; as consultas são estreitas, o que favorece a precisão em detrimento da sensibilidade, como indicam os dois controles não recuperados; a triagem e a elegibilidade foram assistidas por modelo de linguagem, sem avaliador humano independente; e a verificação do texto integral foi parcial. Por isso, o Quadro 1 indica estudos próximos no escopo examinado, mas não comprova a inexistência de trabalhos semelhantes fora dele.
 
 ## 3.2 Desenho experimental e variáveis
 
@@ -239,13 +239,13 @@ Os experimentos de inferência serão executados localmente em um computador por
 
 Para avaliar semanticamente os casos que não forem resolvidos pela correspondência textual, prevê-se utilizar o modelo de pesos abertos Gemma 3 1B Instruct (`google/gemma-3-1b-it`), independente dos três escritores avaliados, convertido para GGUF com quantização `Q4_K_M` e executado localmente, sob a licença Gemma e seus termos de uso.^[Modelo e termos de acesso: https://huggingface.co/google/gemma-3-1b-it.] A configuração será aceita no piloto somente se o pico de memória residente do processo do juiz não exceder 4 GiB; também serão registrados versão, *hash* dos pesos, ambiente de execução, tamanho de contexto e latência. Como o juiz só será invocado para divergências, não se estabelece limite de tempo por chamada.
 
-Para garantir que apenas o modelo escritor varie entre as execuções [@AgentHarnessEngineering2026], o fluxo de processamento é encapsulado em um *harness* experimental modular composto por nove etapas sequenciais por transição: (i) leitura da transição padronizada $(M_{t-1}^*,\ O_t,\ M_t^*)$; (ii) montagem do *prompt* a partir do modelo de instrução fixo; (iii) invocação do adaptador do escritor sob o limite de 1.200 *tokens*; (iv) gravação imediata da saída textual bruta em disco; (v) verificação de validade sintática por um analisador sintático de JSON padrão; (vi) validação estrutural contra o esquema definido; (vii) correspondência direta dos pares atributo-valor após normalização textual; (viii) envio ao juiz local somente das divergências não resolvidas nessa etapa, com as anotações do SUMIE e o contexto da transição; e (ix) persistência das saídas brutas, decisões do juiz, métricas e proveniência em registros no formato JSON Lines. O identificador do escritor não será incluído no pedido de julgamento. Nenhuma etapa de reparo ou alteração é aplicada à saída original do escritor.
+Para aplicar um protocolo comum entre as execuções, o fluxo de processamento é encapsulado em um *harness* experimental modular composto por nove etapas sequenciais por transição: (i) leitura da transição padronizada $(M_{t-1}^*,\ O_t,\ M_t^*)$; (ii) montagem do *prompt* a partir do modelo de instrução fixo; (iii) invocação do adaptador do escritor sob o limite de 1.200 *tokens*; (iv) gravação imediata da saída textual bruta em disco; (v) verificação de validade sintática por um analisador sintático de JSON padrão; (vi) validação estrutural contra o esquema definido; (vii) correspondência direta dos pares atributo-valor após normalização textual; (viii) envio ao juiz local somente das divergências não resolvidas nessa etapa, com as anotações do SUMIE e o contexto da transição; e (ix) persistência das saídas brutas, decisões do juiz, métricas e proveniência em registros no formato JSON Lines. O identificador do escritor não será incluído no pedido de julgamento. Nenhuma etapa de reparo ou alteração é aplicada à saída original do escritor.
 
 Cada adaptador encapsula apenas o que é específico de um modelo: aplica o *template* de conversa e os *tokens* especiais de início e fim de sequência previstos pelo respectivo tokenizador, sem alterar o conteúdo do *prompt-base*. Para que o orçamento de 1.200 *tokens* seja consumido somente pelo objeto JSON, o modo de raciocínio explícito (*thinking*) do Qwen3-0.6B é desativado. A decodificação é determinística, isto é, sem amostragem aleatória e com semente fixa; no BD3LM, o tamanho de bloco, o número de passos de remoção de ruído e o critério de desmascaramento também são fixados no manifesto. A arquitetura resultante é apresentada na Seção 3.7.
 
 ## 3.7 Arquitetura do *harness*
 
-A arquitetura do *harness* foi concebida para que, entre as execuções, apenas o modelo escritor varie, mantendo constantes os demais fatores do Quadro 3. Ela é apresentada em dois níveis: a Figura 1 mostra o percurso completo de uma transição do SUMIE pelas nove etapas descritas na Seção 3.6; o Quadro 4 associa cada etapa à tecnologia empregada e ao artefato que ela entrega à avaliação; e a Figura 2 detalha a etapa de escrita do *checkpoint*, única em que os escritores diferem.
+A arquitetura do *harness* mantém constantes os fatores comuns do Quadro 3 e admite as diferenças inerentes aos tokenizadores e mecanismos de decodificação de cada modelo. Ela é apresentada em dois níveis: a Figura 1 mostra o percurso completo de uma transição do SUMIE pelas nove etapas descritas na Seção 3.6; o Quadro 4 associa cada etapa à tecnologia empregada e ao artefato que ela entrega à avaliação; e a Figura 2 detalha a etapa de escrita do *checkpoint*, em que se aplica o adaptador de cada escritor.
 
 **Figura 1 – Visão geral do *harness* experimental para uma transição do SUMIE**
 
@@ -464,23 +464,86 @@ UPDATED STATE:
 ```
   
 
-# Apêndice B – Artefatos da revisão sistemática
+# Apêndice B – Parâmetros e expressões da revisão sistemática
 
-O Quadro 7 relaciona os artefatos que documentam a revisão sistemática da Seção 3.1, com o passo que cada um registra. Os caminhos são relativos à raiz do repositório da revisão, na versão `v1.0.0`; a pasta da execução é `dados/execucao_focada_estrita_2026-11-12`. O repositório guarda também, separadas, as execuções piloto e de ensaio, que não alimentam o Quadro 1.
+O Quadro 7 apresenta os principais parâmetros de cada etapa da revisão sistemática descrita na Seção 3.1. Os valores correspondem à execução de 12 de novembro de 2026. As expressões de busca são reproduzidas integralmente após o quadro; em todas, os campos `ti` e `abs` indicam, respectivamente, título e resumo.
 
-**Quadro 7 – Artefatos da revisão sistemática**
+**Quadro 7 – Parâmetros metodológicos da revisão sistemática**
 
-| Artefato | Arquivo | Conteúdo | Passo |
-|---|---|---|---|
-| Protocolo | `protocolo/protocolo_focado_estrito.json` | Questão orientadora, janela, consultas F1–F6, critérios e estudos de controle | a, b, c |
-| Roteiro de triagem | `protocolo/roteiro_triagem_focado.md` e `protocolo/triagem_llm.json` | Instrução fixa enviada ao modelo na triagem e parâmetros de custo | e |
-| *Script* de busca e síntese | `scripts/busca_focada.cs` | Coleta na API do arXiv, deduplicação, montagem dos lotes e geração da tabela, do inventário CSV e do arquivo RIS | b, d, g |
-| *Script* de triagem | `scripts/triagem.cs` | Chamadas ao modelo pelo GitHub Copilot SDK, validação das respostas por esquema e teto de custo | e |
-| Respostas da busca | Pasta da execução: `arxiv/F1_00000.xml` a `arxiv/F6_00000.xml` e `manifesto.json` | Respostas brutas da API e manifesto com as expressões, os totais e os *hashes* SHA-256 do protocolo e de cada resposta | b, d |
-| Decisões da triagem | Pasta da execução: `decisoes/llm_focado.jsonl`, `decisoes/_execucao_llm.json` e `custo_llm.jsonl` | Classificação de cada registro, modelo, versão do SDK, *hash* do roteiro e custo | e |
-| Elegibilidade e extração | Pasta da execução: `revisao_final.json` | Decisão, motivo, fonte consultada e campos extraídos de cada estudo examinado | f, g |
-| Síntese | `resultados/mapeamento_focado_trabalhos_relacionados_2025_2026.md`, `resultados/mapeamento_focado_inventario_2025_2026.csv` e `resultados/mapeamento_focado_selecionados_2025_2026.ris` | Relatório, inventário dos 158 registros e referências dos dez estudos selecionados | g |
+| Etapa | Parâmetro | Valor adotado |
+|---|---|---|
+| a) Planejamento | Janela temporal | Primeiro depósito entre 01/07/2025 e 12/11/2026 |
+| b) Busca | Fonte e campos | API do arXiv; título (`ti`) e resumo (`abs`) |
+| | Filtro temporal | `submittedDate:[202507010000 TO 202611122359]` |
+| | Paginação e ordenação | 200 registros por página; todas as páginas recuperadas; ordenação crescente pela data de depósito |
+| | Intervalo entre requisições | 3,2 segundos |
+| c) Estudos de controle | Identificadores arXiv | 2508.08997 (*Intrinsic Memory Agents*); 2601.12979 (*The Bitter Lesson of Diffusion Language Models for Agentic Workflows*); 2609.36976 (AMU); 2604.07877 (MemReader); 2606.27472 (*Supersede*); 2610.24717 (DiffuPlan) |
+| d) Deduplicação | Chave e resultado | Identificador do arXiv; 158 registros únicos |
+| e) Triagem | Modelo e interface | `claude-haiku-5.5`, via GitHub Copilot SDK 1.0.31 |
+| | Lote e resposta | 10 registros por requisição; classificação validada por esquema JSON |
+| | Teto de custo | 160 créditos; estimativa de 500 *tokens* de saída por registro |
+| | Categorias e resultado | 13 *CORE*, 91 *CONTEXT* e 54 *EXCLUDE* |
+| f) Elegibilidade | Registros reexaminados | 13 estudos *CORE* e 6 estudos *CONTEXT*, consultados por trechos do texto integral na versão do arXiv recuperada |
+| | Resultado | 5 *CORE* mantidos, 8 excluídos, 3 *CONTEXT* reclassificados como *CORE* e 2 comparadores; total de 10 estudos selecionados |
+| g) Extração e síntese | Campos extraídos | Representação da memória; mecanismo de atualização; modelos e escala; objeto da avaliação; comparação entre paradigmas gerativos |
 
 Fonte: elaborado pelo autor (2026).
 
-A tabela de síntese é regenerada, sem rede e sem chamadas ao modelo, pelo comando `dotnet run scripts/busca_focada.cs -- offline`, executado na raiz do repositório com o .NET SDK 10. O comando falha se o protocolo ou alguma resposta salva divergir dos *hashes* do manifesto.
+**Expressões de busca**
+
+As seis consultas foram combinadas com o filtro temporal apresentado no Quadro 7. Dentro de cada faceta, os termos são unidos por `OR`; as facetas são combinadas por `AND`.
+
+```text
+F1 – Memória estruturada ou entidades com atualização incremental (52 registros)
+(ti:"entity summarization" OR abs:"entity summarization" OR
+ ti:"entity state" OR abs:"entity state" OR
+ ti:"structured memory" OR abs:"structured memory" OR
+ ti:"JSON memory" OR abs:"JSON memory")
+AND (ti:incremental OR abs:incremental OR ti:update OR abs:update OR
+     ti:updating OR abs:updating OR ti:revision OR abs:revision)
+AND (ti:"language model" OR abs:"language model" OR ti:agent OR abs:agent)
+
+F2 – Modelos compactos que escrevem ou gerem memória (71 registros)
+(ti:"small language model" OR abs:"small language model" OR
+ ti:"compact language model" OR abs:"compact language model" OR
+ ti:SLM OR abs:SLM OR ti:compact OR abs:compact OR
+ ti:"0.6B" OR abs:"0.6B" OR ti:"4B" OR abs:"4B")
+AND (ti:"memory update" OR abs:"memory update" OR
+     ti:"memory writing" OR abs:"memory writing" OR
+     ti:"memory management" OR abs:"memory management" OR
+     ti:"structured memory" OR abs:"structured memory" OR
+     ti:"memory extraction" OR abs:"memory extraction")
+
+F3 – Difusão em memória de agentes ou estado de planejamento editável (2 registros)
+(ti:"diffusion language model" OR abs:"diffusion language model" OR
+ ti:"block diffusion" OR abs:"block diffusion" OR ti:dLLM OR abs:dLLM)
+AND (ti:"agent memory" OR abs:"agent memory" OR
+     ti:"memory summarization" OR abs:"memory summarization" OR
+     ti:"planning state" OR abs:"planning state" OR
+     ti:"editable state" OR abs:"editable state" OR
+     ti:"structured memory" OR abs:"structured memory" OR
+     ti:"memory update" OR abs:"memory update" OR
+     ti:"memory writing" OR abs:"memory writing")
+
+F4 – JSON estruturado relacionado a memória, estado ou entidades (10 registros)
+(ti:JSON OR abs:JSON OR ti:"structured output" OR abs:"structured output")
+AND (ti:SLM OR abs:SLM OR
+     ti:"small language model" OR abs:"small language model" OR
+     ti:"diffusion language model" OR abs:"diffusion language model")
+AND (ti:memory OR abs:memory OR ti:state OR abs:state OR ti:entity OR abs:entity)
+
+F5 – Menções ao GU-JSON ou ao SUMIE (7 registros)
+(ti:"GU-JSON" OR abs:"GU-JSON" OR ti:SUMIE OR abs:SUMIE)
+
+F6 – Estado ou memória estruturados atualizados por modelos pequenos (26 registros)
+(ti:"small model" OR abs:"small model" OR
+ ti:"small language model" OR abs:"small language model" OR
+ ti:SLM OR abs:SLM)
+AND (ti:memory OR abs:memory OR ti:state OR abs:state)
+AND (ti:typed OR abs:typed OR ti:schema OR abs:schema OR
+     ti:structured OR abs:structured OR ti:JSON OR abs:JSON)
+AND (ti:update OR abs:update OR ti:tracking OR abs:tracking OR
+     ti:write OR abs:write)
+```
+
+Fonte: protocolo da revisão sistemática (2026).
