@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1900" height="1620" viewBox="0 0 1900 1620" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1900" height="1420" viewBox="0 0 1900 1420" role="img" aria-labelledby="title desc">
   <title id="title">Figura 1: visão geral do harness experimental para uma transição do SUMIE</title>
-  <desc id="desc">Execução nas etapas i a iv: o SUMIE fornece a transição; apenas o estado anterior de referência e a observação seguem para o prompt fixo e para o escritor, única variável do experimento; a saída bruta é gravada sem reparo. Avaliação nas etapas v a ix: validação do JSON e do esquema, correspondência direta com a referência, juiz semântico local apenas para divergências e registro em JSON Lines, que alimenta as métricas de estrutura, estado e operação e a análise estatística.</desc>
+  <desc id="desc">Execução nas etapas i a iv: o SUMIE fornece a transição; apenas o estado anterior de referência e a observação seguem para o prompt fixo e para o escritor, única variável do experimento; a saída bruta é gravada sem reparo. Avaliação nas etapas v a ix: validação do JSON e do esquema, correspondência direta com a referência, juiz semântico local apenas para divergências e registro em JSON Lines, seguido da análise estatística.</desc>
   <defs>
     <marker id="arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L12 6 L0 12 Z" fill="#263544"/></marker>
   </defs>
-  <rect width="1900" height="1620" fill="#ffffff"/>
+  <rect width="1900" height="1420" fill="#ffffff"/>
   <text x="30" y="52" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" text-anchor="start" fill="#4b5b68" xml:space="preserve">Execução — etapas (i) a (iv)</text>
   <path d="M30 111 A100.0 16 0 0 1 230 111 V259 A100.0 16 0 0 1 30 259 Z" fill="#edf3f8" stroke="#33495a" stroke-width="2"/>
   <path d="M30 111 A100.0 16 0 0 0 230 111" fill="none" stroke="#33495a" stroke-width="2"/>
@@ -84,26 +84,9 @@
   <path d="M1210 1146 A260.0 16 0 0 0 1730 1146" fill="none" stroke="#33495a" stroke-width="2"/>
   <text x="1470" y="1196" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="middle" fill="#172533" xml:space="preserve">(ix) Registros JSON Lines</text>
   <text x="1470" y="1228" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="middle" fill="#172533" xml:space="preserve">saídas, decisões do juiz, métricas e proveniência</text>
-  <path d="M1470 1255 L1470 1290" fill="none" stroke="#263544" stroke-width="3"/>
-  <path d="M320 1290 L1580 1290" fill="none" stroke="#263544" stroke-width="3"/>
-  <path d="M320 1290 L320 1318" fill="none" stroke="#263544" stroke-width="3" marker-end="url(#arrow)"/>
-  <path d="M950 1290 L950 1318" fill="none" stroke="#263544" stroke-width="3" marker-end="url(#arrow)"/>
-  <path d="M1580 1290 L1580 1318" fill="none" stroke="#263544" stroke-width="3" marker-end="url(#arrow)"/>
-  <rect x="30" y="1320" width="580" height="110" rx="8" fill="#ffffff" stroke="#33495a" stroke-width="2"/>
-  <text x="50" y="1360" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="start" fill="#172533" xml:space="preserve">Estrutural · objetivo a</text>
-  <text x="50" y="1396" font-family="Arial, Helvetica, sans-serif" font-size="21" text-anchor="start" fill="#172533" xml:space="preserve">validade do JSON e do esquema</text>
-  <path d="M320 1430 L320 1478" fill="none" stroke="#263544" stroke-width="3" marker-end="url(#arrow)"/>
-  <rect x="660" y="1320" width="580" height="110" rx="8" fill="#ffffff" stroke="#33495a" stroke-width="2"/>
-  <text x="680" y="1360" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="start" fill="#172533" xml:space="preserve">Estado · objetivo b</text>
-  <text x="680" y="1396" font-family="Arial, Helvetica, sans-serif" font-size="21" text-anchor="start" fill="#172533" xml:space="preserve">precisão, revocação, F1, alucinação</text>
-  <path d="M950 1430 L950 1478" fill="none" stroke="#263544" stroke-width="3" marker-end="url(#arrow)"/>
-  <rect x="1290" y="1320" width="580" height="110" rx="8" fill="#ffffff" stroke="#33495a" stroke-width="2"/>
-  <text x="1310" y="1360" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="start" fill="#172533" xml:space="preserve">Operação · objetivo c</text>
-  <text x="1310" y="1396" font-family="Arial, Helvetica, sans-serif" font-size="21" text-anchor="start" fill="#172533" xml:space="preserve">preservação, adição e atualização</text>
-  <path d="M1580 1430 L1580 1478" fill="none" stroke="#263544" stroke-width="3" marker-end="url(#arrow)"/>
-  <rect x="30" y="1480" width="1840" height="110" rx="8" fill="#f3f4f6" stroke="#33495a" stroke-width="2"/>
-  <text x="50" y="1520" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="start" fill="#172533" xml:space="preserve">Análise estatística (Seção 3.9)</text>
-  <text x="50" y="1556" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="start" fill="#172533" xml:space="preserve">IC de 95% por bootstrap · Friedman e Wilcoxon com Holm-Bonferroni · curvas por turno · visões condicional e global · resultados estritos e híbridos</text>
+  <path d="M1470 1255 L1470 1318" fill="none" stroke="#263544" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="1210" y="1320" width="520" height="70" rx="8" fill="#f3f4f6" stroke="#33495a" stroke-width="2"/>
+  <text x="1470" y="1364" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="middle" fill="#172533" xml:space="preserve">Análise estatística (Seção 3.9)</text>
   <text x="30" y="360" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" text-anchor="start" fill="#172533" xml:space="preserve">Legenda</text>
   <path d="M30 401 A25.0 16 0 0 1 80 401 V405 A25.0 16 0 0 1 30 405 Z" fill="#edf3f8" stroke="#33495a" stroke-width="2"/>
   <path d="M30 401 A25.0 16 0 0 0 80 401" fill="none" stroke="#33495a" stroke-width="2"/>

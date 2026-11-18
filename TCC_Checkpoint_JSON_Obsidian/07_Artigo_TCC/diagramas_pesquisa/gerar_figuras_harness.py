@@ -127,13 +127,13 @@ S_ = var("S")
 
 def figura_visao_geral() -> Svg:
     s = Svg(
-        1900, 1620,
+        1900, 1420,
         "Figura 1: visão geral do harness experimental para uma transição do SUMIE",
         "Execução nas etapas i a iv: o SUMIE fornece a transição; apenas o estado anterior de referência e a "
         "observação seguem para o prompt fixo e para o escritor, única variável do experimento; a saída bruta é "
         "gravada sem reparo. Avaliação nas etapas v a ix: validação do JSON e do esquema, correspondência direta "
-        "com a referência, juiz semântico local apenas para divergências e registro em JSON Lines, que alimenta "
-        "as métricas de estrutura, estado e operação e a análise estatística.",
+        "com a referência, juiz semântico local apenas para divergências e registro em JSON Lines, seguido "
+        "da análise estatística.",
     )
     # Faixa de execução
     s.text(30, 52, "Execução — etapas (i) a (iv)", 24, bold=True, color="#4b5b68")
@@ -234,25 +234,10 @@ def figura_visao_geral() -> Svg:
     s.text(cx, 1196, "(ix) Registros JSON Lines", 22, bold=True, anchor="middle")
     s.text(cx, 1228, "saídas, decisões do juiz, métricas e proveniência", 19, anchor="middle")
 
-    # Métricas e análise
-    s.arrow([(cx, 1255), (cx, 1290)], head=False)
-    s.arrow([(320, 1290), (1580, 1290)], head=False)
-    for x in (320, 950, 1580):
-        s.arrow([(x, 1290), (x, 1318)])
-    boxes = [
-        (30, "Estrutural · objetivo a", "validade do JSON e do esquema"),
-        (660, "Estado · objetivo b", "precisão, revocação, F1, alucinação"),
-        (1290, "Operação · objetivo c", "preservação, adição e atualização"),
-    ]
-    for x, title, line in boxes:
-        s.rect(x, 1320, 580, 110, "#ffffff")
-        s.text(x + 20, 1360, title, 22, bold=True)
-        s.text(x + 20, 1396, line, 21)
-        s.arrow([(x + 290, 1430), (x + 290, 1478)])
-    s.rect(30, 1480, 1840, 110, GRAY)
-    s.text(50, 1520, "Análise estatística (Seção 3.9)", 22, bold=True)
-    s.text(50, 1556, "IC de 95% por bootstrap · Friedman e Wilcoxon com Holm-Bonferroni · curvas por turno · "
-                     "visões condicional e global · resultados estritos e híbridos", 19)
+    # Análise estatística
+    s.arrow([(cx, 1255), (cx, 1318)])
+    s.rect(1210, 1320, 520, 70, GRAY)
+    s.text(cx, 1364, "Análise estatística (Seção 3.9)", 22, bold=True, anchor="middle")
 
     # Legenda
     s.text(30, 360, "Legenda", 22, bold=True)
