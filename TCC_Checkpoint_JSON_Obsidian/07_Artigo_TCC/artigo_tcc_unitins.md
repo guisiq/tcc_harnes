@@ -56,7 +56,7 @@ b) comparar a fidelidade do estado mantido por cada escritor ao longo dos turnos
 
 c) analisar o perfil de erro dos escritores segundo o tipo de operação exigida no SUMIE, contrastando a preservação de atributos inalterados com a adição e a atualização de informações.
 
-O restante deste artigo está organizado da seguinte forma: a seção 2 apresenta a revisão bibliográfica sobre *harness*, memória persistente estruturada em agentes e os trabalhos relacionados; a seção 3 detalha os materiais e métodos, incluindo a revisão sistemática que delimitou os trabalhos relacionados, o protocolo experimental e a arquitetura do *harness*; a seção 4 apresenta os resultados esperados e o cronograma de execução; e a seção 5 apresenta as considerações finais.
+O restante deste artigo está organizado da seguinte forma: a seção 2 apresenta a revisão bibliográfica sobre *harness*, memória persistente estruturada em agentes e os trabalhos relacionados; a seção 3 detalha os materiais e métodos, incluindo a revisão sistemática, o protocolo experimental e a arquitetura do *harness*, além de apresentar os resultados esperados e o cronograma de execução; e a seção 4 apresenta as considerações finais.
 
 # 2 Referencial Teórico
 
@@ -362,11 +362,7 @@ a) **Validade interna:** os três modelos comparados não compartilham o mesmo c
 b) **Validade de construção:** a avaliação original do SUMIE utiliza um modelo de linguagem como juiz para verificar o alinhamento semântico de evidências [@hwangSUMIESyntheticBenchmark2025]. Este protocolo combina correspondência direta após normalização com um juiz local aberto apenas para divergências, fornecendo-lhe as anotações pertinentes do SUMIE. O juiz pode introduzir viés ou inconsistência; para reduzir esse risco, sua versão, quantização e *prompt* serão congelados, as decisões serão cegas à identidade do escritor, casos incertos serão reportados e uma amostra será auditada manualmente. Também serão divulgados os resultados estritos sem juiz, a frequência de casos enviados ao juiz e o pico de memória medido. O piloto deverá confirmar as regras de comparação e o limite de 4 GiB;
 c) **Validade externa:** os resultados obtidos restringem-se à tarefa de sumarização incremental de entidades em um esquema plano de pares chave-valor sob o método GU-JSON. O estudo avalia transições com um estado de referência em cada turno, não medindo a propagação acumulativa de erros em execução livre nem o impacto do *checkpoint* em tarefas finais de tomada de decisão do agente.
 
-# 4 Resultados
-
-Esta seção descreve os artefatos de análise e as contribuições esperadas a partir da execução do protocolo experimental no TCC II e o cronograma físico das atividades.
-
-## 4.1 Resultados e contribuições esperadas
+## 3.12 Resultados e contribuições esperadas
 
 A execução completa da Fase 2 sobre o *benchmark* SUMIE produzirá quatro conjuntos principais de evidências empíricas, diretamente vinculados aos objetivos específicos do trabalho:
 
@@ -375,7 +371,7 @@ A execução completa da Fase 2 sobre o *benchmark* SUMIE produzirá quatro conj
 3. **Decomposição do perfil de erro por operação de estado (Objetivo c):** comparação pareada entre *Preservation Accuracy* (`PRESERVE`) e *Update Accuracy* (`ADD` e `UPDATE`). Essa estratificação permitirá distinguir, por exemplo, um modelo conservador — que preserva com alta acurácia o estado anterior $M_{t-1}^*$, mas falha em incorporar novos atributos de $O_t$ — de um modelo propenso a sobrescrever ou esquecer campos válidos ao integrar novas informações.
 4. **Relação entre validade sintática e fidelidade semântica:** o cruzamento entre as métricas estruturais e semânticas permitirá demonstrar empiricamente em que medida *checkpoints* sintaticamente válidos ainda sofrem de omissão de atributos ou alucinação de valores, fornecendo um protocolo e um *harness* reutilizáveis para a avaliação de escritores compactos de memória.
 
-## 4.2 Cronograma
+## 3.13 Cronograma
 
 O cronograma abrange as etapas de elaboração e validação do projeto no TCC I (2026/2) e a implementação completa, coleta experimental, análise estatística e redação final no TCC II (2027/1), organizadas em períodos quinzenais. As atividades previstas e suas dependências diretas são listadas a seguir:
 
@@ -419,7 +415,7 @@ Tabela 1 – Cronograma de atividades para TCC I e II, com subdivisão quinzenal
 
 Fonte: elaborado pelo autor (2026).
 
-# 5 Considerações finais
+# 4 Considerações finais
 
 A confiabilidade de agentes baseados em modelos de linguagem que operam em múltiplas etapas depende da integridade do estado persistido ao longo da interação. Embora a representação desse estado em *checkpoints* JSON atualizados pelo método GU-JSON ofereça uma estrutura explícita e compacta sob memória limitada, a necessidade de regenerar todo o objeto a cada turno torna o estado vulnerável a falhas sintáticas e à perda ou distorção de informações. Investigar se modelos de linguagem compactos são capazes de executar essa reescrita com fidelidade — e como diferentes paradigmas gerativos se comportam nessa função — constitui um passo necessário para viabilizar componentes locais de memória em sistemas agênticos.
 
