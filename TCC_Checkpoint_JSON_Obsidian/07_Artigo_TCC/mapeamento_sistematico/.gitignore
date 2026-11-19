@@ -1,7 +1,0 @@
-# Artefatos derivados (regeráveis com `executar.ps1 -Offline` ou `mapeamento.cs lotes`)
-dados/**/pretriagem.json.gz
-dados/**/consolidado.json.gz
-dados/**/lotes/
-*.tmp
-bin/
-obj/
