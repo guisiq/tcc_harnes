@@ -6,7 +6,7 @@ public sealed class CliArgs
     public string? Output { get; init; }
     public string? Title { get; init; }
     public string? Author { get; init; }
-    public string Model { get; init; } = "mai-code-1.1-flash";
+    public string Model { get; init; } = "mai-code-2-flash";
     public string[] Formats { get; init; } = ["epub"];
     public string? Calibre { get; init; }
     public bool ExportOnly { get; init; }
@@ -27,7 +27,7 @@ public sealed class CliArgs
         string? output = null;
         string? title = null;
         string? author = null;
-        var model = "mai-code-1.1-flash";
+        var model = "mai-code-2-flash";
         var formats = new[] { "epub" };
         var calibre = Environment.GetEnvironmentVariable("EBOOK_CONVERT");
         var exportOnly = false;
@@ -138,7 +138,7 @@ public sealed class CliArgs
               --output, -o <arquivo.epub>   Caminho do EPUB de saída (padrão: mesmo nome do PDF)
               --title <texto>               Título a usar no EPUB (padrão: nome do arquivo)
               --author <texto>              Autor a usar no EPUB
-              --model <nome>                 Modelo de layout/traducao (padrao: mai-code-1.1-flash)
+              --model <nome>                 Modelo de layout/traducao (padrao: mai-code-2-flash)
               --formats <lista>              epub,azw3,mobi,pdf (padrao: epub; EPUB base sempre mantido)
               --export-only                  Entrada EPUB existente: exporta sem chamar IA
               --calibre <ebook-convert.exe>   Conversor Calibre; alternativa: EBOOK_CONVERT

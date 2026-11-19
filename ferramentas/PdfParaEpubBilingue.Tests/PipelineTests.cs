@@ -181,7 +181,7 @@ public sealed class PipelineTests : IDisposable
         Assert.True(args!.ExportOnly);
         Assert.Equal(new[] { "epub", "azw3", "mobi", "pdf" }, args.Formats);
         Assert.Equal("converter.exe", args.Calibre);
-        Assert.Equal("mai-code-1.1-flash", args.Model);
+        Assert.Equal("mai-code-2-flash", args.Model);
     }
 
     [Theory]

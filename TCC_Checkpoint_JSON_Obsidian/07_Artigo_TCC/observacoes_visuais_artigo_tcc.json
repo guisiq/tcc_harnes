@@ -1,0 +1,444 @@
+{
+  "Pdf": "D:\\repos\\tcc_harnes\\TCC_Checkpoint_JSON_Obsidian\\07_Artigo_TCC\\artigo_tcc_unitins_corrigido (1).pdf",
+  "Model": "mai-code-2-flash",
+  "ReferenceDiagram": "c:\\Users\\lopes\\AppData\\Roaming\\Code\\agentSessionData\\462f97c7-24f3-473a-bc50-e7d1b899960d\\attachments\\93d9ef48-f242-4494-8818-377182308e78\\Pasted Image.png",
+  "Dpi": 150,
+  "PageCount": 55,
+  "ApiCalls": 6,
+  "CacheHits": 0,
+  "Findings": [
+    {
+      "Page": 1,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 2,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 3,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 4,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 5,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 6,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 7,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 8,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 9,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 10,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 11,
+      "Severity": "AJUSTAR",
+      "Codes": [
+        "V-FMT",
+        "V-TEXT"
+      ],
+      "Observation": "O r\u00F3tulo do terceiro objetivo aparece destacado como \u201Ce)a)\u201D em vez de uma numera\u00E7\u00E3o correta.",
+      "Suggestion": "Substituir \u201Ce)a)\u201D por \u201Cc)\u201D e remover o destaque verde residual."
+    },
+    {
+      "Page": 17,
+      "Severity": "CRITICO",
+      "Codes": [
+        "V-PLACEHOLDER"
+      ],
+      "Observation": "O marcador residual \u201C[GS2]\u201D aparece ao final do par\u00E1grafo sobre o teste de Holm-Bonferroni.",
+      "Suggestion": "Remover o marcador \u201C[GS2]\u201D e revisar eventuais marcadores GS residuais."
+    },
+    {
+      "Page": 19,
+      "Severity": "CRITICO",
+      "Codes": [
+        "V-PLACEHOLDER"
+      ],
+      "Observation": "O t\u00EDtulo do Quadro 1 termina com o marcador residual \u201C[GS3]\u201D.",
+      "Suggestion": "Remover \u201C[GS3]\u201D do t\u00EDtulo e verificar o restante do documento por marcadores semelhantes."
+    },
+    {
+      "Page": 21,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 22,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 23,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 24,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 25,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 26,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 27,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 28,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 29,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 30,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 31,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 32,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 33,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 34,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 35,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 36,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 37,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 38,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 39,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 40,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 41,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 42,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 43,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 44,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 45,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 46,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 47,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 48,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 49,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 50,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 51,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 52,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 53,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 54,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    },
+    {
+      "Page": 55,
+      "Severity": "OK",
+      "Codes": [
+        "V-FMT"
+      ],
+      "Observation": "Nenhum problema visual relevante identificado.",
+      "Suggestion": null
+    }
+  ]
+}

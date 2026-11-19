@@ -37,7 +37,7 @@
   "inputs": [
     { "id": "pdfPath", "type": "promptString", "description": "Caminho do PDF em ingles" },
     { "id": "epubPath", "type": "promptString", "description": "Caminho do EPUB bilingue" },
-    { "id": "copilotModel", "type": "promptString", "description": "Modelo Copilot; consulte --models", "default": "mai-code-1.1-flash" },
+    { "id": "copilotModel", "type": "promptString", "description": "Modelo Copilot; consulte --models", "default": "mai-code-2-flash" },
     { "id": "bookFormats", "type": "pickString", "description": "Formatos de saida; AZW3 para USB, EPUB para Send to Kindle", "options": ["epub", "epub,azw3", "epub,azw3,mobi,pdf"], "default": "epub,azw3" }
   ]
 }
