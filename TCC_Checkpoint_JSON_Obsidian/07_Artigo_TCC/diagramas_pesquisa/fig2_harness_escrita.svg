@@ -43,7 +43,7 @@
   <text x="428" y="702" font-family="Arial, Helvetica, sans-serif" font-size="18" text-anchor="start" fill="#b45309" xml:space="preserve"><tspan>o escritor gera </tspan><tspan font-style="italic">M</tspan><tspan font-size="12" font-style="italic" dy="4.5">t</tspan><tspan dy="-4.5"> a partir deste ponto</tspan></text>
   <path d="M330 130 L408 130" fill="none" stroke="#263544" stroke-width="3" marker-end="url(#arrow)"/>
   <path d="M330 230 L408 230" fill="none" stroke="#263544" stroke-width="3" marker-end="url(#arrow)"/>
-  <path d="M330 410 L408 410" fill="none" stroke="#263544" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M330 350 L408 350" fill="none" stroke="#263544" stroke-width="3" marker-end="url(#arrow)"/>
   <path d="M330 520 L408 520" fill="none" stroke="#263544" stroke-width="3" marker-end="url(#arrow)"/>
   <text x="1395.0" y="175" font-family="Arial, Helvetica, sans-serif" font-size="24" text-anchor="middle" fill="#172533" xml:space="preserve"><tspan font-style="italic">M</tspan><tspan font-size="16" font-style="italic" dy="6.0">t</tspan><tspan dy="-6.0"> = </tspan><tspan font-style="italic">G</tspan><tspan>(</tspan><tspan font-style="italic">S</tspan><tspan>, </tspan><tspan font-style="italic">M</tspan><tspan font-size="16" dy="-9.1">*</tspan><tspan font-size="16" font-style="italic" dy="15.1" dx="-4.5">t−1</tspan><tspan dy="-6.0">, </tspan><tspan font-style="italic">O</tspan><tspan font-size="16" font-style="italic" dy="6.0">t</tspan><tspan dy="-6.0">)</tspan></text>
   <text x="1395.0" y="203" font-family="Arial, Helvetica, sans-serif" font-size="17" text-anchor="middle" fill="#4b5b68" xml:space="preserve">Equação 1, com o estado de referência</text>
