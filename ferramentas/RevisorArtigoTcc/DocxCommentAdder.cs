@@ -23,7 +23,9 @@ public static class DocxCommentAdder
         string sourceDocx,
         string outputDocx,
         string observationsJson,
-        CancellationToken cancellationToken = default)
+        CancellationToken cancellationToken = default,
+        string author = "Copilot — Revisão do TCC",
+        string initials = "CP")
     {
         var script = Path.Combine(AppContext.BaseDirectory, "add_docx_comments.py");
         if (!File.Exists(script))
@@ -50,6 +52,8 @@ public static class DocxCommentAdder
         start.ArgumentList.Add(Path.GetFullPath(sourceDocx));
         start.ArgumentList.Add(Path.GetFullPath(outputDocx));
         start.ArgumentList.Add(Path.GetFullPath(observationsJson));
+        start.ArgumentList.Add(author);
+        start.ArgumentList.Add(initials);
 
         using var process = Process.Start(start)
             ?? throw new IOException("Python não iniciou para inserir comentários no DOCX.");

@@ -20,6 +20,8 @@ var skipVisual = false;
 var visualPagesPerBatch = 10;
 var visualDpi = 150;
 var diagramImage = @"c:\Users\lopes\AppData\Roaming\Code\agentSessionData\462f97c7-24f3-473a-bc50-e7d1b899960d\attachments\93d9ef48-f242-4494-8818-377182308e78\Pasted Image.png";
+var commentAuthor = "Copilot — Revisão do TCC";
+var commentInitials = "CP";
 
 for (var i = 0; i < args.Length; i++)
 {
@@ -54,6 +56,12 @@ for (var i = 0; i < args.Length; i++)
             break;
         case "--comments-output":
             commentedDocxPath = Path.GetFullPath(args[++i]);
+            break;
+        case "--comment-author":
+            commentAuthor = args[++i];
+            break;
+        case "--comment-initials":
+            commentInitials = args[++i];
             break;
         case "--visual-model":
             visualModel = args[++i];
@@ -90,6 +98,8 @@ for (var i = 0; i < args.Length; i++)
                   --deterministic-only          Executa apenas a auditoria determinística sem chamar LLM
                   --docx <arquivo.docx>         DOCX original usado para criar a cópia comentada
                   --comments-output <arquivo>   Caminho da cópia DOCX com comentários críticos
+                  --comment-author <nome>       Autor dos comentários (padrão: Copilot — Revisão do TCC)
+                  --comment-initials <sigla>    Iniciais do autor dos comentários (padrão: CP)
                   --visual-model <modelo>       Modelo com visão (padrão: mai-code-2-flash)
                   --visual-batch-size <N>       Páginas por lote visual (padrão: 10)
                   --visual-dpi <N>              Resolução do render (padrão: 150)
@@ -197,7 +207,9 @@ if (File.Exists(docxPath))
         docxPath,
         commentedDocxPath,
         jsonOutputPath,
-        cts.Token);
+        cts.Token,
+        author: commentAuthor,
+        initials: commentInitials);
     Console.Error.WriteLine(
         $"      Comentários críticos inseridos: {commentInsertion.CommentsAdded}; comentários já existentes preservados: {commentInsertion.ExistingCommentsPreserved}; ancoragens perdidas: {commentInsertion.Missed.Count}.");
 }

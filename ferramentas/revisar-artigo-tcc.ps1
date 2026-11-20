@@ -6,6 +6,8 @@ param(
     [int]$Concurrency = 4,
     [string]$Docx,
     [string]$CommentsOutput,
+    [string]$CommentAuthor = "Copilot — Revisão do TCC",
+    [string]$CommentInitials = "CP",
     [string]$VisualModel = "mai-code-2-flash",
     [int]$VisualBatchSize = 10,
     [int]$VisualDpi = 150,
@@ -22,7 +24,9 @@ $cliArgs = @(
     "--output", $Output,
     "--model", $Model,
     "--batch-size", $BatchSize.ToString(),
-    "--concurrency", $Concurrency.ToString()
+    "--concurrency", $Concurrency.ToString(),
+    "--comment-author", $CommentAuthor,
+    "--comment-initials", $CommentInitials
 )
 
 if ($DeterministicOnly) {

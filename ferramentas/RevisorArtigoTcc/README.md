@@ -35,8 +35,13 @@ A partir da raiz do repositório:
   -Model "mai-code-2-flash" `
   -VisualModel "mai-code-2-flash" `
   -VisualDpi 150 `
-  -VisualBatchSize 10
+  -VisualBatchSize 10 `
+  -CommentAuthor "Nome do autor" `
+  -CommentInitials "NA"
 ```
+
+Os comentários usam o autor `Copilot — Revisão do TCC` e as iniciais `CP` por padrão. Use
+`--comment-author` e `--comment-initials` para atribuí-los a outro autor.
 
 ## Saídas Geradas
 
