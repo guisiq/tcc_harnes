@@ -248,29 +248,31 @@ O valor p expressa, sob a hipótese nula e os pressupostos do teste, a probabili
 
 ## 2.8 Trabalhos relacionados
 
-O levantamento bibliográfico anterior à revisão sistemática identificou estudos que definem os fundamentos deste trabalho. Hwang et al. (2024) introduziram o GU-JSON e o avaliaram com modelos proprietários de grande porte no benchmark SUMIE; Hwang et al. (2025) também utilizaram o SUMIE para avaliar a atualização incremental de atributos e valores em entidades, mantendo perspectivas divergentes. Jayalath et al. (2025) combinaram memória tipada com operações estruturadas aplicadas por código, enquanto Zeng et al. (2024) sistematizaram representações e estratégias de recuperação para memória em agentes. Yuen et al. (2025) estudaram a reescrita da memória contextual em agentes e Geng et al. (2025) investigaram a conformidade sintática e de esquema na geração estruturada. Esses estudos apoiam a base conceitual e metodológica da pesquisa, mas não são incluídos no quadro comparativo, que se restringe aos dez estudos selecionados pela revisão sistemática descrita na Seção 3.1.
+O levantamento bibliográfico anterior à revisão sistemática identificou estudos que definem os fundamentos deste trabalho. Hwang et al. (2024) introduziram o GU-JSON e o avaliaram com modelos proprietários de grande porte no benchmark SUMIE; Hwang et al. (2025) também utilizaram o SUMIE para avaliar a atualização incremental de atributos e valores em entidades, mantendo perspectivas divergentes. Jayalath et al. (2025) combinaram memória tipada com operações estruturadas aplicadas por código, enquanto Zeng et al. (2024) sistematizaram representações e estratégias de recuperação para memória em agentes. Geng et al. (2025) investigaram a conformidade sintática e de esquema na geração estruturada. Esses estudos apoiam a base conceitual e metodológica da pesquisa, mas não são incluídos no quadro comparativo, que se restringe aos 12 estudos do núcleo selecionados pela revisão sistemática descrita na Seção 3.1. Yuen et al. (2025), que estudaram a reescrita da memória contextual em agentes e também haviam sido identificados no levantamento anterior, foram recuperados pela revisão e integram o núcleo.
 
 **Quadro 1 – Comparação entre trabalhos relacionados e a proposta**
 
 | **Trabalho** | **Representação da memória** | **Atualização** | **Modelos e escala** | **Objeto da avaliação** | **Compara paradigmas gerativos** |
 | --- | --- | --- | --- | --- | --- |
-| Bini et al. (2025) | Fatos textuais, com operações em JSON (identificador, texto e evento) | Adaptadores especializados decidem adição, atualização e exclusão de entradas | Qwen2.5-1.5B e Gemma2-2B com adaptadores LoRA destilados | Respostas no LoCoMo, latência e eficiência | Não |
-| Lu et al. (2026) (comparador) | Resumos de memória em texto livre; chamadas de ferramentas em JSON avaliadas à parte | Sumarização do histórico do agente | LLaDA-8B e Dream-7B (difusão) frente a Qwen-8B e Ministral-8B (autoregressivos), entre outros | Desempenho em fluxos agênticos e em chamadas de ferramentas | Sim, sem *checkpoint* JSON |
-| Xiao et al. (2026) | Registros de preferências com tipo, categoria, valor e confiança | Retenção, adição e modificação a partir de novos diálogos | Modelos de grande porte e sistemas de memória | F1 entre a memória atualizada e uma referência humana; recuperação e uso | Não |
-| Kang et al. (2026) | Entradas estruturadas extraídas de conversas | Extração passiva ou escrita seletiva, com recuperação, adiamento e descarte | MemReader-0.6B e MemReader-4B | Respostas e gestão de memória (LoCoMo, LongMemEval e HaluMem) | Não |
-| Qiu et al. (2026) | Registros atômicos tipados (tempo, local, motivo e finalidade) | Atualização por dimensões e ordem temporal | Extrator Qwen3-4B ajustado ao esquema | Acurácia de respostas e eficiência de recuperação e atualização | Não |
-| Wang et al. (2026) | Memórias central, episódica, semântica e procedural | Agentes por tipo adicionam, substituem, fundem e atualizam registros | Gestor de 4B baseado no Qwen3-4B e versão de 8B | Respostas e generalização | Não |
-| Choi et al. (2026) | Grafo de eventos e persona com arestas tipadas | Inclusão de nós e de arestas de apoio, contradição e mudança | Qwen3-1.7B e Gemma-3-1B | Respostas e validação humana de uma amostra de arestas | Não |
-| Zhao; Wu (2026) | Registro tipado de intenções futuras | Ciclo de vida controlado por código, com seleção pelo modelo | Gemma-E2B e Qwen3.5-4B, além de modelos maiores | F1 das intenções devidas e erros de atualização (PM-Bench) | Não |
+| Yuen et al. (2025) | Memória textual de cada agente organizada por modelo de seções | Reescrita da memória a cada turno a partir da memória anterior e da saída do agente | Llama-3.2-3B | Desempenho em PDDL, FEVER e ALFWorld e qualidade de soluções em projeto de *pipeline* de dados | Não |
+| Fioresi et al. (2026) | Banco compartilhado de pares chave-valor textuais com resumos de passos intermediários | Controlador decide admitir ou não cada passo na memória | Controlador baseado no Qwen3-0.6B, treinado por reforço | Taxa de admissão, revocação e reuso da memória; tempo de execução (AssistantBench e GAIA) | Não |
+| Zhang et al. (2026) | *Memory Bank* estruturado | Operações de criação, leitura, atualização e remoção em fases de manutenção | Política baseada no Qwen3-4B, treinada por GRPO | Respostas e erros de formação da memória (escritas incorretas e entradas obsoletas); rastreamento de estado no Ledger-QA | Não |
+| Kang et al. (2026) | Entradas de memória extraídas em JSON | Gestão ativa: adicionar, adiar, buscar ou ignorar | MemReader-0.6B e MemReader-4B | Recuperação, atualização e respostas, com revocação, precisão, alucinação e omissão (LoCoMo, LongMemEval e HaluMem) | Não |
+| Wang et al. (2026) | Memórias central, episódica, semântica e procedural | Ações de atualização por sessão, aprendidas por reforço | Gestor baseado no Qwen3-4B | Respostas e ablações (LongMemEval, LoCoMo e MemoryAgentBench) | Não |
+| Lee; Pfister (2026) | Estado de diálogo em pares *slot*-valor sobre esquema | Correção do estado a cada turno por operadores restritos (votar, adicionar e trocar) verificados pelo áudio | Editor OLMo-2-1B com LoRA | Acurácia conjunta de objetivos (JGA) do estado por turno | Não |
+| Qin; Lu (2026) | Grafo de proveniência tipado com pares chave-valor em JSON | Registro do valor atual na escrita, preservando os valores substituídos | Anotador Qwen3-4B congelado, com JSON restrito por esquema | Preservação do valor atual por chave e respostas (LongMemEval, ALFWorld-Revision e MemoryAgentBench) | Não |
+| Zheng et al. (2026) | Mensagens literais por falante e estados derivados por pessoa e grupo | Escrita incremental, com atualizações encadeadas que preservam o histórico | Escritor Qwen2.5-3B treinado por GRPO | Similaridade das entradas escritas com a referência e respostas | Não |
+| Li et al. (2026) | Memória textual limitada, com fatos confirmados e trechos pendentes | Política decide promover, manter ou descartar evidências; verificador aceita apenas fatos apoiados na fonte | Qwen3.5-4B e Qwen3.5-9B | F1 de respostas e fidelidade dos fatos confirmados à fonte | Não |
 | Hwang; Diao (2026) | Registros estruturados de memória pessoal | Admissão; manutenção, descarte de duplicatas ou fusão | Qwen3.5-2B como gestor | Correção das ações de escrita, redundância e recuperação | Não |
-| Zhou; Xiong; Tan (2026) (comparador) | Plano intermediário textual editável | Reconstrução dos passos afetados por novas evidências | LLaDA2.0-mini (difusão) e Ling-mini-2.0 (autoregressivo de origem) | F1 de respostas em busca de múltiplos saltos e custo de geração | Sim, sem *checkpoint* JSON |
+| Ali; Abdallah; Jatowt (2026) | Grafo de fatos por turno, com dependências e contradições | Operações de revisar, abandonar e reativar tópicos, com uma chamada por turno | Escritor Ministral-3-3B com LoRA, destilado de memórias de referência | Acurácia das operações de revisão e qualidade da busca (ConvRevise) | Não |
+| Zhao et al. (2026) | Registros textuais de memória | Operações de adição, atualização, remoção ou nenhuma ação, com leitura seletiva | Gestor Qwen3-4B ajustado por SFT | Métrica ECA sobre respostas e registros selecionados, sob desatualização e envenenamento | Não |
 | Este trabalho | *Checkpoint* JSON de esquema fixo | GU-JSON, com reescrita integral pelo escritor | Três representantes compactos (~0,6B: autoregressivo, *encoder-decoder* e difusão em blocos) | Validade estrutural e fidelidade do estado por transição, turno e operação no SUMIE | Sim, sob protocolo controlado |
 
 Fonte: elaborado pelo autor (2026).
 
 O estudo fundacional de Hwang et al. (2024) validou o GU-JSON com modelos Gemini de grande porte, assim como Hwang et al. (2025) utilizaram o SUMIE com modelos de grande porte para avaliar a precisão e a revocação de atributos. Por sua vez, Jayalath et al. (2025) demonstraram uma alternativa baseada em operações programáticas sobre memória tipada, e Geng et al. (2025) mostraram a relevância de validar a conformidade sintática e de esquema. Esses trabalhos estabelecem o cenário de referência, mas não examinam a combinação central desta pesquisa.
 
-O Quadro 1 mostra que a revisão sistemática identificou dez estudos recentes próximos da proposta. Modelos de até cerca de 4 bilhões de parâmetros já atuam como extratores ou gestores de memória estruturada (Hwang; Diao, 2026; Kang et al., 2026; Qiu et al., 2026); portanto, o uso isolado de um escritor compacto não constitui lacuna por si só. Esses estudos, porém, aplicam operações sobre registros ou grafos e são avaliados sobretudo pelas respostas finais ou pelas ações de escrita. Entre os que examinam o próprio estado, Xiao et al. (2026) avaliam a memória atualizada com modelos de grande porte, e Choi et al. (2026) verificam apenas uma amostra das arestas do grafo. As comparações entre difusão e autoregressão tratam de memória em texto livre ou de planos textuais editáveis, com modelos de 7 a 8 bilhões de parâmetros ou sem checkpoint JSON (Lu et al., 2026; Zhou; Xiong; Tan, 2026). No escopo examinado, nenhum estudo combina o GU-JSON, as transições do SUMIE, representantes compactos de três paradigmas gerativos e a avaliação da validade e da fidelidade por operação. Este trabalho preenche essa interseção ao manter constantes o método GU-JSON, o esquema, o orçamento de tokens e as sequências do SUMIE para avaliar diretamente a qualidade estrutural e semântica dos checkpoints produzidos pelos três escritores compactos.
+O Quadro 1 mostra que a revisão sistemática identificou 12 estudos recentes que combinam memória textual estruturada, atualização incremental, escritor compacto e avaliação direta do estado. Modelos de até cerca de 4 bilhões de parâmetros já atuam como extratores, gestores ou escritores de memória (Fioresi et al., 2026; Hwang; Diao, 2026; Kang et al., 2026; Zheng et al., 2026); portanto, o uso isolado de um escritor compacto não constitui lacuna por si só. Na maioria desses estudos, porém, o modelo emite operações sobre registros, grafos ou *slots*, aplicadas por código, em vez de reescrever o estado completo, e a avaliação direta recai sobre as ações de escrita, sobre chaves isoladas ou sobre o estado de diálogo de um domínio específico (Ali; Abdallah; Jatowt, 2026; Lee; Pfister, 2026; Qin; Lu, 2026). Yuen et al. (2025) reescrevem a memória a cada turno, mas avaliam o desempenho nas tarefas, e não o conteúdo do estado. Nenhum estudo do núcleo compara paradigmas gerativos: todos os escritores são autoregressivos. Na revisão, a comparação entre difusão e autoregressão apareceu apenas em um estudo sobre planos textuais editáveis, que não cumpre os critérios do núcleo (Zhou; Xiong; Tan, 2026); em fluxos agênticos, ela foi feita com memória em texto livre e modelos de 7 a 8 bilhões de parâmetros (Lu et al., 2026). No escopo examinado, nenhum estudo combina o GU-JSON, as transições do SUMIE, representantes compactos de três paradigmas gerativos e a avaliação da validade e da fidelidade por operação. Este trabalho preenche essa interseção ao manter constantes o método GU-JSON, o esquema, o orçamento de tokens e as sequências do SUMIE para avaliar diretamente a qualidade estrutural e semântica dos checkpoints produzidos pelos três escritores compactos.
 
 # **3 MATERIAIS E MÉTODOS**
 
@@ -280,29 +282,31 @@ Este estudo segue um delineamento experimental, aplicado e quantitativo em Ciên
 
 Os trabalhos relacionados apresentados no Quadro 1 e a lacuna enunciada na introdução foram delimitados por uma revisão sistemática do tipo mapeamento, conduzida segundo as etapas de planejamento, busca, triagem, extração e síntese propostas por Petersen; Vakkalanka; Kuzniarz (2015). O levantamento bibliográfico anterior à revisão identificou os estudos de base discutidos na Seção 2.8; a revisão sistemática foi aplicada para selecionar estudos recentes que pudessem aproximar-se da proposta. O procedimento seguiu os passos descritos a seguir:
 
-1. **Planejamento e protocolo:** antes da busca, foram registrados em arquivo versionado a questão orientadora, a janela temporal, a fonte, as consultas, os critérios de classificação e os estudos de controle. A questão orientadora foi: quais estudos aproximam a escrita incremental de memória estruturada, o uso de modelos compactos, a avaliação direta do estado e a comparação entre paradigmas gerativos? A janela compreendeu os trabalhos com primeiro depósito entre 1º de julho de 2025 e 12 de novembro de 2026, data da execução;
-2. **Fonte e consultas:** a busca foi realizada na API do repositório arXiv,[[1]](#footnote-1) nos campos de título e resumo, com todas as páginas de resultado recuperadas. As seis consultas do Quadro 2 combinam, cada uma, as facetas do problema, em vez de buscar cada termo isoladamente.
-3. **Estudos de controle:** seis estudos já conhecidos e pertinentes foram usados para diagnosticar perdas das consultas, sem serem acrescentados manualmente aos resultados. Quatro foram recuperados; *Intrinsic Memory Agents* (Yuen et al., 2025) e *Supersede* não foram
-4. **Deduplicação:** os registros das seis consultas foram unidos pelo identificador do arXiv, resultando em 158 candidatos, todos dentro da janela;
-5. **Triagem por título e resumo:** cada candidato foi classificado em uma de três categorias. **Núcleo** (*CORE*) exigia estudo primário com atualização incremental de memória textual estruturada e ao menos mais uma aproximação: escritor ou gestor compacto de até cerca de 4 bilhões de parâmetros, avaliação direta da fidelidade do estado atualizado ou comparação entre paradigmas gerativos. **Contexto** (*CONTEXT*) indicava proximidade parcial ou informação insuficiente. **Exclusão** (*EXCLUDE*) abrangia estudos secundários, memória de *hardware*, modalidade principal não textual e temas sem contribuição ao problema. A triagem foi executada por um modelo de linguagem (claude-haiku-5.5, via GitHub Copilot SDK 1.0.31)[[2]](#footnote-2). Resultaram 13 estudos de núcleo, 91 de contexto e 54 exclusões;
-6. **Elegibilidade com consulta ao texto:** todos os 13 estudos de núcleo e 91 estudos de contexto foram reexaminados com o texto integral, na mesma versão do arXiv recuperada pela busca. Cinco estudos de núcleo foram mantidos e oito foram excluídos. Três estudos de contexto foram reclassificados como núcleo, e dois foram mantidos como **comparadores** por compararem paradigmas gerativos em memória de agentes ou em estado de planejamento revisável, embora não cumpram todos os critérios. Cada decisão foi registrada com o motivo e a fonte consultada. Assim, dez estudos foram selecionados: oito de núcleo e dois comparadores;
-7. **Extração e síntese**: de cada estudo selecionado foram extraídos a representação da memória, o mecanismo de atualização, os modelos e sua escala, o objeto da avaliação e a eventual comparação entre paradigmas gerativos. Esses campos formam as colunas do Quadro 1 (Seção 2.8), no qual os dez estudos selecionados aparecem ao lado da presente proposta. Os estudos de base obtidos pelo levantamento anterior permanecem discutidos no texto da revisão bibliográfica.
+1. **Planejamento e protocolo:** a questão orientadora, a janela temporal, a fonte, as consultas, os termos de exclusão, o livro de códigos, as regras de classificação e os estudos de controle foram registrados em arquivos versionados, lidos pelos *scripts* da revisão. A questão orientadora foi: quais estudos aproximam a escrita incremental de memória estruturada, o uso de modelos compactos, a avaliação direta do estado e a comparação entre paradigmas gerativos? A janela compreendeu os trabalhos com primeiro depósito entre 1º de julho de 2025 e 19 de novembro de 2026, data da execução;
+2. **Fonte e consultas:** a busca foi realizada na API do repositório arXiv,[[1]](#footnote-1) nos campos de título e resumo, com todas as páginas de resultado recuperadas. As oito consultas do Quadro 2 combinam, cada uma, facetas do problema (memória estruturada, atualização, escritor compacto, avaliação do estado e paradigma gerativo), em vez de buscar cada termo isoladamente;
+3. **Estudos de controle:** 12 estudos já conhecidos e pertinentes, incluindo os mais citados por trabalhos próximos, foram usados para compor e diagnosticar as consultas, sem serem acrescentados manualmente aos resultados. Todos foram recuperados; como orientaram a construção das consultas, essa recuperação não constitui validação independente;
+4. **Deduplicação e exclusão por termos:** os registros das oito consultas foram unidos pelo identificador do arXiv, resultando em 738 candidatos. Termos de exclusão no título, derivados da análise cruzada das justificativas de exclusão de execuções-piloto (por exemplo, *video*, *manipulation*, *rendering* e *quantum*), removeram 42 registros, restando 696;
+5. **Triagem codificada por título e resumo:** em vez de atribuir diretamente uma categoria, o modelo de linguagem registrou, para cada candidato, o valor sim, incerto ou não de sete características — C1, estudo primário; C2, memória textual mantida por modelo de linguagem; C3, atualização incremental; C4, estrutura explícita; C5, escritor ou gestor de até cerca de 4 bilhões de parâmetros; C6, avaliação direta do conteúdo do estado ou das operações de escrita; C7, comparação entre paradigmas gerativos — e eventuais códigos de exclusão (por exemplo, estudo secundário, memória interna do modelo ou saída estruturada sem estado mantido). A triagem foi executada pelo modelo claude-haiku-5.5, via GitHub Copilot SDK 1.0.31,[[2]](#footnote-2) com roteiro fixo e resposta validada por esquema JSON, em lotes de 20 registros. Os grupos foram atribuídos por regras do *script*, e não pelo modelo: 22 prováveis, 165 incertos com memória textual incremental afirmada, 2 possíveis comparadores, 42 incertos sem essa base, 59 de contexto, com alguma característica obrigatória ausente, e 406 exclusões. Os 189 dos três primeiros grupos seguiram para a etapa seguinte;
+6. **Elegibilidade com texto integral:** os 189 estudos foram recodificados com o texto integral da mesma versão do arXiv , um artigo por requisição. Cada característica marcada como presente precisou vir acompanhada de um trecho literal, conferido pelo *script* no texto salvo; um valor sem trecho encontrado foi rebaixado a incerto, e um escritor compacto cujo trecho só citava modelos acima de 4,5 bilhões de parâmetros foi rebaixado a ausente. As classes foram atribuídas por regras ordenadas: o **núcleo** exige C1 a C4, C5 e C6 presentes. Os demais estudos ficaram registrados em classes próprias: pendentes (C5 e C6 presentes, mas algum critério de base incerto), comparadores gerativos, somente escritor compacto, somente avaliação do estado, somente memória estruturada e exclusões por ausência ou por critério não demonstrado. Resultaram 12 estudos de núcleo, 2 pendentes, 1 comparador gerativo, 8 de escritor compacto, 52 de avaliação do estado, 70 de memória estruturada e 44 exclusões;
+7. **Extração e síntese:** de cada estudo do núcleo foram extraídos a representação da memória, o mecanismo de atualização, os modelos e sua escala, o objeto da avaliação e a eventual comparação entre paradigmas gerativos. Esses campos formam as colunas do Quadro 1 (Seção 2.8), no qual os 12 estudos aparecem ao lado da presente proposta. Os estudos de base obtidos pelo levantamento anterior permanecem discutidos no texto da revisão bibliográfica.
 
 **Quadro 2 – Consultas da revisão sistemática no arXiv**
 
 | **Consulta** | **Faceta buscada** | **Registros** |
 | --- | --- | --- |
-| F1 | Memória estruturada ou estado de entidades com atualização incremental, em modelos de linguagem ou agentes | 52 |
-| F2 | Modelos compactos que escrevem, extraem ou gerenciam memória | 71 |
-| F3 | Modelos de difusão aplicados à memória de agentes ou a estado de planejamento editável | 2 |
-| F4 | Saída JSON ou estruturada relacionada a memória, estado ou entidades, em modelos compactos ou de difusão | 10 |
-| F5 | Menção explícita ao método GU-JSON ou ao SUMIE | 7 |
-| F6 | Memória ou estado estruturado (tipado, com esquema ou JSON) atualizado ou rastreado por modelos pequenos | 26 |
-| Total | Após a deduplicação pelo identificador do arXiv | 158 |
+| E1 | Memória estruturada nomeada no título, com atualização; ou no resumo, com atualização e modelo compacto ou avaliação do estado | 177 |
+| E2 | Gestão ou atualização de memória com modelo compacto e representação estruturada | 136 |
+| E3 | Gestão ou atualização de memória com avaliação direta do conteúdo atualizado (atualização de conhecimento, supersessão, memória obsoleta) | 168 |
+| E4 | Modelos de difusão ou não autorregressivos aplicados a memória, estado, planejamento ou saída estruturada em agentes ou diálogo | 67 |
+| E5 | Sumarização incremental ou recorrente, GU-JSON, SUMIE ou estado de entidades, com atualização | 15 |
+| E6 | Estado ou memória em JSON ou esquema tipado, atualizado por modelo compacto | 129 |
+| E7 | Gestor de memória compacto treinado (reforço, destilação, adaptadores ou ajuste fino) | 158 |
+| E8 | Memória estruturada com operações de atualização avaliadas por *benchmark* de ciclo de vida | 55 |
+| Total | Após a deduplicação pelo identificador do arXiv | 738 |
 
 Fonte: elaborado pelo autor (2026).
 
-Os artefatos da revisão — protocolo, roteiro de triagem, *scripts* em C# (.NET 10), expressões completas das consultas, respostas brutas da API com seus *hashes* SHA-256, decisões da triagem e da elegibilidade e registro de custo — estão relacionados no Apêndice B e publicados em um repositório público próprio na versão v1.0.0.[[3]](#footnote-3) Com isso. A revisão tem limitações: a busca cobriu uma única fonte; as consultas são estreitas, o que favorece a precisão em detrimento da sensibilidade, como indicam os dois controles não recuperados; a triagem e a elegibilidade foram assistidas por modelo de linguagem, com avaliação somente dos artigos já triados ; Por isso, o Quadro 1 indica estudos próximos no escopo examinado, mas não comprova a inexistência de trabalhos semelhantes fora dele.
+Os artefatos da revisão — protocolo, livro de códigos, roteiros de triagem, termos de exclusão, *scripts* em C# (.NET 10), expressões completas das consultas, respostas brutas da API com seus *hashes* SHA-256, codificações das duas etapas com os trechos conferidos, *hashes* dos textos integrais e registro de custo — estão relacionados no Apêndice B e publicados em um repositório público próprio na versão v2.1.0.[[3]](#footnote-3) Os textos integrais não são redistribuídos, mas podem ser reconstituídos pelo *script*, que confere seus *hashes*. A revisão tem limitações: a busca cobriu uma única fonte; os estudos de controle orientaram a construção das consultas; a codificação foi feita por um único modelo de linguagem, sem revisor humano independente, de modo que as regras e a exigência de trechos literais reduzem, mas não eliminam, erros de codificação; e estudos que não informam o tamanho do escritor ou não avaliam o estado diretamente ficam fora do núcleo, ainda que próximos. Por isso, o Quadro 1 indica estudos próximos no escopo examinado, mas não comprova a inexistência de trabalhos semelhantes fora dele.
 
 ## 3.2 Desenho experimental e variáveis
 
@@ -565,13 +569,13 @@ Os resultados a serem obtidos estarão circunscritos aos três representantes av
 
 # **REFERÊNCIAS**
 
+ALI, Mohammed; ABDALLAH, Abdelrahman; JATOWT, Adam. **MemRevise: A Self-Revising Memory for Conversational Search**. arXiv:2610.24672v1, 2026. Disponível em: <https://arxiv.org/abs/2610.24672v1>. Acesso em: 20 nov. 2026.
+
 ARRIOLA, Marianne et al. **Block Diffusion: Interpolating Between Autoregressive and Diffusion Language Models**. arXiv:2503.09573v3, 2025. Disponível em: <https://arxiv.org/abs/2503.09573v3>. Acesso em: 16 nov. 2026.
 
-BINI, Massimo et al. **MemLoRA: Distilling Expert Adapters for On-Device Memory Systems**. arXiv:2512.04763v1, 2025. Disponível em: <https://arxiv.org/abs/2512.04763v1>. Acesso em: 16 nov. 2026.
-
-CHOI, Wonjun et al. **PGMem: Tightly Coupled Persona-Memory Graph for Lifelong Personalized Agents**. arXiv:2608.01708v2, 2026. Disponível em: <https://arxiv.org/abs/2608.01708v2>. Acesso em: 16 nov. 2026.
-
 DEMŠAR, Janez. [Statistical Comparisons of Classifiers over Multiple Data Sets](https://jmlr.org/papers/v7/demsar06a.html). **Journal of Machine Learning Research**, v. 7, n. 1, p. 1–30, 2006.
+
+FIORESI, Joseph et al. **Learning to Share: Selective Memory for Efficient Parallel Agentic Systems**. arXiv:2602.05965v2, 2026. Disponível em: <https://arxiv.org/abs/2602.05965v2>. Acesso em: 20 nov. 2026.
 
 GENG, Saibo et al. Grammar-Constrained Decoding for Structured NLP Tasks without Finetuning. In: **Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing**. Singapore: Association for Computational Linguistics, 2023. p. 10932–10952. DOI: 10.18653/v1/2023.emnlp-main.674. Disponível em: <https://aclanthology.org/2023.emnlp-main.674/>. Acesso em: 16 nov. 2026.
 
@@ -595,7 +599,11 @@ KANG, Jingyi et al. **MemReader: From Passive to Active Extraction for Long-Term
 
 KHANAL, Aja et al. **Agents of Diffusion: Enhancing Diffusion Language Models with Multi-Agent Reinforcement Learning for Structured Data Generation (Extended Version)**. arXiv:2601.07152v1, 2026. Disponível em: <https://arxiv.org/abs/2601.07152v1>. Acesso em: 16 nov. 2026.
 
+LEE, Chunggi; PFISTER, Hanspeter. **AVERT: Audio-Verified Adjudication for Spoken Dialogue State Tracking**. arXiv:2609.01828v1, 2026. Disponível em: <https://arxiv.org/abs/2609.01828v1>. Acesso em: 20 nov. 2026.
+
 LEE, Jemin et al. Exploring the Trade-Offs: Quantization Methods, Task Difficulty, and Model Size in Large Language Models From Edge to Giant. In: **Proceedings of the Thirty-Fourth International Joint Conference on Artificial Intelligence**. [S. l.]: International Joint Conferences on Artificial Intelligence Organization, 2025. p. 8113–8121. DOI: 10.24963/ijcai.2025/902. Disponível em: <https://www.ijcai.org/proceedings/2025/902>. Acesso em: 16 nov. 2026.
+
+LI, Jingguang et al. **CoEM: Empowering Long-Context Reasoning with Commit-on-Evidence Memory**. arXiv:2609.36935v2, 2026. Disponível em: <https://arxiv.org/abs/2609.36935v2>. Acesso em: 20 nov. 2026.
 
 LU, Qingyu et al. **The Bitter Lesson of Diffusion Language Models for Agentic Workflows: A Comprehensive Reality Check**. arXiv:2601.12979v3, 2026. Disponível em: <https://arxiv.org/abs/2601.12979v3>. Acesso em: 16 nov. 2026.
 
@@ -611,7 +619,7 @@ NIE, Shen et al. **Scaling up Masked Diffusion Models on Text**. arXiv:2410.1851
 
 PETERSEN, Kai; VAKKALANKA, Sairam; KUZNIARZ, Ludwik. Guidelines for conducting systematic mapping studies in software engineering: An update. **Information and Software Technology**, v. 64, p. 1–18, 2015. DOI: 10.1016/j.infsof.2015.03.007. Disponível em: <https://doi.org/10.1016/j.infsof.2015.03.007>. Acesso em: 16 nov. 2026.
 
-QIU, Wentao et al. **DimMem: Dimensional Structuring for Efficient Long-Term Agent Memory**. arXiv:2605.15759v3, 2026. Disponível em: <https://arxiv.org/abs/2605.15759v3>. Acesso em: 16 nov. 2026.
+QIN, Bowen; LU, Yao. **MoM: Memory of Memory**. arXiv:2609.25054v1, 2026. Disponível em: <https://arxiv.org/abs/2609.25054v1>. Acesso em: 20 nov. 2026.
 
 SHARMA, Raghav; MEHTA, Manan. **Small Language Models for Agentic Systems: A Survey of Architectures, Capabilities, and Deployment Trade offs**. arXiv:2510.03847, 2025. Disponível em: <https://arxiv.org/abs/2510.03847>. Acesso em: 16 nov. 2026.
 
@@ -621,19 +629,21 @@ WANG, Yubo et al. **CMI-Mem: Toward Generalizable Long-Term Memory Management vi
 
 WU, Di et al. **LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory**. arXiv:2410.10813v2, 2024. Disponível em: <https://arxiv.org/abs/2410.10813v2>. Acesso em: 16 nov. 2026.
 
-XIAO, Jianfei et al. **AlpsBench: An LLM Personalization Benchmark for Real-Dialogue Memorization and Preference Alignment**. arXiv:2603.26680v2, 2026. Disponível em: <https://arxiv.org/abs/2603.26680v2>. Acesso em: 16 nov. 2026.
-
 XU, Xiucheng et al. **Chain-of-Memory: Lightweight Memory Construction with Dynamic Evolution for LLM Agents**. arXiv:2601.14287, 2026. Disponível em: <https://arxiv.org/abs/2601.14287>. Acesso em: 16 nov. 2026.
 
 YANG, An et al. **Qwen3 Technical Report**. arXiv:2505.09388v1, 2025. Disponível em: <https://arxiv.org/abs/2505.09388v1>. Acesso em: 16 nov. 2026.
 
-YUEN, Sizhe et al. **Intrinsic Memory Agents: Heterogeneous Multi-Agent LLM Systems through Structured Contextual Memory**. arXiv:2508.08997, 2025. Disponível em: <https://arxiv.org/abs/2508.08997>. Acesso em: 16 nov. 2026.
+YUEN, Sizhe et al. **Intrinsic Memory Agents: Heterogeneous Multi-Agent LLM Systems through Structured Contextual Memory**. arXiv:2508.08997v2, 2025. Disponível em: <https://arxiv.org/abs/2508.08997v2>. Acesso em: 16 nov. 2026.
 
 ZENG, Ruihong et al. **On the Structural Memory of LLM Agents**. arXiv:2412.15266, 2024. Disponível em: <https://arxiv.org/abs/2412.15266>. Acesso em: 16 nov. 2026.
 
 ZHANG, Biao et al. **Encoder-Decoder Gemma: Improving the Quality-Efficiency Trade-Off via Adaptation**. arXiv:2504.06225v1, 2025. Disponível em: <https://arxiv.org/abs/2504.06225v1>. Acesso em: 16 nov. 2026.
 
-ZHAO, Jinqing; WU, Chengcan. **Making Prospective Memory SLM-Shaped: Typed Intention Stores for Small-Model Agents**. arXiv:2609.01272v1, 2026. Disponível em: <https://arxiv.org/abs/2609.01272v1>. Acesso em: 16 nov. 2026.
+ZHANG, Kehao et al. **Learning to Remember: End-to-End Training of Memory Agents for Long-Context Reasoning**. arXiv:2602.18493v2, 2026. Disponível em: <https://arxiv.org/abs/2602.18493v2>. Acesso em: 20 nov. 2026.
+
+ZHAO, Runze et al. **Accept Changes, Reject Attacks: Robust Memory Management for LLM Agents**. arXiv:2610.41056v1, 2026. Disponível em: <https://arxiv.org/abs/2610.41056v1>. Acesso em: 20 nov. 2026.
+
+ZHENG, Haobo et al. **SpeakerMem-R1: Speaker-Centered Dual-Track Memory for Multi-Party Dialogue**. arXiv:2609.26780v2, 2026. Disponível em: <https://arxiv.org/abs/2609.26780v2>. Acesso em: 20 nov. 2026.
 
 ZHOU, Qisheng; XIONG, Zhen; TAN, Qiaoyu. **DiffuPlan: Editable Planning State for Diffusion Language Model Agents**. arXiv:2610.24717v1, 2026. Disponível em: <https://arxiv.org/abs/2610.24717v1>. Acesso em: 16 nov. 2026.
 
@@ -668,126 +678,112 @@ UPDATED STATE:
 
 # **APÊNDICE B – ARTEFATOS DA REVISÃO SISTEMÁTICA**
 
-O Quadro 9 apresenta os principais parâmetros de cada etapa da revisão sistemática descrita na Seção 3.1. Os valores correspondem à execução de 12 de novembro de 2026. As expressões de busca são reproduzidas integralmente após o quadro; em todas, os campos ti e abs indicam, respectivamente, título e resumo.
+O Quadro 9 apresenta os principais parâmetros de cada etapa da revisão sistemática descrita na Seção 3.1. Os valores correspondem à execução de 19 de novembro de 2026. As expressões de busca são apresentadas após o quadro, em forma compacta; as expressões expandidas estão no protocolo publicado no repositório da revisão.
 
 **Quadro 9 – Parâmetros metodológicos da revisão sistemática**
 
 | **Etapa** | **Parâmetro** | **Valor adotado** |
 | --- | --- | --- |
-| a) Planejamento | Janela temporal | Primeiro depósito entre 01/07/2025 e 12/11/2026 |
+| a) Planejamento | Janela temporal | Primeiro depósito entre 01/07/2025 e 19/11/2026 |
 | b) Busca | Fonte e campos | API do arXiv; título (ti) e resumo (abs) |
-|  | Filtro temporal | submittedDate:[202507010000 TO 202611122359] |
-| c) Estudos de controle | Identificadores arXiv | 2508.08997 (Intrinsic Memory Agents); 2601.12979 (The Bitter Lesson of Diffusion Language Models for Agentic Workflows); 2609.36976 (AMU); 2604.07877 (MemReader); 2606.27472 (Supersede); 2610.24717 (DiffuPlan) |
-| d) Deduplicação | Chave e resultado | Identificador do arXiv; 158 registros únicos |
-| e) Triagem | Modelo e interface | claude-haiku-5.5, via GitHub Copilot SDK 1.0.31 |
-|  | Lote e resposta | 10 registros por requisição; classificação validada por esquema JSON |
-|  | Categorias e resultado | 13 CORE, 91 CONTEXT e 54 EXCLUDE |
-| f) Elegibilidade | Registros reexaminados | 13 estudos CORE e 6 estudos CONTEXT, consultados por trechos do texto integral na versão do arXiv recuperada |
-|  | Resultado | 5 CORE mantidos, 8 excluídos, 3 CONTEXT reclassificados como CORE e 2 comparadores; total de 10 estudos selecionados |
+|  | Filtro temporal | submittedDate:[202507010000 TO 202611192359] |
+|  | Paginação e ordenação | 1.000 registros por página; todas as páginas recuperadas; ordenação crescente pela data de depósito |
+|  | Intervalo entre requisições | 4 segundos |
+| c) Estudos de controle | Identificadores arXiv | 2603.26680 (AlpsBench); 2604.07877 (MemReader); 2605.15759 (DimMem); 2609.01272 (Prospective Intention Store); 2609.36976 (AMU); 2512.04763 (MemLoRA); 2607.20553 (CMI-Mem); 2608.01708 (PGMem); 2601.12979 (The Bitter Lesson of Diffusion Language Models); 2610.24717 (DiffuPlan); 2508.08997 (Intrinsic Memory Agents); 2606.27472 (Supersede). Todos recuperados |
+| d) Deduplicação e exclusão por termos | Chave e resultado | Identificador do arXiv; 738 registros únicos |
+|  | Termos no título | video, manipulation, motion, rendering, geometry, "visual generation" (modalidade não textual) e quantum (fora do tema); 42 removidos, 696 restantes |
+| e) Triagem por título e resumo | Modelo e interface | claude-haiku-5.5, via GitHub Copilot SDK 1.0.31 |
+|  | Lote e resposta | 20 registros por requisição; valores S, I ou N de C1 a C7 e códigos de exclusão, validados por esquema JSON |
+|  | Teto de custo | 150 créditos; 36 requisições, 38 créditos consumidos |
+|  | Regras e resultado | Provável (C3 e C4 = S e algum de C5 a C7 = S): 22; incerto (C2 e C3 = S, C4 ≠ N e algum de C5 a C7 ≠ N): 165; possível comparador (C7 ≠ N e C3 ≠ N): 2; incerto sem base: 42; contexto: 59; excluídos (código de exclusão, C1 ou C2 = N): 406 |
+| f) Elegibilidade com texto integral | Texto e resposta | Mesma versão do arXiv (185 em HTML e 4 em PDF), até 100 mil caracteres; um artigo por requisição; cada S acompanhado de trecho literal (20 a 400 caracteres) conferido no texto, ou rebaixado a I; C5 rebaixado a N quando o trecho só cita modelos acima de 4,5B |
+|  | Teto de custo | 400 créditos; 189 requisições, cerca de 191 créditos consumidos |
+|  | Regras e resultado | Núcleo (C1 a C6 = S): 12; pendente: 2; comparador gerativo: 1; escritor compacto: 8; avaliação do estado: 52; memória estruturada: 70; excluídos por ausência: 8; excluídos por critério não demonstrado: 36 |
 | g) Extração e síntese | Campos extraídos | Representação da memória; mecanismo de atualização; modelos e escala; objeto da avaliação; comparação entre paradigmas gerativos |
 
 Fonte: elaborado pelo autor (2026).
 
 **Expressões de busca**
 
-As seis consultas foram combinadas com o filtro temporal apresentado no Quadro 9. Dentro de cada faceta, os termos são unidos por OR; as facetas são combinadas por AND.
+As oito consultas foram combinadas com o filtro temporal apresentado no Quadro 9. Para abreviar, os termos de cada bloco são definidos uma única vez; ti(BLOCO) e abs(BLOCO) indicam a união por OR de todos os termos do bloco no título ou no resumo, e tiabs(BLOCO) une as duas formas. O asterisco indica truncamento.
 
-**F1 – Memória estruturada ou entidades com atualização incremental (52 registros)**
+*Blocos de termos*
 
-(ti:"entity summarization" OR abs:"entity summarization" OR
+- **MEST** (memória estruturada): "structured memory", "structured memories", "structured contextual memory", "memory schema", "typed memory", "memory graph", "graph memory", "graph-based memory", "JSON memory", "memory template", "memory records", "structured state", "entity memory", "memory slots", "key-value memory", "tabular memory", "memory table", "memory items", "memory units", "atomic memory", "memory entries", "intention store", "typed store".
+- **ATU** (atualização): updat\*, increment\*, evolv\*, maint\*, revis\*, consolid\*, supersed\*, overwrit\*, edit\*, CRUD, rewrit\*, lifecycle.
+- **GMEM** (gestão de memória): "memory update", "memory updating", "update memory", "updating memory", "memory evolution", "evolving memory", "memory maintenance", "memory consolidation", "memory editing", "memory operations", "memory management", "memory manager", "memory writing", "write memory", "memory revision", "self-maintained memory", "knowledge update", "memory extraction", "memory construction", "memory admission".
+- **COMP** (modelo compacto): "small language model", "small language models", SLM, SLMs, "small model", "small models", "small open model", compact, lightweight, "on-device", 0.5B, 0.6B, 1B, 1.5B, 1.7B, 2B, 3B, 4B.
+- **AVAL** (avaliação do estado): "knowledge update", supersed\*, stale, outdated, "memory quality", "memory accuracy", "memory fidelity", "update accuracy", "state accuracy", "memory correctness", "memory hallucination", "write accuracy", "memory evaluation", "memory F1".
+- **ESTR** (estrutura): structur\*, schema\*, typed, JSON, entit\*, graph\*, templat\*, "key-value", slot\*, record\*, attribut\*, tripl\*.
+- **DIF** (difusão ou não autorregressivo): "diffusion language model", "diffusion language models", dLLM, dLLMs, "masked diffusion", "block diffusion", "discrete diffusion", "non-autoregressive".
+- **SUM** (sumarização incremental e estado de entidades): "incremental summarization", "recurrent summarization", "recursive summarization", "entity summarization", "update summarization", "progressive summarization", "GU-JSON", SUMIE, "entity state", "entity states".
+- **TREINO** (treinamento do gestor): "reinforcement learning", distil\*, "fine-tuning", "fine-tuned", finetun\*, adapter, LoRA, supervised.
+- **BENCH** (*benchmark*): benchmark, benchmarks, "evaluation framework", lifecycle.
 
-ti:"entity state" OR abs:"entity state" OR
+*Consultas*
 
-ti:"structured memory" OR abs:"structured memory" OR
+**E1 – Memória estruturada com atualização (177 registros)**
 
-ti:"JSON memory" OR abs:"JSON memory")
+(ti(MEST) AND abs(ATU)) OR (abs(MEST) AND abs(ATU) AND (tiabs(COMP) OR abs(AVAL)))
 
-AND (ti:incremental OR abs:incremental OR ti:update OR abs:update OR
+**E2 – Gestão de memória com modelo compacto e estrutura (136 registros)**
 
-ti:updating OR abs:updating OR ti:revision OR abs:revision)
+tiabs(GMEM) AND tiabs(COMP) AND tiabs(ESTR)
 
-AND (ti:"language model" OR abs:"language model" OR ti:agent OR abs:agent)
+**E3 – Gestão de memória com avaliação direta do conteúdo atualizado (168 registros)**
 
-**F2 – Modelos compactos que escrevem ou gerem memória (71 registros)**
+tiabs(GMEM) AND abs(AVAL)
 
-(ti:"small language model" OR abs:"small language model" OR
+**E4 – Difusão ou não autorregressivo em memória, estado, planejamento ou saída estruturada (67 registros)**
 
-ti:"compact language model" OR abs:"compact language model" OR
+tiabs(DIF) AND abs(memory OR state OR planning OR JSON OR "structured output" OR "structured generation" OR summarization) AND abs(agent\* OR summar\* OR dialogue OR convers\* OR "multi-turn")
 
-ti:SLM OR abs:SLM OR ti:compact OR abs:compact OR
+**E5 – Sumarização incremental, GU-JSON, SUMIE ou estado de entidades (15 registros)**
 
-ti:"0.6B" OR abs:"0.6B" OR ti:"4B" OR abs:"4B")
+tiabs(SUM) AND abs("language model" OR "language models" OR LLM OR LLMs OR agent\*) AND abs(ATU)
 
-AND (ti:"memory update" OR abs:"memory update" OR
+**E6 – Estado ou memória em JSON ou esquema tipado atualizado por modelo compacto (129 registros)**
 
-ti:"memory writing" OR abs:"memory writing" OR
+tiabs(JSON OR schema\* OR "structured output" OR typed) AND abs(memory OR "dialogue state" OR "entity state" OR "agent state" OR "structured state" OR "state tracking") AND tiabs(COMP) AND abs(ATU)
 
-ti:"memory management" OR abs:"memory management" OR
+**E7 – Gestor de memória compacto treinado (158 registros)**
 
-ti:"structured memory" OR abs:"structured memory" OR
+tiabs(GMEM) AND tiabs(COMP) AND abs(TREINO)
 
-ti:"memory extraction" OR abs:"memory extraction")
+**E8 – Memória estruturada com operações avaliadas por *benchmark* de ciclo de vida (55 registros)**
 
-**F3 – Difusão em memória de agentes ou estado de planejamento editável (2 registros)**
-
-(ti:"diffusion language model" OR abs:"diffusion language model" OR
-
-ti:"block diffusion" OR abs:"block diffusion" OR ti:dLLM OR abs:dLLM)
-
-AND (ti:"agent memory" OR abs:"agent memory" OR
-
-ti:"memory summarization" OR abs:"memory summarization" OR
-
-ti:"planning state" OR abs:"planning state" OR
-
-ti:"editable state" OR abs:"editable state" OR
-
-ti:"structured memory" OR abs:"structured memory" OR
-
-ti:"memory update" OR abs:"memory update" OR
-
-ti:"memory writing" OR abs:"memory writing")
-
-**F4 – JSON estruturado relacionado a memória, estado ou entidades (10 registros)**
-
-(ti:JSON OR abs:JSON OR ti:"structured output" OR abs:"structured output")
-
-AND (ti:SLM OR abs:SLM OR
-
-ti:"small language model" OR abs:"small language model" OR
-
-ti:"diffusion language model" OR abs:"diffusion language model")
-
-AND (ti:memory OR abs:memory OR ti:state OR abs:state OR ti:entity OR abs:entity)
-
-**F5 – Menções ao GU-JSON ou ao SUMIE (7 registros)**
-
-(ti:"GU-JSON" OR abs:"GU-JSON" OR ti:SUMIE OR abs:SUMIE)
-
-**F6 – Estado ou memória estruturados atualizados por modelos pequenos (26 registros)**
-
-(ti:"small model" OR abs:"small model" OR
-
-ti:"small language model" OR abs:"small language model" OR
-
-ti:SLM OR abs:SLM)
-
-AND (ti:memory OR abs:memory OR ti:state OR abs:state)
-
-AND (ti:typed OR abs:typed OR ti:schema OR abs:schema OR
-
-ti:structured OR abs:structured OR ti:JSON OR abs:JSON)
-
-AND (ti:update OR abs:update OR ti:tracking OR abs:tracking OR
-
-ti:write OR abs:write)
+tiabs(MEST) AND tiabs(GMEM) AND tiabs(BENCH)
 
 Fonte: protocolo da revisão sistemática (2026).
 
 1. Disponível em: https://info.arxiv.org/help/api/index.html. [↑](#footnote-ref-1)
 2. Disponível em: https://github.com/github/copilot-sdk. [↑](#footnote-ref-2)
-3. Disponível em: https://github.com/guisiq/tcc\_revisao\_sistematica\_sumarizacao\_recorrente/tree/v1.0.0. [↑](#footnote-ref-3)
+3. Disponível em: https://github.com/guisiq/tcc\_revisao\_sistematica\_sumarizacao\_recorrente/tree/v2.1.0. [↑](#footnote-ref-3)
 4. Disponível em: https://github.com/google-deepmind/sumie. [↑](#footnote-ref-4)
 5. Disponível em: https://huggingface.co/Qwen/Qwen3-0.6B. [↑](#footnote-ref-5)
 6. Disponível em: https://huggingface.co/google/t5gemma-b-b-prefixlm-it. [↑](#footnote-ref-6)
 7. Modelo e termos de acesso: https://huggingface.co/google/gemma-3-1b-it. [↑](#footnote-ref-7)
+
+API – Application Programming Interface (interface de programação de aplicações)
+BD3LM – Block Discrete Denoising Diffusion Language Model (modelo de linguagem por difusão discreta em blocos com remoção de ruído)
+BF16 – Brain Floating Point de 16 bits
+CoK-JSON – Chain-of-Key em JSON
+FP16 – Formato de ponto flutuante de 16 bits
+GGUF – Formato binário que armazena pesos e metadados de modelos para inferência
+GM – Generate-Merge
+GO – Generate-Once
+GU – Generate-Update
+GU-JSON – Generate-Update com representação em JSON
+GU-Text – Generate-Update com representação em texto livre
+JSON – JavaScript Object Notation
+LoRA – Low-Rank Adaptation (adaptação de baixa ordem)
+PA – Preservation Accuracy (acurácia de preservação)
+RAM – Random Access Memory (memória de acesso aleatório)
+SDK – Software Development Kit (kit de desenvolvimento de software)
+SHA-256 – Secure Hash Algorithm de 256 bits
+SLM – Small Language Model (modelo de linguagem compacto)
+SUMIE – A Synthetic Benchmark for Incremental Entity Summarization
+TCC – Trabalho de Conclusão de Curso
+UA – Update Accuracy (acurácia de atualização)
+UNITINS – Universidade Estadual do Tocantins
+
